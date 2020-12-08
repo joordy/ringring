@@ -11,4 +11,5 @@ vercel.json
 netlify.toml
 api/
 old_src/
+vercel.json
 

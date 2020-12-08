@@ -1,3 +1,15 @@
+## Project
+
+---
+
+### Installation
+
+---
+
+### Sources
+
+- https://routify.dev/guide/installation
+
 <!-- # routify-starter
 
 Starter template for [Routify](https://github.com/sveltech/routify).

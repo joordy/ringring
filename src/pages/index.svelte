@@ -7,12 +7,12 @@
 </script>
 
 <style lang="scss">
-  section {
-    background-color: hotpink;
-    h1 {
-      font-size: 2rem;
-    }
-  }
+  // section {
+  //   background-color: hotpink;
+  //   h1 {
+  //     font-size: 2rem;
+  //   }
+  // }
 </style>
 
 <!-- <RoutifyIntro /> -->
