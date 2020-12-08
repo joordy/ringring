@@ -1,4 +1,4 @@
-# routify-starter
+<!-- # routify-starter
 
 Starter template for [Routify](https://github.com/sveltech/routify).
 
@@ -64,4 +64,4 @@ Existing project: `npx routify-ts convert [project-directory]`
 
 ### Issues?
 
-File on Github! See https://github.com/sveltech/routify/issues .
+File on Github! See https://github.com/sveltech/routify/issues . -->
