@@ -87,3 +87,13 @@ The suggested workflow is to use Nollup for dev and enjoy instant feedback loop.
 ```bash
 npm run build
 ```
+
+<!--
+    // "dev:rollup": "rollup -c -w",
+    // "dev:livereload": "rollup -c -w --environment LIVERELOAD",
+    // "dev:nollup": "nollup -c --hot --port 5000 --content-base ./public",
+    // "watch:rollup": "npm run dev:nollup",
+    // "watch:routify": "routify",
+    // "pre-build": "routify --single-build",
+
+-->

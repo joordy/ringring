@@ -4,6 +4,9 @@ import commonjs from '@rollup/plugin-commonjs'
 import livereload from 'rollup-plugin-livereload'
 import { terser } from 'rollup-plugin-terser'
 import hmr from 'rollup-plugin-hot'
+import { routify } from '@sveltech/routify'
+
+const production = !process.env.ROLLUP_WATCH
 
 // Set this to true to pass the --single flag to sirv (this serves your
 // index.html for any unmatched route, which is a requirement for SPA
@@ -62,6 +65,10 @@ export default {
     file: 'public/build/bundle.js',
   },
   plugins: [
+    routify({
+      singleBuild: production,
+      dynamicImports: true,
+    }),
     svelte({
       // enable run-time checks when not in production
       dev: !isProduction,
@@ -69,7 +76,7 @@ export default {
       // a separate file - better for performance
       // NOTE when hot option is enabled, a blank file will be written to
       // avoid CSS rules conflicting with HMR injected ones
-      css: css => {
+      css: (css) => {
         css.write(isNollup ? 'build/bundle.css' : 'bundle.css')
       },
       hot: isHot && {
