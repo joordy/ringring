@@ -1,11 +1,9 @@
 <script>
-  import { Router } from '@roxi/routify';
-  import { routes } from '../.routify/routes';
-  console.log(routes);
 </script>
 
-<style global>
-  @import '../assets/global.css';
+<style>
 </style>
 
-<Router {routes} />
+<main>
+  <h1>Hello jan!</h1>
+</main>

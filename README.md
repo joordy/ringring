@@ -1,79 +1,89 @@
-## Project
+# Svelte Template Hot
 
----
+This is a copy of official [Svelte template](https://github.com/sveltejs/template) with added HMR support. It lives at https://github.com/rixo/svelte-template-hot.
 
-### Installation
+This template aims to remain as close to the official template as possible. Please refer to official docs for general usage. For HMR specific stuff, see bellow.
 
----
+**:warning: Experimental :warning:**
 
-### Sources
+This HMR implementation relies on Svelte's private & non documented API. This means that it can stop working with any new version of Svelte.
 
-- https://routify.dev/guide/installation
+Progress of Svelte HMR support can be tracked in [this issue](https://github.com/sveltejs/svelte/issues/3632).
 
-<!-- # routify-starter
+**Update 2020-02-24** We're [making progress](https://github.com/sveltejs/svelte/pull/3822) :)
 
-Starter template for [Routify](https://github.com/sveltech/routify).
+**NOTE** This template pins the minor version of Svelte in `package.json`, using the [tilde comparator](https://docs.npmjs.com/misc/semver#tilde-ranges-123-12-1) because, in practice, HMR breakages tend to only happen with new minor versions of Svelte (not patch). And I don't want people to download a hot template with broken HMR... But, in your app, you can change this to your liking -- because you might be more interested in last version of Svelte than stable HMR, or be wise and pin the exact versions of all you dependencies.
 
-### Get started
+## Installation
 
-#### Starter templates
-| Template                                  | Description                                                 |
-|-------------------------------------------|-------------------------------------------------------------|
-| [master](https://example.routify.dev/)    | Default template, includes examples folder                  |
-| [blog](https://blog-example.routify.dev/) | Generates a blog from local markdown posts. Includes mdsvex |
-| [auth](https://auth-example.routify.dev/) | Embedded login on protected pages. Includes Auth0           |
+To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
 
-To use a template, run:
+```bash
+npx degit rixo/svelte-template-hot svelte-app
+cd svelte-app
+npm install
+```
 
-`npx @sveltech/routify init`
+Run the build script a first time, in order to avoid 404 errors about missing `bundle.css` in the browser:
 
-or
+```bash
+npm run build
+```
 
-`npx @sveltech/routify init --branch <branch-name>`
+## Quick start
 
-The above commands will populate the current directory, they don't create a new one.
+```bash
+npm run dev
+```
 
-### npm scripts
+Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and... Eyeball!
 
-| Syntax           | Description                                                                       |
-|------------------|-----------------------------------------------------------------------------------|
-| `dev`            | Development (port 5000)                                                           |
-| `dev:nollup`     | Development with crazy fast rebuilds (port 5000)                                  |
-| `dev-dynamic`    | Development with dynamic imports                                                  |
-| `build`          | Build a bundled app with SSR + prerendering and dynamic imports                   |
-| `serve`          | Run after a build to preview. Serves SPA on 5000 and SSR on 5005                  |
-| `deploy:*`       | Deploy to netlify or now                                                          |
-| `export`         | Create static pages from content in dist folder (used by `npm run build`)         |
+## Usage
 
-### SSR and pre-rendering
+HMR is supported both with [Nollup](https://github.com/PepsRyuu/nollup) or with Rollup itself with (very experimental) [rollup-plugin-hot](https://github.com/rixo/rollup-plugin-hot).
 
-SSR and pre-rendering are included in the default build process.
+Nollup implements the shortest possible path from a file change to the module reloaded in the browser and is all in-memory. Said otherwise, it is insanely fast. Also, it has been around for some time so it is quite battle tested already.
 
-`npm run deploy:(now|netlify)` will deploy the app with SSR and prerendering included.
+The Rollup plugin on the other hand is still little more than a proof of concept by now, but it has better sourcemap support and error reporting (according to my own tastes at least).
 
-To render async data, call the `$ready()` helper whenever your data is ready.
+Support for both Nollup and Rollup HMR is provided by [rollup-plugin-svelte-hot](https://github.com/rixo/rollup-plugin-svelte-hot). Please report issues regarding HMR in [this plugin's tracker](https://github.com/rixo/rollup-plugin-svelte-hot/issues). Or [this template's project](https://github.com/rixo/svelte-template-hot/issues) might make more sense. You be the judge.
 
-If $ready() is present, rendering will be delayed till the function has been called.
+### Start HMR server with Nollup
 
-Otherwise it will be rendered instantly.
+```bash
+npm run dev:nollup
+```
 
-See [src/pages/example/api/[showId].svelte](https://github.com/sveltech/routify-starter/blob/master/src/pages/example/api/%5BshowId%5D.svelte) for an example.
+### Start Rollup with HMR support
 
-### Production
+```bash
+npm run dev:rollup
+```
 
-* For SPA or SSR apps please make sure that url rewrite is enabled on the server.
-* For SPA redirect to `__dynamic.html`.
-* For SSR redirect to the lambda function or express server.
+### Start with LiveReload (no HMR)
 
-### Typescript
+This is the default `dev` of official template.
 
-For Typescript, we recommend [@lamualfa](https://github.com/lamualfa) excellent [routify-ts](https://github.com/lamualfa/routify-ts/)
+```bash
+npm run dev:livereload
+```
 
-New project: `npx routify-ts init <project-name> [routify-init-args]`
+### Start with default method
 
-Existing project: `npx routify-ts convert [project-directory]`
+Nollup HMR is also aliased as `dev` so you can simply run:
 
+```bash
+npm run dev
+```
 
-### Issues?
+You can change the default `dev` script to your preferred method in the `scripts` section of `package.json`.
 
-File on Github! See https://github.com/sveltech/routify/issues . -->
+**2020-06-29** Nollup has been made the default `dev` script (instead of Rollup) because just released Nollup 0.12.0 fixes support for Svelte sourcemaps and dynamic imports, and Nollup is monstrously fast (especially on the most important metrics, that is rebuild time in big projects)!
+
+The suggested workflow is to use Nollup for dev and enjoy instant feedback loop. If you need a plugin that doesn't work with Nollup, or if you are in a situation that Nollup makes harder to debug (mainly because of it running your code through eval), you can fallback on `npm run dev:rollup` (HMR with rollup-plugin-hot). If you have a bug that you suspect might be caused by HMR or HMR code transform, confirm by turning back to `npm run dev:livereload`.
+
+### Build
+
+```bash
+npm run build
+```
