@@ -1,0 +1,2 @@
+import{S as t,i as e,s,m as a,e as o,a as n,c as i,n as r,f as u}from"./main-38fe5f4f.js";function f(t){let e,s,f,m,c,l;return{c(){e=a(),s=o("h1"),s.textContent="This is the about (page)",f=a(),m=o("a"),m.textContent="joejoe",c=a(),l=o("p"),l.textContent="lorem ipsum",document.title="About",n(m,"href","/")},m(t,a){i(t,e,a),i(t,s,a),i(t,f,a),i(t,m,a),i(t,c,a),i(t,l,a)},p:r,i:r,o:r,d(t){t&&u(e),t&&u(s),t&&u(f),t&&u(m),t&&u(c),t&&u(l)}}}export default class extends t{constructor(t){super(),e(this,t,null,f,s,{})}}
+//# sourceMappingURL=about-c002ba26.js.map

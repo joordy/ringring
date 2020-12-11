@@ -1,0 +1,2 @@
+import{S as s,i as e,s as n,e as t,c as a,n as o,f as r,z as i}from"./main-38fe5f4f.js";function c(s){let e;return{c(){e=t("section"),e.innerHTML='<h1>This is the index (home)</h1> \n\n  <a href="/about">joejoe</a>'},m(s,n){a(s,e,n)},p:o,i:o,o:o,d(s){s&&r(e)}}}function f(s){let e;return i((async()=>{const s=await fetch("https://opendata.rdw.nl/resource/mz4f-59fw.json");e=await s.json(),console.log(e)})),[]}export default class extends s{constructor(s){super(),e(this,s,f,c,n,{})}}
+//# sourceMappingURL=index-bfbf1817.js.map
