@@ -21,13 +21,15 @@
   },
   "scripts": {
     "start": "sirv public --single",
-    "dev": "run-p watch:routify watch:rollup",
+    "dev": "rollup -c -w",
+    "__dev": "run-p watch:routify watch:rollup",
     "build": "rollup -c",
-    "pre-build": "routify --single-build",
-    "watch:rollup": "npm run dev:nollup",
-    "watch:routify": "routify",
+    "__pre-build": "routify --single-build",
+    "__watch:rollup": "npm run dev:nollup",
+    "__watch:routify": "routify",
     "dev:rollup": "rollup -c -w",
     "dev:livereload": "rollup -c -w --environment LIVERELOAD",
-    "dev:nollup": "nollup -c --hot --port 5000 --content-base ./public"
+    "dev:nollup": "nollup -c --hot --port 5000 --content-base ./public",
+    "": ""
   }
 }

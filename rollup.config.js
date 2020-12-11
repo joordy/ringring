@@ -67,7 +67,6 @@ export default {
   plugins: [
     routify({
       singleBuild: production,
-      dynamicImports: true,
     }),
     svelte({
       // enable run-time checks when not in production
