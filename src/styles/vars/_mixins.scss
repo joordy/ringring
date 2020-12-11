@@ -1,8 +1,4 @@
-// === ============= ===
-// === MEDIA QUERIES ===
-// === ============= ===
-
-/* Breakpoints */
+// Breakpoints
 $breakpoint-xs: 480px;
 $breakpoint-sm: 801px;
 $breakpoint-md: 1080px;
@@ -37,9 +33,7 @@ $breakpoint-xl--1: ($breakpoint-xl - 1);
 
 // $max-width-large: unit($breakpoint-lg / 10, rem);
 
-// === ============= ===
-// === Font   Sizes  ===
-// === ============= ===
+// Font Sizes
 $title-size: 8rem; // equiv "28px"
 $h1-size: 4rem; // equiv "28px"
 $h2-size: 2.4rem; // equiv "24px"
@@ -52,6 +46,7 @@ $large-font-size: 1.25rem;
 $basic-font-size: 1rem;
 $small-font-size: 0.75rem;
 
+// Margin sizes
 $margin1: 1em;
 $margin2: 2em;
 $margin3: 3em;
