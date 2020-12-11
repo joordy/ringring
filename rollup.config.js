@@ -1,145 +1,158 @@
-import svelte from 'rollup-plugin-svelte-hot'
+import path from 'path'
 import resolve from '@rollup/plugin-node-resolve'
+import replace from '@rollup/plugin-replace'
 import commonjs from '@rollup/plugin-commonjs'
-import livereload from 'rollup-plugin-livereload'
+import url from '@rollup/plugin-url'
+import svelte from 'rollup-plugin-svelte'
+import babel from '@rollup/plugin-babel'
 import { terser } from 'rollup-plugin-terser'
-import hmr from 'rollup-plugin-hot'
-import { routify } from '@sveltech/routify'
+import config from 'sapper/config/rollup.js'
+import pkg from './package.json'
+import sveltePreprocess from 'svelte-preprocess'
+import alias from '@rollup/plugin-alias'
 
-const production = !process.env.ROLLUP_WATCH
+const mode = process.env.NODE_ENV
+const dev = mode === 'development'
+const legacy = !!process.env.SAPPER_LEGACY_BUILD
 
-// Set this to true to pass the --single flag to sirv (this serves your
-// index.html for any unmatched route, which is a requirement for SPA
-// routers using History API / pushState)
-//
-// NOTE This will have no effect when running with Nollup. For Nollup, you'd
-// have to add the --history-api-fallback yourself in your package.json
-// scripts (see: https://github.com/PepsRyuu/nollup/#nollup-options)
-//
-const spa = false
+const onwarn = (warning, onwarn) =>
+  (warning.code === 'MISSING_EXPORT' && /'preload'/.test(warning.message)) ||
+  (warning.code === 'CIRCULAR_DEPENDENCY' &&
+    /[/\\]@sapper[/\\]/.test(warning.message)) ||
+  onwarn(warning)
 
-// NOTE The NOLLUP env variable is picked by various HMR plugins to switch
-// in compat mode. You should not change its name (and set the env variable
-// yourself if you launch nollup with custom comands).
-const isNollup = !!process.env.NOLLUP
-const isWatch = !!process.env.ROLLUP_WATCH
-const isLiveReload = !!process.env.LIVERELOAD
-
-const isDev = isWatch || isLiveReload
-const isProduction = !isDev
-
-const isHot = isWatch && !isLiveReload
-
-function serve() {
-  let server
-
-  function toExit() {
-    if (server) server.kill(0)
-  }
-
-  return {
-    name: 'svelte/template:serve',
-    writeBundle() {
-      if (server) return
-      server = require('child_process').spawn(
-        'npm',
-        ['run', 'start', '--', '--dev'],
-        {
-          stdio: ['ignore', 'inherit', 'inherit'],
-          shell: true,
-        }
-      )
-
-      process.on('SIGTERM', toExit)
-      process.on('exit', toExit)
+const preprocess = sveltePreprocess({
+  scss: {
+    includePaths: ['src'],
+  },
+})
+const aliases = alias({
+  resolve: ['.svelte', '.js'],
+  entries: [
+    {
+      find: '@/utils',
+      replacement: path.resolve(__dirname, 'src/helpers/utils'),
     },
-  }
-}
+    {
+      find: '@/components',
+      replacement: path.resolve(__dirname, 'src/components'),
+    },
+    {
+      find: '@/styles',
+      replacement: path.resolve(__dirname, 'src/styles'),
+    },
+  ],
+})
 
 export default {
-  input: 'src/main.js',
-  output: {
-    sourcemap: true,
-    format: 'esm',
-    name: 'app',
-    dir: 'public/bundle',
+  client: {
+    input: config.client.input(),
+    output: config.client.output(),
+    plugins: [
+      aliases,
+      replace({
+        'process.browser': true,
+        'process.env.NODE_ENV': JSON.stringify(mode),
+      }),
+      svelte({
+        dev,
+        hydratable: true,
+        emitCss: true,
+        preprocess,
+      }),
+      url({
+        sourceDir: path.resolve(__dirname, 'src/node_modules/images'),
+        publicPath: '/client/',
+      }),
+      resolve({
+        browser: true,
+        dedupe: ['svelte'],
+        // aliases,
+      }),
+      commonjs(),
+
+      legacy &&
+        babel({
+          extensions: ['.js', '.mjs', '.html', '.svelte'],
+          babelHelpers: 'runtime',
+          exclude: ['node_modules/@babel/**'],
+          presets: [
+            [
+              '@babel/preset-env',
+              {
+                targets: '> 0.25%, not dead',
+              },
+            ],
+          ],
+          plugins: [
+            '@babel/plugin-syntax-dynamic-import',
+            [
+              '@babel/plugin-transform-runtime',
+              {
+                useESModules: true,
+              },
+            ],
+          ],
+        }),
+
+      !dev &&
+        terser({
+          module: true,
+        }),
+    ],
+
+    preserveEntrySignatures: false,
+    onwarn,
   },
-  // output: {
-  //   sourcemap: true,
-  //   format: 'iife',
-  //   name: 'app',
-  //   file: 'public/build/bundle.js',
-  // },
-  plugins: [
-    routify({
-      singleBuild: production,
-      dynamicImports: true,
-    }),
-    svelte({
-      // enable run-time checks when not in production
-      dev: !isProduction,
-      // we'll extract any component CSS out into
-      // a separate file - better for performance
-      // NOTE when hot option is enabled, a blank file will be written to
-      // avoid CSS rules conflicting with HMR injected ones
-      css: (css) => {
-        css.write(isNollup ? 'build/bundle.css' : 'bundle.css')
-      },
-      hot: isHot && {
-        // Optimistic will try to recover from runtime
-        // errors during component init
-        optimistic: true,
-        // Turn on to disable preservation of local component
-        // state -- i.e. non exported `let` variables
-        noPreserveState: false,
 
-        // See docs of rollup-plugin-svelte-hot for all available options:
-        //
-        // https://github.com/rixo/rollup-plugin-svelte-hot#usage
-      },
-    }),
+  server: {
+    input: config.server.input(),
+    output: config.server.output(),
+    plugins: [
+      aliases,
+      replace({
+        'process.browser': false,
+        'process.env.NODE_ENV': JSON.stringify(mode),
+      }),
+      svelte({
+        generate: 'ssr',
+        hydratable: true,
+        dev,
+        preprocess,
+      }),
+      url({
+        sourceDir: path.resolve(__dirname, 'src/node_modules/images'),
+        publicPath: '/client/',
+        emitFiles: false, // already emitted by client build
+      }),
+      resolve({
+        dedupe: ['svelte'],
+        // aliases,
+      }),
+      commonjs(),
+    ],
+    external: Object.keys(pkg.dependencies).concat(
+      require('module').builtinModules
+    ),
 
-    // If you have external dependencies installed from
-    // npm, you'll most likely need these plugins. In
-    // some cases you'll need additional configuration -
-    // consult the documentation for details:
-    // https://github.com/rollup/plugins/tree/master/packages/commonjs
-    resolve({
-      browser: true,
-      dedupe: ['svelte'],
-    }),
-    commonjs(),
+    preserveEntrySignatures: 'strict',
+    onwarn,
+  },
 
-    // In dev mode, call `npm run start` once
-    // the bundle has been generated
-    isDev && !isNollup && serve(),
+  serviceworker: {
+    input: config.serviceworker.input(),
+    output: config.serviceworker.output(),
+    plugins: [
+      resolve(),
+      replace({
+        'process.browser': true,
+        'process.env.NODE_ENV': JSON.stringify(mode),
+      }),
+      commonjs(),
+      !dev && terser(),
+    ],
 
-    // Watch the `public` directory and refresh the
-    // browser on changes when not in production
-    isLiveReload && livereload('public'),
-
-    // If we're building for production (npm run build
-    // instead of npm run dev), minify
-    isProduction && terser(),
-
-    hmr({
-      public: 'public',
-      inMemory: true,
-
-      // Default host for the HMR server is localhost, change this option if
-      // you want to serve over the network
-      // host: '0.0.0.0',
-      // You can also change the default HMR server port, if you fancy
-      // port: '12345'
-
-      // This is needed, otherwise Terser (in npm run build) chokes
-      // on import.meta. With this option, the plugin will replace
-      // import.meta.hot in your code with module.hot, and will do
-      // nothing else.
-      compatModuleHot: !isHot,
-    }),
-  ],
-  watch: {
-    clearScreen: false,
+    preserveEntrySignatures: false,
+    onwarn,
   },
 }

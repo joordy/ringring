@@ -1,0 +1,64 @@
+// === ============= ===
+// === MEDIA QUERIES ===
+// === ============= ===
+
+/* Breakpoints */
+$breakpoint-xs: 480px;
+$breakpoint-sm: 801px;
+$breakpoint-md: 1080px;
+$breakpoint-lg: 1180px;
+$breakpoint-xl: 1600px;
+
+$breakpoint-xs--1: ($breakpoint-xs - 1);
+$breakpoint-sm--1: ($breakpoint-sm - 1);
+$breakpoint-md--1: ($breakpoint-md - 1);
+$breakpoint-lg--1: ($breakpoint-lg - 1);
+$breakpoint-xl--1: ($breakpoint-xl - 1);
+
+// Media Queries (greater than / littler than / only)
+// $gt-xs-mobile: ~'(min-width: {breakpoint-xs})';
+// $gt-mobile: ~'(min-width: @{breakpoint-sm})';
+// $gt-tablet: ~'(min-width: @{breakpoint-md})';
+// $gt-desktop: ~'(min-width: @{breakpoint-lg})';
+// $gt-lg-desktop: ~'(min-width: @{breakpoint-xl})';
+
+// $lt-mobile: ~'(max-width: @{breakpoint-xs--1})';
+// $lt-tablet: ~'(max-width: @{breakpoint-sm--1})';
+// $lt-desktop: ~'(max-width: @{breakpoint-md--1})';
+// $lt-lg-desktop: ~'(max-width: @{breakpoint-lg--1})';
+// $lt-xl-desktop: ~'(max-width: @{breakpoint-xl--1})';
+
+// $only-xs-mobile: $lt-mobile;
+// $only-mobile: ~'@{gt-xs-mobile} and @{lt-tablet}';
+// $only-tablet: ~'@{gt-mobile} and @{lt-desktop}';
+// $only-desktop: ~'@{gt-tablet} and @{lt-lg-desktop}';
+// $only-lg-desktop: ~'{gt-desktop} and @{lt-xl-desktop}';
+// $only-xl-desktop: $gt-lg-desktop;
+
+// $max-width-large: unit($breakpoint-lg / 10, rem);
+
+// === ============= ===
+// === Font   Sizes  ===
+// === ============= ===
+$title-size: 8rem; // equiv "28px"
+$h1-size: 4rem; // equiv "28px"
+$h2-size: 2.4rem; // equiv "24px"
+$h3-size: 2rem; // equiv "20px"
+$h4-size: 1.8rem; // equiv "18px"
+$h5-size: 1.6rem; // equiv "16px"
+$h6-size: 1.4rem; // equiv "14px"
+
+$large-font-size: 1.25rem;
+$basic-font-size: 1rem;
+$small-font-size: 0.75rem;
+
+$margin1: 1em;
+$margin2: 2em;
+$margin3: 3em;
+$margin4: 4em;
+$margin5: 5em;
+$margin6: 6em;
+$margin7: 7em;
+$margin8: 8em;
+$margin9: 9em;
+$margin10: 10em;
