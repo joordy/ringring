@@ -29,7 +29,6 @@
     "__watch:routify": "routify",
     "dev:rollup": "rollup -c -w",
     "dev:livereload": "rollup -c -w --environment LIVERELOAD",
-    "dev:nollup": "nollup -c --hot --port 5000 --content-base ./public",
-    "": ""
+    "dev:nollup": "nollup -c --hot --port 5000 --content-base ./public"
   }
 }
