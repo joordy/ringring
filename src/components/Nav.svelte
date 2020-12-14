@@ -55,7 +55,7 @@
     <li>
       <a
         aria-current={segment === undefined ? 'page' : undefined}
-        href="."
+        href="/"
       >home</a>
     </li>
     <li>
