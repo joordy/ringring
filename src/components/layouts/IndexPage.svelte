@@ -1,9 +1,10 @@
 <script>
-    import successkid from 'images/successkid.jpg'
+  import successkid from 'images/successkid.jpg'
 </script>
 
 <style lang="scss">
   @import 'src/styles/index.scss';
+
   h1,
   figure,
   p {
@@ -25,6 +26,3 @@
 </style>
 
 <h1>Great success!</h1>
-
-
-
