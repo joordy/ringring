@@ -1,3 +1,56 @@
+# RingRing
+
+## :page_facing_up: Case
+
+---
+
+## :flashlight: Features
+
+---
+
+## :chart: Data
+
+---
+
+## :rocket: Install project
+
+#### Clone the GitHub repository
+
+```bash
+git clone https://github/com/joordy/ringring.git
+```
+
+#### Install project
+
+```bash
+npm i
+```
+
+#### Run the project
+
+```bash
+npm run dev
+```
+
+#### Visit project
+
+```bash
+localhost:3000
+```
+
+---
+
+## Sources
+
+#### Code Sources
+
+- [Sapper](https://github.com/sveltejs/sapper)
+- [MDN Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)
+
+## :lock: License
+
+This is a repository which is licensed as MIT. Jordy Fronik ©️ 2020.
+
 <!-- # sapper-template
 
 The default template for setting up a [Sapper](https://github.com/sveltejs/sapper) project. Can use either Rollup or webpack as bundler.

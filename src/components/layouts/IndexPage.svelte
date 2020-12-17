@@ -13,14 +13,14 @@
   }
 
   h1 {
-    font-size: 2.8em;
+    font-size: $h2-size;
     text-transform: uppercase;
     font-weight: 700;
-    margin: 0 0 0.5em 0;
+    margin: 0 0 $margin-2 0;
   }
   @media (min-width: 480px) {
     h1 {
-      font-size: 4em;
+      font-size: $h1-size;
     }
   }
 </style>
