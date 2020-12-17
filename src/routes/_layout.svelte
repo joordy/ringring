@@ -1,5 +1,5 @@
 <script>
-  import Navigation from '../components/organisms/Navigation.svelte'
+  import GlobalNav from '../components/organisms/GlobalNav.svelte'
 
   export let segment
 </script>
@@ -8,7 +8,7 @@
   @import 'src/styles/index.scss';
 </style>
 
-<Navigation {segment} />
+<GlobalNav {segment} />
 
 <main>
   <slot />
