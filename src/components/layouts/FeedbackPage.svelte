@@ -21,7 +21,7 @@
   }
 </style>
 
-<h3>Overzicht</h3>
+<h3>Feedback overzicht</h3>
 
 <TabNavigation
   bind:activeTabValue={currentVisitedTab}
@@ -31,11 +31,11 @@
 <!-- <code class="language-text" /> -->
 
 {#if 1 === currentVisitedTab}
-  <FeedbackSection bind:activeTabValue={currentVisitedTab} />
+  <FeedbackSection bind:activeTabValue={currentVisitedTab} title="Dag" />
 {:else if 2 === currentVisitedTab}
-  <FeedbackSection bind:activeTabValue={currentVisitedTab} />
+  <FeedbackSection bind:activeTabValue={currentVisitedTab} title="Week" />
 {:else if 3 === currentVisitedTab}
-  <FeedbackSection bind:activeTabValue={currentVisitedTab} />
+  <FeedbackSection bind:activeTabValue={currentVisitedTab} title="Maand" />
 {:else if 4 === currentVisitedTab}
-  <FeedbackSection bind:activeTabValue={currentVisitedTab} />
+  <FeedbackSection bind:activeTabValue={currentVisitedTab} title="Jaar" />
 {/if}

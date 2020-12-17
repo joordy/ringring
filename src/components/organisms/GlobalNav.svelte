@@ -80,7 +80,7 @@
           <a
             aria-current={segment === 'statistics' ? 'page' : undefined}
             href="statistics"
-          >Statistics</a>
+          >Statistieken</a>
         </li>
         <li>
           <a
@@ -93,14 +93,14 @@
           <a
             aria-current={segment === 'about' ? 'page' : undefined}
             href="about"
-          >Statistieken</a>
+          >Lorem Ipsum 1</a>
         </li>
         <li>
           <a
             rel="prefetch"
             aria-current={segment === 'blog' ? 'page' : undefined}
             href="blog"
-          >Feedback</a>
+          >Lorem Ipsum 2</a>
         </li>
       </ul>
     </nav>

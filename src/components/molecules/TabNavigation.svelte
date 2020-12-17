@@ -39,6 +39,7 @@
       li.active {
         span {
           border-bottom: 2px solid black;
+          font-weight: 700;
         }
       }
     }

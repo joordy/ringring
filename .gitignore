@@ -5,3 +5,5 @@ yarn-error.log
 /__sapper__/
 .vscode
 __sapper__/dev/
+test.json
+export-geojson-amsterdam-binnenring.json
