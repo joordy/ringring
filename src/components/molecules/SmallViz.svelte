@@ -12,17 +12,17 @@
     border: 1px solid #c4c4c4;
     border-radius: 5px;
     div {
-      margin: 15px 20px;
+      margin: $margin-3 $margin-4;
       h4,
       h5 {
         color: #c4c4c4;
       }
       span {
-        font-weight: 700;
-        font-size: 2em;
+        font-weight: $bold;
+        font-size: $h2-size;
       }
       h5 {
-        margin-top: 5px;
+        margin-top: $margin-1;
       }
     }
   }

@@ -29,7 +29,7 @@
           border-top-left-radius: 0.25rem;
           border-top-right-radius: 0.25rem;
           display: block;
-          padding: 0.5rem 1rem;
+          padding: $margin-1 $margin-3;
           cursor: pointer;
           &:hover {
             border-bottom: 2px solid black;
@@ -39,7 +39,7 @@
       li.active {
         span {
           border-bottom: 2px solid black;
-          font-weight: 700;
+          font-weight: $bold;
         }
       }
     }

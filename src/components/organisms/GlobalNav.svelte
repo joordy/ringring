@@ -9,7 +9,6 @@
   header {
     width: 250px;
     height: 100vh;
-    // background-color: #c4c4c4;
     border-right: 1px solid #c4c4c4;
     position: fixed;
     top: 0;
@@ -19,7 +18,7 @@
       &:nth-of-type(1) {
         display: grid;
         place-items: center;
-        padding: $margin2 0 $margin7 0;
+        padding: $margin-8 0 8em 0;
         a {
           display: flex;
           text-decoration: none;
@@ -31,20 +30,20 @@
           h1 {
             color: black;
 
-            margin-left: 0.3em;
-            font-size: 32px;
+            margin-left: $margin-1;
+            font-size: $h2-size;
             line-height: 50px;
-            font-weight: 700;
+            font-weight: $bold;
           }
         }
       }
       &:nth-of-type(2) {
         padding: 0% 10%;
         h2 {
-          font-weight: 600;
+          font-weight: $bold;
         }
         nav {
-          margin-top: 1em;
+          margin-top: $margin-3;
           ul {
             li {
               list-style: none;

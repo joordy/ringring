@@ -17,7 +17,7 @@
 
   h3 {
     font-size: $h3-size;
-    margin: 0 0 $margin2 0;
+    margin: 0 0 $margin-6 0;
   }
 </style>
 

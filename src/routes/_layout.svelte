@@ -28,7 +28,6 @@
     ...Receiving data
   </p>
 {:then number}
-  {console.log(number)}
   <GlobalNav {segment} />
 
   <main>
