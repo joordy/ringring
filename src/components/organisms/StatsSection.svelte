@@ -1,34 +1,39 @@
 <script>
-  import SmallViz from '@/components/molecules/SmallViz.svelte'
+  import SmallViz from '@/components/molecules/visuals/SmallViz.svelte'
+  import MapViz from '@/components/molecules/visuals/MapViz.svelte'
+  import BarViz from '@/components/molecules/visuals/BarViz.svelte'
   export let activeTabValue
   export let title
 </script>
 
 <style lang="scss">
+  @import 'src/styles/index.scss';
+
   section {
     width: 100%;
-    .gridWrapper {
+    h4 {
+      margin-bottom: $margin30;
+    }
+    article {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1.75fr;
-      grid-gap: 16px;
+      grid-gap: $margin30;
       grid-auto-rows: minmax(100px, auto);
-      div {
-        &:nth-of-type(4) {
-          grid-column: 4;
-          grid-row: 1 / 5;
-        }
-        &:nth-of-type(5) {
-          grid-column: 1 / 4;
-          grid-row: 2 / 5;
-        }
-        &:nth-of-type(6) {
-          grid-column: 1 / 4;
-          grid-row: 5 / 8;
-        }
-        &:nth-of-type(7) {
-          grid-column: 4;
-          grid-row: 5 / 8;
-        }
+      #vizFour {
+        grid-column: 4;
+        grid-row: 1 / 4;
+      }
+      #vizFive {
+        grid-column: 1 / 4;
+        grid-row: 2 / 5;
+      }
+      #vizSix {
+        grid-column: 1 / 4;
+        grid-row: 5 / 8;
+      }
+      #vizSeven {
+        grid-column: 4;
+        grid-row: 4 / 8;
       }
     }
   }
@@ -40,26 +45,26 @@
 <section>
   <h4>16 december 2020</h4>
   <article class="gridWrapper">
-    <div>
+    <div id="vizOne">
       <SmallViz />
     </div>
-    <div>
+    <div id="vizTwo">
       <SmallViz />
     </div>
-    <div>
+    <div id="vizThree">
       <SmallViz />
     </div>
-    <div>
+    <div id="vizFour">
+      <BarViz />
+    </div>
+    <div id="vizFive">
       <SmallViz />
     </div>
-    <div>
+    <div id="vizSix">
       <SmallViz />
     </div>
-    <div>
-      <SmallViz />
-    </div>
-    <div>
-      <SmallViz />
+    <div id="vizSeven">
+      <MapViz />
     </div>
   </article>
 </section>
