@@ -46,6 +46,8 @@ localhost:3000
 
 - [Sapper](https://github.com/sveltejs/sapper)
 - [MDN Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)
+- [MapBox](https://docs.mapbox.com/)
+- [Chart.js](https://www.chartjs.org/docs/latest/)
 
 ## :lock: License
 

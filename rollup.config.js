@@ -10,6 +10,9 @@ import config from 'sapper/config/rollup.js'
 import pkg from './package.json'
 import sveltePreprocess from 'svelte-preprocess'
 import alias from '@rollup/plugin-alias'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const mode = process.env.NODE_ENV
 const dev = mode === 'development'

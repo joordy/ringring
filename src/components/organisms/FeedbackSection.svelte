@@ -1,33 +1,26 @@
 <script>
-  import SmallViz from '@/components/molecules/SmallViz.svelte'
-  import MapViz from '@/components/molecules/MapViz.svelte'
-  export let activeTabValue
+  import SmallViz from '@/components/molecules/visuals/SmallViz.svelte'
+  // export let activeTabValue
   export let title
 </script>
 
 <style lang="scss">
+  @import 'src/styles/index.scss';
+
   section {
     width: 100%;
-    .gridWrapper {
+    h4 {
+      margin-bottom: $margin30;
+    }
+    article {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1.75fr;
-      grid-gap: 16px;
-      grid-auto-rows: minmax(100px, auto);
-      #vizFour {
-        grid-column: 4;
-        grid-row: 1 / 4;
-      }
-      #vizFive {
-        grid-column: 1 / 4;
-        grid-row: 2 / 5;
-      }
-      #vizSix {
-        grid-column: 1 / 4;
-        grid-row: 5 / 8;
-      }
-      #vizSeven {
-        grid-column: 4;
-        grid-row: 4 / 8;
+      grid-template-columns: 3fr 2fr;
+      grid-gap: $margin30;
+      div {
+        height: 700px;
+        &:nth-child(1) {
+          height: 1000px;
+        }
       }
     }
   }
@@ -45,7 +38,7 @@
     <div id="vizTwo">
       <SmallViz />
     </div>
-    <div id="vizThree">
+    <!-- <div id="vizThree">
       <SmallViz />
     </div>
     <div id="vizFour">
@@ -58,7 +51,7 @@
       <SmallViz />
     </div>
     <div id="vizSeven">
-      <MapViz />
-    </div>
+      <SmallViz />
+    </div> -->
   </article>
 </section>
