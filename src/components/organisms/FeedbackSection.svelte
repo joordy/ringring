@@ -1,5 +1,6 @@
 <script>
   import SmallViz from '@/components/molecules/SmallViz.svelte'
+  import MapViz from '@/components/molecules/MapViz.svelte'
   export let activeTabValue
   export let title
 </script>
@@ -12,23 +13,21 @@
       grid-template-columns: 1fr 1fr 1fr 1.75fr;
       grid-gap: 16px;
       grid-auto-rows: minmax(100px, auto);
-      div {
-        &:nth-of-type(4) {
-          grid-column: 4;
-          grid-row: 1 / 5;
-        }
-        &:nth-of-type(5) {
-          grid-column: 1 / 4;
-          grid-row: 2 / 5;
-        }
-        &:nth-of-type(6) {
-          grid-column: 1 / 4;
-          grid-row: 5 / 8;
-        }
-        &:nth-of-type(7) {
-          grid-column: 4;
-          grid-row: 5 / 8;
-        }
+      #vizFour {
+        grid-column: 4;
+        grid-row: 1 / 4;
+      }
+      #vizFive {
+        grid-column: 1 / 4;
+        grid-row: 2 / 5;
+      }
+      #vizSix {
+        grid-column: 1 / 4;
+        grid-row: 5 / 8;
+      }
+      #vizSeven {
+        grid-column: 4;
+        grid-row: 4 / 8;
       }
     }
   }
@@ -40,26 +39,26 @@
 <section>
   <h4>16 december 2020</h4>
   <article class="gridWrapper">
-    <div>
+    <div id="vizOne">
       <SmallViz />
     </div>
-    <div>
+    <div id="vizTwo">
       <SmallViz />
     </div>
-    <div>
+    <div id="vizThree">
       <SmallViz />
     </div>
-    <div>
+    <div id="vizFour">
       <SmallViz />
     </div>
-    <div>
+    <div id="vizFive">
       <SmallViz />
     </div>
-    <div>
+    <div id="vizSix">
       <SmallViz />
     </div>
-    <div>
-      <SmallViz />
+    <div id="vizSeven">
+      <MapViz />
     </div>
   </article>
 </section>
