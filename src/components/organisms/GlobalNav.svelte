@@ -7,7 +7,7 @@
   @import 'src/styles/index.scss';
 
   header {
-    width: 250px;
+    width: 200px;
     height: 100vh;
     border-right: 1px solid #c4c4c4;
     position: fixed;
@@ -18,21 +18,20 @@
       &:nth-of-type(1) {
         display: grid;
         place-items: center;
-        padding: $margin-8 0 8em 0;
+        padding: $margin-8 0 3em 0;
         a {
           display: flex;
           text-decoration: none;
           color: black;
           img {
-            width: 50px;
-            height: 50px;
+            width: 30px;
+            height: 30px;
           }
           h1 {
             color: black;
-
             margin-left: $margin-1;
-            font-size: $h2-size;
-            line-height: 50px;
+            font-size: $h3-size;
+            line-height: 30px;
             font-weight: $bold;
           }
         }

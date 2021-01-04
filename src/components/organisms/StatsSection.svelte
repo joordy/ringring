@@ -1,7 +1,10 @@
 <script>
-  import SmallViz from '@/components/molecules/visuals/SmallViz.svelte'
-  import MapViz from '@/components/molecules/visuals/MapViz.svelte'
-  import BarViz from '@/components/molecules/visuals/BarViz.svelte'
+  import {
+    SmallViz,
+    MapViz,
+    BarViz,
+    LineViz,
+  } from '@/components/molecules/visuals/visuals.js'
   export let activeTabValue
   export let title
 </script>
@@ -14,26 +17,22 @@
     h4 {
       margin-bottom: $margin30;
     }
-    article {
+    section {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1.75fr;
       grid-gap: $margin30;
       grid-auto-rows: minmax(100px, auto);
       #vizFour {
         grid-column: 4;
-        grid-row: 1 / 4;
+        grid-row: 1 / 3;
       }
       #vizFive {
         grid-column: 1 / 4;
-        grid-row: 2 / 5;
+        grid-row: 2 / 6;
       }
       #vizSix {
-        grid-column: 1 / 4;
-        grid-row: 5 / 8;
-      }
-      #vizSeven {
         grid-column: 4;
-        grid-row: 4 / 8;
+        grid-row: 3 / 6;
       }
     }
   }
@@ -44,27 +43,24 @@
 </svelte:head>
 <section>
   <h4>16 december 2020</h4>
-  <article class="gridWrapper">
-    <div id="vizOne">
-      <SmallViz />
-    </div>
-    <div id="vizTwo">
-      <SmallViz />
-    </div>
-    <div id="vizThree">
-      <SmallViz />
-    </div>
-    <div id="vizFour">
-      <BarViz />
-    </div>
-    <div id="vizFive">
-      <SmallViz />
-    </div>
-    <div id="vizSix">
-      <SmallViz />
-    </div>
-    <div id="vizSeven">
-      <MapViz />
-    </div>
-  </article>
+  <section class="gridWrapper">
+    <article id="vizOne">
+      <SmallViz title="Aantal fietsers" />
+    </article>
+    <article id="vizTwo">
+      <SmallViz title="Aantal fietsritten" />
+    </article>
+    <article id="vizThree">
+      <SmallViz title="Gemiddeld duur fietsrit" />
+    </article>
+    <article id="vizFour">
+      <BarViz title="Fietsritten in verhouding met afstand" />
+    </article>
+    <article id="vizFive">
+      <MapViz title="Gemaakte fietsritten" />
+    </article>
+    <article id="vizSix">
+      <LineViz title="Drukte gedurende de dag" />
+    </article>
+  </section>
 </section>
