@@ -8,7 +8,7 @@
       container: 'map',
       style: 'mapbox://styles/jorrr/ckj8onwgm3fr019mwtof7ylln',
       center: [4.9, 52.38],
-      zoom: 10.7,
+      zoom: 11.4,
     })
   })
 </script>
@@ -23,16 +23,19 @@
     border-radius: 5px;
     article {
       margin: $margin-3 $margin-4;
+      height: calc(100% - 30px);
       h4 {
         color: #c4c4c4;
         margin-bottom: $margin1;
       }
+      section {
+        width: 100%;
+        height: calc(100% - 40px);
+      }
       #map {
-        max-width: 100%;
-        max-height: 100%;
         canvas {
-          max-width: 100%;
           max-height: 100%;
+          max-width: 100%;
         }
       }
     }
@@ -44,6 +47,8 @@
 <div id="mapchart">
   <article class="mapViz">
     <h4>{title}</h4>
-    <div id="map" style="width: 100%; height: 645px; border-radius: 5px;" />
+    <section>
+      <div id="map" style="width: 100%; height: 100%; border-radius: 5px;" />
+    </section>
   </article>
 </div>

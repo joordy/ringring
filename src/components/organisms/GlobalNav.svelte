@@ -7,9 +7,12 @@
   @import 'src/styles/index.scss';
 
   header {
-    width: 200px;
+    width: 300px;
     height: 100vh;
-    border-right: 1px solid #c4c4c4;
+    background-color: #151f32;
+    color: #f1f3f6;
+    border-radius: 0 40px 40px 0;
+    // border-right: 1px solid #c4c4c4;
     position: fixed;
     top: 0;
     left: 0;
@@ -18,17 +21,15 @@
       &:nth-of-type(1) {
         display: grid;
         place-items: center;
-        padding: $margin-8 0 3em 0;
+        padding: $margin-8 0 8em 0;
         a {
           display: flex;
           text-decoration: none;
-          color: black;
           img {
             width: 30px;
             height: 30px;
           }
           h1 {
-            color: black;
             margin-left: $margin-1;
             font-size: $h3-size;
             line-height: 30px;
@@ -102,5 +103,7 @@
         </li>
       </ul>
     </nav>
+
+    <a href="/"> LogOut</a>
   </section>
 </header>

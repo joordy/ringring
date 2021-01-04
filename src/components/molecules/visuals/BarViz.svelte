@@ -41,6 +41,8 @@
         ],
       },
       options: {
+        responsive: true,
+        maintainAspectRatio: false,
         scales: {
           yAxes: [
             {
@@ -73,8 +75,8 @@
         margin-bottom: $margin1;
       }
       canvas {
+        max-height: 400px;
         max-width: 100%;
-        max-height: 100%;
       }
     }
   }
@@ -83,6 +85,6 @@
 <div id="barchart">
   <article class="barViz">
     <h4>{title}</h4>
-    <canvas id="myBarChart" height="300px" />
+    <canvas id="myBarChart" height="370px" />
   </article>
 </div>

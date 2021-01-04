@@ -5,8 +5,10 @@
     BarViz,
     LineViz,
   } from '@/components/molecules/visuals/visuals.js'
+
   export let activeTabValue
   export let title
+  export let data
 </script>
 
 <style lang="scss">
@@ -41,6 +43,7 @@
 <svelte:head>
   <title>Statistieken {title}-overzicht</title>
 </svelte:head>
+
 <section>
   <h4>16 december 2020</h4>
   <section class="gridWrapper">

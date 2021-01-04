@@ -10,6 +10,7 @@
   ]
   // Current active tab
   let currentVisitedTab
+  export let data
 </script>
 
 <style lang="scss">
@@ -31,11 +32,11 @@
 <!-- <code class="language-text" /> -->
 
 {#if 1 === currentVisitedTab}
-  <StatsSection bind:activeTabValue={currentVisitedTab} title="Dag" />
+  <StatsSection bind:activeTabValue={currentVisitedTab} title="Dag" {data} />
 {:else if 2 === currentVisitedTab}
-  <StatsSection bind:activeTabValue={currentVisitedTab} title="Week" />
+  <StatsSection bind:activeTabValue={currentVisitedTab} title="Week" {data} />
 {:else if 3 === currentVisitedTab}
-  <StatsSection bind:activeTabValue={currentVisitedTab} title="Maand" />
+  <StatsSection bind:activeTabValue={currentVisitedTab} title="Maand" {data} />
 {:else if 4 === currentVisitedTab}
-  <StatsSection bind:activeTabValue={currentVisitedTab} title="Jaar" />
+  <StatsSection bind:activeTabValue={currentVisitedTab} title="Jaar" {data} />
 {/if}

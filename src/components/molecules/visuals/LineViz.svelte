@@ -44,6 +44,8 @@
         ],
       },
       options: {
+        responsive: true,
+        maintainAspectRatio: false,
         scales: {
           yAxes: [
             {
@@ -81,6 +83,10 @@
       h5 {
         margin-top: $margin-1;
       }
+      canvas {
+        max-height: 400px;
+        max-width: 100%;
+      }
     }
   }
 </style>
@@ -88,6 +94,6 @@
 <div>
   <article>
     <h4>{title}</h4>
-    <canvas id="lineChart" height="320" />
+    <canvas id="lineChart" height="370" />
   </article>
 </div>
