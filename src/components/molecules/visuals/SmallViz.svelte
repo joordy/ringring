@@ -1,5 +1,5 @@
 <script>
-  let title = 'Aantal Fietsers'
+  export let title
   let valuenumber = '15'
   let compared = '20%'
   let timestamp = 'gisteren'
@@ -8,12 +8,12 @@
 <style lang="scss">
   @import 'src/styles/index.scss';
 
-  article {
+  div {
     width: 100%;
     height: 100%;
     border: 1px solid #c4c4c4;
     border-radius: 5px;
-    div {
+    article {
       margin: $margin-3 $margin-4;
       h4,
       h5 {
@@ -30,10 +30,10 @@
   }
 </style>
 
-<article>
-  <div>
+<div>
+  <article>
     <h4>{title}</h4>
     <span>{valuenumber}</span>
     <h5>+{compared} t.o.v. {timestamp}</h5>
-  </div>
-</article>
+  </article>
+</div>
