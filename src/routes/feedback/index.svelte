@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-  <title>About</title>
+  <title>Feedback</title>
 </svelte:head>
 
 <FeedbackPage />

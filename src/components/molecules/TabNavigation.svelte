@@ -16,7 +16,7 @@
   @import 'src/styles/index.scss';
 
   nav {
-    margin-bottom: $margin-4;
+    margin-bottom: $margin-30;
     ul {
       display: flex;
       flex-wrap: wrap;

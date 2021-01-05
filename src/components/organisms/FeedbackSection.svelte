@@ -11,12 +11,12 @@
   section {
     width: 100%;
     h4 {
-      margin-bottom: $margin30;
+      margin-bottom: $margin-30;
     }
     section {
       display: grid;
       grid-template-columns: 3fr 2fr;
-      grid-gap: $margin30;
+      grid-gap: $margin-30;
       article {
         height: 900px;
       }
@@ -24,9 +24,10 @@
   }
 </style>
 
-<svelte:head>
+<!-- <svelte:head>
   <title>Feedback {title}-overzicht</title>
-</svelte:head>
+</svelte:head> -->
+
 <section>
   <h4>16 december 2020</h4>
   <section class="gridWrapper">

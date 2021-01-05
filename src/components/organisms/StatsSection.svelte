@@ -17,12 +17,12 @@
   section {
     width: 100%;
     h4 {
-      margin-bottom: $margin30;
+      margin-bottom: $margin-30;
     }
     section {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1.75fr;
-      grid-gap: $margin30;
+      grid-gap: $margin-30;
       grid-auto-rows: minmax(100px, auto);
       #vizFour {
         grid-column: 4;
@@ -40,9 +40,9 @@
   }
 </style>
 
-<svelte:head>
+<!-- <svelte:head>
   <title>Statistieken {title}-overzicht</title>
-</svelte:head>
+</svelte:head> -->
 
 <section>
   <h4>16 december 2020</h4>

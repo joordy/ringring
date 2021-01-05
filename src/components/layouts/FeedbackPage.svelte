@@ -27,7 +27,6 @@
   bind:activeTabValue={currentVisitedTab}
   tabItems={navigationItems}
 />
-
 <!-- <code class="language-text" /> -->
 
 {#if 1 === currentVisitedTab}
