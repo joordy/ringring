@@ -7,4 +7,3 @@
 </svelte:head>
 
 <FeedbackPage />
-<!-- <h1>Feedback</h1> -->

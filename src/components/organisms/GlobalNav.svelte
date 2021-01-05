@@ -231,8 +231,8 @@
   }
 </style>
 
-<!-- <header class="nav nav-collapse"> -->
-<header id="navigation" class="nav">
+<header class="nav nav-collapse">
+  <!-- <header id="navigation" class="nav"> -->
   <!-- <button on:click={onMount} /> -->
   <section>
     <a aria-current={segment === undefined ? 'page' : undefined} href="/">

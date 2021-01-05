@@ -18,7 +18,11 @@
       grid-template-columns: 3fr 2fr;
       grid-gap: $margin-30;
       article {
-        height: 900px;
+        height: 70vh;
+        max-height: 890px;
+        @media screen and (max-height: 900px) {
+          height: 630px;
+        }
       }
     }
   }

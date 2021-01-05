@@ -3,10 +3,12 @@
 
 // export const endpoint = 'http://ringring.jorrr.nl/geojson-data-ringring.json'
 
-export const endpoint =
-  'https://cors-anywhere.herokuapp.com/http://ringring.jorrr.nl/geojson-data-ringring.json'
+// export const endpoint =
+//   'https://cors-anywhere.herokuapp.com/http://ringring.jorrr.nl/geojson-data-ringring.json'
 
 // export const endpoint =
 //   'https://cors-anywhere.herokuapp.com/http://ringring.jorrr.nl/data-ringring.json'
 
 // export const endpoint = 'http://ringring.jorrr.nl/data-ringring.json'
+
+export const endpoint = 'https://opendata.rdw.nl/resource/t5pc-eb34.json'
