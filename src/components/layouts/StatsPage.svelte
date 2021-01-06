@@ -20,8 +20,12 @@
     font-size: $h3-size;
     margin: 0 0 $margin-6 0;
   }
+  // div {
+  //   overflow-y: scroll;
+  // }
 </style>
 
+<!-- <div> -->
 <h3>Statistieken overzicht</h3>
 
 <TabNavigation
@@ -30,7 +34,6 @@
 />
 
 <!-- <code class="language-text" /> -->
-
 {#if 1 === currentVisitedTab}
   <StatsSection bind:activeTabValue={currentVisitedTab} title="Dag" {data} />
 {:else if 2 === currentVisitedTab}
@@ -40,3 +43,4 @@
 {:else if 4 === currentVisitedTab}
   <StatsSection bind:activeTabValue={currentVisitedTab} title="Jaar" {data} />
 {/if}
+<!-- </div> -->

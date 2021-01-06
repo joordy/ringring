@@ -33,17 +33,11 @@
       &:nth-of-type(1) {
         background-color: white;
       }
-      &:nth-of-type(2) {
-        background-color: $ui-dark-blue;
-      }
     }
   }
 </style>
 
 <section>
-  <article>
-    <h1>Hello</h1>
-  </article>
   <article>
     <h1>Hello</h1>
   </article>
