@@ -51,4 +51,4 @@
   }
 </style>
 
-<section><a href="/login">Uitloggen</a></section>
+<section><a href="/">Uitloggen</a></section>
