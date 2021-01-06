@@ -102,7 +102,7 @@
         <slot {data} />
       </section>
     </main>
-  {:else}
+  {:else if window.location.pathname === '/'}
     <main>
       <slot {data} />
     </main>
