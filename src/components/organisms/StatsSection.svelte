@@ -24,6 +24,15 @@
       grid-template-columns: 1fr 1fr 1fr 1.75fr;
       grid-gap: $margin-30;
       grid-auto-rows: minmax(100px, auto);
+      // article {
+      //   &:nth-of-type(5) {
+      //     height: 65vh;
+      //     max-height: 890px;
+      //     @media screen and (max-height: 900px) {
+      //       height: 52vh;
+      //     }
+      //   }
+      // }
       #vizFour {
         grid-column: 4;
         grid-row: 1 / 3;
