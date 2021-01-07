@@ -1,4 +1,5 @@
 <script>
+  import VizTitle from '@/components/atoms/VizHeader.svelte'
   export let title
   let valuenumber = '15'
   let compared = '20%'
@@ -11,20 +12,20 @@
   div {
     width: 100%;
     height: 100%;
-    border: 1px solid #c4c4c4;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     article {
-      margin: $margin-3 $margin-4;
-      h4,
-      h5 {
-        color: #c4c4c4;
+      padding: $m15 $m20;
+      h4 {
+        margin-bottom: $m5;
       }
       span {
         font-weight: $bold;
-        font-size: $h2-size;
+        font-size: 32px;
       }
       h5 {
-        margin-top: $margin-1;
+        margin-top: $m5;
+        color: $ui-traffic-green;
       }
     }
   }
@@ -32,7 +33,7 @@
 
 <div>
   <article>
-    <h4>{title}</h4>
+    <VizTitle {title} />
     <span>{valuenumber}</span>
     <h5>+{compared} t.o.v. {timestamp}</h5>
   </article>

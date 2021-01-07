@@ -3,7 +3,7 @@
 
   section {
     height: 480px;
-    width: 100%;
+    width: 600px;
     margin: 10vh auto 20vh auto;
     article {
       position: relative;

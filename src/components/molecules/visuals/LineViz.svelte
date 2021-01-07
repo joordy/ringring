@@ -1,4 +1,6 @@
 <script>
+  import VizTitle from '@/components/atoms/VizHeader.svelte'
+
   import { onMount } from 'svelte'
   import { chart } from 'chart.js'
 
@@ -44,7 +46,7 @@
         ],
       },
       options: {
-        responsive: true,
+        // responsive: true,
         maintainAspectRatio: false,
         scales: {
           yAxes: [
@@ -68,24 +70,23 @@
   div {
     width: 100%;
     height: 100%;
-    border: 1px solid #c4c4c4;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     article {
-      margin: $margin-3 $margin-4;
-      h4,
-      h5 {
-        color: #c4c4c4;
-      }
-      span {
-        font-weight: $bold;
-        font-size: $h2-size;
-      }
-      h5 {
-        margin-top: $margin-1;
-      }
-      canvas {
-        max-height: 400px;
-        max-width: 100%;
+      width: calc(100% - 30px);
+      height: calc(100% - 40px);
+      padding: $margin-3 $margin-4;
+
+      .graph {
+        height: inherit;
+        width: calc(inherit + 15px);
+        box-shadow: none;
+        border-radius: 0;
+        canvas {
+          width: 100% !important;
+          height: 100% !important;
+        }
       }
     }
   }
@@ -93,7 +94,12 @@
 
 <div>
   <article>
-    <h4>{title}</h4>
-    <canvas id="lineChart" height="370" />
+    <VizTitle {title} />
+    <div class="graph">
+      <canvas id="lineChart" aria-label="Chart about traffic" role="chart"><p>
+          Your browser does not support this chart. Please visit a recent
+          updated browser.
+        </p></canvas>
+    </div>
   </article>
 </div>

@@ -1,4 +1,6 @@
 <script>
+  import VizTitle from '@/components/atoms/VizHeader.svelte'
+
   import { onMount } from 'svelte'
   import { chart } from 'chart.js'
 
@@ -21,28 +23,29 @@
             label: 'Aantal ritten',
             data: [12, 19, 3, 5, 2, 3],
             backgroundColor: [
-              'rgba(255, 99, 132, 0.5)',
-              'rgba(54, 162, 235, 0.5)',
-              'rgba(255, 206, 86, 0.5)',
-              'rgba(75, 192, 192, 0.5)',
-              'rgba(153, 102, 255, 0.5)',
-              'rgba(255, 159, 64, 0.5)',
+              'rgba(232, 243, 255, 0.8)',
+              'rgba(53, 61, 76, 0.8)',
+              'rgba(232, 243, 255, 0.8)',
+              'rgba(53, 61, 76, 0.8)',
+              'rgba(232, 243, 255, 0.8)',
+              'rgba(53, 61, 76, 0.8)',
             ],
             borderColor: [
-              'rgba(255, 99, 132, 1)',
-              'rgba(54, 162, 235, 1)',
-              'rgba(255, 206, 86, 1)',
-              'rgba(75, 192, 192, 1)',
-              'rgba(153, 102, 255, 1)',
-              'rgba(255, 159, 64, 1)',
+              // 'rgba(255, 99, 132, 1)',
+              // 'rgba(54, 162, 235, 1)',
+              // 'rgba(255, 206, 86, 1)',
+              // 'rgba(75, 192, 192, 1)',
+              // 'rgba(153, 102, 255, 1)',
+              // 'rgba(255, 159, 64, 1)',
             ],
             borderWidth: 1,
           },
         ],
       },
       options: {
-        responsive: true,
+        // responsive: true,
         maintainAspectRatio: false,
+        onResize: null,
         scales: {
           yAxes: [
             {
@@ -54,6 +57,7 @@
         },
       },
     })
+    // myChart.aspectRatio = 0
   }
   onMount(createChart)
 </script>
@@ -64,19 +68,22 @@
   div {
     width: 100%;
     height: 100%;
-    border: 1px solid #c4c4c4;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     article {
-      margin: $margin-3 $margin-4;
-      max-width: 100%;
-      max-height: 100%;
-      h4 {
-        color: #c4c4c4;
-        margin-bottom: $margin1;
-      }
-      canvas {
-        max-height: 400px;
-        max-width: 100%;
+      width: calc(100% - 30px);
+      height: calc(100% - 40px);
+      padding: $margin-3 $margin-4;
+      .graph {
+        display: block;
+        height: inherit;
+        width: calc(inherit + 15px);
+        box-shadow: none;
+        border-radius: 0;
+        canvas {
+          width: 100% !important;
+          height: 100% !important;
+        }
       }
     }
   }
@@ -84,7 +91,12 @@
 
 <div id="barchart">
   <article class="barViz">
-    <h4>{title}</h4>
-    <canvas id="myBarChart" height="370px" />
+    <VizTitle {title} />
+    <div class="graph">
+      <canvas id="myBarChart" aria-label="Chart about rides" role="chart"><p>
+          Your browser does not support this chart. Please visit a recent
+          updated browser.
+        </p></canvas>
+    </div>
   </article>
 </div>

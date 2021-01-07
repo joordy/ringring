@@ -12,7 +12,8 @@
   .feedbackSection {
     width: 100%;
     height: 100%;
-    border: 1px solid #c4c4c4;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    // border: 1px solid #c4c4c4;
     border-radius: 5px;
     overflow: hidden;
     overflow-y: scroll;

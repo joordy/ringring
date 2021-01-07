@@ -1,4 +1,6 @@
 <script>
+  import VizTitle from '@/components/atoms/VizHeader.svelte'
+
   import { onMount } from 'svelte'
   export let title
   onMount(() => {
@@ -19,15 +21,13 @@
   div {
     width: 100%;
     height: 100%;
-    border: 1px solid #c4c4c4;
+    // border: 1px solid #c4c4c4;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
     border-radius: 5px;
     article {
-      margin: $margin-3 $margin-4;
+      padding: $margin-3 $margin-4;
       height: calc(100% - 30px);
-      h4 {
-        color: #c4c4c4;
-        margin-bottom: $margin1;
-      }
       section {
         width: 100%;
         height: calc(100% - 40px);
@@ -46,7 +46,7 @@
 
 <div id="mapchart">
   <article class="mapViz">
-    <h4>{title}</h4>
+    <VizTitle {title} />
     <section>
       <div id="map" style="width: 100%; height: 100%; border-radius: 5px;" />
     </section>
