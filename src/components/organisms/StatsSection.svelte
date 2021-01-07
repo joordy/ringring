@@ -23,7 +23,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1.75fr;
       grid-gap: $margin-30;
-      grid-auto-rows: minmax(100px, auto);
+      // grid-auto-rows: minmax(100px, auto);
       // article {
       //   &:nth-of-type(5) {
       //     height: 65vh;
@@ -32,6 +32,22 @@
       //       height: 52vh;
       //     }
       //   }
+      // }
+      article {
+        &:nth-of-type(1),
+        &:nth-of-type(2),
+        &:nth-of-type(3) {
+          height: 127px;
+        }
+        &:nth-of-type(4),
+        &:nth-of-type(6) {
+          height: 36vh;
+        }
+      }
+      // #vizOne,
+      // #vizTwo,
+      // #vizThree {
+      //   height: 117px;
       // }
       #vizFour {
         grid-column: 4;

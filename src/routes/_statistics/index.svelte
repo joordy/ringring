@@ -1,23 +1,18 @@
 <script>
-  import ErrorPage from '@/components/layouts/ErrorPage.svelte'
-  import LoadingPage from '@/components/layouts/LoadingPage.svelte'
+  import StatsPage from '@/components/layouts/StatsPage.svelte'
   import HeaderImg from '@/components/atoms/HeaderImg.svelte'
   import HeaderLinks from '@/components/atoms/HeaderLinks.svelte'
   import HeaderAccount from '@/components/atoms/HeaderAccount.svelte'
 
-  import { getData } from '../stores/fetcher.js'
-  import { endpoint } from '../modules/utils/entry.js'
-
   export let segment
-  let response = getData(endpoint)
-  // let navClosed = false
+  let navClosed = false
 
-  // function handleNav(e) {
-  //   navClosed = !navClosed
-  // }
+  function handleNav(e) {
+    navClosed = !navClosed
+  }
 </script>
 
-<!--<style lang="scss">
+<style lang="scss">
   @import 'src/styles/index.scss';
 
   header {
@@ -84,33 +79,21 @@
   .closed {
     width: 80px;
   }
-</style>-->
+</style>
 
-{#await $response}
-  <LoadingPage />
-{:then data}
-  {console.log(data)}
-  <slot {data} {segment} />
+<svelte:head>
+  <title>Statistics</title>
+</svelte:head>
 
-  <!-- {#if window.location.pathname === '/statistics' || window.location.pathname === '/contact' || window.location.pathname === '/feedback'}
-    <header id="mySidenav" class="sidenav" class:closed={navClosed}>
-      <HeaderImg {segment} />
-      <HeaderLinks {segment} />
-      <HeaderAccount />
-    </header>
+<header id="mySidenav" class="sidenav" class:closed={navClosed}>
+  <HeaderImg {segment} />
+  <HeaderLinks {segment} />
+  <HeaderAccount />
+</header>
 
-    <main id="main" class:pushMainToLeft={navClosed}>
-      <div class="closebtn" on:click={handleNav}><button /></div>
-      <section>
-        <slot {data} />
-      </section>
-    </main>
-  {:else if window.location.pathname === '/'}
-    <main>
-      <slot {data} />
-    </main>
-    else content here
-  {/if} -->
-{:catch error}
-  <ErrorPage {error} />
-{/await}
+<main id="main" class:pushMainToLeft={navClosed}>
+  <div class="closebtn" on:click={handleNav}><button /></div>
+  <section>
+    <StatsPage />
+  </section>
+</main>

@@ -1,6 +1,6 @@
 <script>
   import Form from '@/components/molecules/Form.svelte'
-  let src = 'ringring-logo.svg'
+  let src = 'ringring-logo-dark.svg'
 </script>
 
 <style lang="scss">
@@ -55,4 +55,5 @@
 
     <Form />
   </section>
+  <a href="/statistics">Go quickly to dashboard</a>
 </article>
