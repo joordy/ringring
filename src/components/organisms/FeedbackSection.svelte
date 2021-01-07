@@ -1,6 +1,6 @@
 <script>
   import FeedbackViz from '@/components/molecules/visuals/FeedbackViz.svelte'
-  import SmallViz from '@/components/molecules/visuals/SmallViz.svelte'
+  import PolarViz from '@/components/molecules/visuals/PolarViz.svelte'
   // export let activeTabValue
   export let title
 </script>
@@ -39,7 +39,7 @@
       <FeedbackViz />
     </article>
     <article id="vizTwo">
-      <SmallViz />
+      <PolarViz />
     </article>
   </section>
 </section>

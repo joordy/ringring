@@ -8,27 +8,17 @@
   function createChart() {
     let ctx = document.getElementById('myBarChart').getContext('2d')
     let myChart = new Chart(ctx, {
-      type: 'horizontalBar',
+      type: 'polarArea',
       data: {
-        labels: [
-          '0-5 KM',
-          '6-10 KM',
-          '11-15 KM',
-          '16-20 KM',
-          '21-25 KM',
-          '26+ KM ',
-        ],
+        labels: ['Spring","Summer","Fall"'],
         datasets: [
           {
             label: 'Aantal ritten',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [700, 800, 200],
             backgroundColor: [
               'rgba(232, 243, 255, 0.8)',
               'rgba(53, 61, 76, 0.8)',
               'rgba(232, 243, 255, 0.8)',
-              'rgba(53, 61, 76, 0.8)',
-              'rgba(232, 243, 255, 0.8)',
-              'rgba(53, 61, 76, 0.8)',
             ],
             // borderColor: [
             //   // 'rgba(255, 99, 132, 1)',
@@ -45,15 +35,6 @@
       options: {
         maintainAspectRatio: false,
         onResize: null,
-        scales: {
-          yAxes: [
-            {
-              ticks: {
-                beginAtZero: true,
-              },
-            },
-          ],
-        },
       },
     })
   }

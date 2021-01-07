@@ -19,7 +19,7 @@
         top: 0;
         font-weight: 300;
         font-size: 32px;
-        content: '\f2b9';
+        content: '\f2f5';
       }
     }
   }
@@ -41,7 +41,7 @@
           left: 0;
           padding-left: 14px;
           // padding: 0 0 0 29px;
-          content: '\f2b9';
+          content: '\f2f5';
         }
         &:hover::after {
           background-color: $ui-active-menu;

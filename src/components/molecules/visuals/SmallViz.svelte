@@ -16,10 +16,8 @@
     border-radius: 5px;
     article {
       padding: $m15 $m20;
-      h4 {
-        margin-bottom: $m5;
-      }
       span {
+        margin-top: -5px !important;
         font-weight: $bold;
         font-size: 32px;
       }

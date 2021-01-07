@@ -5,6 +5,8 @@
   import HeaderAccount from '@/components/atoms/HeaderAccount.svelte'
 
   export let segment
+  export let data
+  console.log(data)
   let navClosed = false
 
   function handleNav(e) {

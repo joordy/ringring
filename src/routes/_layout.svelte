@@ -89,6 +89,7 @@
 {#await $response}
   <LoadingPage />
 {:then data}
+  {console.log(data)}
   <slot {data} {segment} />
 
   <!-- {#if window.location.pathname === '/statistics' || window.location.pathname === '/contact' || window.location.pathname === '/feedback'}
