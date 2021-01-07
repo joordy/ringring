@@ -6,8 +6,8 @@
   @import 'src/styles/index.scss';
 
   article {
-    color: $text-soft-white;
-    background-color: $ui-dark-blue;
+    color: $ui-white;
+    background-color: $ui-traffic-red;
     padding: 0 150px;
     section {
       width: 350px;

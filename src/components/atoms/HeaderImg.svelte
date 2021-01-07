@@ -12,7 +12,7 @@
     place-items: center;
     a {
       display: flex;
-      color: $text-soft-white;
+      color: $ui-black;
       text-decoration: none;
       img {
         width: 48px;

@@ -37,6 +37,7 @@
       font-size: 14px;
       margin: 5px 0;
       a {
+        color: $ui-traffic-red;
         font-weight: 700;
         &::after {
           padding-left: 5px;

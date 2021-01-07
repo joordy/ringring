@@ -14,11 +14,11 @@
 <style lang="scss">
   @import 'src/styles/index.scss';
 
-  section {
+  .statistieken {
     margin: $m30 $m50;
-    width: 100%;
+    width: calc(100% - 100px);
     h4 {
-      margin-bottom: $margin-30;
+      margin-bottom: $m30;
     }
     section {
       display: grid;
@@ -60,7 +60,7 @@
   <title>Statistieken {title}-overzicht</title>
 </svelte:head> -->
 
-<section>
+<section class="statistieken">
   <h4>16 december 2020</h4>
   <section class="gridWrapper">
     <article id="vizOne">
