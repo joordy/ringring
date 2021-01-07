@@ -16,29 +16,29 @@
   @import 'src/styles/index.scss';
 
   nav {
+    margin-bottom: $margin-30;
     ul {
-      margin-left: $m50;
-      width: 250px;
       display: flex;
-      justify-content: space-between;
+      flex-wrap: wrap;
+      padding-left: 0;
+      margin-bottom: 0;
       list-style: none;
+      border-bottom: 1px solid #dee2e6;
       li {
         span {
           border-top-left-radius: 0.25rem;
           border-top-right-radius: 0.25rem;
           display: block;
-          padding-bottom: $m5;
+          padding: $margin-1 $margin-3;
           cursor: pointer;
           &:hover {
-            padding-bottom: $m5;
-            border-bottom: 4px solid $ui-traffic-red;
+            border-bottom: 2px solid black;
           }
         }
       }
       li.active {
         span {
-          color: $ui-traffic-red;
-          border-bottom: 4px solid $ui-traffic-red;
+          border-bottom: 2px solid black;
           font-weight: $bold;
         }
       }
