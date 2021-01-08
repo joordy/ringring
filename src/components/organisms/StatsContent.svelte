@@ -5,7 +5,7 @@
     BarViz,
     LineViz,
   } from '@/components/molecules/visuals/visuals.js'
-
+  import StatFilter from '@/components/molecules/StatFilter.svelte'
   export let activeTabValue
   export let title
   export let data
@@ -15,16 +15,16 @@
   @import 'src/styles/index.scss';
 
   .statistieken {
-    margin: $m30 $m50;
+    background-color: $ui-softwhite;
+    padding: $m30 $m50;
     width: calc(100% - 100px);
-    h4 {
-      margin-bottom: $m30;
-    }
+    height: 100%;
     section {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1.75fr;
       grid-gap: $margin-30;
       article {
+        background-color: white;
         &:nth-of-type(1),
         &:nth-of-type(2),
         &:nth-of-type(3) {
@@ -32,14 +32,18 @@
         }
         &:nth-of-type(4),
         &:nth-of-type(6) {
-          height: 36vh;
+          height: 32vh;
+          @media screen and (min-height: 850px) {
+            height: 34.5vh;
+          }
+          @media screen and (min-height: 1000px) {
+            height: 37vh;
+          }
+          @media screen and (min-height: 1100px) {
+            height: 39vh;
+          }
         }
       }
-      // #vizOne,
-      // #vizTwo,
-      // #vizThree {
-      //   height: 117px;
-      // }
       #vizFour {
         grid-column: 4;
         grid-row: 1 / 3;
@@ -61,7 +65,7 @@
 </svelte:head> -->
 
 <section class="statistieken">
-  <h4>16 december 2020</h4>
+  <StatFilter />
   <section class="gridWrapper">
     <article id="vizOne">
       <SmallViz title="Aantal fietsers" />

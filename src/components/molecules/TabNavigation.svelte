@@ -16,6 +16,8 @@
   @import 'src/styles/index.scss';
 
   nav {
+    position: absolute;
+    bottom: 0;
     ul {
       margin-left: $m50;
       width: 250px;

@@ -21,7 +21,7 @@
         datasets: [
           {
             label: 'Aantal ritten',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [12, 19, 43, 28, 3, 13],
             backgroundColor: [
               'rgba(236, 78, 78, 1)',
               'rgba(249, 206, 206, 1)',

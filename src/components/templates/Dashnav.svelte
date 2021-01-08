@@ -25,7 +25,7 @@
         width: 100%;
         height: 50px;
         position: relative;
-        a {
+        span {
           padding: 0 0 0 80px;
           display: block;
           line-height: 50px;
@@ -43,21 +43,21 @@
           }
         }
         &:nth-of-type(1) {
-          a {
+          span {
             &::before {
               content: '\f080';
             }
           }
         }
         &:nth-of-type(2) {
-          a {
+          span {
             &::before {
               content: '\f4ad';
             }
           }
         }
         &:nth-of-type(3) {
-          a {
+          span {
             &::before {
               content: '\f4ad';
             }
@@ -80,7 +80,7 @@
     {#if Array.isArray(tabItems)}
       {#each tabItems as item}
         <li class={activeTabValue === item.value ? 'active' : ''}>
-          <a on:click={handleClick(item.value)}>{item.label}</a>
+          <span on:click={handleClick(item.value)}>{item.label}</span>
         </li>
       {/each}
     {/if}

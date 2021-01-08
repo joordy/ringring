@@ -1,115 +1,39 @@
-<script>
-  import ErrorPage from '@/components/layouts/ErrorPage.svelte'
-  import LoadingPage from '@/components/layouts/LoadingPage.svelte'
-  import HeaderImg from '@/components/atoms/HeaderImg.svelte'
-  import HeaderLinks from '@/components/atoms/HeaderLinks.svelte'
-  import HeaderAccount from '@/components/atoms/HeaderAccount.svelte'
-
-  import { getData } from '../stores/fetcher.js'
-  import { endpoint } from '../modules/utils/entry.js'
-
-  export let segment
-  let response = getData(endpoint)
-  // let navClosed = false
-
-  // function handleNav(e) {
-  //   navClosed = !navClosed
-  // }
-</script>
-
-<!--<style lang="scss">
-  @import 'src/styles/index.scss';
-
-  header {
-    // height: calc(100vh - 20px);
-    height: 100vh;
-    width: 250px;
-    background-color: $ui-dark-blue;
-    color: $text-soft-white;
-    border-radius: 0 20px 20px 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    overflow-x: hidden;
-    padding-top: 20px;
-    transition: 0.5s;
-  }
-
-  #main {
-    position: relative;
-    left: 250px;
-    width: calc(100% - 250px - 100px);
-    height: calc(100vh - 100px);
-    transition: margin-left 0.5s;
-    padding: 50px;
-  }
-  #main .closebtn {
-    position: absolute;
-    top: 50px;
-    left: 0;
-    width: 25px;
-    height: 50px;
-    background-color: $ui-dark-blue;
-    border-radius: 0px 4px 4px 0px;
-    button {
-      color: $text-soft-white;
-      background-color: transparent;
-      font-family: FontAwesome;
-      border: none;
-      font-size: 20px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      outline: inherit;
-      &::before {
-        padding-left: 3px;
-        line-height: 48px;
-        content: '\f053';
-        transform: rotate(0deg);
-      }
-    }
-  }
-  .pushMainToLeft {
-    width: calc(100% - 80px - 100px) !important;
-    margin-left: -170px;
-  }
-  .pushMainToLeft .closebtn {
-    padding-left: 3px;
-
-    button {
-      transform: rotate(180deg);
-    }
-  }
-  .closed {
-    width: 80px;
-  }
-</style>-->
-
-{#await $response}
+<!--<script ✂prettier:content✂="CiAgaW1wb3J0IEVycm9yUGFnZSBmcm9tICdAL2NvbXBvbmVudHMvbGF5b3V0cy9FcnJvclBhZ2Uuc3ZlbHRlJwogIGltcG9ydCBMb2FkaW5nUGFnZSBmcm9tICdAL2NvbXBvbmVudHMvbGF5b3V0cy9Mb2FkaW5nUGFnZS5zdmVsdGUnCgogIGltcG9ydCB7IGdldERhdGEgfSBmcm9tICcuLi9zdG9yZXMvZmV0Y2hlci5qcycKICBpbXBvcnQgeyBlbmRwb2ludCB9IGZyb20gJy4uL21vZHVsZXMvdXRpbHMvZW50cnkuanMnCgogIGV4cG9ydCBsZXQgc2VnbWVudAogIGxldCByZXNwb25zZSA9IGdldERhdGEoZW5kcG9pbnQpCg==" ✂prettier:content✂="e30=" ✂prettier:content✂="e30=" ✂prettier:content✂="e30=" ✂prettier:content✂="e30=" ✂prettier:content✂="e30=" ✂prettier:content✂="e30=" ✂prettier:content✂="e30=" ✂prettier:content✂="e30=">{}</script>{#await $response}
   <LoadingPage />
 {:then data}
+  {console.log(data)}
   <slot {data} {segment} />
+{:catch error}
+  <ErrorPage {error} />
+{/await} -->
+<script>
+  import LoadingPage from '@/components/layouts/LoadingPage.svelte'
+  import ErrorPage from '@/components/layouts/ErrorPage.svelte'
+  // import { getData } from '../stores/fetcher';
 
-  <!-- {#if window.location.pathname === '/statistics' || window.location.pathname === '/contact' || window.location.pathname === '/feedback'}
-    <header id="mySidenav" class="sidenav" class:closed={navClosed}>
-      <HeaderImg {segment} />
-      <HeaderLinks {segment} />
-      <HeaderAccount />
-    </header>
+  let promise = getData()
 
-    <main id="main" class:pushMainToLeft={navClosed}>
-      <div class="closebtn" on:click={handleNav}><button /></div>
-      <section>
-        <slot {data} />
-      </section>
-    </main>
-  {:else if window.location.pathname === '/'}
-    <main>
-      <slot {data} />
-    </main>
-    else content here
-  {/if} -->
+  async function getData() {
+    const res = await fetch(
+      'https://cors-anywhere.herokuapp.com/http://ringring-data.jorrr.nl/data-ringring.json'
+    )
+    const data = await res.json()
+
+    if (res.ok) {
+      return data
+    } else {
+      throw new Error(data)
+    }
+  }
+
+  export let segment
+</script>
+
+{#await promise}
+  <LoadingPage />
+{:then dataset}
+  {console.log(dataset)}
+  <slot data={dataset} {segment} />
 {:catch error}
   <ErrorPage {error} />
 {/await}

@@ -8,9 +8,10 @@
       'pk.eyJ1Ijoiam9ycnIiLCJhIjoiY2tpcDE0bGoyMDJlMzJzcDlwZGI3bzFsOCJ9._J-m2YnN8Bmv2kEA99rZFg'
     let map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/jorrr/ckj8onwgm3fr019mwtof7ylln',
+      // style: 'mapbox://styles/jorrr/ckj8onwgm3fr019mwtof7ylln',
+      style: 'mapbox://styles/mggchn/ckjo5w0az108z19qk4irrcxwm',
       center: [4.9, 52.38],
-      zoom: 11.4,
+      zoom: 11.6,
     })
   })
 </script>
@@ -21,9 +22,7 @@
   div {
     width: 100%;
     height: 100%;
-    // border: 1px solid #c4c4c4;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
     border-radius: 5px;
     article {
       padding: $margin-3 $margin-4;
