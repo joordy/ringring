@@ -2,7 +2,10 @@
   import VizTitle from '@/components/atoms/VizHeader.svelte'
 
   import { onMount } from 'svelte'
+
+  export let data
   export let title
+
   onMount(() => {
     mapboxgl.accessToken =
       'pk.eyJ1Ijoiam9ycnIiLCJhIjoiY2tpcDE0bGoyMDJlMzJzcDlwZGI3bzFsOCJ9._J-m2YnN8Bmv2kEA99rZFg'

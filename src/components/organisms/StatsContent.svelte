@@ -62,10 +62,6 @@
   }
 </style>
 
-<!-- <svelte:head>
-  <title>Statistieken {title}-overzicht</title>
-</svelte:head> -->
-
 <section class="statistieken">
   <StatFilter />
   <section class="gridWrapper">
