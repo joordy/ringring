@@ -1,5 +1,5 @@
 import Contact from './Contact.svelte'
-import DashNav from './DashNav.svelte'
+import DashNav from './Dashnav.svelte'
 import Feedback from './Feedback.svelte'
 import Stats from './Stats.svelte'
 
