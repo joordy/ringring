@@ -11,6 +11,7 @@ import pkg from './package.json'
 import sveltePreprocess from 'svelte-preprocess'
 import alias from '@rollup/plugin-alias'
 import dotenv from 'dotenv'
+const fetch = require('node-fetch')
 
 dotenv.config()
 

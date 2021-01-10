@@ -45,35 +45,15 @@
       }
     }
   }
-  // .calendar-button {
-  //   width: 250px !important;
-  //   background: transparent !important;
-  //   border: none !important;
-  //   border-radius: 0px !important;
-  //   border-bottom: $ui-red !important;
-  //   color: black;
-  //   &::before {
-  //     font-family: FontAwesome;
-  //     content: '\f073';
-  //     font-size: $Heading3;
-  //     color: $ui-red;
-  //     margin-right: $m5;
-  //   }
 
-  // padding: 10px 20px;
-  // border: 1px solid var(--button-border-color);
-  // display: block;
-  // text-align: center;
-  // width: 300px;
-  // text-decoration: none;
-  // cursor: pointer;
-  // background: var(--button-background-color);
-  // color: var(--button-text-color);
-  // border-radius: 7px;
-  // box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
-  //}
-  .contents-wrapper.visible.svelte-mc1z8c.svelte-mc1z8c {
-    transform: translate(-50%, -50%) translate(0px, 225.2951px) !important;
+  .contents-wrapper.svelte-mc1z8c.svelte-mc1z8c {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 721% !important;
+    left: 227% !important;
+    transition: none;
+    z-index: 433;
+    display: none;
   }
 </style>
 
@@ -95,4 +75,6 @@
       {:else}Pick a date{/if}
     </button>
   </Datepicker>
+
+  <input type="date" />
 </div>

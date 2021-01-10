@@ -6,6 +6,8 @@
     LineViz,
   } from '@/components/molecules/visuals/visuals.js'
   import StatFilter from '@/components/molecules/StatFilter.svelte'
+
+  $: console.log(data)
   export let activeTabValue
   export let title
   export let data
@@ -77,13 +79,13 @@
       <SmallViz title="Gemiddeld duur fietsrit" />
     </article>
     <article id="vizFour">
-      <BarViz title="Fietsritten in verhouding met afstand" />
+      <BarViz title="Fietsritten in verhouding met afstand" {data} />
     </article>
     <article id="vizFive">
-      <MapViz title="Gemaakte fietsritten" />
+      <MapViz title="Gemaakte fietsritten" {data} />
     </article>
     <article id="vizSix">
-      <LineViz title="Drukte gedurende de dag" />
+      <LineViz title="Drukte gedurende de dag" {data} />
     </article>
   </section>
 </section>
