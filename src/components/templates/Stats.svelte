@@ -1,10 +1,6 @@
 <script>
-  import { StatsContent } from '@/components/organisms/all-items.js'
+  import { StatsContent } from '@/components/organisms/allOrganisms.js'
   import TabNavigation from '@/components/molecules/TabNavigation.svelte'
-
-  export let activeTabValue
-  export let title
-  export let data
 
   let currentVisitedTab
   let navigationItems = [
@@ -13,6 +9,10 @@
     { label: 'Maand', value: 3 },
     { label: 'Jaar', value: 4 },
   ]
+
+  export let activeTabValue
+  export let title
+  export let data
 </script>
 
 <style lang="scss">
@@ -20,15 +20,22 @@
 
   section {
     width: 100%;
+    height: 130px;
+    position: relative;
     background-color: $ui-white;
     border-bottom: 1px solid $ui-grey;
     h2 {
       font-size: $Heading2;
+      line-height: 48px;
       font-weight: $bold;
       padding: $m30 $m50 $m30 $m50;
     }
   }
 </style>
+
+<svelte:head>
+  <title>Dashboard — Statistieken</title>
+</svelte:head>
 
 <section>
   <h2>Dashboard</h2>
@@ -39,7 +46,6 @@
   />
 </section>
 
-<!-- <h3>{title}</h3> -->
 {#if 1 === currentVisitedTab}
   <StatsContent bind:activeTabValue={currentVisitedTab} title="Dag" {data} />
 {:else if 2 === currentVisitedTab}

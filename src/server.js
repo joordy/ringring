@@ -7,6 +7,7 @@ import { json } from 'body-parser'
 const { PORT, NODE_ENV } = process.env
 const dev = NODE_ENV === 'development'
 
+// Without authentication
 polka() // You can also use Express
   .use(
     json(),
@@ -17,3 +18,18 @@ polka() // You can also use Express
   .listen(PORT, (err) => {
     if (err) console.log('error', err)
   })
+
+// polka()
+//   .use(
+//     json(),
+//     compression({ threshold: 0 }),
+//     sirv('static', { dev }),
+//     sapper.middleware({
+//       session: (req, res) => ({
+//         user: false,
+//       }),
+//     })
+//   )
+//   .listen(PORT, (err) => {
+//     if (err) console.log('error', err)
+//   })

@@ -1,8 +1,8 @@
 <script>
-  import FeedbackPage from '@/components/layouts/FeedbackPage.svelte'
-  import HeaderImg from '@/components/atoms/HeaderImg.svelte'
-  import HeaderLinks from '@/components/atoms/HeaderLinks.svelte'
-  import HeaderAccount from '@/components/atoms/HeaderAccount.svelte'
+  // import FeedbackPage from '@/components/layouts/FeedbackPage.svelte'
+  // import HeaderImg from '@/components/atoms/HeaderImg.svelte'
+  // import HeaderLinks from '@/components/atoms/HeaderLinks.svelte'
+  // import HeaderAccount from '@/components/atoms/HeaderAccount.svelte'
 
   export let segment
   let navClosed = false
@@ -86,14 +86,14 @@
 </svelte:head>
 
 <header id="mySidenav" class="sidenav" class:closed={navClosed}>
-  <HeaderImg {segment} />
+  <!-- <HeaderImg {segment} />
   <HeaderLinks {segment} />
-  <HeaderAccount />
+  <HeaderAccount /> -->
 </header>
 
 <main id="main" class:pushMainToLeft={navClosed}>
   <div class="closebtn" on:click={handleNav}><button /></div>
   <section>
-    <FeedbackPage />
+    <!-- <FeedbackPage /> -->
   </section>
 </main>

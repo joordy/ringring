@@ -8,7 +8,7 @@
   function createChart() {
     let ctx = document.getElementById('myBarChart').getContext('2d')
     let myChart = new Chart(ctx, {
-      type: 'polarArea',
+      type: 'doughnut',
       data: {
         labels: ['Spring","Summer","Fall"'],
         datasets: [

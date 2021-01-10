@@ -1,5 +1,5 @@
 <script>
-  import { FeedbackContent } from '@/components/organisms/all-items.js'
+  import { FeedContent } from '@/components/organisms/allOrganisms.js'
 
   import TabNavigation from '@/components/molecules/TabNavigation.svelte'
 
@@ -21,15 +21,22 @@
 
   section {
     width: 100%;
+    height: 130px;
+    position: relative;
     background-color: $ui-white;
     border-bottom: 1px solid $ui-grey;
     h2 {
       font-size: $Heading2;
       font-weight: $bold;
+      line-height: 48px;
       padding: $m30 $m50 $m30 $m50;
     }
   }
 </style>
+
+<svelte:head>
+  <title>Dashboard — Feedback</title>
+</svelte:head>
 
 <section>
   <h2>Dashboard</h2>
@@ -41,7 +48,7 @@
 </section>
 
 {#if 1 === currentVisitedTab}
-  <FeedbackContent bind:activeTabValue={currentVisitedTab} title="Dag" {data} />
+  <FeedContent bind:activeTabValue={currentVisitedTab} title="Dag" {data} />
 {:else if 2 === currentVisitedTab}
   <FeedbackContent
     bind:activeTabValue={currentVisitedTab}
@@ -49,15 +56,7 @@
     {data}
   />
 {:else if 3 === currentVisitedTab}
-  <FeedbackContent
-    bind:activeTabValue={currentVisitedTab}
-    title="Maand"
-    {data}
-  />
+  <FeedContent bind:activeTabValue={currentVisitedTab} title="Maand" {data} />
 {:else if 4 === currentVisitedTab}
-  <FeedbackContent
-    bind:activeTabValue={currentVisitedTab}
-    title="Jaar"
-    {data}
-  />
+  <FeedContent bind:activeTabValue={currentVisitedTab} title="Jaar" {data} />
 {/if}

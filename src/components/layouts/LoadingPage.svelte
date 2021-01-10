@@ -7,8 +7,8 @@
     place-items: center;
     height: 100vh;
     #anim {
-      width: 600px;
-      height: 600px;
+      width: 450px;
+      height: 450px;
       svg {
         width: 100%;
         height: 100%;

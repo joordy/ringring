@@ -7,7 +7,8 @@
   @import 'src/styles/index.scss';
 
   section {
-    margin: $margin-30 0 $margin-100 0;
+    margin: $m30 0 $m100 0;
+    height: 48px;
     display: grid;
     place-items: center;
     a {

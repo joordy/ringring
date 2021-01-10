@@ -1,8 +1,8 @@
 <script>
-  import StatsPage from '@/components/layouts/StatsPage.svelte'
-  import HeaderImg from '@/components/atoms/HeaderImg.svelte'
-  import HeaderLinks from '@/components/atoms/HeaderLinks.svelte'
-  import HeaderAccount from '@/components/atoms/HeaderAccount.svelte'
+  // import StatsPage from '@/components/layouts/StatsPage.svelte'
+  // import HeaderImg from '@/components/atoms/HeaderImg.svelte'
+  // import HeaderLinks from '@/components/atoms/HeaderLinks.svelte'
+  // import HeaderAccount from '@/components/atoms/HeaderAccount.svelte'
 
   export let segment
   export let data

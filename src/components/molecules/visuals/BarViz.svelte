@@ -5,6 +5,13 @@
   import { chart } from 'chart.js'
 
   export let title
+  export let data
+
+  // function allDistances() {
+  //   data.forEach((elem) => {
+  //     return elem.properties.distance
+  //   })
+  // }
   function createChart() {
     let ctx = document.getElementById('myBarChart').getContext('2d')
     let myChart = new Chart(ctx, {
@@ -21,7 +28,7 @@
         datasets: [
           {
             label: 'Aantal ritten',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [12, 19, 43, 28, 3, 13],
             backgroundColor: [
               'rgba(236, 78, 78, 1)',
               'rgba(249, 206, 206, 1)',

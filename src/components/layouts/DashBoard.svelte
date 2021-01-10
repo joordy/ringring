@@ -4,7 +4,7 @@
     DashNav,
     Feedback,
     Stats,
-  } from '@/components/templates/all-items.js'
+  } from '@/components/templates/allTemplates.js'
 
   export let segment
   export let data
@@ -40,7 +40,7 @@
     overflow-x: hidden;
     transition: 0.5s;
     .logo {
-      margin: $margin-30 0 $margin-100 0;
+      margin: $m30 0 $m100 0;
       display: grid;
       place-items: center;
       a {
@@ -59,12 +59,65 @@
       }
     }
   }
-  main {
+  #main {
     width: calc(100% - 250px);
     height: 100%;
     position: fixed;
     right: 0;
     z-index: 1;
+    transition: 0.5s;
+  }
+  #main .closebtn {
+    position: absolute;
+    z-index: 13;
+    top: 30px;
+    left: 0;
+    width: 25px;
+    height: 48px;
+    background-color: $ui-red;
+    border-radius: 0px 4px 4px 0px;
+    button {
+      color: $ui-white;
+      background-color: transparent;
+      font-family: FontAwesome;
+      border: none;
+      font-size: 16px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      outline: inherit;
+      transition: 0.5s;
+      &::before {
+        padding-left: 7px;
+        line-height: 48px;
+        content: '\f053';
+        transform: rotate(0deg);
+      }
+    }
+  }
+  .pushMainToLeft {
+    width: calc(100% - 80px) !important;
+    margin-left: -170px;
+  }
+  .pushMainToLeft .closebtn {
+    padding-left: 3px;
+
+    button {
+      transform: rotate(180deg);
+      &::before {
+        padding-left: 7px;
+      }
+    }
+  }
+  .closed {
+    width: 80px;
+    .logo {
+      a {
+        h1 {
+          display: none;
+        }
+      }
+    }
   }
 </style>
 
@@ -83,7 +136,9 @@
   </section>
 </header>
 
-<main>
+<main id="main" class:pushMainToLeft={navClosed}>
+  <div class="closebtn" on:click={handleNav}><button /></div>
+
   {#if 1 === currentDashboardTab}
     <Stats
       bind:activeTabValue={currentDashboardTab}
@@ -97,6 +152,6 @@
       {data}
     />
   {:else if 3 === currentDashboardTab}
-    <Contact bind:activeTabValue={currentDashboardTab} title="contact" {data} />
+    <Contact bind:activeTabValue={currentDashboardTab} title="contact" />
   {/if}
 </main>

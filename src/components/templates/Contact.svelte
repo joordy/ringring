@@ -24,10 +24,15 @@
     h2 {
       font-size: $Heading2;
       font-weight: $bold;
+      line-height: 48px;
       padding: $m30 $m50 $m30 $m50;
     }
   }
 </style>
+
+<svelte:head>
+  <title>Dashboard — Contact</title>
+</svelte:head>
 
 <section>
   <h2>Dashboard</h2>
