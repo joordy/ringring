@@ -66,13 +66,13 @@
   <StatFilter />
   <section class="gridWrapper">
     <article id="vizOne">
-      <SmallViz title="Aantal fietsers" />
+      <SmallViz title="Fietsers" />
     </article>
     <article id="vizTwo">
-      <SmallViz title="Aantal fietsritten" />
+      <SmallViz title="Fietsritten" />
     </article>
     <article id="vizThree">
-      <SmallViz title="Gemiddeld duur fietsrit" />
+      <SmallViz title="Duur fietsrit" />
     </article>
     <article id="vizFour">
       <BarViz title="Fietsritten in verhouding met afstand" {data} />

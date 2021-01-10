@@ -6,6 +6,12 @@
 
   export let title
   export let data
+
+  // function allDistances() {
+  //   data.forEach((elem) => {
+  //     return elem.properties.distance
+  //   })
+  // }
   function createChart() {
     let ctx = document.getElementById('myBarChart').getContext('2d')
     let myChart = new Chart(ctx, {
