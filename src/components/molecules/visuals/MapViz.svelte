@@ -1,6 +1,6 @@
 <script>
+  import mapboxgl from 'mapbox-gl'
   import VizTitle from '@/components/atoms/VizHeader.svelte'
-
   import { onMount } from 'svelte'
 
   export let data
@@ -9,12 +9,27 @@
   onMount(() => {
     mapboxgl.accessToken =
       'pk.eyJ1Ijoiam9ycnIiLCJhIjoiY2tpcDE0bGoyMDJlMzJzcDlwZGI3bzFsOCJ9._J-m2YnN8Bmv2kEA99rZFg'
-    let map = new mapboxgl.Map({
+    const map = new mapboxgl.Map({
       container: 'map',
-      // style: 'mapbox://styles/jorrr/ckj8onwgm3fr019mwtof7ylln',
       style: 'mapbox://styles/mggchn/ckjo5w0az108z19qk4irrcxwm',
       center: [4.9, 52.38],
       zoom: 11.6,
+    })
+    map.on('load', function () {
+      map.addSource('routes', {
+        type: 'geojson',
+        data: data,
+      })
+      map.addLayer({
+        id: 'maine',
+        type: 'line',
+        source: 'routes',
+        layout: {},
+        paint: {
+          'line-color': '#EC4E4E',
+          'line-width': 2,
+        },
+      })
     })
   })
 </script>

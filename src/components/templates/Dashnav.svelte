@@ -1,15 +1,15 @@
 <script>
   import { onMount } from 'svelte'
 
-  export let tabItems = []
-  export let activeTabValue
-
   onMount(() => {
     if (Array.isArray(tabItems) && tabItems.length && tabItems[0].value) {
       activeTabValue = tabItems[0].value
     }
   })
   const handleClick = (tabValue) => () => (activeTabValue = tabValue)
+
+  export let tabItems = []
+  export let activeTabValue
 </script>
 
 <style lang="scss">
