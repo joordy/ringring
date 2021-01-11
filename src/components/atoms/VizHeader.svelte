@@ -6,8 +6,8 @@
   @import 'src/styles/index.scss';
   h4 {
     color: $ui-dark-blue;
-    font-size: 16px;
-    font-weight: 400;
+    font-size: $Heading4;
+    font-weight: 700;
     margin-bottom: $m10;
   }
 </style>

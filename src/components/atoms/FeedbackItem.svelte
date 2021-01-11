@@ -1,4 +1,6 @@
 <script>
+  import mapboxgl from 'mapbox-gl'
+
   import { onMount } from 'svelte'
 
   let createMap = () => {

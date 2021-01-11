@@ -8,8 +8,7 @@
   import StatFilter from '@/components/molecules/StatFilter.svelte'
 
   $: console.log(data)
-  export let activeTabValue
-  export let title
+
   export let data
 </script>
 
