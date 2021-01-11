@@ -3,7 +3,7 @@
   export let title
   let valuenumber = '15'
   let compared = '20%'
-  let timestamp = 'gisteren'
+  let timestamp = 'vorige maand'
 </script>
 
 <style lang="scss">

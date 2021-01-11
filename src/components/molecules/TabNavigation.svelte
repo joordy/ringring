@@ -1,15 +1,4 @@
 <script>
-  import { onMount } from 'svelte'
-
-  export let tabItems = []
-  export let activeTabValue
-
-  onMount(() => {
-    if (Array.isArray(tabItems) && tabItems.length && tabItems[0].value) {
-      activeTabValue = tabItems[0].value
-    }
-  })
-  const handleClick = (tabValue) => () => (activeTabValue = tabValue)
 </script>
 
 <style lang="scss">
@@ -31,10 +20,6 @@
           display: block;
           padding-bottom: $m5;
           cursor: pointer;
-          &:hover {
-            padding-bottom: $m5;
-            border-bottom: 4px solid $ui-traffic-red;
-          }
         }
       }
       li.active {
@@ -44,18 +29,20 @@
           font-weight: $bold;
         }
       }
+      li.disabled {
+        span {
+          color: $ui-grey;
+        }
+      }
     }
   }
 </style>
 
 <nav>
   <ul>
-    {#if Array.isArray(tabItems)}
-      {#each tabItems as item}
-        <li class={activeTabValue === item.value ? 'active' : ''}>
-          <span on:click={handleClick(item.value)}>{item.label}</span>
-        </li>
-      {/each}
-    {/if}
+    <li class="disabled"><span>Dag</span></li>
+    <li class="disabled"><span>Week</span></li>
+    <li class="active"><span>Maand</span></li>
+    <li class="disabled"><span>Jaar</span></li>
   </ul>
 </nav>

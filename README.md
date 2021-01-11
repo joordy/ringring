@@ -46,7 +46,15 @@ localhost:3000
 
 - [Sapper](https://github.com/sveltejs/sapper)
 - [MDN Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)
+
+##### Map data
+
 - [MapBox](https://docs.mapbox.com/)
+- [MapBox GL JS Style documentation](https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#paint-line-line-blur)
+- [Mapbox add GeoJSON](https://docs.mapbox.com/mapbox-gl-js/example/geojson-polygon/)
+
+##### Data Charts
+
 - [Chart.js](https://www.chartjs.org/docs/latest/)
 
 ## :lock: License

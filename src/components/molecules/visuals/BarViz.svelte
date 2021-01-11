@@ -7,11 +7,6 @@
   export let title
   export let data
 
-  // function allDistances() {
-  //   data.forEach((elem) => {
-  //     return elem.properties.distance
-  //   })
-  // }
   function createChart() {
     let ctx = document.getElementById('myBarChart').getContext('2d')
     let myChart = new Chart(ctx, {
@@ -19,16 +14,16 @@
       data: {
         labels: [
           '0-5 KM',
-          '6-10 KM',
-          '11-15 KM',
-          '16-20 KM',
-          '21-25 KM',
-          '26+ KM ',
+          '5-10 KM',
+          '10-15 KM',
+          '15-20 KM',
+          '20-25 KM',
+          '25+ KM ',
         ],
         datasets: [
           {
             label: 'Aantal ritten',
-            data: [12, 19, 43, 28, 3, 13],
+            data: data.charts.barChart,
             backgroundColor: [
               'rgba(236, 78, 78, 1)',
               'rgba(249, 206, 206, 1)',
@@ -37,15 +32,6 @@
               'rgba(236, 78, 78, 1)',
               'rgba(249, 206, 206, 1)',
             ],
-            // borderColor: [
-            //   // 'rgba(255, 99, 132, 1)',
-            //   // 'rgba(54, 162, 235, 1)',
-            //   // 'rgba(255, 206, 86, 1)',
-            //   // 'rgba(75, 192, 192, 1)',
-            //   // 'rgba(153, 102, 255, 1)',
-            //   // 'rgba(255, 159, 64, 1)',
-            // ],
-            // borderWidth: 1,
           },
         ],
       },
@@ -98,7 +84,7 @@
   <article class="barViz">
     <VizTitle {title} />
     <div class="graph">
-      <canvas id="myBarChart" aria-label="Chart about rides" role="chart"><p>
+      <canvas id="myBarChart" aria-label="Chart about rides"><p>
           Your browser does not support this chart. Please visit a recent
           updated browser.
         </p></canvas>
