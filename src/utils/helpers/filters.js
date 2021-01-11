@@ -19,8 +19,8 @@ const createChartdata = (rawData) => {
   return {
     barChart: barchart,
     lineChart: linechart,
-    startPosition: startPosition,
-    endPosition: lastPosition,
+    positionStart: startPosition,
+    positionEnd: lastPosition,
   }
 }
 
@@ -33,9 +33,34 @@ const createLinechart = (rawData) => {
 }
 
 const getStartLocation = (rawData) => {
-  return [65, 40]
+  const res = rawData.features.map((item) => {
+    return item.geometry.coordinates[0]
+  })
+  return {
+    type: 'FeatureCollection',
+    features: res,
+  }
 }
 
 const getEndLocation = (rawData) => {
-  return [65, 40]
+  const res = rawData.features.map((item) => {
+    // return item.geometry.coordinates.length - 1
+
+    return {
+      geometry: {
+        coordinates: item.geometry.coordinates.length - 1,
+      },
+      type: 'Feature',
+    }
+  })
+  return {
+    type: 'FeatureCollection',
+    features: res,
+  }
+  // return {
+  //   type: 'FeatureCollection',
+  //   features: {
+  //     geometry: { coordinates: res },
+  //   },
+  // }
 }
