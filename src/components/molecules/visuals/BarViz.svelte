@@ -7,11 +7,6 @@
   export let title
   export let data
 
-  // function allDistances() {
-  //   data.forEach((elem) => {
-  //     return elem.properties.distance
-  //   })
-  // }
   function createChart() {
     let ctx = document.getElementById('myBarChart').getContext('2d')
     let myChart = new Chart(ctx, {
@@ -89,7 +84,7 @@
   <article class="barViz">
     <VizTitle {title} />
     <div class="graph">
-      <canvas id="myBarChart" aria-label="Chart about rides" role="chart"><p>
+      <canvas id="myBarChart" aria-label="Chart about rides"><p>
           Your browser does not support this chart. Please visit a recent
           updated browser.
         </p></canvas>

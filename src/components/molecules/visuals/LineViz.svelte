@@ -66,7 +66,6 @@
         ],
       },
       options: {
-        // responsive: true,
         maintainAspectRatio: false,
         scales: {
           yAxes: [
@@ -116,7 +115,7 @@
   <article>
     <VizTitle {title} />
     <div class="graph">
-      <canvas id="lineChart" aria-label="Chart about traffic" role="chart"><p>
+      <canvas id="lineChart" aria-label="Chart about traffic"><p>
           Your browser does not support this chart. Please visit a recent
           updated browser.
         </p></canvas>

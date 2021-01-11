@@ -15,6 +15,8 @@
     right: 50px;
     display: flex;
     h4 {
+      font-size: $Heading4;
+      font-weight: $bold;
       line-height: 48px;
       margin-right: $m15;
     }
