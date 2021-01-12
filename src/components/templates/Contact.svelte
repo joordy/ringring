@@ -1,5 +1,5 @@
 <script>
-  import TabNavigation from '@/components/molecules/TabNavigation.svelte'
+  import { TabNavigation } from '@/components/molecules/elements/allElements.js'
 
   export let activeTabValue
   export let title

@@ -1,8 +1,16 @@
 <script>
-  import FeedbackFilter from '@/components/molecules/FeedbackFilter.svelte'
-  import FeedbackViz from '@/components/molecules/visuals/FeedbackViz.svelte'
-  import PolarViz from '@/components/molecules/visuals/PolarViz.svelte'
+  // import {
+  //   FeedbackViz,
+  //   TagViz,
+  // } from '@/components/molecules/visuals/allVisuals.js'
+
+  import { FeedbackFilter } from '@/components/molecules/elements/allElements.js'
+
+  import { FeedbackViz } from '@/components/molecules/visuals/allVisuals.js'
+
+  // import TagViz from '@/components/molecules/TagViz.svelte'
   export let title
+  export let data
 </script>
 
 <style lang="scss">
@@ -20,13 +28,20 @@
       display: grid;
       grid-template-columns: 3fr 2fr;
       grid-gap: $m30;
+      grid-template-rows: 15vh 15vh 15vh 15vh;
       article {
         background-color: white;
         &:nth-of-type(1) {
-          height: 70vh;
+          grid-column: 1;
+          grid-row: 1 / 5;
         }
         &:nth-of-type(2) {
-          height: 39vh;
+          grid-column: 2;
+          grid-row: 1 / 3;
+        }
+        &:nth-of-type(3) {
+          grid-column: 2;
+          grid-row: 3 / 5;
         }
       }
     }
@@ -37,10 +52,13 @@
   <FeedbackFilter />
   <section class="gridWrapper">
     <article id="vizOne">
-      <FeedbackViz />
+      <FeedbackViz {data} />
     </article>
     <article id="vizTwo">
-      <PolarViz title="Gevoelsmatige veiligheid" />
+      <!-- <TagViz {data} title="Onderwerpen verdeeld op basis van feedbacktag" /> -->
+    </article>
+    <article id="vizThree">
+      <!-- <TagViz {data} title="Onderwerpen verdeeld op basis van feedbacktag" /> -->
     </article>
   </section>
 </section>

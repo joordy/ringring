@@ -1,20 +1,6 @@
 <script>
   let src = 'ringring-logo.svg'
   export let segment
-  // $: console.log(segment)
-  // import { onMount } from 'svelte'
-
-  // onMount(() => {
-  //   const collapsedClass = 'nav-collapse'
-  //   const nav = document.querySelector('#navigation')
-  //   function toggleMenu(event) {
-  //     //count += 1
-  //     console.log('hello')
-  //     nav.classList.toggle(collapsedClass)
-  //   }
-  //   toggleMenu()
-  // })
-  // onMount()
 </script>
 
 <style lang="scss">

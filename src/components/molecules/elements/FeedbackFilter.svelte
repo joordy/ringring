@@ -1,5 +1,9 @@
 <script>
-  import DatePicker from '@/components/atoms/DatePicker.svelte'
+  import {
+    DatePicker,
+    SortPicker,
+    TagsFilter,
+  } from '@/components/atoms/elements/allElements.js'
 </script>
 
 <style lang="scss">
@@ -14,4 +18,6 @@
 
 <article>
   <DatePicker />
+  <SortPicker />
+  <TagsFilter />
 </article>

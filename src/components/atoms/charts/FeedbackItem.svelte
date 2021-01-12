@@ -1,7 +1,8 @@
 <script>
   import mapboxgl from 'mapbox-gl'
-
   import { onMount } from 'svelte'
+
+  export let data
 
   let createMap = () => {
     mapboxgl.accessToken =
@@ -14,9 +15,11 @@
       zoom: 10.6,
     })
   }
-  onMount(() => {
-    createMap()
-  })
+
+  onMount(createMap)
+  // onMount(() => {
+  //   createMap()
+  // })
 </script>
 
 <style lang="scss">
@@ -66,13 +69,11 @@
 <section>
   <article class="text">
     <div class="tags">
-      <h4>#fietspad</h4>
-      <h4>#oversteekpunt</h4>
+      {#each data.feedbackTag as item}
+        <h4>#{item}</h4>
+      {/each}
     </div>
-    <p>
-      Een onhandige indeling van het fietspad, waardoor je niet veilig kan
-      oversteken.
-    </p>
+    <p>{data.feedback}</p>
     <div class="timestamp">
       <h5>12 minuten geleden</h5>
     </div>

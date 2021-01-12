@@ -5,7 +5,7 @@ export const cleanedData = async () => {
   const rawData = await getData()
   const clean = await filterData(rawData)
   // const test = await abc(rawData)
-  // console.log(clean)
+  console.log(clean)
   return clean
 }
 
@@ -20,7 +20,7 @@ export const cleanedData = async () => {
 //     cat6: count,
 //   }
 //   rawData.forEach((elem) => {
-//     if (elem > 0 && elem.properties.distance < 5.999) {
+//     if (elem.properties.distance > 0 && elem.properties.distance < 5.999) {
 //       count++
 //       console.log('greather than 0')
 //     } else if (

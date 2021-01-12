@@ -1,10 +1,10 @@
 <script>
+  import { TabNavigation } from '@/components/molecules/elements/allElements.js'
+
   import {
     FeedContent,
     AccountInfo,
   } from '@/components/organisms/allOrganisms.js'
-
-  import TabNavigation from '@/components/molecules/TabNavigation.svelte'
 
   export let title
   export let data

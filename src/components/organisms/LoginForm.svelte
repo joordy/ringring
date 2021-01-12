@@ -1,5 +1,6 @@
 <script>
-  import Form from '@/components/molecules/Form.svelte'
+  import { FormField } from '@/components/molecules/elements/allElements.js'
+
   let src = 'ringring-logo.svg'
 </script>
 
@@ -53,7 +54,7 @@
       Log in met het account van de gemeente Amsterdam gedurende je registratie.
     </h3>
 
-    <Form />
+    <FormField />
   </section>
   <a href="/dashboard">Go quickly to dashboard</a>
 </article>
