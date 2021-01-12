@@ -6,6 +6,9 @@
 
   import { FeedbackFilter } from '@/components/molecules/elements/allElements.js'
 
+  import { FeedbackViz } from '@/components/molecules/visuals/allVisuals.js'
+
+  // import TagViz from '@/components/molecules/TagViz.svelte'
   export let title
   export let data
 </script>
@@ -49,7 +52,7 @@
   <FeedbackFilter />
   <section class="gridWrapper">
     <article id="vizOne">
-      <!-- <FeedbackViz {data} /> -->
+      <FeedbackViz {data} />
     </article>
     <article id="vizTwo">
       <!-- <TagViz {data} title="Onderwerpen verdeeld op basis van feedbacktag" /> -->

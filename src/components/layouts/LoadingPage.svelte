@@ -8,7 +8,7 @@
     if (item < text.length) {
       document.getElementById('text').innerHTML += text.charAt(item)
       item++
-      setTimeout(type, 5)
+      setTimeout(type, 10)
     }
   }
   onMount(type)

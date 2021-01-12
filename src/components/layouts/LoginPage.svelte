@@ -1,6 +1,5 @@
 <script>
-  import LoginForm from '@/components/organisms/LoginForm.svelte'
-  import LoginArt from '@/components/organisms/LoginArt.svelte'
+  import { LoginForm, LoginArt } from '@/components/organisms/allOrganisms.js'
 </script>
 
 <style lang="scss">

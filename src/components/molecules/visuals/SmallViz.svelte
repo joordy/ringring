@@ -3,7 +3,10 @@
   import { TextChart } from '@/components/atoms/charts/allCharts.js'
 
   export let title
-  export let data
+  export let valueNumber
+  export let compared
+  export let timeStamp
+  export let valueType
 </script>
 
 <style lang="scss">
@@ -24,6 +27,6 @@
 <div>
   <article>
     <VizHeader {title} />
-    <TextChart {data} />
+    <TextChart {valueNumber} {compared} {timeStamp} {valueType} />
   </article>
 </div>

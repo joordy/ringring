@@ -4,8 +4,6 @@
 
   export let data
 
-  onMount(createChart)
-
   function createChart() {
     let ctx = document.getElementById('myBarChart').getContext('2d')
     let myChart = new Chart(ctx, {
@@ -39,6 +37,8 @@
       },
     })
   }
+
+  onMount(createChart)
 </script>
 
 <style lang="scss">

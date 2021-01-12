@@ -4,8 +4,6 @@
 
   export let data
 
-  onMount(createMap)
-
   let createMap = () => {
     mapboxgl.accessToken =
       'pk.eyJ1Ijoiam9ycnIiLCJhIjoiY2tpcDE0bGoyMDJlMzJzcDlwZGI3bzFsOCJ9._J-m2YnN8Bmv2kEA99rZFg'
@@ -17,6 +15,8 @@
       zoom: 10.6,
     })
   }
+
+  onMount(createMap)
   // onMount(() => {
   //   createMap()
   // })

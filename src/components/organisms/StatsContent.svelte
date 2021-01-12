@@ -142,10 +142,22 @@
       <LineViz title="Drukte gedurende de dag" {data} />
     </article>
     <article id="vizFour">
-      <SmallViz title="Aantal fietsritten" {data} />
+      <SmallViz
+        title="Aantal fietsritten"
+        valueNumber={data.dataset.features.length}
+        compared="+ 5.4%"
+        timeStamp="vorige maand"
+        valueType="ritten"
+      />
     </article>
     <article id="vizFive">
-      <SmallViz title="Gemiddelde duur fietsrit" {data} />
+      <SmallViz
+        title="Gemiddelde duur fietsrit"
+        valueNumber="20"
+        compared="— 20%"
+        timeStamp="vorige maand"
+        valueType="min"
+      />
     </article>
     <!-- <article id="vizOne">
       <SmallViz title="Fietsritten" />

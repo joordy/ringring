@@ -10,7 +10,6 @@ export const filterData = (rawData) => {
 }
 
 const createChartdata = (rawData) => {
-  console.log('hello, this is soon to be chartdata')
   const barchart = createBarchart(rawData)
   const linechart = createLinechart(rawData)
   const lineTest = createLinechartTest(rawData)
@@ -108,15 +107,32 @@ const createLinechart = (rawData) => {
 }
 
 const createLinechartTest = (rawData) => {
-  let d = new Date('2020-01-31T01:01:13Z')
-  console.log(d)
-  console.log(d.getUTCHours())
-  console.log(d.getUTCMinutes())
-  console.log(d.getUTCDay())
-  console.log(d.getUTCMonth())
-  console.log(d.getUTCDate())
+  let count = 0
+  let lineData = {
+    jan1: count,
+    jan2: count,
+    jan3: count,
+    jan4: count,
+    jan5: count,
+    jan6: count,
+  }
+  // let d = new Date('2020-01-31T01:01:13Z')
+  // console.log(d)
+  // console.log(d.getUTCHours())
+  // console.log(d.getUTCMinutes())
+  // console.log(d.getUTCDay())
+  // console.log(d.getUTCMonth())
+  // console.log(d.getUTCDate())
 
-  let date = `${d.getUTCHours()}:${d.getUTCMinutes()}`
-  console.log(date)
-  return [5, 5, 6, 7, 8, 9, 5, 12, 13, 15, 15, 20, 23, 17, 18, 20, 12]
+  // let date = `${d.getUTCHours()}:${d.getUTCMinutes()}`
+  // console.log(date)
+  return [
+    lineData.jan1,
+    lineData.jan2,
+    lineData.jan3,
+    lineData.jan4,
+    lineData.jan5,
+    lineData.jan6,
+  ]
+  // return [5, 5, 6, 7, 8, 9, 5, 12, 13, 15, 15, 20, 23, 17, 18, 20, 12]
 }
