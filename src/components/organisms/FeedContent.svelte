@@ -2,7 +2,9 @@
   import FeedbackFilter from '@/components/molecules/FeedbackFilter.svelte'
   import FeedbackViz from '@/components/molecules/visuals/FeedbackViz.svelte'
   import PolarViz from '@/components/molecules/visuals/PolarViz.svelte'
+
   export let title
+  export let data
 </script>
 
 <style lang="scss">
@@ -23,7 +25,7 @@
       article {
         background-color: white;
         &:nth-of-type(1) {
-          height: 70vh;
+          height: 75vh;
         }
         &:nth-of-type(2) {
           height: 39vh;
@@ -37,10 +39,10 @@
   <FeedbackFilter />
   <section class="gridWrapper">
     <article id="vizOne">
-      <FeedbackViz />
+      <FeedbackViz {data} />
     </article>
     <article id="vizTwo">
-      <PolarViz title="Gevoelsmatige veiligheid" />
+      <PolarViz {data} title="Onderwerpen verdeeld op basis van feedbacktag" />
     </article>
   </section>
 </section>

@@ -5,6 +5,8 @@
   import { chart } from 'chart.js'
 
   export let title
+  export let data
+
   function createChart() {
     let ctx = document.getElementById('myBarChart').getContext('2d')
     let myChart = new Chart(ctx, {
@@ -47,7 +49,8 @@
   div {
     width: 100%;
     height: 100%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2),
+      0 4px 10px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     article {
       width: calc(100% - 30px);
@@ -70,12 +73,14 @@
 
 <div id="barchart">
   <article class="barViz">
-    <VizTitle {title} />
+    <VizTitle {data} {title} />
     <div class="graph">
-      <canvas id="myBarChart" aria-label="Chart about rides" role="chart"><p>
+      <canvas id="myBarChart" aria-label="Chart about rides">
+        <p>
           Your browser does not support this chart. Please visit a recent
           updated browser.
-        </p></canvas>
+        </p>
+      </canvas>
     </div>
   </article>
 </div>

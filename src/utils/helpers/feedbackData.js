@@ -2,21 +2,14 @@ export const feedbackData = [
   {
     userID: 1,
     route: {
-      type: 'test',
+      geometry: {
+        coordinates: [1, 1],
+      },
+      type: 'Feature',
     },
     feedback: 'lorem ipsum dolor sit amet',
-    feedbackTag: ['fietspad'],
+    feedbackTag: ['fietspad', 'oversteekpunt'],
     stadsdeel: 'centrum',
-    gevoelVeiligheid: 2,
-  },
-  {
-    userID: 2,
-    route: {
-      type: 'test',
-    },
-    feedback: 'lorem ipsum dolor sit amet',
-    feedbackTag: ['fietspad'],
-    stadsdeel: 'centrum',
-    gevoelVeiligheid: 2,
+    gevoelsVeiligheid: 2,
   },
 ]
