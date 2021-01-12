@@ -4,10 +4,9 @@
     MapViz,
     BarViz,
     LineViz,
-  } from '@/components/molecules/visuals/visuals.js'
-  import StatFilter from '@/components/molecules/StatFilter.svelte'
+  } from '@/components/molecules/visuals/allVisuals.js'
 
-  $: console.log(data)
+  import { StatFilter } from '@/components/molecules/elements/allElements.js'
 
   export let data
 </script>
@@ -143,10 +142,10 @@
       <LineViz title="Drukte gedurende de dag" {data} />
     </article>
     <article id="vizFour">
-      <SmallViz title="Aantal fietsritten" />
+      <SmallViz title="Aantal fietsritten" {data} />
     </article>
     <article id="vizFive">
-      <SmallViz title="Gemiddelde duur fietsrit" />
+      <SmallViz title="Gemiddelde duur fietsrit" {data} />
     </article>
     <!-- <article id="vizOne">
       <SmallViz title="Fietsritten" />

@@ -12,7 +12,6 @@ export const filterData = (rawData) => {
 const createChartdata = (rawData) => {
   console.log('hello, this is soon to be chartdata')
   const barchart = createBarchart(rawData)
-  // const barTest = createBarchartTest(rawData)
   const linechart = createLinechart(rawData)
   const lineTest = createLinechartTest(rawData)
   const startPosition = getStartLocation(rawData)
@@ -28,15 +27,12 @@ const createChartdata = (rawData) => {
   }
 }
 
-// const createBarchart = (rawData) => {
-//   return [30, 54, 20, 34, 15, 2]
-// }
-
 const getStartLocation = (rawData) => {
   const res = rawData.features.map((item) => {
+    const specificCoordinate = item.geometry.coordinates[0]
     return {
       geometry: {
-        coordinates: item.geometry.coordinates[0],
+        coordinates: checkForValue(specificCoordinate),
       },
       type: 'Feature',
     }
@@ -49,9 +45,10 @@ const getStartLocation = (rawData) => {
 
 const getEndLocation = (rawData) => {
   const res = rawData.features.map((item) => {
+    const specificCoordinate = item.geometry.coordinates.length - 1
     return {
       geometry: {
-        coordinates: item.geometry.coordinates.length - 1,
+        coordinates: checkForValue(specificCoordinate),
       },
       type: 'Feature',
     }
@@ -59,6 +56,14 @@ const getEndLocation = (rawData) => {
   return {
     type: 'FeatureCollection',
     features: res,
+  }
+}
+
+const checkForValue = (specificCoordinate) => {
+  if (specificCoordinate === undefined) {
+    return null
+  } else {
+    return specificCoordinate
   }
 }
 

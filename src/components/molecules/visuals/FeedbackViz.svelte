@@ -1,14 +1,10 @@
 <script>
-  import FeedbackItem from '@/components/atoms/FeedbackItem.svelte'
+  import { FeedbackItem } from '@/components/atoms/charts/allCharts.js'
 
   export let title
   export let data
 
   let feedbackData = data.feedbackData
-
-  let valuenumber = '15'
-  let compared = '20%'
-  let timestamp = 'gisteren'
 </script>
 
 <style lang="scss">

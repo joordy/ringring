@@ -1,4 +1,17 @@
 <script>
+  import { onMount } from 'svelte'
+
+  let item = 0
+  let text = 'De data wordt binnen gefietst...'
+
+  const type = () => {
+    if (item < text.length) {
+      document.getElementById('text').innerHTML += text.charAt(item)
+      item++
+      setTimeout(type, 5)
+    }
+  }
+  onMount(type)
 </script>
 
 <style lang="scss">
@@ -67,6 +80,31 @@
     }
     to {
       transform: rotateY(10deg);
+    }
+  }
+  #main {
+    width: 100vw;
+    height: 50px;
+    p {
+      text-align: center;
+    }
+    #text {
+      font-size: 2rem;
+    }
+    .line {
+      animation: animateLine 0.5s infinite linear;
+    }
+  }
+
+  @keyframes animateLine {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
     }
   }
 </style>
@@ -279,5 +317,9 @@
         </g>
       </g>
     </svg>
+  </div>
+
+  <div id="main">
+    <p><span id="text" /><span class="line" /></p>
   </div>
 </section>

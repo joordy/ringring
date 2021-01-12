@@ -1,7 +1,10 @@
 <script>
-  import FeedbackFilter from '@/components/molecules/FeedbackFilter.svelte'
-  import FeedbackViz from '@/components/molecules/visuals/FeedbackViz.svelte'
-  import PolarViz from '@/components/molecules/visuals/PolarViz.svelte'
+  // import {
+  //   FeedbackViz,
+  //   TagViz,
+  // } from '@/components/molecules/visuals/allVisuals.js'
+
+  import { FeedbackFilter } from '@/components/molecules/elements/allElements.js'
 
   export let title
   export let data
@@ -46,13 +49,13 @@
   <FeedbackFilter />
   <section class="gridWrapper">
     <article id="vizOne">
-      <FeedbackViz {data} />
+      <!-- <FeedbackViz {data} /> -->
     </article>
     <article id="vizTwo">
-      <PolarViz {data} title="Onderwerpen verdeeld op basis van feedbacktag" />
+      <!-- <TagViz {data} title="Onderwerpen verdeeld op basis van feedbacktag" /> -->
     </article>
     <article id="vizThree">
-      <PolarViz {data} title="Onderwerpen verdeeld op basis van feedbacktag" />
+      <!-- <TagViz {data} title="Onderwerpen verdeeld op basis van feedbacktag" /> -->
     </article>
   </section>
 </section>

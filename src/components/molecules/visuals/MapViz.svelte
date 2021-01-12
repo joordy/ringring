@@ -1,9 +1,14 @@
 <script>
-  import MapTabs from '@/components/atoms/MapTabs.svelte'
-  import VizTitle from '@/components/atoms/VizHeader.svelte'
-  import MapAllRoutes from '@/components/atoms/MapAllRoutes.svelte'
-  import MapEndpoint from '@/components/atoms/MapEndpoint.svelte'
-  import MapStartpoint from '@/components/atoms/MapStartpoint.svelte'
+  import {
+    MapAllRoutes,
+    MapEndpoint,
+    MapStartpoint,
+  } from '@/components/atoms/charts/allCharts.js'
+
+  import {
+    VizHeader,
+    MapTabs,
+  } from '@/components/atoms/elements/allElements.js'
 
   export let data
   export let title
@@ -32,7 +37,7 @@
 
 <div id="mapchart">
   <article class="mapViz">
-    <VizTitle {title} />
+    <VizHeader {title} />
 
     <MapTabs {activeItem} {items} on:tabChange={tabChange} />
 
