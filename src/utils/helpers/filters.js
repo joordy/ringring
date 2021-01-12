@@ -14,6 +14,7 @@ const createChartdata = (rawData) => {
   const barchart = createBarchart(rawData)
   // const barTest = createBarchartTest(rawData)
   const linechart = createLinechart(rawData)
+  const lineTest = createLinechartTest(rawData)
   const startPosition = getStartLocation(rawData)
   const lastPosition = getEndLocation(rawData)
 
@@ -21,6 +22,7 @@ const createChartdata = (rawData) => {
     barChart: barchart,
     // barTest: barTest,
     lineChart: linechart,
+    lineTest: lineTest,
     positionStart: startPosition,
     positionEnd: lastPosition,
   }
@@ -29,10 +31,6 @@ const createChartdata = (rawData) => {
 // const createBarchart = (rawData) => {
 //   return [30, 54, 20, 34, 15, 2]
 // }
-
-const createLinechart = (rawData) => {
-  return [5, 5, 6, 7, 8, 9, 5, 12, 13, 15, 15, 20, 23, 17, 18, 20, 12]
-}
 
 const getStartLocation = (rawData) => {
   const res = rawData.features.map((item) => {
@@ -76,30 +74,6 @@ const createBarchart = (rawData) => {
   }
   rawData.features.forEach((elem) => {
     let dist = elem.properties.distance
-
-    // switch (dist) {
-    //   case dist > 0 && dist < 5.999:
-    //     barData.cat1++
-    //     break
-    //   case dist > 6 && dist < 10.999:
-    //     barData.cat2++
-    //     break
-    //   case dist > 11 && dist < 15.999:
-    //     barData.cat3++
-    //     break
-    //   case dist > 16 && dist < 20.999:
-    //     barData.cat4++
-    //     break
-    //   case dist > 21 && dist < 25.999:
-    //     barData.cat5++
-    //     break
-    //   case dist > 26:
-    //     barData.cat6++
-    //     break
-
-    //   default:
-    //     break
-    // }
     if (dist > 0 && dist < 5.999) {
       barData.cat1++
     } else if (dist > 6 && dist < 10.999) {
@@ -114,7 +88,6 @@ const createBarchart = (rawData) => {
       barData.cat6++
     }
   })
-  console.log(barData)
   return [
     barData.cat1,
     barData.cat2,
@@ -123,4 +96,22 @@ const createBarchart = (rawData) => {
     barData.cat5,
     barData.cat6,
   ]
+}
+
+const createLinechart = (rawData) => {
+  return [5, 5, 6, 7, 8, 9, 5, 12, 13, 15, 15, 20, 23, 17, 18, 20, 12]
+}
+
+const createLinechartTest = (rawData) => {
+  let d = new Date('2020-01-31T01:01:13Z')
+  console.log(d)
+  console.log(d.getUTCHours())
+  console.log(d.getUTCMinutes())
+  console.log(d.getUTCDay())
+  console.log(d.getUTCMonth())
+  console.log(d.getUTCDate())
+
+  let date = `${d.getUTCHours()}:${d.getUTCMinutes()}`
+  console.log(date)
+  return [5, 5, 6, 7, 8, 9, 5, 12, 13, 15, 15, 20, 23, 17, 18, 20, 12]
 }
