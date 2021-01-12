@@ -22,13 +22,20 @@
       display: grid;
       grid-template-columns: 3fr 2fr;
       grid-gap: $m30;
+      grid-template-rows: 15vh 15vh 15vh 15vh;
       article {
         background-color: white;
         &:nth-of-type(1) {
-          height: 75vh;
+          grid-column: 1;
+          grid-row: 1 / 5;
         }
         &:nth-of-type(2) {
-          height: 39vh;
+          grid-column: 2;
+          grid-row: 1 / 3;
+        }
+        &:nth-of-type(3) {
+          grid-column: 2;
+          grid-row: 3 / 5;
         }
       }
     }
@@ -42,6 +49,9 @@
       <FeedbackViz {data} />
     </article>
     <article id="vizTwo">
+      <PolarViz {data} title="Onderwerpen verdeeld op basis van feedbacktag" />
+    </article>
+    <article id="vizThree">
       <PolarViz {data} title="Onderwerpen verdeeld op basis van feedbacktag" />
     </article>
   </section>

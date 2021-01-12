@@ -71,6 +71,7 @@
           yAxes: [
             {
               ticks: {
+                max: 24,
                 beginAtZero: true,
               },
             },
