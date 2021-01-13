@@ -37,9 +37,18 @@
         maintainAspectRatio: false,
         onResize: null,
         scales: {
+          xAxes: [
+            {
+              ticks: {
+                fontFamily: 'IBM Plex Mono, sans-serif',
+              },
+            },
+          ],
           yAxes: [
             {
               ticks: {
+                fontFamily: 'IBM Plex Mono, sans-serif',
+                max: 24,
                 beginAtZero: true,
               },
             },

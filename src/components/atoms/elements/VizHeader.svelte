@@ -7,7 +7,7 @@
   h4 {
     color: $ui-dark-blue;
     font-size: $Heading4;
-    font-weight: 700;
+    font-weight: 500;
     margin-bottom: $m10;
   }
 </style>
