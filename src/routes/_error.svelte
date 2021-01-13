@@ -1,4 +1,5 @@
 <script>
+  import ErrorPage from '@/components/layouts/ErrorPage.svelte'
   export let status
   export let error
 
@@ -32,12 +33,4 @@
   <title>{status}</title>
 </svelte:head>
 
-<h1>{status}</h1>
-
-<p>{error.message}</p>
-
-<p>lorem</p>
-
-{#if dev && error.stack}
-  <pre>{error.stack}</pre>
-{/if}
+<ErrorPage {error} {status} />
