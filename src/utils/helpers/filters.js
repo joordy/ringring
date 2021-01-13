@@ -15,9 +15,10 @@ const createChartdata = (rawData) => {
   const lineTest = createLinechartTest(rawData)
   const startPosition = getStartLocation(rawData)
   const lastPosition = getEndLocation(rawData)
-
+  const averageDuration = getAvgTime(rawData)
   return {
     barChart: barchart,
+    averageTime: averageDuration,
     // barTest: barTest,
     lineChart: linechart,
     lineTest: lineTest,
@@ -103,7 +104,47 @@ const createBarchart = (rawData) => {
 }
 
 const createLinechart = (rawData) => {
-  return [5, 5, 6, 7, 8, 9, 5, 12, 13, 15, 15, 20, 23, 17, 18, 20, 12]
+  return [
+    // 0030,
+    // 0040,
+    // 0010,
+    // 2400,
+    // 0100,
+    // 0500,
+    // 1000,
+    // 2000,
+    6,
+    7,
+    8,
+    9,
+    5,
+    12,
+    13,
+    15,
+    15,
+    20,
+    // 23,
+    // 17,
+    // 18,
+    // 20,
+    // 12,
+    // 5,
+    // 5,
+    // 6,
+    // 7,
+    // 8,
+    // 9,
+    // 5,
+    // 12,
+    // 13,
+    // 15,
+    // 15,
+    // 20,
+    // 23,
+    // 17,
+    // 18,
+    // 20,
+  ]
 }
 
 const createLinechartTest = (rawData) => {
@@ -135,4 +176,8 @@ const createLinechartTest = (rawData) => {
     lineData.jan6,
   ]
   // return [5, 5, 6, 7, 8, 9, 5, 12, 13, 15, 15, 20, 23, 17, 18, 20, 12]
+}
+
+const getAvgTime = (rawData) => {
+  console.log(rawData)
 }

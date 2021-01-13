@@ -1,5 +1,5 @@
 <script>
-  import { cleanedData } from '../utils/cleanData.js'
+  import { cleanedData } from '../../utils/cleanData.js'
   import { onMount } from 'svelte'
 
   import DashBoard from '@/components/layouts/DashBoard.svelte'
