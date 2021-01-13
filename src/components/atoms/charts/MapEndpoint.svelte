@@ -5,6 +5,8 @@
   export let data
 
   onMount(() => {
+    let mapPoint = 'mapPoint.png'
+
     mapboxgl.accessToken =
       'pk.eyJ1Ijoiam9ycnIiLCJhIjoiY2tpcDE0bGoyMDJlMzJzcDlwZGI3bzFsOCJ9._J-m2YnN8Bmv2kEA99rZFg'
     const map = new mapboxgl.Map({
@@ -13,43 +15,25 @@
       center: [4.9, 52.38],
       zoom: 11.6,
     })
-    // map.on('load', function () {
-    //   map.addSource('routes', {
-    //     type: 'geojson',
-    //     data: data.charts.positionEnd,
-    //   })
-    //   map.addLayer({
-    //     id: 'points',
-    //     type: 'symbol',
-    //     source: 'routes',
-    //     layout: {
-    //       'text-field': ['get', 'title'],
-    //       'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-    //       'text-offset': [0, 1.25],
-    //       'text-anchor': 'top',
-    //     },
-    //   })
-    // })
-    // data.charts.positionEnd.features.forEach(function (marker) {
-    //   // create a HTML element for each feature
-    //   var el = document.createElement('div')
-    //   el.className = 'marker'
 
-    //   // make a marker for each feature and add to the map
-    //   new mapboxgl.Marker(el)
-    //     .setLngLat(marker.geometry.coordinates)
-    //     .setPopup(
-    //       new mapboxgl.Popup({ offset: 25 }) // add popups
-    //         .setHTML(
-    //           '<h3>' +
-    //             marker.properties.title +
-    //             '</h3><p>' +
-    //             marker.properties.description +
-    //             '</p>'
-    //         )
-    //     )
-    //     .addTo(map)
-    // })
+    map.on('load', function () {
+      map.loadImage(mapPoint, function (error, image) {
+        if (error) throw error
+        map.addImage('custom-marker', image)
+        map.addSource('points', {
+          type: 'geojson',
+          data: data.charts.positionStart,
+        })
+        map.addLayer({
+          id: 'points',
+          type: 'symbol',
+          source: 'points',
+          layout: {
+            'icon-image': 'custom-marker',
+          },
+        })
+      })
+    })
   })
 </script>
 

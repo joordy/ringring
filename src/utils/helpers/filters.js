@@ -31,10 +31,11 @@ const getStartLocation = (rawData) => {
   const res = rawData.features.map((item) => {
     const specificCoordinate = item.geometry.coordinates[0]
     return {
+      type: 'Feature',
       geometry: {
+        type: 'Point',
         coordinates: checkForValue(specificCoordinate),
       },
-      type: 'Feature',
     }
   })
   return {
@@ -47,10 +48,11 @@ const getEndLocation = (rawData) => {
   const res = rawData.features.map((item) => {
     const specificCoordinate = item.geometry.coordinates.length - 1
     return {
+      type: 'Feature',
       geometry: {
+        type: 'Point',
         coordinates: checkForValue(specificCoordinate),
       },
-      type: 'Feature',
     }
   })
   return {
@@ -60,8 +62,8 @@ const getEndLocation = (rawData) => {
 }
 
 const checkForValue = (specificCoordinate) => {
-  if (specificCoordinate === undefined) {
-    return null
+  if (!specificCoordinate) {
+    return [4.9, 52.38]
   } else {
     return specificCoordinate
   }

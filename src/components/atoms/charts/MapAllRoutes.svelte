@@ -40,6 +40,7 @@
     #map {
       box-shadow: none;
       canvas {
+        width: 100% !important;
         max-height: 100%;
         max-width: 100%;
       }

@@ -5,6 +5,8 @@
   export let data
 
   onMount(() => {
+    let mapPoint = 'mapPoint.png'
+
     mapboxgl.accessToken =
       'pk.eyJ1Ijoiam9ycnIiLCJhIjoiY2tpcDE0bGoyMDJlMzJzcDlwZGI3bzFsOCJ9._J-m2YnN8Bmv2kEA99rZFg'
     const map = new mapboxgl.Map({
@@ -13,21 +15,23 @@
       center: [4.9, 52.38],
       zoom: 11.6,
     })
+
     map.on('load', function () {
-      map.addSource('routes', {
-        type: 'geojson',
-        data: data.charts.positionStart,
-      })
-      map.addLayer({
-        id: 'maine',
-        type: 'symbol',
-        source: 'routes',
-        layout: {},
-        paint: {
-          'icon-color': '#EC4E4E',
-          // 'line-width': 2,
-          // 'line-opacity': 0.3,
-        },
+      map.loadImage(mapPoint, function (error, image) {
+        if (error) throw error
+        map.addImage('custom-marker', image)
+        map.addSource('points', {
+          type: 'geojson',
+          data: data.charts.positionStart,
+        })
+        map.addLayer({
+          id: 'points',
+          type: 'symbol',
+          source: 'points',
+          layout: {
+            'icon-image': 'custom-marker',
+          },
+        })
       })
     })
   })

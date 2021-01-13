@@ -42,11 +42,11 @@
     <MapTabs {activeItem} {items} on:tabChange={tabChange} />
 
     {#if activeItem === 'Alle routes'}
-      <MapEndpoint {data} />
-    {:else if activeItem === 'Startpunt'}
       <MapAllRoutes {data} />
-    {:else if activeItem === 'eindpunt'}
+    {:else if activeItem === 'Startpunt'}
       <MapStartpoint {data} />
+    {:else if activeItem === 'eindpunt'}
+      <MapEndpoint {data} />
     {/if}
   </article>
 </div>

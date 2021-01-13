@@ -82,7 +82,10 @@
       transform: rotateY(10deg);
     }
   }
+
   #main {
+    position: relative;
+    bottom: 220px;
     width: 100vw;
     height: 50px;
     p {

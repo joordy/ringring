@@ -46,6 +46,9 @@
         color: $ui-red;
         margin-right: $m5;
       }
+      &::-webkit-calendar-picker-indicator {
+        opacity: 0;
+      }
     }
     h4 {
       margin-bottom: $m30;
