@@ -2,6 +2,7 @@
 </script>
 
 <slot />
+
 <!-- <LoadingPage /> -->
 <!-- // import LoadingPage from '@/components/layouts/LoadingPage.svelte'
   // import ErrorPage from '@/components/layouts/ErrorPage.svelte'
