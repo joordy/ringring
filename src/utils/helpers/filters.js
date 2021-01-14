@@ -1,6 +1,7 @@
 import { feedbackData } from './feedbackData.js'
 
 export const filterData = (rawData) => {
+  // console.log(rawData)
   return {
     dataset: rawData,
     charts: createChartdata(rawData),

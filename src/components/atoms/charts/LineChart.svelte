@@ -69,6 +69,7 @@
             {
               ticks: {
                 fontFamily: 'IBM Plex Mono, sans-serif',
+                fontSize: 10,
               },
             },
           ],

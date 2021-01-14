@@ -2,7 +2,6 @@
   import { onMount } from 'svelte'
   import { chart } from 'chart.js'
 
-  export let title
   export let data
 
   function createChart() {

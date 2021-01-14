@@ -22,22 +22,22 @@
         }
         h1 {
           line-height: 40px;
-          font-size: 20px;
-          font-weight: 700;
-          margin-left: 10px;
+          font-size: $Heading4;
+          font-weight: $extra-bold;
+          margin-left: $m10;
         }
       }
       h2 {
         width: 100%;
-        font-size: 32px;
-        font-weight: 700;
-        margin: 64px 0 20px 0;
+        font-size: $Heading1;
+        font-weight: $extra-bold;
+        margin: $m60 0 $m20 0;
       }
       h3 {
-        font-size: 16px;
+        font-size: $Heading5;
         opacity: 0.6;
-        font-weight: 700;
-        margin-bottom: 70px;
+        font-weight: $extra-bold;
+        margin-bottom: $m70;
       }
     }
   }

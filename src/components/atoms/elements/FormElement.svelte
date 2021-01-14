@@ -9,20 +9,20 @@
   @import 'src/styles/index.scss';
 
   div {
-    margin-bottom: 20px;
+    margin-bottom: $m20;
     label {
       display: block;
-      font-weight: 700;
-      margin-bottom: 5px;
+      font-weight: $extra-bold;
+      margin-bottom: $m5;
     }
     input[type='text'],
     input[type='password'] {
       width: calc(100% - 10px);
-      padding: 10px 5px;
-      border-radius: 5px;
+      padding: $m10 $m5;
+      border-radius: $borderS;
       border: 1px solid #c4c4c4;
       &:focus {
-        border: 1px solid $ui-dark-blue;
+        border: 1px solid $ui-darkblue;
       }
     }
   }

@@ -6,7 +6,6 @@
     height: 35vh;
     position: relative;
     bottom: 0;
-    // background-color: hotpink;
     z-index: 1;
     overflow: hidden;
     .bikeAnim {
@@ -15,7 +14,7 @@
       svg {
         width: 100vw;
         #Bike {
-          animation: bicycle 3s linear infinite;
+          animation: bicycle 4s linear infinite;
           transform-origin: center;
         }
         #Frontwheel,
@@ -26,7 +25,7 @@
           transform-box: fill-box;
         }
         #Frontwheel {
-          animation: wheelLost 3s linear infinite;
+          animation: wheelLost 4s linear infinite;
           transform-origin: center;
         }
       }
@@ -36,7 +35,7 @@
       margin: 0 auto;
       left: 0;
       right: 0;
-      bottom: 30px;
+      bottom: $m30;
       svg {
         width: 120%;
         margin-left: -10%;
@@ -46,10 +45,10 @@
 
   @keyframes bicycle {
     0% {
-      transform: translateX(-50vw);
+      transform: translateX(-60vw);
     }
     100% {
-      transform: translateX(50vw);
+      transform: translateX(60vw);
     }
   }
   @keyframes wheel {
@@ -61,11 +60,11 @@
     }
   }
   @keyframes wheelLost {
-    0% {
-      transform: translateX(0);
+    from {
+      transform: translateX(0) rotateZ(0deg);
     }
-    100% {
-      transform: translateX(20vw);
+    to {
+      transform: translateX(200px) rotateZ(360deg);
     }
   }
 </style>

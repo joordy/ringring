@@ -23,8 +23,8 @@
     div {
       height: 48px;
       width: 48px;
-      border-radius: 50%;
-      border: 1px solid $ui-traffic-red;
+      border-radius: $borderRound;
+      border: 1px solid $ui-red;
       overflow: hidden;
       img {
         width: 100%;

@@ -7,14 +7,14 @@
 
   article {
     color: $ui-white;
-    background-color: $ui-traffic-red;
+    background-color: $ui-red;
     padding: 0 150px;
     section {
       width: 350px;
       margin: 0 auto;
       text-align: center;
       h2 {
-        margin: 0 0 20px 0;
+        margin: 0 0 $m20 0;
       }
       h3 {
         margin: 0;
@@ -29,7 +29,7 @@
   <FormArtWork />
 
   <section>
-    <h2>Keeping the overview.</h2>
+    <h2>Up to data.</h2>
     <h3>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nisl
       vivamus a, tincidunt ultrices.

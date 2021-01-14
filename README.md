@@ -58,6 +58,7 @@ localhost:3000
 ##### Data Charts
 
 - [Chart.js](https://www.chartjs.org/docs/latest/)
+- [Chart.js Labeling](https://www.chartjs.org/docs/latest/axes/labelling.html)
 
 ## :lock: License
 

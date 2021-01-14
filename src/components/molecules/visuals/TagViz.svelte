@@ -14,11 +14,11 @@
     height: 100%;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2),
       0 4px 10px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 5px;
+    border-radius: $borderS;
     article {
       width: calc(100% - 30px);
       height: calc(100% - 40px);
-      padding: $margin-3 $margin-4;
+      padding: $m15 $m20;
     }
   }
 </style>

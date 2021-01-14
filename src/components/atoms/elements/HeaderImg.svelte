@@ -20,8 +20,8 @@
       }
       h1 {
         line-height: 48px;
-        margin-left: $margin-10;
-        font-size: 28px;
+        margin-left: $m10;
+        font-size: $Heading2;
         font-weight: $bold;
       }
     }

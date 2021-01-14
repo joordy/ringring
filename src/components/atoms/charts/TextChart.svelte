@@ -26,22 +26,22 @@
 <style lang="scss">
   @import 'src/styles/index.scss';
 
-  h5 {
+  h4 {
     span {
-      margin-top: -5px !important;
+      margin-top: -$m5 !important;
       font-weight: $bold;
       &:nth-of-type(1) {
-        font-size: 32px;
+        font-size: $Heading1;
       }
       &:nth-of-type(2) {
-        font-size: 20px;
+        font-size: $Heading4;
       }
     }
   }
-  h6 {
-    font-weight: 500;
+  h5 {
+    font-weight: $semi-bold;
     margin-top: $m10;
-    font-size: 16px;
+    font-size: $Heading5;
   }
   .positive {
     color: $ui-traffic-green;
@@ -51,9 +51,9 @@
   }
 </style>
 
-<h5><span>{valueNumber}</span> <span>{valueType}</span></h5>
+<h4><span>{valueNumber}</span> <span>{valueType}</span></h4>
 {#if symbol === '+'}
-  <h6 class="positive">{compared} t.o.v. {timeStamp}</h6>
+  <h5 class="positive">{compared} t.o.v. {timeStamp}</h5>
 {:else if symbol === '—'}
-  <h6 class="negative">{compared} t.o.v. {timeStamp}</h6>
+  <h5 class="negative">{compared} t.o.v. {timeStamp}</h5>
 {/if}

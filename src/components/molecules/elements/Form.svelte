@@ -10,17 +10,17 @@
     div {
       &:nth-of-type(1),
       &:nth-of-type(2) {
-        margin-bottom: 20px;
+        margin-bottom: $m20;
         label {
           display: block;
-          font-weight: 700;
-          margin-bottom: 5px;
+          font-weight: $extra-bold;
+          margin-bottom: $m5;
         }
         input[type='email'],
         input[type='password'] {
           width: calc(100% - 10px);
-          padding: 10px 5px;
-          border-radius: 5px;
+          padding: $m10 $m5;
+          border-radius: $borderS;
           border: 1px solid #c4c4c4;
           &:focus {
             border: 1px solid $ui-dark-blue;
@@ -35,47 +35,45 @@
       display: block;
       background-color: $ui-traffic-red;
       color: $ui-white;
-      padding: 10px 0;
-      border-radius: 5px;
-      margin-bottom: 10px;
+      padding: $m10 0;
+      border-radius: $borderS;
+      margin-bottom: $m10;
     }
   }
   div {
-    margin-bottom: 20px;
+    margin-bottom: $m20;
     &:nth-of-type(3) {
       display: flex;
       input[type='checkbox'] {
         height: 24px;
         width: 24px;
-        border-radius: 5px;
-        border: 1px solid #c4c4c4;
+        border-radius: $borderS;
+        border: 1px solid $ui-grey;
       }
       label {
-        font-weight: 400;
-        color: #909090;
-        margin-left: 10px;
+        font-weight: $medium;
+        color: $ui-grey;
+        margin-left: $m10;
       }
     }
   }
 
   p {
     text-align: right;
-    font-size: 14px;
-    margin: 5px 0;
-    a {
+    font-size: $small-font-size;
+    margin: $m5 0;
+    span {
       color: $ui-traffic-red;
-      font-weight: 700;
+      font-weight: $extra-bold;
       &::after {
-        padding-left: 5px;
+        padding-left: $m5;
         font-family: FontAwesome;
         content: '\f061';
       }
     }
   }
-  // }
 </style>
 
-<!-- <form action=""> -->
 <fieldset>
   <div>
     <label for="email">E-mail</label>
@@ -86,7 +84,6 @@
     <input type="password" placeholder="Voer je wachtwoord in" />
   </div>
 
-  <!-- <input type="submit" value="Inloggen" /> -->
   <button>inloggen</button>
   <div>
     <input type="checkbox" />
@@ -94,7 +91,5 @@
   </div>
 </fieldset>
 
-<p>Heb je nog geen account? <a>Schrijf je in</a></p>
-<p><a>Wachtwoord vergeten?</a></p>
-
-<!-- </form> -->
+<p>Heb je nog geen account? <span>Schrijf je in</span></p>
+<p><span>Wachtwoord vergeten?</span></p>

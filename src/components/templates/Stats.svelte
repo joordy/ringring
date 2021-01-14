@@ -6,7 +6,6 @@
     AccountInfo,
   } from '@/components/organisms/allOrganisms.js'
 
-  export let title
   export let data
 </script>
 
@@ -29,7 +28,7 @@
 </style>
 
 <svelte:head>
-  <title>Dashboard — Statistieken</title>
+  <title>Statiestieken Dashboard | Ring-Ring</title>
 </svelte:head>
 
 <section>

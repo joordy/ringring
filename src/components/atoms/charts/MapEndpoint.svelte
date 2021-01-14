@@ -43,19 +43,11 @@
     height: calc(100% - 40px);
     #map {
       box-shadow: none;
-      canvas {
-        max-height: 100%;
-        max-width: 100%;
-      }
+      // canvas {
+      //   max-height: 100%;
+      //   max-width: 100%;
+      // }
     }
-  }
-  .marker {
-    background-image: url('marker.png');
-    background-size: cover;
-    width: 50px;
-    height: 50px;
-    border-radius: 30%;
-    cursor: pointer;
   }
 </style>
 

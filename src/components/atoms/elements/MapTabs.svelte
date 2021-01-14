@@ -12,8 +12,8 @@
 
   div {
     position: absolute;
-    top: 15px;
-    right: 20px;
+    top: $m15;
+    right: $m20;
     z-index: 1;
     ul {
       display: flex;
@@ -28,18 +28,6 @@
       }
     }
   }
-  // ul {
-  //   margin: 0;
-  //   padding: 0;
-  //   display: flex;
-  //   li {
-  //     list-style-type: none;
-  //   }
-  //   .active {
-  //     border-bottom: 2px solid $ui-red;
-  //   }
-  // }
-  //}
 </style>
 
 <div class="tabs">

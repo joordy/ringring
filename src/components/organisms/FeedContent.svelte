@@ -1,15 +1,6 @@
 <script>
-  // import {
-  //   FeedbackViz,
-  //   TagViz,
-  // } from '@/components/molecules/visuals/allVisuals.js'
-
   import { FeedbackFilter } from '@/components/molecules/elements/allElements.js'
-
   import { FeedbackViz } from '@/components/molecules/visuals/allVisuals.js'
-
-  // import TagViz from '@/components/molecules/TagViz.svelte'
-  export let title
   export let data
 </script>
 
@@ -21,9 +12,6 @@
     padding: $m30 $m50;
     width: calc(100% - 100px);
     height: 100%;
-    h4 {
-      margin-bottom: $margin-30;
-    }
     section {
       display: grid;
       grid-template-columns: 3fr 2fr;

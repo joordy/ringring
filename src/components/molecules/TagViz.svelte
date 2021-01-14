@@ -1,9 +1,6 @@
 <script>
   import { VizHeader } from '@/components/atoms/elements/allElement.js'
   import { DonutChart } from '@/components/atoms/charts/allCharts.js'
-
-  export let title
-  export let data
 </script>
 
 <style lang="scss">

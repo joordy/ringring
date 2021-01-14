@@ -17,8 +17,8 @@
         position: absolute;
         left: 45px;
         top: 0;
-        font-weight: 300;
-        font-size: 32px;
+        font-weight: $normal;
+        font-size: $Heading1;
         content: '\f2f5';
       }
     }
@@ -37,7 +37,7 @@
           visibility: visible;
           position: absolute;
           top: 0;
-          font-size: 20px;
+          font-size: $Heading4;
           left: 0;
           padding-left: 14px;
           // padding: 0 0 0 29px;

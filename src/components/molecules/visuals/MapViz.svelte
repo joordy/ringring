@@ -13,7 +13,7 @@
   export let data
   export let title
 
-  let items = ['Alle routes', 'Startpunt', 'eindpunt']
+  let items = ['Alle routes', 'Startpunt', 'Eindpunt']
   let activeItem = 'Alle routes'
   let tabChange = (e) => (activeItem = e.detail)
 </script>
@@ -26,10 +26,10 @@
     height: 100%;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2),
       0 4px 10px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 5px;
+    border-radius: $borderS;
     position: relative;
     article {
-      padding: $margin-3 $margin-4;
+      padding: $m15 $m20;
       height: calc(100% - 30px);
     }
   }
@@ -45,7 +45,7 @@
       <MapAllRoutes {data} />
     {:else if activeItem === 'Startpunt'}
       <MapStartpoint {data} />
-    {:else if activeItem === 'eindpunt'}
+    {:else if activeItem === 'Eindpunt'}
       <MapEndpoint {data} />
     {/if}
   </article>

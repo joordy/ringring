@@ -30,11 +30,11 @@
         }
         &:nth-of-type(1) {
           right: 0;
-          top: -50px;
+          top: -$m50;
         }
         &:nth-of-type(3) {
           left: 0;
-          bottom: -50px;
+          bottom: -$m50;
         }
       }
     }

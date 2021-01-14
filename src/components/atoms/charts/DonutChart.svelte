@@ -2,7 +2,7 @@
   import { onMount } from 'svelte'
   import { chart } from 'chart.js'
 
-  export let data
+  // export let data
 
   function createChart() {
     let ctx = document.getElementById('myBarChart').getContext('2d')
