@@ -3,6 +3,7 @@
   import { onMount } from 'svelte'
 
   export let data
+  $: console.log(data)
 
   let createMap = () => {
     mapboxgl.accessToken =
@@ -35,6 +36,21 @@
       .tags {
         display: flex;
         height: 40px;
+        .round {
+          border-radius: 50%;
+          width: 22px;
+          height: 22px;
+          margin: $m10 $m10 $m10 0;
+        }
+        .roundRed {
+          background-color: $ui-red;
+        }
+        .roundGreen {
+          background-color: $ui-green;
+        }
+        .roundOrange {
+          background-color: $ui-orange;
+        }
         h4 {
           height: 100%;
           margin: 0em $m15 0em 0em;
@@ -47,12 +63,12 @@
       }
       p {
         font-size: 1em;
-        margin: $m15 0;
+        margin: $m15 0 0 $m30;
       }
       .timestamp {
         margin-bottom: $m15;
         h5 {
-          margin-top: $m20;
+          margin: $m20 0 0 $m30;
           font-size: 12px;
           color: $ui-grey;
         }
@@ -69,6 +85,13 @@
 <section>
   <article class="text">
     <div class="tags">
+      {#if data.gevoelsVeiligheid === 1}
+        <div class="round roundGreen" />
+      {:else if data.gevoelsVeiligheid === 2}
+        <div class="round roundOrange" />
+      {:else}
+        <div class="round roundRed" />
+      {/if}
       {#each data.feedbackTag as item}
         <h4>#{item}</h4>
       {/each}

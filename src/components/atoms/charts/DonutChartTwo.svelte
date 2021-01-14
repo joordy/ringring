@@ -6,33 +6,33 @@
   export let chartcolor
 
   function createChart() {
-    let ctx = document.getElementById('donutChartTwo').getContext('2d')
+    let ctx = document.getElementById('donutChartOne').getContext('2d')
     let myChart = new Chart(ctx, {
       type: 'doughnut',
       data: {
         // labels: ['Spring","Summer","Fall"'],
         labels: [
-          'Fietspad',
-          'Oversteekpunt',
-          'Verkeersindeling',
-          'Verkeersdrukte',
-          'Wegwerkzaamheden',
-          'Verkeerslichten',
-          'Autoverkeer',
-          'Stoplicht',
+          'Centrum',
+          'Nieuw-West',
+          'Noord',
+          'Oost',
+          'West',
+          'Zuid',
+          'Westpoort',
+          'Nieuw-west',
         ],
         datasets: [
           {
             label: 'Aantal ritten',
             data: [
-              data.fietspad,
-              data.oversteekpunt,
-              data.verkeersindeling,
-              data.verkeersdrukte,
-              data.wegwerkzaamheden,
-              data.verkeerslichten,
-              data.autoverkeer,
-              data.stoplicht,
+              data.centrum,
+              data.nieuwWest,
+              data.noord,
+              data.oost,
+              data.west,
+              data.zuid,
+              data.westpoort,
+              data.zuidOost,
             ],
             // data: data,
             backgroundColor: chartcolor,
@@ -73,7 +73,7 @@
 </style>
 
 <div class="graph">
-  <canvas id="donutChartTwo" aria-label="Chart about rides">
+  <canvas id="donutChartOne" aria-label="Chart about rides">
     <p>
       Your browser does not support this chart. Please visit a recent updated
       browser.

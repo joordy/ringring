@@ -6,6 +6,5 @@ export const cleanedData = async () => {
   // console.log(rawData)
   // return rawData
   const clean = await filterData(rawData)
-  console.log(clean)
   return clean
 }

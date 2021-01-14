@@ -22,6 +22,7 @@
   function handleNav(e) {
     navClosed = !navClosed
   }
+  $: console.log(data)
 </script>
 
 <style lang="scss">
