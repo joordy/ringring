@@ -1,16 +1,22 @@
 <script>
-  // import {
-  //   FeedbackViz,
-  //   TagViz,
-  // } from '@/components/molecules/visuals/allVisuals.js'
-
   import { FeedbackFilter } from '@/components/molecules/elements/allElements.js'
-
-  import { FeedbackViz } from '@/components/molecules/visuals/allVisuals.js'
-
-  // import TagViz from '@/components/molecules/TagViz.svelte'
-  export let title
+  import {
+    FeedbackViz,
+    DonutViz,
+    DonutVizTwo,
+  } from '@/components/molecules/visuals/allVisuals.js'
   export let data
+
+  let donutChartOne = [
+    'rgba(236, 78, 78, 1)',
+    'rgba(249, 206, 206, 1)',
+    'rgba(142, 84, 84, 1)',
+    'rgba(64, 51, 51, 1)',
+    'rgba(150, 42, 42, 1)',
+    'rgba(54, 7, 7, 1)',
+    'rgba(91, 36, 36, 1)',
+    'rgba(182, 0, 0, 1)',
+  ]
 </script>
 
 <style lang="scss">
@@ -21,9 +27,6 @@
     padding: $m30 $m50;
     width: calc(100% - 100px);
     height: 100%;
-    h4 {
-      margin-bottom: $margin-30;
-    }
     section {
       display: grid;
       grid-template-columns: 3fr 2fr;
@@ -49,16 +52,24 @@
 </style>
 
 <section class="feedback">
-  <FeedbackFilter />
+  <FeedbackFilter {data} />
   <section class="gridWrapper">
     <article id="vizOne">
       <FeedbackViz {data} />
     </article>
     <article id="vizTwo">
-      <!-- <TagViz {data} title="Onderwerpen verdeeld op basis van feedbacktag" /> -->
+      <DonutViz
+        data={data.charts.subjectChart}
+        chartcolor={donutChartOne}
+        title="Hoe is de feedback verdeeld"
+      />
     </article>
     <article id="vizThree">
-      <!-- <TagViz {data} title="Onderwerpen verdeeld op basis van feedbacktag" /> -->
+      <DonutVizTwo
+        data={data.charts.feedbackLocationChart}
+        chartcolor={donutChartOne}
+        title="Uit welk stadsdeel komt de feedback?"
+      />
     </article>
   </section>
 </section>

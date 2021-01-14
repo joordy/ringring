@@ -2,7 +2,7 @@
   import { onMount } from 'svelte'
 
   let item = 0
-  let text = 'De data wordt binnen gefietst...'
+  let text = 'De data wordt bij elkaar gefietst...'
 
   const type = () => {
     if (item < text.length) {
@@ -82,7 +82,10 @@
       transform: rotateY(10deg);
     }
   }
+
   #main {
+    position: relative;
+    bottom: 220px;
     width: 100vw;
     height: 50px;
     p {

@@ -16,7 +16,7 @@
   @import 'src/styles/index.scss';
 
   nav {
-    margin-bottom: $margin-30;
+    margin-bottom: $m30;
     ul {
       display: flex;
       flex-wrap: wrap;
@@ -29,7 +29,7 @@
           border-top-left-radius: 0.25rem;
           border-top-right-radius: 0.25rem;
           display: block;
-          padding: $margin-1 $margin-3;
+          padding: $m5 $m15;
           cursor: pointer;
           &:hover {
             border-bottom: 2px solid black;

@@ -2,57 +2,10 @@
 // Mixins for media queries //
 //==========================//
 
-$notDesktop: 1400px;
+$notDesktop: 1300px;
 
 @mixin size-toSmall {
   @media (max-width: $notDesktop) {
     @content;
   }
 }
-
-// $phone: 500px;
-// $tablet: 760px;
-// $tablet-xl: 1080px;
-// $laptop: 1240px;
-// $desktop: 1650px;
-// $desktop-xl: 2000px;
-// $desktop-xxl: 2000px;
-
-// @mixin only-mobile {
-//   @media (min-width: $phone) {
-//     @content;
-//   }
-// }
-
-// @mixin size-s {
-//   @media (min-width: $tablet) {
-//     @content;
-//   }
-// }
-
-// @mixin size-m {
-//   @media (min-width: $tablet-xl) {
-//     @content;
-//   }
-// }
-
-// @mixin size-l {
-//   @media (min-width: $laptop) {
-//     @content;
-//   }
-// }
-// @mixin size-xl {
-//   @media (min-width: $desktop) {
-//     @content;
-//   }
-// }
-// @mixin size-ultra {
-//   @media (min-width: $desktop-xl) {
-//     @content;
-//   }
-// }
-// @mixin size-ultra-xl {
-//   @media (min-width: $desktop-xxl) {
-//     @content;
-//   }
-// }

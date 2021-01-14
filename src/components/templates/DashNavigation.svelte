@@ -26,20 +26,20 @@
         height: 50px;
         position: relative;
         span {
-          padding: 0 0 0 80px;
+          padding: 0 0 0 $m80;
           display: block;
           line-height: 50px;
           text-decoration: none;
           font-family: FontAwesome;
           &::before {
             position: absolute;
-            left: 30px;
-            font-weight: 300;
-            font-size: 24px;
+            left: $m30;
+            font-weight: $normal;
+            font-size: $Heading3;
           }
           &:hover {
-            border-right: 7px solid $ui-traffic-red;
-            color: $ui-traffic-red;
+            border-right: 7px solid $ui-red;
+            color: $ui-red;
           }
         }
         &:nth-of-type(1) {
@@ -65,8 +65,8 @@
         }
       }
       .active {
-        border-right: 7px solid $ui-traffic-red;
-        color: $ui-traffic-red;
+        border-right: 7px solid $ui-red;
+        color: $ui-red;
         &:hover {
           border-right: none;
         }

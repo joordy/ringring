@@ -18,16 +18,16 @@
           height: 50px;
           position: relative;
           a {
-            padding: 0 0 0 80px;
+            padding: 0 0 0 $m80;
             display: block;
             line-height: 50px;
             text-decoration: none;
             font-family: FontAwesome;
             &::before {
               position: absolute;
-              left: 30px;
+              left: $m30;
               font-weight: 300;
-              font-size: 24px;
+              font-size: $Heading3;
             }
             &:hover {
               background-color: $ui-active-menu;
@@ -85,9 +85,9 @@
                 visibility: visible;
                 position: absolute;
                 top: 0;
-                font-size: 20px;
+                font-size: $Heading4;
                 left: 0;
-                padding: 0 0 0 29px;
+                padding: 0 0 0 $m30;
                 content: '';
               }
               &:hover::after {

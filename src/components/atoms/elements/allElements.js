@@ -5,8 +5,8 @@ import HeaderAccount from './HeaderAccount.svelte'
 import HeaderImg from './HeaderImg.svelte'
 import HeaderLinks from './VizHeader.svelte'
 import MapTabs from './MapTabs.svelte'
-import SortPicker from './VizHeader.svelte'
-import TagsFilter from './VizHeader.svelte'
+import SortPicker from './SortPicker.svelte'
+import TagsFilter from './TagsFilter.svelte'
 import VizHeader from './VizHeader.svelte'
 
 export {

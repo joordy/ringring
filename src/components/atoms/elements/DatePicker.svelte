@@ -36,6 +36,7 @@
     input[type='month'] {
       border: none;
       background-color: transparent;
+      font-size: 16px;
       &:active {
         border: none;
       }
@@ -46,29 +47,32 @@
         color: $ui-red;
         margin-right: $m5;
       }
-    }
-    h4 {
-      margin-bottom: $m30;
-      line-height: $Heading3;
-      &:before {
-        font-family: FontAwesome;
-        content: '\f073';
-        font-size: $Heading3;
-        color: $ui-red;
-        margin-right: $m15;
+      &::-webkit-calendar-picker-indicator {
+        opacity: 0;
       }
     }
+    // h4 {
+    //   margin-bottom: $m30;
+    //   line-height: $Heading3;
+    //   &:before {
+    //     font-family: FontAwesome;
+    //     content: '\f073';
+    //     font-size: $Heading3;
+    //     color: $ui-red;
+    //     margin-right: $m15;
+    //   }
+    // }
   }
 
-  .contents-wrapper.svelte-mc1z8c.svelte-mc1z8c {
-    transform: translate(-50%, -50%);
-    position: absolute;
-    top: 721% !important;
-    left: 227% !important;
-    transition: none;
-    z-index: 433;
-    display: none;
-  }
+  // .contents-wrapper.svelte-mc1z8c.svelte-mc1z8c {
+  //   transform: translate(-50%, -50%);
+  //   position: absolute;
+  //   top: 721% !important;
+  //   left: 227% !important;
+  //   transition: none;
+  //   z-index: 433;
+  //   display: none;
+  // }
 </style>
 
 <div class="datepicker">

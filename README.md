@@ -51,11 +51,14 @@ localhost:3000
 
 - [MapBox](https://docs.mapbox.com/)
 - [MapBox GL JS Style documentation](https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#paint-line-line-blur)
-- [Mapbox add GeoJSON](https://docs.mapbox.com/mapbox-gl-js/example/geojson-polygon/)
+- [Mapbox add GeoJSON Line](https://docs.mapbox.com/mapbox-gl-js/example/geojson-polygon/)
+- [Mapbox add GeoJSON Markers](https://docs.mapbox.com/mapbox-gl-js/example/geojson-markers/)
+- [Mapbox add Icon](https://docs.mapbox.com/mapbox-gl-js/example/add-image/)
 
 ##### Data Charts
 
 - [Chart.js](https://www.chartjs.org/docs/latest/)
+- [Chart.js Labeling](https://www.chartjs.org/docs/latest/axes/labelling.html)
 
 ## :lock: License
 

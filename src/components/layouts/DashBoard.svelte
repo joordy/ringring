@@ -22,6 +22,7 @@
   function handleNav(e) {
     navClosed = !navClosed
   }
+  $: console.log(data)
 </script>
 
 <style lang="scss">
@@ -31,7 +32,7 @@
     height: 100%;
     width: 250px;
     background-color: $ui-white;
-    border-radius: 0 20px 20px 0;
+    border-radius: 0 $borderXL $borderXL 0;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     color: #c4c4c4;
     position: fixed;
@@ -52,9 +53,9 @@
         }
         h1 {
           line-height: 48px;
-          margin-left: $margin-10;
+          margin-left: $m10;
           font-size: 28px;
-          font-weight: $bold;
+          font-weight: $extra-bold;
         }
       }
     }
@@ -70,12 +71,12 @@
   #main .closebtn {
     position: absolute;
     z-index: 13;
-    top: 30px;
+    top: $m30;
     left: 0;
     width: 25px;
     height: 48px;
     background-color: $ui-red;
-    border-radius: 0px 4px 4px 0px;
+    border-radius: 0px $borderS $borderS 0px;
     button {
       color: $ui-white;
       background-color: transparent;

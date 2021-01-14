@@ -1,9 +1,11 @@
 <script>
-  import { VizHeader } from '@/components/atoms/elements/allElement.js'
-  import { DonutChart } from '@/components/atoms/charts/allCharts.js'
+  import { VizHeader } from '@/components/atoms/elements/allElements.js'
+  import { DonutChartTwo } from '@/components/atoms/charts/alLCharts.js'
 
   export let title
   export let data
+  $: console.log(data)
+  export let chartcolor
 </script>
 
 <style lang="scss">
@@ -14,18 +16,18 @@
     height: 100%;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2),
       0 4px 10px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 5px;
+    border-radius: $borderS;
     article {
       width: calc(100% - 30px);
       height: calc(100% - 40px);
-      padding: $margin-3 $margin-4;
+      padding: $m15 $m20;
     }
   }
 </style>
 
 <div id="barchart">
   <article class="barViz">
-    <!-- <VizHeader {title} />
-    <DonutChart {data} /> -->
+    <VizHeader {title} />
+    <DonutChartTwo {data} {chartcolor} />
   </article>
 </div>

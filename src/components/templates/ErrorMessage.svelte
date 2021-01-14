@@ -12,13 +12,13 @@
       height: 50vh;
     }
     h1 {
-      font-size: $h2-size;
+      font-size: $Heading2;
       font-weight: $bold;
       margin-bottom: $m50;
     }
     a {
       text-decoration: none;
-      padding: 8px 45px;
+      padding: $m10 $m50;
       background-color: $ui-red;
       border-radius: 5px;
       color: $ui-white;

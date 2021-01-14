@@ -11,11 +11,11 @@
     border: none;
     width: 100%;
     display: block;
-    background-color: $ui-traffic-red;
+    background-color: $ui-red;
     color: $ui-white;
     padding: 10px 0;
-    border-radius: 5px;
-    margin-bottom: 10px;
+    border-radius: $borderS;
+    margin-bottom: $m10;
   }
 </style>
 

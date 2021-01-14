@@ -3,19 +3,21 @@ import { feedbackData } from './feedbackData.js'
 export const filterData = (rawData) => {
   return {
     dataset: rawData,
-    charts: createChartdata(rawData),
+    charts: createChartdata(rawData, feedbackData),
     geojson: rawData,
     feedbackData: feedbackData,
   }
 }
 
-const createChartdata = (rawData) => {
+const createChartdata = (rawData, feedbackData) => {
   const barchart = createBarchart(rawData)
   const linechart = createLinechart(rawData)
   const lineTest = createLinechartTest(rawData)
   const startPosition = getStartLocation(rawData)
   const lastPosition = getEndLocation(rawData)
   const averageDuration = getAvgTime(rawData)
+  const subjectChart = getFeedbackSub(feedbackData)
+  const stadsdeelChart = getFeedbackLocation(feedbackData)
   return {
     barChart: barchart,
     averageTime: averageDuration,
@@ -24,6 +26,8 @@ const createChartdata = (rawData) => {
     lineTest: lineTest,
     positionStart: startPosition,
     positionEnd: lastPosition,
+    subjectChart: subjectChart,
+    feedbackLocationChart: stadsdeelChart,
   }
 }
 
@@ -31,10 +35,11 @@ const getStartLocation = (rawData) => {
   const res = rawData.features.map((item) => {
     const specificCoordinate = item.geometry.coordinates[0]
     return {
+      type: 'Feature',
       geometry: {
+        type: 'Point',
         coordinates: checkForValue(specificCoordinate),
       },
-      type: 'Feature',
     }
   })
   return {
@@ -47,10 +52,11 @@ const getEndLocation = (rawData) => {
   const res = rawData.features.map((item) => {
     const specificCoordinate = item.geometry.coordinates.length - 1
     return {
+      type: 'Feature',
       geometry: {
+        type: 'Point',
         coordinates: checkForValue(specificCoordinate),
       },
-      type: 'Feature',
     }
   })
   return {
@@ -60,8 +66,8 @@ const getEndLocation = (rawData) => {
 }
 
 const checkForValue = (specificCoordinate) => {
-  if (specificCoordinate === undefined) {
-    return null
+  if (!specificCoordinate) {
+    return [4.9, 52.38]
   } else {
     return specificCoordinate
   }
@@ -105,14 +111,6 @@ const createBarchart = (rawData) => {
 
 const createLinechart = (rawData) => {
   return [
-    // 0030,
-    // 0040,
-    // 0010,
-    // 2400,
-    // 0100,
-    // 0500,
-    // 1000,
-    // 2000,
     6,
     7,
     8,
@@ -123,27 +121,27 @@ const createLinechart = (rawData) => {
     15,
     15,
     20,
-    // 23,
-    // 17,
-    // 18,
-    // 20,
-    // 12,
-    // 5,
-    // 5,
-    // 6,
-    // 7,
-    // 8,
-    // 9,
-    // 5,
-    // 12,
-    // 13,
-    // 15,
-    // 15,
-    // 20,
-    // 23,
-    // 17,
-    // 18,
-    // 20,
+    23,
+    17,
+    18,
+    20,
+    12,
+    5,
+    5,
+    6,
+    7,
+    8,
+    9,
+    5,
+    12,
+    13,
+    15,
+    15,
+    20,
+    23,
+    17,
+    18,
+    20,
   ]
 }
 
@@ -179,5 +177,78 @@ const createLinechartTest = (rawData) => {
 }
 
 const getAvgTime = (rawData) => {
-  console.log(rawData)
+  // console.log(rawData)
+}
+
+const getFeedbackSub = (feedbackData) => {
+  let count = 0
+  let donutData = {
+    fietspad: count,
+    oversteekpunt: count,
+    verkeersindeling: count,
+    verkeersdrukte: count,
+    wegwerkzaamheden: count,
+    verkeerslichten: count,
+    autoverkeer: count,
+    stoplicht: count,
+  }
+  feedbackData.forEach((item) => {
+    if (item.feedbackTag.includes('fietspad')) {
+      donutData.fietspad++
+    } else if (item.feedbackTag.includes('oversteekpunt')) {
+      donutData.oversteekpunt++
+    } else if (item.feedbackTag.includes('verkeersindeling')) {
+      donutData.verkeersindeling++
+    } else if (item.feedbackTag.includes('verkeersdrukte')) {
+      donutData.verkeersdrukte++
+    } else if (item.feedbackTag.includes('wegwerkzaamheden')) {
+      donutData.wegwerkzaamheden++
+    } else if (item.feedbackTag.includes('autoverkeer')) {
+      donutData.autoverkeer++
+    } else if (item.feedbackTag.includes('stoplicht')) {
+      donutData.stoplicht++
+    } else if (item.feedbackTag.includes('verkeerslichten')) {
+      donutData.verkeerslichten++
+    }
+  })
+  return donutData
+}
+// const arrayChecker = (feedbackTag) => {
+//   feedbackTag.includes
+
+//   if (feedback)
+// }
+
+const getFeedbackLocation = (feedbackData) => {
+  let count = 0
+  let donutData = {
+    centrum: count,
+    noord: count,
+    oost: count,
+    zuid: count,
+    west: count,
+    nieuwWest: count,
+    zuidOost: count,
+    westpoort: count,
+  }
+  feedbackData.forEach((item) => {
+    if (item.stadsdeel === 'Centrum') {
+      donutData.centrum++
+    } else if (item.stadsdeel === 'Noord') {
+      donutData.noord++
+    } else if (item.stadsdeel === 'Oost') {
+      donutData.oost++
+    } else if (item.stadsdeel === 'Zuid') {
+      donutData.zuid++
+    } else if (item.stadsdeel === 'West') {
+      donutData.west++
+    } else if (item.stadsdeel === 'Nieuw-West') {
+      donutData.nieuwWest++
+    } else if (item.stadsdeel === 'Zuid-Oost') {
+      donutData.zuidOost++
+    } else if (item.stadsdeel === 'WestPoort') {
+      donutData.westpoort++
+    }
+  })
+  return donutData
 }

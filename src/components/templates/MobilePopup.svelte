@@ -27,7 +27,9 @@
       background-color: $ui-white;
       text-align: center;
       position: relative;
-      border-radius: 10px;
+      border-radius: $borderM;
+      box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2),
+        0 4px 10px 0 rgba(0, 0, 0, 0.19);
       div {
         position: absolute;
         margin-left: auto;
@@ -39,11 +41,11 @@
       h2 {
         font-weight: $bold;
         margin: $m50 $m20 0 $m20;
-        font-size: $h4-size;
+        font-size: $Heading4;
       }
       h3 {
         margin: $m15 $m20 0 $m20;
-        font-size: $h6-size;
+        font-size: $Heading6;
       }
     }
   }

@@ -5,4 +5,7 @@ import MapViz from './MapViz.svelte'
 import LineViz from './LineViz.svelte'
 // import TagViz from './TagViz.svelte'
 
-export { BarViz, FeedbackViz, SmallViz, MapViz, LineViz }
+import DonutViz from './DonutViz.svelte'
+import DonutVizTwo from './DonutVizTwo.svelte'
+
+export { BarViz, DonutViz, DonutVizTwo, FeedbackViz, SmallViz, MapViz, LineViz }

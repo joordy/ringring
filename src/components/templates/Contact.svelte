@@ -1,9 +1,7 @@
 <script>
   import { TabNavigation } from '@/components/molecules/elements/allElements.js'
 
-  export let activeTabValue
   export let title
-  export let data
 
   let currentVisitedTab
   let navigationItems = [

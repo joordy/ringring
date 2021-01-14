@@ -1,12 +1,11 @@
 <script>
   import { VizHeader } from '@/components/atoms/elements/allElements.js'
-  import { TextChart } from '@/components/atoms/charts/allCharts.js'
+  import { DonutChart } from '@/components/atoms/charts/alLCharts.js'
 
   export let title
-  export let valueNumber
-  export let compared
-  export let timeStamp
-  export let valueType
+  export let data
+  $: console.log(data)
+  export let chartcolor
 </script>
 
 <style lang="scss">
@@ -19,14 +18,16 @@
       0 4px 10px 0 rgba(0, 0, 0, 0.19);
     border-radius: $borderS;
     article {
+      width: calc(100% - 30px);
+      height: calc(100% - 40px);
       padding: $m15 $m20;
     }
   }
 </style>
 
-<div>
-  <article>
+<div id="barchart">
+  <article class="barViz">
     <VizHeader {title} />
-    <TextChart {valueNumber} {compared} {timeStamp} {valueType} />
+    <DonutChart {data} {chartcolor} />
   </article>
 </div>

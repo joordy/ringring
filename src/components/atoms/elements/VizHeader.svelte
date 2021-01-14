@@ -4,10 +4,11 @@
 
 <style lang="scss">
   @import 'src/styles/index.scss';
+
   h4 {
-    color: $ui-dark-blue;
+    color: $ui-black;
     font-size: $Heading4;
-    font-weight: 700;
+    font-weight: $semi-bold;
     margin-bottom: $m10;
   }
 </style>

@@ -3,6 +3,7 @@
 
 <style lang="scss">
   @import 'src/styles/index.scss';
+
   div {
     margin-right: $m30;
     h4 {

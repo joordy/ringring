@@ -2,57 +2,8 @@
   import { VizHeader } from '@/components/atoms/elements/allElements.js'
   import { BarChart } from '@/components/atoms/charts/alLCharts.js'
 
-  import { onMount } from 'svelte'
-  import { chart } from 'chart.js'
-
   export let title
   export let data
-
-  onMount(createChart)
-
-  function createChart() {
-    let ctx = document.getElementById('myBarChart').getContext('2d')
-    let myChart = new Chart(ctx, {
-      type: 'horizontalBar',
-      data: {
-        labels: [
-          '0-5 KM',
-          '5-10 KM',
-          '10-15 KM',
-          '15-20 KM',
-          '20-25 KM',
-          '25+ KM ',
-        ],
-        datasets: [
-          {
-            label: 'Aantal ritten',
-            data: data.charts.barChart,
-            backgroundColor: [
-              'rgba(236, 78, 78, 1)',
-              'rgba(249, 206, 206, 1)',
-              'rgba(236, 78, 78, 1)',
-              'rgba(249, 206, 206, 1)',
-              'rgba(236, 78, 78, 1)',
-              'rgba(249, 206, 206, 1)',
-            ],
-          },
-        ],
-      },
-      options: {
-        maintainAspectRatio: false,
-        onResize: null,
-        scales: {
-          yAxes: [
-            {
-              ticks: {
-                beginAtZero: true,
-              },
-            },
-          ],
-        },
-      },
-    })
-  }
 </script>
 
 <style lang="scss">
@@ -63,11 +14,11 @@
     height: 100%;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2),
       0 4px 10px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 5px;
+    border-radius: $borderS;
     article {
       width: calc(100% - 30px);
       height: calc(100% - 40px);
-      padding: $margin-3 $margin-4;
+      padding: $m15 $m20;
     }
   }
 </style>
