@@ -1,33 +1,32 @@
 import { feedbackData } from './feedbackData.js'
 
-export const filterData = (rawData) => {
+export const filterData = async (rawData) => {
   return {
-    dataset: rawData,
-    charts: createChartdata(rawData, feedbackData),
-    geojson: rawData,
-    feedbackData: feedbackData,
+    dataset: await rawData,
+    charts: await createChartdata(rawData, feedbackData),
+    geojson: await rawData,
+    feedbackData: await feedbackData,
   }
 }
 
 const createChartdata = (rawData, feedbackData) => {
-  const barchart = createBarchart(rawData)
-  const linechart = createLinechart(rawData)
-  const lineTest = createLinechartTest(rawData)
-  const startPosition = getStartLocation(rawData)
-  const lastPosition = getEndLocation(rawData)
-  const averageDuration = getAvgTime(rawData)
-  const subjectChart = getFeedbackSub(feedbackData)
-  const stadsdeelChart = getFeedbackLocation(feedbackData)
+  // const barchart = createBarchart(rawData)
+  // const linechart = createLinechart(rawData)
+  // const lineTest = createLinechartTest(rawData)
+  // const startPosition = getStartLocation(rawData)
+  // const lastPosition = getEndLocation(rawData)
+  // const averageDuration = getAvgTime(rawData)
+  // const subjectChart = getFeedbackSub(feedbackData)
+  // const stadsdeelChart = getFeedbackLocation(feedbackData)
   return {
-    barChart: barchart,
-    averageTime: averageDuration,
-    // barTest: barTest,
-    lineChart: linechart,
-    lineTest: lineTest,
-    positionStart: startPosition,
-    positionEnd: lastPosition,
-    subjectChart: subjectChart,
-    feedbackLocationChart: stadsdeelChart,
+    barChart: createBarchart(rawData),
+    lineChart: createLinechart(rawData),
+    lineTest: createLinechartTest(rawData),
+    positionStart: getStartLocation(rawData),
+    positionEnd: getEndLocation(rawData),
+    subjectChart: getFeedbackSub(feedbackData),
+    feedbackLocationChart: getFeedbackLocation(feedbackData),
+    avgTrip: calculateAvgTime(rawData),
   }
 }
 
@@ -111,13 +110,13 @@ const createBarchart = (rawData) => {
 
 const createLinechart = (rawData) => {
   return [
-    6,
-    7,
-    8,
     9,
-    5,
+    9,
+    9,
+    10,
     12,
-    13,
+    15,
+    12,
     15,
     15,
     20,
@@ -126,13 +125,13 @@ const createLinechart = (rawData) => {
     18,
     20,
     12,
-    5,
-    5,
-    6,
-    7,
-    8,
-    9,
-    5,
+    13,
+    15,
+    16,
+    16,
+    16.5,
+    16,
+    10,
     12,
     13,
     15,
@@ -155,16 +154,6 @@ const createLinechartTest = (rawData) => {
     jan5: count,
     jan6: count,
   }
-  // let d = new Date('2020-01-31T01:01:13Z')
-  // console.log(d)
-  // console.log(d.getUTCHours())
-  // console.log(d.getUTCMinutes())
-  // console.log(d.getUTCDay())
-  // console.log(d.getUTCMonth())
-  // console.log(d.getUTCDate())
-
-  // let date = `${d.getUTCHours()}:${d.getUTCMinutes()}`
-  // console.log(date)
   return [
     lineData.jan1,
     lineData.jan2,
@@ -173,7 +162,6 @@ const createLinechartTest = (rawData) => {
     lineData.jan5,
     lineData.jan6,
   ]
-  // return [5, 5, 6, 7, 8, 9, 5, 12, 13, 15, 15, 20, 23, 17, 18, 20, 12]
 }
 
 const getAvgTime = (rawData) => {
@@ -213,11 +201,6 @@ const getFeedbackSub = (feedbackData) => {
   })
   return donutData
 }
-// const arrayChecker = (feedbackTag) => {
-//   feedbackTag.includes
-
-//   if (feedback)
-// }
 
 const getFeedbackLocation = (feedbackData) => {
   let count = 0
@@ -251,4 +234,13 @@ const getFeedbackLocation = (feedbackData) => {
     }
   })
   return donutData
+}
+
+const calculateAvgTime = (rawData) => {
+  const res = rawData.features.map((item) => {
+    const time = item.properties.duration
+    return time
+  })
+  const time = res.reduce((a, b) => a + b, 0)
+  return time / rawData.features.length
 }

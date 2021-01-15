@@ -4,12 +4,19 @@
     avatar:
       'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80',
   }
+
+  let menuClosed = false
+
+  function handleMenu(e) {
+    console.log('test', menuClosed)
+    menuClosed = !menuClosed
+  }
 </script>
 
 <style lang="scss">
   @import 'src/styles/index.scss';
 
-  article {
+  #account {
     position: absolute;
     top: 42px;
     right: 50px;
@@ -31,10 +38,56 @@
         height: 100%;
       }
     }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  #accountMenu {
+    display: none;
+    width: 230px;
+    height: 165px;
+    border-radius: $borderS;
+    background-color: white;
+    position: absolute;
+    z-index: 1000;
+    right: 50px;
+    top: 100px;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2),
+      0 4px 10px 0 rgba(0, 0, 0, 0.19);
+    ul {
+      margin: $m15 $m20;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      li {
+        list-style-type: none;
+        &:hover {
+          color: $ui-red;
+          font-weight: $bold;
+        }
+        a {
+          text-align: right;
+          text-decoration: none;
+          line-height: 35px;
+        }
+      }
+    }
+  }
+  .menuClosed {
+    display: none;
   }
 </style>
 
-<article>
+<article id="account" on:click={handleMenu}>
   <h4>{user.name}</h4>
   <div><img src={user.avatar} alt={user.name} /></div>
 </article>
+
+<div id="accountMenu" class:menuClosed>
+  <ul>
+    <li><a href="/">Accountgegevens</a></li>
+    <li><a href="/">Dashboard instellingen</a></li>
+    <li><a href="/">Beveiligings instellingen</a></li>
+    <li><a href="/">Uitloggen</a></li>
+  </ul>
+</div>

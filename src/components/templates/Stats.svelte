@@ -4,6 +4,7 @@
   import {
     StatsContent,
     AccountInfo,
+    CopyRight,
   } from '@/components/organisms/allOrganisms.js'
 
   export let data
@@ -28,7 +29,7 @@
 </style>
 
 <svelte:head>
-  <title>Statiestieken Dashboard | Ring-Ring</title>
+  <title>Statistieken Dashboard | Ring-Ring</title>
 </svelte:head>
 
 <section>
@@ -40,3 +41,5 @@
 </section>
 
 <StatsContent title="Maand" {data} />
+
+<CopyRight />

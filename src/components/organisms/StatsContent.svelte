@@ -22,7 +22,7 @@
     section {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      grid-gap: $m30;
+      grid-gap: $m40;
       article {
         background-color: white;
         &:nth-of-type(4),
@@ -36,10 +36,10 @@
             height: 34.5vh;
           }
           @media screen and (min-height: 1000px) {
-            height: 37vh;
+            height: 35vh;
           }
           @media screen and (min-height: 1100px) {
-            height: 39vh;
+            height: 37vh;
           }
         }
       }
@@ -83,7 +83,7 @@
     <article id="vizFive">
       <SmallViz
         title="Gemiddelde duur fietsrit"
-        valueNumber="20"
+        valueNumber={data.charts.avgTrip.toFixed(2)}
         compared="— 20%"
         timeStamp="vorige maand"
         valueType="min"

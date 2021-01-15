@@ -19,6 +19,7 @@
       display: flex;
       margin: 0;
       padding: 0;
+      transition: 0.3s;
       li {
         list-style-type: none;
         margin: 0 $m10;

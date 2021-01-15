@@ -120,6 +120,13 @@
       }
     }
   }
+  footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: calc(100% - 250px);
+    height: 120px;
+  }
 </style>
 
 <header id="mySidenav" class="sidenav" class:closed={navClosed}>

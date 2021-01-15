@@ -85,7 +85,7 @@
 
   #main {
     position: relative;
-    bottom: 220px;
+    bottom: 120px;
     width: 100vw;
     height: 50px;
     p {

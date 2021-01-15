@@ -8,14 +8,14 @@
   export let data
 
   let donutChartOne = [
-    'rgba(236, 78, 78, 1)',
-    'rgba(249, 206, 206, 1)',
-    'rgba(142, 84, 84, 1)',
-    'rgba(64, 51, 51, 1)',
-    'rgba(150, 42, 42, 1)',
-    'rgba(54, 7, 7, 1)',
-    'rgba(91, 36, 36, 1)',
-    'rgba(182, 0, 0, 1)',
+    'rgba(129, 30, 30, 1)',
+    'rgba(164, 46, 46, 1)',
+    'rgba(199, 53, 53, 1)',
+    'rgba(233, 62, 62, 1)',
+    'rgba(239, 102, 102, 1)',
+    'rgba(243, 16, 19, 1)',
+    'rgba(248, 161, 161, 1)',
+    'rgba(242, 193, 193, 1)',
   ]
 </script>
 
@@ -61,14 +61,14 @@
       <DonutViz
         data={data.charts.subjectChart}
         chartcolor={donutChartOne}
-        title="Hoe is de feedback verdeeld"
+        title="Verdeling feedback per tags"
       />
     </article>
     <article id="vizThree">
       <DonutVizTwo
         data={data.charts.feedbackLocationChart}
         chartcolor={donutChartOne}
-        title="Uit welk stadsdeel komt de feedback?"
+        title="Feedback per stadsdeel"
       />
     </article>
   </section>

@@ -3,7 +3,6 @@
   import { onMount } from 'svelte'
 
   export let data
-  $: console.log(data)
 
   let createMap = () => {
     mapboxgl.accessToken =
@@ -27,7 +26,6 @@
     width: 95%;
     margin: $m30 auto $m30 auto;
     border-bottom: 1px solid #c4c4c4;
-    border-radius: $borderS;
     display: grid;
     grid-template-columns: 4.7fr 2.3fr;
     grid-gap: $m30;

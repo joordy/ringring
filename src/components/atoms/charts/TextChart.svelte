@@ -1,15 +1,8 @@
 <script>
-  import { onMount } from 'svelte'
-
-  // export let data
   export let valueNumber
   export let compared
   export let timeStamp
   export let valueType
-
-  // let valuenumber = '15'
-  // let compared = '20%'
-  // let timestamp = 'vorige maand'
 
   let checkCompared = () => {
     compared
@@ -19,8 +12,6 @@
   }
 
   let symbol = checkCompared()
-
-  // onMount(checkCompared)
 </script>
 
 <style lang="scss">
@@ -40,8 +31,9 @@
   }
   h5 {
     font-weight: $semi-bold;
-    margin-top: $m10;
+    margin: $m10 $m15 0 0;
     font-size: $Heading5;
+    color: #a0aec0;
   }
   .positive {
     color: $ui-traffic-green;
@@ -52,8 +44,11 @@
 </style>
 
 <h4><span>{valueNumber}</span> <span>{valueType}</span></h4>
-{#if symbol === '+'}
-  <h5 class="positive">{compared} t.o.v. {timeStamp}</h5>
-{:else if symbol === '—'}
-  <h5 class="negative">{compared} t.o.v. {timeStamp}</h5>
-{/if}
+
+<h5>
+  {#if symbol === '+'}
+    <span class="positive">{compared}</span>
+  {:else if symbol === '—'}<span class="negative">{compared}</span>{/if}
+  Sinds
+  {timeStamp}
+</h5>

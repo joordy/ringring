@@ -4,7 +4,6 @@
 
   export let title
   export let data
-  $: console.log(data)
   export let chartcolor
 </script>
 
