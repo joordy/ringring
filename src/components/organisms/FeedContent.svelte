@@ -1,22 +1,19 @@
 <script>
-  import { FeedbackFilter } from '@/components/molecules/elements/allElements.js'
+  import { FeedbackFilter } from '@/components/molecules/allElements.js'
   import {
-    FeedbackViz,
-    DonutViz,
-    DonutVizTwo,
-  } from '@/components/molecules/visuals/allVisuals.js'
+    Responses,
+    ResponseMap,
+    TextViz,
+  } from '@/components/atoms/charts/allCharts.js'
+  import {
+    Container,
+    ContainerRes,
+    VizHeader,
+  } from '@/components/atoms/elements/allElements.js'
+
   export let data
 
-  let donutChartOne = [
-    'rgba(129, 30, 30, 1)',
-    'rgba(164, 46, 46, 1)',
-    'rgba(199, 53, 53, 1)',
-    'rgba(233, 62, 62, 1)',
-    'rgba(239, 102, 102, 1)',
-    'rgba(243, 16, 19, 1)',
-    'rgba(248, 161, 161, 1)',
-    'rgba(242, 193, 193, 1)',
-  ]
+  let feedbackData = data.feedbackData
 </script>
 
 <style lang="scss">
@@ -28,22 +25,28 @@
     width: calc(100% - 100px);
     height: 100%;
     section {
+      width: 100%;
+      height: 100%;
       display: grid;
-      grid-template-columns: 3fr 2fr;
+      grid-template-columns: 5fr 3fr 3fr;
+      grid-template-rows: 15% 15% 14% 14%;
       grid-gap: $m30;
-      grid-template-rows: 15vh 15vh 15vh 15vh;
       article {
         background-color: white;
         &:nth-of-type(1) {
-          grid-column: 1;
-          grid-row: 1 / 5;
+          grid-column: 1 / 4;
+          grid-row: 1 / 3;
         }
         &:nth-of-type(2) {
-          grid-column: 2;
-          grid-row: 1 / 3;
+          grid-column: 1 / 2;
+          grid-row: 3 / 5;
         }
         &:nth-of-type(3) {
           grid-column: 2;
+          grid-row: 3 / 5;
+        }
+        &:nth-of-type(4) {
+          grid-column: 3;
           grid-row: 3 / 5;
         }
       }
@@ -55,21 +58,32 @@
   <FeedbackFilter {data} />
   <section class="gridWrapper">
     <article id="vizOne">
-      <FeedbackViz {data} />
+      <Container>
+        <ResponseMap {data} />
+      </Container>
     </article>
     <article id="vizTwo">
-      <DonutViz
-        data={data.charts.subjectChart}
-        chartcolor={donutChartOne}
-        title="Verdeling feedback per tags"
-      />
+      <ContainerRes>
+        <VizHeader title="Feedback reacties" />
+        <div>
+          {#each feedbackData as item}
+            <Responses data={item} />
+          {/each}
+        </div>
+      </ContainerRes>
     </article>
     <article id="vizThree">
-      <DonutVizTwo
-        data={data.charts.feedbackLocationChart}
-        chartcolor={donutChartOne}
-        title="Feedback per stadsdeel"
-      />
+      <Container>
+        <VizHeader title="Feedback per stadsdeel" />
+
+        <TextViz data={data.charts.feedbackLocationChart} />
+      </Container>
+    </article>
+    <article id="vizFour">
+      <Container>
+        <VizHeader title="Feedback per tag-item" />
+        <TextViz data={data.charts.subjectChart} />
+      </Container>
     </article>
   </section>
 </section>

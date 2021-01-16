@@ -5,7 +5,7 @@
 <style lang="scss">
   @import 'src/styles/index.scss';
 
-  h4 {
+  h3 {
     color: $ui-black;
     font-size: $Heading4;
     font-weight: $semi-bold;
@@ -13,4 +13,4 @@
   }
 </style>
 
-<h4>{title}</h4>
+<h3>{title}</h3>

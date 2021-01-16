@@ -39,4 +39,5 @@
   <AccountInfo />
 </section>
 
-<FeedContent title="Maand" {data} />
+<FeedContent title="maand" {data} />
+<!-- <FeedContent title="Maand" {data} /> -->

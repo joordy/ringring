@@ -13,37 +13,32 @@
       center: [4.9, 52.38],
       zoom: 11.6,
     })
-    map.on('load', function () {
-      map.addSource('routes', {
-        type: 'geojson',
-        data: data.geojson,
-      })
-      map.addLayer({
-        id: 'maine',
-        type: 'line',
-        source: 'routes',
-        layout: {},
-        paint: {
-          'line-color': '#EC4E4E',
-          'line-width': 2,
-          'line-opacity': 0.2,
-        },
-      })
-    })
+    // map.on('load', function () {
+    //   // map.addSource('routes', {
+    //   //   type: 'geojson',
+    //   //   data: data.geojson,
+    //   // })
+    //   // map.addLayer({
+    //   //   id: 'maine',
+    //   //   type: 'line',
+    //   //   source: 'routes',
+    //   //   layout: {},
+    //   //   paint: {
+    //   //     'line-color': '#EC4E4E',
+    //   //     'line-width': 2,
+    //   //     'line-opacity': 0.2,
+    //   //   },
+    //   // })
+    // })
   })
 </script>
 
 <style lang="scss">
   section {
     width: 100%;
-    height: calc(100% - 40px);
+    height: 100%;
     #map {
       box-shadow: none;
-      // canvas {
-      //   width: 100% !important;
-      //   max-height: 100%;
-      //   max-width: 100%;
-      // }
     }
   }
 </style>

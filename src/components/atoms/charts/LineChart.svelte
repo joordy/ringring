@@ -46,7 +46,7 @@
           {
             label: 'Drukte in de maand januari',
             fill: false,
-            lineTension: 0.6,
+            // lineTension: 0.6,
             backgroundColor: 'rgba(236, 78, 78, 1)',
             borderColor: 'rgba(236, 78, 78, 1)',
             borderCapStyle: 'butt',

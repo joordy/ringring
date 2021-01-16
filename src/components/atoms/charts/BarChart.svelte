@@ -3,6 +3,7 @@
   import { chart } from 'chart.js'
 
   export let data
+  $: console.log(data)
 
   function createChart() {
     let ctx = document.getElementById('myBarChart').getContext('2d')
@@ -20,7 +21,7 @@
         datasets: [
           {
             label: 'Aantal ritten',
-            data: data.charts.barChart,
+            data: Object.values(data.charts.barChart),
             backgroundColor: [
               'rgba(242, 193, 193, 1)',
               'rgba(248, 161, 161, 1)',

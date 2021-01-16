@@ -1,5 +1,5 @@
 <script>
-  import { FormField } from '@/components/molecules/elements/allElements.js'
+  import { FormField } from '@/components/molecules/allElements.js'
 
   let src = 'ringring-logo.svg'
 </script>

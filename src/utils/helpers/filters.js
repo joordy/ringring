@@ -98,14 +98,7 @@ const createBarchart = (rawData) => {
       barData.cat6++
     }
   })
-  return [
-    barData.cat1,
-    barData.cat2,
-    barData.cat3,
-    barData.cat4,
-    barData.cat5,
-    barData.cat6,
-  ]
+  return barData
 }
 
 const createLinechart = (rawData) => {
@@ -164,78 +157,77 @@ const createLinechartTest = (rawData) => {
   ]
 }
 
-const getAvgTime = (rawData) => {
-  // console.log(rawData)
-}
-
+// Get total amount of feedback per subject
 const getFeedbackSub = (feedbackData) => {
   let count = 0
-  let donutData = {
-    fietspad: count,
-    oversteekpunt: count,
-    verkeersindeling: count,
-    verkeersdrukte: count,
-    wegwerkzaamheden: count,
-    verkeerslichten: count,
-    autoverkeer: count,
-    stoplicht: count,
+  let overView = {
+    Fietspad: count,
+    Oversteekpunt: count,
+    Verkeersindeling: count,
+    Verkeersdrukte: count,
+    Wegwerkzaamheden: count,
+    Verkeerslichten: count,
+    Autoverkeer: count,
+    Stoplicht: count,
   }
   feedbackData.forEach((item) => {
     if (item.feedbackTag.includes('fietspad')) {
-      donutData.fietspad++
+      overView.Fietspad++
     } else if (item.feedbackTag.includes('oversteekpunt')) {
-      donutData.oversteekpunt++
+      overView.Oversteekpunt++
     } else if (item.feedbackTag.includes('verkeersindeling')) {
-      donutData.verkeersindeling++
+      overView.Verkeersindeling++
     } else if (item.feedbackTag.includes('verkeersdrukte')) {
-      donutData.verkeersdrukte++
+      overView.Verkeersdrukte++
     } else if (item.feedbackTag.includes('wegwerkzaamheden')) {
-      donutData.wegwerkzaamheden++
+      overView.Wegwerkzaamheden++
     } else if (item.feedbackTag.includes('autoverkeer')) {
-      donutData.autoverkeer++
+      overView.Autoverkeer++
     } else if (item.feedbackTag.includes('stoplicht')) {
-      donutData.stoplicht++
+      overView.Stoplicht++
     } else if (item.feedbackTag.includes('verkeerslichten')) {
-      donutData.verkeerslichten++
+      overView.Verkeerslichten++
     }
   })
-  return donutData
+  return overView
 }
 
+// Get total amount of feedback per location
 const getFeedbackLocation = (feedbackData) => {
   let count = 0
-  let donutData = {
-    centrum: count,
-    noord: count,
-    oost: count,
-    zuid: count,
-    west: count,
-    nieuwWest: count,
-    zuidOost: count,
-    westpoort: count,
+  let overView = {
+    Centrum: count,
+    Noord: count,
+    Oost: count,
+    Zuid: count,
+    West: count,
+    NieuwWest: count,
+    ZuidOost: count,
+    Westpoort: count,
   }
   feedbackData.forEach((item) => {
     if (item.stadsdeel === 'Centrum') {
-      donutData.centrum++
+      overView.Centrum++
     } else if (item.stadsdeel === 'Noord') {
-      donutData.noord++
+      overView.Noord++
     } else if (item.stadsdeel === 'Oost') {
-      donutData.oost++
+      overView.Oost++
     } else if (item.stadsdeel === 'Zuid') {
-      donutData.zuid++
+      overView.Zuid++
     } else if (item.stadsdeel === 'West') {
-      donutData.west++
+      overView.West++
     } else if (item.stadsdeel === 'Nieuw-West') {
-      donutData.nieuwWest++
+      overView.NieuwWest++
     } else if (item.stadsdeel === 'Zuid-Oost') {
-      donutData.zuidOost++
+      overView.ZuidOost++
     } else if (item.stadsdeel === 'WestPoort') {
-      donutData.westpoort++
+      overView.Westpoort++
     }
   })
-  return donutData
+  return overView
 }
 
+// Calculating average time per ride
 const calculateAvgTime = (rawData) => {
   const res = rawData.features.map((item) => {
     const time = item.properties.duration

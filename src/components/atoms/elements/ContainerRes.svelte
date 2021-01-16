@@ -1,21 +1,16 @@
 <script>
-  import { FeedbackItem } from '@/components/atoms/charts/allCharts.js'
-
-  export let data
-
-  let feedbackData = data.feedbackData
 </script>
 
 <style lang="scss">
   @import 'src/styles/index.scss';
 
-  .feedbackSection {
+  article {
     width: 100%;
     height: 100%;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2),
       0 4px 10px 0 rgba(0, 0, 0, 0.19);
     border-radius: $borderS;
-    overflow: hidden;
+    overflow-x: hidden;
     overflow-y: scroll;
     &::-webkit-scrollbar {
       width: 10px;
@@ -26,14 +21,20 @@
     &::-webkit-scrollbar-thumb {
       background-color: $ui-red;
       border-radius: $borderXL;
-      border: 1px solid $ui-grey;
+      border: 1px solid $ui-softwhite;
+    }
+    div {
+      width: calc(100% - 30px);
+      height: calc(100% - 40px);
+      padding: $m15 $m20;
     }
   }
 </style>
 
-<div class="feedbackSection">
-  {#each feedbackData as item}
-    <!-- {console.log(item)} -->
-    <FeedbackItem data={item} />
-  {/each}
-</div>
+<article>
+  <div>
+    <slot>
+      <!-- optional fallback -->
+    </slot>
+  </div>
+</article>

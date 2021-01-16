@@ -1,14 +1,27 @@
 <script>
   import {
-    SmallViz,
-    MapViz,
-    BarViz,
-    LineViz,
-  } from '@/components/molecules/visuals/allVisuals.js'
+    BarChart,
+    LineChart,
+    MapAllRoutes,
+    MapEndpoint,
+    MapStartpoint,
+    RecapStats,
+  } from '@/components/atoms/charts/allCharts.js'
 
-  import { StatFilter } from '@/components/molecules/elements/allElements.js'
+  import {
+    Container,
+    ContainerMap,
+    MapTabs,
+    VizHeader,
+  } from '@/components/atoms/elements/allElements.js'
+
+  import { StatFilter } from '@/components/molecules/allElements.js'
 
   export let data
+
+  let items = ['Alle routes', 'Startpunt', 'Eindpunt']
+  let activeItem = 'Alle routes'
+  let tabChange = (e) => (activeItem = e.detail)
 </script>
 
 <style lang="scss">
@@ -22,7 +35,7 @@
     section {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      grid-gap: $m40;
+      grid-gap: $m30;
       article {
         background-color: white;
         &:nth-of-type(4),
@@ -63,31 +76,52 @@
   <StatFilter />
   <section class="gridWrapper">
     <article id="vizOne">
-      <MapViz title="Gemaakte fietsritten" {data} />
+      <ContainerMap>
+        <VizHeader title="Gemaakte fietsritten" />
+        <MapTabs {activeItem} {items} on:tabChange={tabChange} />
+
+        {#if activeItem === 'Alle routes'}
+          <MapAllRoutes {data} />
+        {:else if activeItem === 'Startpunt'}
+          <MapStartpoint {data} />
+        {:else if activeItem === 'Eindpunt'}
+          <MapEndpoint {data} />
+        {/if}
+      </ContainerMap>
     </article>
     <article id="vizTwo">
-      <BarViz title="Fietsritten in verhouding met afstand" {data} />
+      <Container>
+        <VizHeader title="Fietsritten in verhouding met afstand" />
+        <BarChart {data} />
+      </Container>
     </article>
     <article id="vizThree">
-      <LineViz title="Drukte gedurende de dag" {data} />
+      <Container>
+        <VizHeader title="Drukte gedurende de dag" />
+        <LineChart {data} />
+      </Container>
     </article>
     <article id="vizFour">
-      <SmallViz
-        title="Aantal fietsritten"
-        valueNumber={data.dataset.features.length}
-        compared="+ 5.4%"
-        timeStamp="vorige maand"
-        valueType="ritten"
-      />
+      <Container>
+        <VizHeader title="Aantal fietsritten" />
+        <RecapStats
+          valueNumber={data.dataset.features.length}
+          compared="+ 5.4%"
+          timeStamp="vorige maand"
+          valueType="ritten"
+        />
+      </Container>
     </article>
     <article id="vizFive">
-      <SmallViz
-        title="Gemiddelde duur fietsrit"
-        valueNumber={data.charts.avgTrip.toFixed(2)}
-        compared="— 20%"
-        timeStamp="vorige maand"
-        valueType="min"
-      />
+      <Container>
+        <VizHeader title="Gemiddelde duur fietsrit" />
+        <RecapStats
+          valueNumber={data.charts.avgTrip.toFixed(2)}
+          compared="— 20%"
+          timeStamp="vorige maand"
+          valueType="min"
+        />
+      </Container>
     </article>
   </section>
 </section>
