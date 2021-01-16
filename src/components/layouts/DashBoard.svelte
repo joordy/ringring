@@ -4,7 +4,7 @@
     DashNav,
     Feedback,
     Stats,
-  } from '@/components/templates/allTemplates.js'
+  } from '@/components/templates/allElements.js'
 
   export let segment
   export let data
@@ -120,12 +120,20 @@
       }
     }
   }
-  footer {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: calc(100% - 250px);
-    height: 120px;
+  @media (prefers-color-scheme: dark) {
+    header {
+      background-color: #181826;
+      color: #fff;
+      a {
+        color: #fff;
+        h1 {
+          color: #fff;
+        }
+      }
+    }
+    #main .closebtn {
+      background-color: #4e5c69;
+    }
   }
 </style>
 

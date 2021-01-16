@@ -2,7 +2,7 @@
   import mapboxgl from 'mapbox-gl'
   import { onMount } from 'svelte'
 
-  export let data
+  // export let data
 
   onMount(() => {
     mapboxgl.accessToken =
@@ -36,7 +36,7 @@
 <style lang="scss">
   section {
     width: 100%;
-    height: 100%;
+    height: 105%;
     #map {
       box-shadow: none;
     }

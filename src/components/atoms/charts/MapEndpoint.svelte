@@ -40,7 +40,7 @@
 <style lang="scss">
   section {
     width: 100%;
-    height: calc(100% - 40px);
+    height: calc(100% - 20px);
     #map {
       box-shadow: none;
       // canvas {

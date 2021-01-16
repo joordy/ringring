@@ -6,7 +6,7 @@
     MapEndpoint,
     MapStartpoint,
     RecapStats,
-  } from '@/components/atoms/charts/allCharts.js'
+  } from '@/components/atoms/charts/allElements.js'
 
   import {
     Container,
@@ -35,12 +35,31 @@
     section {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
+      // grid-template-rows: 9vh 9vh 8vh 14vh 6vh 157px;
       grid-gap: $m30;
       article {
         background-color: white;
-        &:nth-of-type(4),
+        &:nth-of-type(1) {
+          grid-column: 1 / 3;
+          grid-row: 1 / 5;
+        }
+        &:nth-of-type(2) {
+          grid-column: 3;
+          grid-row: 1 / 4;
+        }
+        &:nth-of-type(3) {
+          grid-column: 3;
+          grid-row: 4 / 7;
+        }
+        &:nth-of-type(4) {
+          grid-column: 1;
+          grid-row: 5 / 7;
+          height: 130px;
+        }
         &:nth-of-type(5) {
-          height: 135px;
+          grid-column: 2;
+          grid-row: 5 / 7;
+          height: 130px;
         }
         &:nth-of-type(2),
         &:nth-of-type(3) {
@@ -56,17 +75,17 @@
           }
         }
       }
-      #vizOne {
-        grid-column: 1 / 3;
-        grid-row: 1 / 5;
-      }
-      #vizTwo {
-        grid-column: 3;
-        grid-row: 1 / 4;
-      }
-      #vizThree {
-        grid-column: 3;
-        grid-row: 4 / 6;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    .statistieken {
+      background-color: #1f1f2c;
+      color: #fff;
+      section {
+        article {
+          background-color: #181826;
+          color: #fff;
+        }
       }
     }
   }
@@ -124,4 +143,5 @@
       </Container>
     </article>
   </section>
+  <!-- <CopyRight /> -->
 </section>

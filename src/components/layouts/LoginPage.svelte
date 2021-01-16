@@ -1,5 +1,5 @@
 <script>
-  import { LoginForm, LoginArt } from '@/components/organisms/allOrganisms.js'
+  import { LoginForm, LoginArt } from '@/components/organisms/allElements.js'
 </script>
 
 <style lang="scss">

@@ -73,6 +73,24 @@
       }
     }
   }
+  @media (prefers-color-scheme: dark) {
+    nav {
+      ul {
+        li {
+          span {
+            &:hover {
+              color: #246bfd;
+              border-right: 7px solid #246bfd;
+            }
+          }
+        }
+        .active {
+          border-right: 7px solid #246bfd;
+          color: #246bfd;
+        }
+      }
+    }
+  }
 </style>
 
 <nav>

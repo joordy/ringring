@@ -4,7 +4,7 @@
     Responses,
     ResponseMap,
     TextViz,
-  } from '@/components/atoms/charts/allCharts.js'
+  } from '@/components/atoms/charts/allElements.js'
   import {
     Container,
     ContainerRes,
@@ -29,26 +29,56 @@
       height: 100%;
       display: grid;
       grid-template-columns: 5fr 3fr 3fr;
-      grid-template-rows: 15% 15% 14% 14%;
+      // grid-template-rows: 15% 15% 14% 14%;
       grid-gap: $m30;
       article {
         background-color: white;
         &:nth-of-type(1) {
-          grid-column: 1 / 4;
+          grid-column: 1;
           grid-row: 1 / 3;
         }
         &:nth-of-type(2) {
-          grid-column: 1 / 2;
-          grid-row: 3 / 5;
+          grid-column: 2;
+          grid-row: 1 / 3;
         }
         &:nth-of-type(3) {
-          grid-column: 2;
-          grid-row: 3 / 5;
+          grid-column: 3;
+          grid-row: 1 / 3;
         }
         &:nth-of-type(4) {
-          grid-column: 3;
+          grid-column: 1 / 4;
           grid-row: 3 / 5;
         }
+        &:nth-of-type(1),
+        &:nth-of-type(2),
+        &:nth-of-type(3) {
+          height: 32vh;
+          @media screen and (min-height: 850px) {
+            height: 34.5vh;
+          }
+          @media screen and (min-height: 1000px) {
+            height: 35vh;
+          }
+          @media screen and (min-height: 1100px) {
+            height: 37vh;
+          }
+        }
+        // &:nth-of-type(1) {
+        //   grid-column: 1 / 4;
+        //   grid-row: 1 / 3;
+        // }
+        // &:nth-of-type(2) {
+        //   grid-column: 1 / 2;
+        //   grid-row: 3 / 5;
+        // }
+        // &:nth-of-type(3) {
+        //   grid-column: 2;
+        //   grid-row: 3 / 5;
+        // }
+        // &:nth-of-type(4) {
+        //   grid-column: 3;
+        //   grid-row: 3 / 5;
+        // }
       }
     }
   }
@@ -58,6 +88,35 @@
   <FeedbackFilter {data} />
   <section class="gridWrapper">
     <article id="vizOne">
+      <ContainerRes>
+        <VizHeader title="Feedback reacties" />
+        <div>
+          {#each feedbackData as item}
+            <Responses data={item} />
+          {/each}
+        </div>
+      </ContainerRes>
+    </article>
+    <article id="vizTwo">
+      <Container>
+        <VizHeader title="Feedback per stadsdeel" />
+
+        <TextViz data={data.charts.feedbackLocationChart} />
+      </Container>
+    </article>
+    <article id="vizThree">
+      <Container>
+        <VizHeader title="Feedback per tag-item" />
+        <TextViz data={data.charts.subjectChart} />
+      </Container>
+    </article>
+    <article id="vizFour">
+      <Container>
+        <ResponseMap {data} />
+      </Container>
+    </article>
+
+    <!-- <article id="vizOne">
       <Container>
         <ResponseMap {data} />
       </Container>
@@ -84,6 +143,6 @@
         <VizHeader title="Feedback per tag-item" />
         <TextViz data={data.charts.subjectChart} />
       </Container>
-    </article>
+    </article> -->
   </section>
 </section>

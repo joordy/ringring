@@ -34,17 +34,17 @@
   div {
     margin-right: $m30;
     position: relative;
-    .datepicker {
-      position: absolute;
-      top: 50;
-      left: 158px;
-      .contents-wrapper .visible {
-        transform: translate(-50%, -50%) translate(133px, 192.6562px) !important;
-      }
-    }
+    // .datepicker {
+    //   position: absolute;
+    //   top: 50;
+    //   left: 158px;
+    //   .contents-wrapper .visible {
+    //     transform: translate(-50%, -50%) translate(133px, 192.6562px) !important;
+    //   }
+    // }
   }
   input[type='month'] {
-    height: 30px;
+    height: 26px;
     font-size: 16px;
     padding-left: 5px;
   }

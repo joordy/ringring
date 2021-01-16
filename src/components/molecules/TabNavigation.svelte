@@ -36,6 +36,18 @@
       }
     }
   }
+  @media (prefers-color-scheme: dark) {
+    nav {
+      ul {
+        li.active {
+          span {
+            color: #246bfd;
+            border-bottom: 4px solid #246bfd;
+          }
+        }
+      }
+    }
+  }
 </style>
 
 <nav>

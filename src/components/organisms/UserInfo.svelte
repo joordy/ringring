@@ -18,7 +18,7 @@
 
   #account {
     position: absolute;
-    top: 42px;
+    top: 32px;
     right: 50px;
     display: flex;
     h4 {
@@ -75,6 +75,13 @@
   }
   .menuClosed {
     display: none;
+  }
+  @media (prefers-color-scheme: dark) {
+    #account {
+      div {
+        border: 1px solid $ui-blue;
+      }
+    }
   }
 </style>
 

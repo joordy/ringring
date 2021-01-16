@@ -16,6 +16,12 @@
       padding: $m15 $m20;
     }
   }
+  @media (prefers-color-scheme: dark) {
+    .chartItem {
+      box-shadow: 0 4px 10px 0 rgba(255, 255, 255, 0.2),
+        0 4px 10px 0 rgba(255, 255, 255, 0.2);
+    }
+  }
 </style>
 
 <article class="chartItem">
