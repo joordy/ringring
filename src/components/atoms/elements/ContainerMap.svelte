@@ -1,31 +1,34 @@
 <script>
-  import { VizHeader } from '@/components/atoms/elements/allElement.js'
-  import { DonutChart } from '@/components/atoms/charts/allCharts.js'
-
-  export let title
-  export let data
 </script>
 
 <style lang="scss">
   @import 'src/styles/index.scss';
 
-  div {
+  #containerMap {
     width: 100%;
     height: 100%;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2),
       0 4px 10px 0 rgba(0, 0, 0, 0.19);
     border-radius: $borderS;
-    article {
+    div {
       width: calc(100% - 30px);
       height: calc(100% - 40px);
       padding: $m15 $m20;
+      position: relative;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    #containerMap {
+      box-shadow: 0 4px 10px 0 rgba(255, 255, 255, 0.2),
+        0 4px 10px 0 rgba(255, 255, 255, 0.2);
     }
   }
 </style>
 
-<div id="barchart">
-  <article class="barViz">
-    <VizHeader {title} />
-    <DonutChart {data} />
-  </article>
-</div>
+<article id="containerMap">
+  <div>
+    <slot>
+      <!-- optional fallback -->
+    </slot>
+  </div>
+</article>

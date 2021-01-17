@@ -3,6 +3,7 @@
   import { chart } from 'chart.js'
 
   export let data
+  $: console.log(data)
 
   function createChart() {
     let ctx = document.getElementById('myBarChart').getContext('2d')
@@ -20,14 +21,14 @@
         datasets: [
           {
             label: 'Aantal ritten',
-            data: data.charts.barChart,
+            data: Object.values(data.charts.barChart),
             backgroundColor: [
-              'rgba(236, 78, 78, 1)',
-              'rgba(249, 206, 206, 1)',
-              'rgba(236, 78, 78, 1)',
-              'rgba(249, 206, 206, 1)',
-              'rgba(236, 78, 78, 1)',
-              'rgba(249, 206, 206, 1)',
+              'rgba(242, 193, 193, 1)',
+              'rgba(248, 161, 161, 1)',
+              'rgba(243, 16, 19, 1)',
+              'rgba(239, 102, 102, 1)',
+              'rgba(233, 62, 62, 1)',
+              'rgba(199, 53, 53, 1)',
             ],
           },
         ],

@@ -14,6 +14,9 @@
         font-size: $Heading3;
         color: $ui-red;
         margin-right: $m5;
+        @include darkMode {
+          color: $darkui-blue;
+        }
       }
     }
   }

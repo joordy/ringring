@@ -5,6 +5,15 @@
   export let data
 
   onMount(() => {
+    const checkPreferedTheme = () => {
+      let value = window.matchMedia('(prefers-color-scheme: dark)').matches
+      if (value === true) {
+        return '#246BFD'
+      } else {
+        return '#EC4E4E'
+      }
+    }
+
     mapboxgl.accessToken =
       'pk.eyJ1Ijoiam9ycnIiLCJhIjoiY2tpcDE0bGoyMDJlMzJzcDlwZGI3bzFsOCJ9._J-m2YnN8Bmv2kEA99rZFg'
     const map = new mapboxgl.Map({
@@ -24,19 +33,23 @@
         source: 'routes',
         layout: {},
         paint: {
-          'line-color': '#EC4E4E',
+          'line-color': checkPreferedTheme(),
           'line-width': 2,
-          'line-opacity': 0.3,
+          'line-opacity': 0.2,
         },
       })
     })
+  })
+
+  onMount(() => {
+    console.log(window.matchMedia('(prefers-color-scheme: dark)').matches)
   })
 </script>
 
 <style lang="scss">
   section {
     width: 100%;
-    height: calc(100% - 40px);
+    height: calc(100% - 20px);
     #map {
       box-shadow: none;
       // canvas {

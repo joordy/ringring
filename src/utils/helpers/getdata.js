@@ -20,7 +20,6 @@ export const getData = async () => {
     const url = await fetch(proxyURL + endpoint)
     console.log(url)
     const data = await url.json()
-    console.log(data)
     return data
   } catch (err) {
     err

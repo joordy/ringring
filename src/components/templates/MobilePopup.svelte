@@ -20,16 +20,23 @@
       display: block;
       display: grid;
     }
+    @include darkMode {
+      background-color: $darkui-black;
+    }
     article {
       width: 90vw;
       max-width: 380px;
-      height: 260px;
+      padding: $m20 $m20 $m50 $m20;
       background-color: $ui-white;
       text-align: center;
       position: relative;
       border-radius: $borderM;
       box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2),
         0 4px 10px 0 rgba(0, 0, 0, 0.19);
+      @include darkMode {
+        background-color: $darkui-softblack;
+        color: $darkui-white;
+      }
       div {
         position: absolute;
         margin-left: auto;

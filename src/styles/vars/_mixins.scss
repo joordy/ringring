@@ -9,3 +9,13 @@ $notDesktop: 1300px;
     @content;
   }
 }
+
+//==========================//
+// Mixins for Dark Mode     //
+//==========================//
+
+@mixin darkMode {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}

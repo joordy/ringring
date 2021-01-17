@@ -41,6 +41,12 @@
             border-right: 7px solid $ui-red;
             color: $ui-red;
           }
+          @include darkMode {
+            &:hover {
+              color: $darkui-softblue;
+              border-right: 7px solid $darkui-softblue;
+            }
+          }
         }
         &:nth-of-type(1) {
           span {
@@ -69,6 +75,10 @@
         color: $ui-red;
         &:hover {
           border-right: none;
+        }
+        @include darkMode {
+          border-right: 7px solid $darkui-blue;
+          color: $darkui-blue;
         }
       }
     }

@@ -2,7 +2,7 @@
   import {
     ErrorMessage,
     ErrorAnim,
-  } from '@/components/templates/allTemplates.js'
+  } from '@/components/templates/allElements.js'
 
   export let status
   export let error

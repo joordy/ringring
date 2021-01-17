@@ -27,6 +27,10 @@
           color: $ui-traffic-red;
           border-bottom: 4px solid $ui-traffic-red;
           font-weight: $bold;
+          @include darkMode {
+            color: $darkui-blue;
+            border-bottom: 4px solid $darkui-blue;
+          }
         }
       }
       li.disabled {

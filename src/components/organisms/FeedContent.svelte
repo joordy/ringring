@@ -1,22 +1,19 @@
 <script>
-  import { FeedbackFilter } from '@/components/molecules/elements/allElements.js'
+  import { FeedbackFilter } from '@/components/molecules/allElements.js'
   import {
-    FeedbackViz,
-    DonutViz,
-    DonutVizTwo,
-  } from '@/components/molecules/visuals/allVisuals.js'
+    Responses,
+    ResponseMap,
+    TextViz,
+  } from '@/components/atoms/charts/allElements.js'
+  import {
+    Container,
+    ContainerRes,
+    VizHeader,
+  } from '@/components/atoms/elements/allElements.js'
+
   export let data
 
-  let donutChartOne = [
-    'rgba(236, 78, 78, 1)',
-    'rgba(249, 206, 206, 1)',
-    'rgba(142, 84, 84, 1)',
-    'rgba(64, 51, 51, 1)',
-    'rgba(150, 42, 42, 1)',
-    'rgba(54, 7, 7, 1)',
-    'rgba(91, 36, 36, 1)',
-    'rgba(182, 0, 0, 1)',
-  ]
+  let feedbackData = data.feedbackData
 </script>
 
 <style lang="scss">
@@ -27,24 +24,51 @@
     padding: $m30 $m50;
     width: calc(100% - 100px);
     height: 100%;
+    @include darkMode {
+      background-color: $darkui-softblack;
+      color: $darkui-white;
+    }
     section {
+      width: 100%;
+      height: 100%;
       display: grid;
-      grid-template-columns: 3fr 2fr;
+      grid-template-columns: 5fr 3fr 3fr;
       grid-gap: $m30;
-      grid-template-rows: 15vh 15vh 15vh 15vh;
       article {
         background-color: white;
+        @include darkMode {
+          background-color: $darkui-black;
+          color: $darkui-white;
+        }
         &:nth-of-type(1) {
           grid-column: 1;
-          grid-row: 1 / 5;
+          grid-row: 1 / 3;
         }
         &:nth-of-type(2) {
           grid-column: 2;
           grid-row: 1 / 3;
         }
         &:nth-of-type(3) {
-          grid-column: 2;
+          grid-column: 3;
+          grid-row: 1 / 3;
+        }
+        &:nth-of-type(4) {
+          grid-column: 1 / 4;
           grid-row: 3 / 5;
+        }
+        &:nth-of-type(1),
+        &:nth-of-type(2),
+        &:nth-of-type(3) {
+          height: 32vh;
+          @media screen and (min-height: 850px) {
+            height: 34.5vh;
+          }
+          @media screen and (min-height: 1000px) {
+            height: 35vh;
+          }
+          @media screen and (min-height: 1100px) {
+            height: 37vh;
+          }
         }
       }
     }
@@ -55,21 +79,61 @@
   <FeedbackFilter {data} />
   <section class="gridWrapper">
     <article id="vizOne">
-      <FeedbackViz {data} />
+      <ContainerRes>
+        <VizHeader title="Feedback reacties" />
+        <div>
+          {#each feedbackData as item}
+            <Responses data={item} />
+          {/each}
+        </div>
+      </ContainerRes>
     </article>
     <article id="vizTwo">
-      <DonutViz
-        data={data.charts.subjectChart}
-        chartcolor={donutChartOne}
-        title="Hoe is de feedback verdeeld"
-      />
+      <Container>
+        <VizHeader title="Feedback per stadsdeel" />
+
+        <TextViz data={data.charts.feedbackLocationChart} />
+      </Container>
     </article>
     <article id="vizThree">
-      <DonutVizTwo
-        data={data.charts.feedbackLocationChart}
-        chartcolor={donutChartOne}
-        title="Uit welk stadsdeel komt de feedback?"
-      />
+      <Container>
+        <VizHeader title="Feedback per tag-item" />
+        <TextViz data={data.charts.subjectChart} />
+      </Container>
     </article>
+    <article id="vizFour">
+      <Container>
+        <ResponseMap {data} />
+      </Container>
+    </article>
+
+    <!-- <article id="vizOne">
+      <Container>
+        <ResponseMap {data} />
+      </Container>
+    </article>
+    <article id="vizTwo">
+      <ContainerRes>
+        <VizHeader title="Feedback reacties" />
+        <div>
+          {#each feedbackData as item}
+            <Responses data={item} />
+          {/each}
+        </div>
+      </ContainerRes>
+    </article>
+    <article id="vizThree">
+      <Container>
+        <VizHeader title="Feedback per stadsdeel" />
+
+        <TextViz data={data.charts.feedbackLocationChart} />
+      </Container>
+    </article>
+    <article id="vizFour">
+      <Container>
+        <VizHeader title="Feedback per tag-item" />
+        <TextViz data={data.charts.subjectChart} />
+      </Container>
+    </article> -->
   </section>
 </section>

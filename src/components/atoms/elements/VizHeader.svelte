@@ -5,12 +5,17 @@
 <style lang="scss">
   @import 'src/styles/index.scss';
 
-  h4 {
+  h3 {
     color: $ui-black;
-    font-size: $Heading4;
+    font-size: 18px;
     font-weight: $semi-bold;
     margin-bottom: $m10;
   }
+  @media (prefers-color-scheme: dark) {
+    h3 {
+      color: #eeeeef;
+    }
+  }
 </style>
 
-<h4>{title}</h4>
+<h3>{title}</h3>

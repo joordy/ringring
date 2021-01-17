@@ -19,12 +19,16 @@
       display: flex;
       margin: 0;
       padding: 0;
+      transition: 0.3s;
       li {
         list-style-type: none;
         margin: 0 $m10;
       }
       .active {
         border-bottom: 2px solid $ui-red;
+        @include darkMode {
+          border-bottom: 2px solid $darkui-blue;
+        }
       }
     }
   }

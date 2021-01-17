@@ -1,38 +1,44 @@
 <script>
-  import { FormArtWork } from '@/components/molecules/elements/allElements.js'
+  import { FormArt } from '@/components/molecules/allElements.js'
 </script>
 
 <style lang="scss">
   @import 'src/styles/index.scss';
 
   article {
-    color: $ui-white;
+    width: 100%;
+    height: 100%;
     background-color: $ui-red;
-    padding: 0 150px;
-    section {
-      width: 350px;
-      margin: 0 auto;
+    display: grid;
+    place-items: center;
+    @include darkMode {
+      background-color: $darkui-softblack;
+    }
+    .art {
+      width: 70%;
+      max-width: 400px;
       text-align: center;
+      color: $ui-white;
       h2 {
         margin: 0 0 $m20 0;
+        font-weight: $extra-bold;
       }
       h3 {
         margin: 0;
         line-height: 28px;
-        font-weight: 400;
+        font-weight: $normal;
       }
     }
   }
 </style>
 
 <article>
-  <FormArtWork />
-
-  <section>
+  <div class="art">
+    <FormArt />
     <h2>Up to data.</h2>
     <h3>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nisl
       vivamus a, tincidunt ultrices.
     </h3>
-  </section>
+  </div>
 </article>

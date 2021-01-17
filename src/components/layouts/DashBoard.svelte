@@ -4,12 +4,12 @@
     DashNav,
     Feedback,
     Stats,
-  } from '@/components/templates/allTemplates.js'
+  } from '@/components/templates/allElements.js'
+  import { onMount } from 'svelte'
 
   export let segment
   export let data
 
-  let src = 'ringring-logo.svg'
   let navClosed = false
   let activeTabValue
   let currentDashboardTab
@@ -23,6 +23,20 @@
     navClosed = !navClosed
   }
   $: console.log(data)
+
+  let src
+
+  const checkPreferedTheme = () => {
+    let value = window.matchMedia('(prefers-color-scheme: dark)').matches
+    if (value === false) {
+      src = 'ringring.png'
+      return src
+    } else {
+      src = 'ringring-dark.png'
+      return src
+    }
+  }
+  onMount(checkPreferedTheme)
 </script>
 
 <style lang="scss">
@@ -40,6 +54,10 @@
     z-index: 2;
     overflow-x: hidden;
     transition: 0.5s;
+    @include darkMode {
+      background-color: $darkui-black;
+      color: $darkui-white;
+    }
     .logo {
       margin: $m30 0 $m100 0;
       display: grid;
@@ -48,6 +66,9 @@
         display: flex;
         color: $ui-black;
         text-decoration: none;
+        @include darkMode {
+          color: $darkui-white;
+        }
         img {
           width: 48px;
         }
@@ -56,6 +77,9 @@
           margin-left: $m10;
           font-size: 28px;
           font-weight: $extra-bold;
+          @include darkMode {
+            color: $darkui-white;
+          }
         }
       }
     }
@@ -77,6 +101,9 @@
     height: 48px;
     background-color: $ui-red;
     border-radius: 0px $borderS $borderS 0px;
+    @include darkMode {
+      background-color: $darkui-grey;
+    }
     button {
       color: $ui-white;
       background-color: transparent;

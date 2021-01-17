@@ -1,33 +1,32 @@
 import { feedbackData } from './feedbackData.js'
 
-export const filterData = (rawData) => {
+export const filterData = async (rawData) => {
   return {
-    dataset: rawData,
-    charts: createChartdata(rawData, feedbackData),
-    geojson: rawData,
-    feedbackData: feedbackData,
+    dataset: await rawData,
+    charts: await createChartdata(rawData, feedbackData),
+    geojson: await rawData,
+    feedbackData: await feedbackData,
   }
 }
 
 const createChartdata = (rawData, feedbackData) => {
-  const barchart = createBarchart(rawData)
-  const linechart = createLinechart(rawData)
-  const lineTest = createLinechartTest(rawData)
-  const startPosition = getStartLocation(rawData)
-  const lastPosition = getEndLocation(rawData)
-  const averageDuration = getAvgTime(rawData)
-  const subjectChart = getFeedbackSub(feedbackData)
-  const stadsdeelChart = getFeedbackLocation(feedbackData)
+  // const barchart = createBarchart(rawData)
+  // const linechart = createLinechart(rawData)
+  // const lineTest = createLinechartTest(rawData)
+  // const startPosition = getStartLocation(rawData)
+  // const lastPosition = getEndLocation(rawData)
+  // const averageDuration = getAvgTime(rawData)
+  // const subjectChart = getFeedbackSub(feedbackData)
+  // const stadsdeelChart = getFeedbackLocation(feedbackData)
   return {
-    barChart: barchart,
-    averageTime: averageDuration,
-    // barTest: barTest,
-    lineChart: linechart,
-    lineTest: lineTest,
-    positionStart: startPosition,
-    positionEnd: lastPosition,
-    subjectChart: subjectChart,
-    feedbackLocationChart: stadsdeelChart,
+    barChart: createBarchart(rawData),
+    lineChart: createLinechart(rawData),
+    lineTest: createLinechartTest(rawData),
+    positionStart: getStartLocation(rawData),
+    positionEnd: getEndLocation(rawData),
+    subjectChart: getFeedbackSub(feedbackData),
+    feedbackLocationChart: getFeedbackLocation(feedbackData),
+    avgTrip: calculateAvgTime(rawData),
   }
 }
 
@@ -99,25 +98,18 @@ const createBarchart = (rawData) => {
       barData.cat6++
     }
   })
-  return [
-    barData.cat1,
-    barData.cat2,
-    barData.cat3,
-    barData.cat4,
-    barData.cat5,
-    barData.cat6,
-  ]
+  return barData
 }
 
 const createLinechart = (rawData) => {
   return [
-    6,
-    7,
-    8,
     9,
-    5,
+    9,
+    9,
+    10,
     12,
-    13,
+    15,
+    12,
     15,
     15,
     20,
@@ -126,13 +118,13 @@ const createLinechart = (rawData) => {
     18,
     20,
     12,
-    5,
-    5,
-    6,
-    7,
-    8,
-    9,
-    5,
+    13,
+    15,
+    16,
+    16,
+    16.5,
+    16,
+    10,
     12,
     13,
     15,
@@ -155,16 +147,6 @@ const createLinechartTest = (rawData) => {
     jan5: count,
     jan6: count,
   }
-  // let d = new Date('2020-01-31T01:01:13Z')
-  // console.log(d)
-  // console.log(d.getUTCHours())
-  // console.log(d.getUTCMinutes())
-  // console.log(d.getUTCDay())
-  // console.log(d.getUTCMonth())
-  // console.log(d.getUTCDate())
-
-  // let date = `${d.getUTCHours()}:${d.getUTCMinutes()}`
-  // console.log(date)
   return [
     lineData.jan1,
     lineData.jan2,
@@ -173,82 +155,84 @@ const createLinechartTest = (rawData) => {
     lineData.jan5,
     lineData.jan6,
   ]
-  // return [5, 5, 6, 7, 8, 9, 5, 12, 13, 15, 15, 20, 23, 17, 18, 20, 12]
 }
 
-const getAvgTime = (rawData) => {
-  // console.log(rawData)
-}
-
+// Get total amount of feedback per subject
 const getFeedbackSub = (feedbackData) => {
   let count = 0
-  let donutData = {
-    fietspad: count,
-    oversteekpunt: count,
-    verkeersindeling: count,
-    verkeersdrukte: count,
-    wegwerkzaamheden: count,
-    verkeerslichten: count,
-    autoverkeer: count,
-    stoplicht: count,
+  let overView = {
+    Fietspad: count,
+    Oversteekpunt: count,
+    Verkeersindeling: count,
+    Verkeersdrukte: count,
+    Wegwerkzaamheden: count,
+    Verkeerslichten: count,
+    Autoverkeer: count,
+    Stoplicht: count,
   }
   feedbackData.forEach((item) => {
     if (item.feedbackTag.includes('fietspad')) {
-      donutData.fietspad++
+      overView.Fietspad++
     } else if (item.feedbackTag.includes('oversteekpunt')) {
-      donutData.oversteekpunt++
+      overView.Oversteekpunt++
     } else if (item.feedbackTag.includes('verkeersindeling')) {
-      donutData.verkeersindeling++
+      overView.Verkeersindeling++
     } else if (item.feedbackTag.includes('verkeersdrukte')) {
-      donutData.verkeersdrukte++
+      overView.Verkeersdrukte++
     } else if (item.feedbackTag.includes('wegwerkzaamheden')) {
-      donutData.wegwerkzaamheden++
+      overView.Wegwerkzaamheden++
     } else if (item.feedbackTag.includes('autoverkeer')) {
-      donutData.autoverkeer++
+      overView.Autoverkeer++
     } else if (item.feedbackTag.includes('stoplicht')) {
-      donutData.stoplicht++
+      overView.Stoplicht++
     } else if (item.feedbackTag.includes('verkeerslichten')) {
-      donutData.verkeerslichten++
+      overView.Verkeerslichten++
     }
   })
-  return donutData
+  return overView
 }
-// const arrayChecker = (feedbackTag) => {
-//   feedbackTag.includes
 
-//   if (feedback)
-// }
-
+// Get total amount of feedback per location
 const getFeedbackLocation = (feedbackData) => {
   let count = 0
-  let donutData = {
-    centrum: count,
-    noord: count,
-    oost: count,
-    zuid: count,
-    west: count,
-    nieuwWest: count,
-    zuidOost: count,
-    westpoort: count,
+  let overView = {
+    Centrum: count,
+    Noord: count,
+    Oost: count,
+    Zuid: count,
+    West: count,
+    NieuwWest: count,
+    ZuidOost: count,
+    Westpoort: count,
   }
   feedbackData.forEach((item) => {
     if (item.stadsdeel === 'Centrum') {
-      donutData.centrum++
+      overView.Centrum++
     } else if (item.stadsdeel === 'Noord') {
-      donutData.noord++
+      overView.Noord++
     } else if (item.stadsdeel === 'Oost') {
-      donutData.oost++
+      overView.Oost++
     } else if (item.stadsdeel === 'Zuid') {
-      donutData.zuid++
+      overView.Zuid++
     } else if (item.stadsdeel === 'West') {
-      donutData.west++
+      overView.West++
     } else if (item.stadsdeel === 'Nieuw-West') {
-      donutData.nieuwWest++
+      overView.NieuwWest++
     } else if (item.stadsdeel === 'Zuid-Oost') {
-      donutData.zuidOost++
+      overView.ZuidOost++
     } else if (item.stadsdeel === 'WestPoort') {
-      donutData.westpoort++
+      overView.Westpoort++
     }
   })
-  return donutData
+  return overView
+}
+
+// Calculating average time per ride
+const calculateAvgTime = (rawData) => {
+  const res = rawData.features.map((item) => {
+    const time = item.properties.duration
+    return time
+  })
+  const time = res.reduce((a, b) => a + b, 0)
+  return time / rawData.features.length
 }

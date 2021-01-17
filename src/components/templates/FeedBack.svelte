@@ -1,42 +1,23 @@
 <script>
-  import { TabNavigation } from '@/components/molecules/elements/allElements.js'
-
+  // import { CopyRight } from '@/components/molecules/allElements.js'
   import {
+    DashHeader,
     FeedContent,
-    AccountInfo,
-  } from '@/components/organisms/allOrganisms.js'
+  } from '@/components/organisms/allElements.js'
 
   export let data
 </script>
 
-<style lang="scss">
+<!--<style lang="scss">
   @import 'src/styles/index.scss';
-
-  section {
-    width: 100%;
-    height: 130px;
-    position: relative;
-    background-color: $ui-white;
-    border-bottom: 1px solid $ui-grey;
-    h2 {
-      font-size: $Heading2;
-      font-weight: $bold;
-      line-height: 48px;
-      padding: $m30 $m50 $m30 $m50;
-    }
-  }
-</style>
+</style>-->
 
 <svelte:head>
   <title>Feedback Dashboard | Ring-Ring</title>
 </svelte:head>
 
-<section>
-  <h2>Dashboard</h2>
+<DashHeader />
 
-  <TabNavigation />
+<FeedContent {data} />
 
-  <AccountInfo />
-</section>
-
-<FeedContent title="Maand" {data} />
+<!-- <CopyRight /> -->
