@@ -4,7 +4,7 @@
 <style lang="scss">
   @import 'src/styles/index.scss';
 
-  .chartItem {
+  #container {
     width: 100%;
     height: 100%;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2),
@@ -17,14 +17,14 @@
     }
   }
   @media (prefers-color-scheme: dark) {
-    .chartItem {
+    #container {
       box-shadow: 0 4px 10px 0 rgba(255, 255, 255, 0.2),
         0 4px 10px 0 rgba(255, 255, 255, 0.2);
     }
   }
 </style>
 
-<article class="chartItem">
+<article id="container">
   <div>
     <slot>
       <!-- optional fallback -->

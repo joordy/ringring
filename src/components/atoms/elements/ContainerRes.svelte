@@ -4,7 +4,7 @@
 <style lang="scss">
   @import 'src/styles/index.scss';
 
-  article {
+  #containerRes {
     width: 100%;
     height: 100%;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2),
@@ -23,6 +23,15 @@
       border-radius: $borderXL;
       border: 1px solid $ui-softwhite;
     }
+    @include darkMode {
+      &:-webkit-scrollbar-track {
+        background: $darkui-grey;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: $darkui-blue;
+        border: 1px solid $darkui-grey;
+      }
+    }
     div {
       width: calc(100% - 30px);
       height: calc(100% - 20px);
@@ -30,14 +39,14 @@
     }
   }
   @media (prefers-color-scheme: dark) {
-    .chartItem {
+    #containerRes {
       box-shadow: 0 4px 10px 0 rgba(255, 255, 255, 0.2),
         0 4px 10px 0 rgba(255, 255, 255, 0.2);
     }
   }
 </style>
 
-<article>
+<article id="containerRes">
   <div>
     <slot>
       <!-- optional fallback -->

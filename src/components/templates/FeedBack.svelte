@@ -1,5 +1,5 @@
 <script>
-  import { CopyRight } from '@/components/molecules/allElements.js'
+  // import { CopyRight } from '@/components/molecules/allElements.js'
   import {
     DashHeader,
     FeedContent,
@@ -20,4 +20,4 @@
 
 <FeedContent {data} />
 
-<CopyRight />
+<!-- <CopyRight /> -->

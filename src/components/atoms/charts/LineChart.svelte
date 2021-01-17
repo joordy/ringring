@@ -77,7 +77,6 @@
             {
               ticks: {
                 fontFamily: 'IBM Plex Mono, sans-serif',
-                max: 24,
                 beginAtZero: true,
               },
             },

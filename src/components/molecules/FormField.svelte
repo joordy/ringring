@@ -38,6 +38,9 @@
       padding: $m10 0;
       border-radius: $borderS;
       margin-bottom: $m10;
+      @include darkMode {
+        background-color: $darkui-blue;
+      }
     }
   }
   div {
@@ -63,6 +66,9 @@
     font-size: $small-font-size;
     margin: $m5 0;
     span {
+      @include darkMode {
+        color: $darkui-blue;
+      }
       color: $ui-traffic-red;
       font-weight: $extra-bold;
       &::after {
@@ -93,3 +99,5 @@
 
 <p>Heb je nog geen account? <span>Schrijf je in</span></p>
 <p><span>Wachtwoord vergeten?</span></p>
+
+<a href="/dashboard">Go quickly to dashboard</a>

@@ -33,6 +33,9 @@
       border-radius: $borderRound;
       border: 1px solid $ui-red;
       overflow: hidden;
+      @include darkMode {
+        border: 1px solid $ui-blue;
+      }
       img {
         width: 100%;
         height: 100%;
@@ -75,13 +78,6 @@
   }
   .menuClosed {
     display: none;
-  }
-  @media (prefers-color-scheme: dark) {
-    #account {
-      div {
-        border: 1px solid $ui-blue;
-      }
-    }
   }
 </style>
 

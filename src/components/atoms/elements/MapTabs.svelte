@@ -26,6 +26,9 @@
       }
       .active {
         border-bottom: 2px solid $ui-red;
+        @include darkMode {
+          border-bottom: 2px solid $darkui-blue;
+        }
       }
     }
   }

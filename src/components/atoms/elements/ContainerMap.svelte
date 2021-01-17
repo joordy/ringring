@@ -4,7 +4,7 @@
 <style lang="scss">
   @import 'src/styles/index.scss';
 
-  article {
+  #containerMap {
     width: 100%;
     height: 100%;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2),
@@ -18,14 +18,14 @@
     }
   }
   @media (prefers-color-scheme: dark) {
-    .chartItem {
+    #containerMap {
       box-shadow: 0 4px 10px 0 rgba(255, 255, 255, 0.2),
         0 4px 10px 0 rgba(255, 255, 255, 0.2);
     }
   }
 </style>
 
-<article>
+<article id="containerMap">
   <div>
     <slot>
       <!-- optional fallback -->

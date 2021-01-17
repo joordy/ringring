@@ -32,13 +32,20 @@
     padding: $m30 $m50;
     width: calc(100% - 100px);
     height: 100%;
+    @include darkMode {
+      background-color: $darkui-softblack;
+      color: $darkui-white;
+    }
     section {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      // grid-template-rows: 9vh 9vh 8vh 14vh 6vh 157px;
       grid-gap: $m30;
       article {
         background-color: white;
+        @include darkMode {
+          background-color: $darkui-black;
+          color: $darkui-white;
+        }
         &:nth-of-type(1) {
           grid-column: 1 / 3;
           grid-row: 1 / 5;
@@ -73,18 +80,6 @@
           @media screen and (min-height: 1100px) {
             height: 37vh;
           }
-        }
-      }
-    }
-  }
-  @media (prefers-color-scheme: dark) {
-    .statistieken {
-      background-color: #1f1f2c;
-      color: #fff;
-      section {
-        article {
-          background-color: #181826;
-          color: #fff;
         }
       }
     }

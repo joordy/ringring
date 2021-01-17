@@ -12,17 +12,16 @@
     position: relative;
     background-color: $ui-white;
     border-bottom: 1px solid $ui-grey;
+    @include darkMode {
+      background-color: $darkui-black;
+      color: $darkui-white;
+      border-bottom: 1px solid $darkui-grey;
+    }
     h2 {
       font-size: $Heading2;
       font-weight: $bold;
       line-height: 48px;
       padding: $m30 $m50 $m20 $m50;
-    }
-  }
-  @media (prefers-color-scheme: dark) {
-    section {
-      background-color: #181826;
-      color: #fff;
     }
   }
 </style>

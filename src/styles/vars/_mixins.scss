@@ -13,3 +13,9 @@ $notDesktop: 1300px;
 //==========================//
 // Mixins for Dark Mode     //
 //==========================//
+
+@mixin darkMode {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}

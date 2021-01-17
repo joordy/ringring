@@ -24,15 +24,22 @@
     padding: $m30 $m50;
     width: calc(100% - 100px);
     height: 100%;
+    @include darkMode {
+      background-color: $darkui-softblack;
+      color: $darkui-white;
+    }
     section {
       width: 100%;
       height: 100%;
       display: grid;
       grid-template-columns: 5fr 3fr 3fr;
-      // grid-template-rows: 15% 15% 14% 14%;
       grid-gap: $m30;
       article {
         background-color: white;
+        @include darkMode {
+          background-color: $darkui-black;
+          color: $darkui-white;
+        }
         &:nth-of-type(1) {
           grid-column: 1;
           grid-row: 1 / 3;
@@ -63,22 +70,6 @@
             height: 37vh;
           }
         }
-        // &:nth-of-type(1) {
-        //   grid-column: 1 / 4;
-        //   grid-row: 1 / 3;
-        // }
-        // &:nth-of-type(2) {
-        //   grid-column: 1 / 2;
-        //   grid-row: 3 / 5;
-        // }
-        // &:nth-of-type(3) {
-        //   grid-column: 2;
-        //   grid-row: 3 / 5;
-        // }
-        // &:nth-of-type(4) {
-        //   grid-column: 3;
-        //   grid-row: 3 / 5;
-        // }
       }
     }
   }

@@ -1,130 +1,38 @@
-<script>
-  import { onMount } from 'svelte'
-
-  let item = 0
-  let text = 'De data wordt bij elkaar gefietst...'
-
-  const type = () => {
-    if (item < text.length) {
-      document.getElementById('text').innerHTML += text.charAt(item)
-      item++
-      setTimeout(type, 50)
-    }
-  }
-  onMount(type)
-</script>
-
 <style lang="scss">
   @import 'src/styles/index.scss';
 
   section {
-    display: grid;
-    place-items: center;
-    height: 100vh;
-    #anim {
-      width: 450px;
-      height: 450px;
-      display: grid;
-      place-items: center;
+    height: 40vh;
+    width: 100%;
+    // background-color: purple;
+    margin-bottom: $m50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    div {
+      width: 100%;
+      height: 100%;
+      // padding-top: 100%;
+      background-color: $ui-white;
+      border-radius: $borderXL;
       svg {
         width: 100%;
         height: 100%;
-        #Cyclist {
-          animation: bicycle 1s linear alternate infinite;
-          transform-origin: center;
-        }
-
-        #Frontwheel,
-        #Backwheel {
-          animation: wheel 1.7s linear infinite;
-          transform-origin: center;
-          transform-box: fill-box;
-        }
-
-        #Bike {
-          animation: biking 1s linear infinite alternate;
-          transform-origin: bottom;
-        }
-
-        #Human {
-          animation: human 1s linear infinite alternate;
-          transform-origin: bottom;
+        display: grid;
+        place-items: center;
+        g {
         }
       }
-    }
-  }
-
-  @keyframes human {
-    from {
-      transform: rotateX(0deg);
-    }
-    to {
-      transform: rotateX(12deg);
-    }
-  }
-  @keyframes biking {
-    from {
-      transform: rotateX(0deg);
-    }
-    to {
-      transform: rotateX(7deg);
-    }
-  }
-  @keyframes wheel {
-    from {
-      transform: rotateZ(0deg);
-    }
-    to {
-      transform: rotateZ(360deg);
-    }
-  }
-  @keyframes bicycle {
-    from {
-      transform: rotateY(0deg);
-    }
-    to {
-      transform: rotateY(10deg);
-    }
-  }
-
-  #main {
-    position: relative;
-    bottom: 120px;
-    width: 100vw;
-    height: 50px;
-    p {
-      text-align: center;
-    }
-    #text {
-      font-size: 2rem;
-      @include darkMode {
-        color: $darkui-white;
-      }
-    }
-    .line {
-      animation: animateLine 0.5s infinite linear;
-    }
-  }
-
-  @keyframes animateLine {
-    0% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
     }
   }
 </style>
 
 <section>
-  <div id="anim">
+  <div>
     <svg
       width="400"
-      height="400"
-      viewBox="0 0 480 550"
+      height="350"
+      viewBox="-15 0 480 410"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -313,9 +221,5 @@
         </g>
       </g>
     </svg>
-  </div>
-
-  <div id="main">
-    <p><span id="text" /><span class="line" /></p>
   </div>
 </section>

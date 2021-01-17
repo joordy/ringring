@@ -10,11 +10,21 @@
       width: 108%;
       margin-left: -4%;
       height: 50vh;
+      g {
+        #Vector37 {
+          @include darkMode {
+            stroke: white;
+          }
+        }
+      }
     }
     h1 {
       font-size: $Heading2;
       font-weight: $bold;
       margin-bottom: $m50;
+      @include darkMode {
+        color: $darkui-white;
+      }
     }
     a {
       text-decoration: none;
@@ -51,7 +61,7 @@
         fill="#5CBE56"
       />
       <path
-        id="Vector 37"
+        id="Vector37"
         d="M3 665.589C3 665.589 463.211 1075.74 830.816 1088.33C1264.97 1103.21 1375.83 453.249 1801.51 366.573C2372.79 250.25 2193.75 832.302 2776.62 820.249C3497.18 805.35 3415.9 -22.2944 4041.92 5.69413C4398.88 21.6535 4569.24 468.207 4569.24 468.207"
         stroke="black"
         stroke-width="8.83789"

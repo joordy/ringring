@@ -41,6 +41,12 @@
             border-right: 7px solid $ui-red;
             color: $ui-red;
           }
+          @include darkMode {
+            &:hover {
+              color: $darkui-softblue;
+              border-right: 7px solid $darkui-softblue;
+            }
+          }
         }
         &:nth-of-type(1) {
           span {
@@ -70,23 +76,9 @@
         &:hover {
           border-right: none;
         }
-      }
-    }
-  }
-  @media (prefers-color-scheme: dark) {
-    nav {
-      ul {
-        li {
-          span {
-            &:hover {
-              color: #246bfd;
-              border-right: 7px solid #246bfd;
-            }
-          }
-        }
-        .active {
-          border-right: 7px solid #246bfd;
-          color: #246bfd;
+        @include darkMode {
+          border-right: 7px solid $darkui-blue;
+          color: $darkui-blue;
         }
       }
     }
