@@ -5,10 +5,10 @@
   const checkPreferedTheme = () => {
     let value = window.matchMedia('(prefers-color-scheme: dark)').matches
     if (value === false) {
-      src = 'ringring.png'
+      src = 'assets/ringring.png'
       return src
     } else {
-      src = 'ringring-dark.png'
+      src = 'assets/ringring-dark.png'
       return src
     }
   }

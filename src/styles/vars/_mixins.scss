@@ -2,13 +2,19 @@
 // Mixins for media queries //
 //==========================//
 
-$notDesktop: 1300px;
+$notDesktop: 1150px;
+// $smallDesktop: 1350px;
 
 @mixin size-toSmall {
   @media (max-width: $notDesktop) {
     @content;
   }
 }
+// @mixin size-toSmall {
+//   @media (max-width: $smallDesktop) {
+//     @content;
+//   }
+// }
 
 //==========================//
 // Mixins for Dark Mode     //

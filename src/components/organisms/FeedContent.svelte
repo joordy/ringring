@@ -30,44 +30,63 @@
     }
     section {
       width: 100%;
-      height: 100%;
+      // height: 100%;
       display: grid;
-      grid-template-columns: 5fr 3fr 3fr;
+      // grid-template-columns: 5fr 3fr 3fr;
+      grid-template-columns: 2fr 2fr;
       grid-gap: $m30;
       article {
         background-color: white;
+        overflow: hidden;
         @include darkMode {
           background-color: $darkui-black;
           color: $darkui-white;
         }
         &:nth-of-type(1) {
           grid-column: 1;
-          grid-row: 1 / 3;
         }
         &:nth-of-type(2) {
           grid-column: 2;
-          grid-row: 1 / 3;
         }
         &:nth-of-type(3) {
-          grid-column: 3;
-          grid-row: 1 / 3;
+          grid-column: 1;
         }
         &:nth-of-type(4) {
-          grid-column: 1 / 4;
-          grid-row: 3 / 5;
+          grid-column: 2;
+        }
+        &:nth-of-type(3),
+        &:nth-of-type(4) {
+          height: 160px;
         }
         &:nth-of-type(1),
-        &:nth-of-type(2),
-        &:nth-of-type(3) {
-          height: 32vh;
+        &:nth-of-type(2) {
+          height: 41.3vh;
+          @media screen and (min-height: 800px) {
+            height: 44vh;
+          }
           @media screen and (min-height: 850px) {
-            height: 34.5vh;
+            height: 47.3vh;
+          }
+          @media screen and (min-height: 900px) {
+            height: 50vh;
+          }
+          @media screen and (min-height: 950px) {
+            height: 53vh;
           }
           @media screen and (min-height: 1000px) {
-            height: 35vh;
+            height: 54vh;
+          }
+          @media screen and (min-height: 1050px) {
+            height: 57vh;
           }
           @media screen and (min-height: 1100px) {
-            height: 37vh;
+            height: 59vh;
+          }
+          @media screen and (min-height: 1150px) {
+            height: 61vh;
+          }
+          @media screen and (min-height: 1250px) {
+            height: 63vh;
           }
         }
       }
@@ -78,62 +97,32 @@
 <section class="feedback">
   <FeedbackFilter {data} />
   <section class="gridWrapper">
-    <article id="vizOne">
+    <article>
       <ContainerRes>
         <VizHeader title="Feedback reacties" />
-        <div>
+        <div style="margin: 1em 0 1em 0">
           {#each feedbackData as item}
             <Responses data={item} />
           {/each}
         </div>
       </ContainerRes>
     </article>
-    <article id="vizTwo">
+    <article>
+      <Container>
+        <ResponseMap {data} />
+      </Container>
+    </article>
+    <article>
       <Container>
         <VizHeader title="Feedback per stadsdeel" />
-
         <TextViz data={data.charts.feedbackLocationChart} />
       </Container>
     </article>
-    <article id="vizThree">
+    <article>
       <Container>
         <VizHeader title="Feedback per tag-item" />
         <TextViz data={data.charts.subjectChart} />
       </Container>
     </article>
-    <article id="vizFour">
-      <Container>
-        <ResponseMap {data} />
-      </Container>
-    </article>
-
-    <!-- <article id="vizOne">
-      <Container>
-        <ResponseMap {data} />
-      </Container>
-    </article>
-    <article id="vizTwo">
-      <ContainerRes>
-        <VizHeader title="Feedback reacties" />
-        <div>
-          {#each feedbackData as item}
-            <Responses data={item} />
-          {/each}
-        </div>
-      </ContainerRes>
-    </article>
-    <article id="vizThree">
-      <Container>
-        <VizHeader title="Feedback per stadsdeel" />
-
-        <TextViz data={data.charts.feedbackLocationChart} />
-      </Container>
-    </article>
-    <article id="vizFour">
-      <Container>
-        <VizHeader title="Feedback per tag-item" />
-        <TextViz data={data.charts.subjectChart} />
-      </Container>
-    </article> -->
   </section>
 </section>

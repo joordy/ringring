@@ -4,56 +4,65 @@
 
   export let data
 
+  const checkPreferedTheme = () => {
+    let value = window.matchMedia('(prefers-color-scheme: dark)').matches
+    if (value === true) {
+      return 'rgba(36, 107, 253, 1)'
+    } else {
+      return 'rgba(236, 78, 78, 1)'
+    }
+  }
+
   function createChart() {
     let ctx = document.getElementById('lineChart').getContext('2d')
     let myChart = new Chart(ctx, {
       type: 'line',
       data: {
         labels: [
-          '1 jan',
-          '2 jan',
-          '3 jan',
-          '4 jan',
-          '5 jan',
-          '6 jan',
-          '7 jan',
-          '8 jan',
-          '9 jan',
-          '10 jan',
-          '11 jan',
-          '12 jan',
-          '13 jan',
-          '14 jan',
-          '15 jan',
-          '16 jan',
-          '17 jan',
-          '18 jan',
-          '19 jan',
-          '20 jan',
-          '21 jan',
-          '22 jan',
-          '23 jan',
-          '24 jan',
-          '25 jan',
-          '26 jan',
-          '27 jan',
-          '28 jan',
-          '29 jan',
-          '30 jan',
-          '31 jan',
+          '01-01',
+          '02-01',
+          '03-01',
+          '04-01',
+          '05-01',
+          '06-01',
+          '07-01',
+          '08-01',
+          '09-01',
+          '10-01',
+          '11-01',
+          '12-01',
+          '13-01',
+          '14-01',
+          '15-01',
+          '16-01',
+          '17-01',
+          '18-01',
+          '19-01',
+          '20-01',
+          '21-01',
+          '22-01',
+          '23-01',
+          '24-01',
+          '25-01',
+          '26-01',
+          '27-01',
+          '28-01',
+          '29-01',
+          '30-01',
+          '31-01',
         ],
         datasets: [
           {
             label: 'Drukte in de maand januari',
             fill: false,
             // lineTension: 0.6,
-            backgroundColor: 'rgba(236, 78, 78, 1)',
-            borderColor: 'rgba(236, 78, 78, 1)',
+            backgroundColor: checkPreferedTheme(),
+            borderColor: checkPreferedTheme(),
             borderCapStyle: 'butt',
             borderDash: [],
             borderDashOffset: 0.0,
             borderJoinStyle: 'miter',
-            pointBorderColor: 'rgba(236, 78, 78, 1)',
+            pointBorderColor: checkPreferedTheme(),
             pointBackgroundColor: '#fff',
             pointBorderWidth: 1,
             pointHoverRadius: 5,
@@ -100,6 +109,7 @@
     canvas {
       width: 100% !important;
       height: 100% !important;
+      cursor: pointer;
     }
   }
 </style>

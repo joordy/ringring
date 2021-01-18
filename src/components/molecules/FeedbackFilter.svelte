@@ -36,9 +36,6 @@
   <SortPicker />
   <TagsFilter />
   <div>
-    <p>
-      Totaal aantal feedback reacties:
-      <span> {data.feedbackData.length} </span>
-    </p>
+    <p>Totaal aantal reacties: <span> {data.feedbackData.length} </span></p>
   </div>
 </article>
