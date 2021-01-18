@@ -3,10 +3,12 @@
   import {
     Responses,
     ResponseMap,
-    TextViz,
+    Stadsdeel,
+    TagViz,
   } from '@/components/atoms/charts/allElements.js'
   import {
     Container,
+    ContainerMap,
     ContainerRes,
     VizHeader,
   } from '@/components/atoms/elements/allElements.js'
@@ -34,6 +36,9 @@
       background-color: $darkui-softblack;
       color: $darkui-white;
     }
+    @media screen and (max-height: 900px) {
+      padding: $m15 $m50 $m30 $m50;
+    }
     section {
       width: 100%;
       // height: 100%;
@@ -43,7 +48,6 @@
       grid-gap: $m30;
       article {
         background-color: white;
-        overflow: hidden;
         @include darkMode {
           background-color: $darkui-black;
           color: $darkui-white;
@@ -62,37 +66,46 @@
         }
         &:nth-of-type(3),
         &:nth-of-type(4) {
-          height: 160px;
+          height: 240px;
         }
         &:nth-of-type(1),
         &:nth-of-type(2) {
-          height: 41.3vh;
+          height: calc(41.3vh - 40px); // height: 41.3vh;
           @media screen and (min-height: 800px) {
-            height: 44vh;
+            // height: 44vh;
+            height: calc(44vh - 40px);
           }
           @media screen and (min-height: 850px) {
-            height: 47.3vh;
+            // height: 47.3vh;
+            height: calc(47.3vh - 40px);
           }
           @media screen and (min-height: 900px) {
-            height: 50vh;
+            height: calc(50vh - 70px);
+            // height: 50vh;
           }
           @media screen and (min-height: 950px) {
-            height: 53vh;
+            height: calc(53vh - 70px);
+            // height: 53vh;
           }
           @media screen and (min-height: 1000px) {
-            height: 54vh;
+            height: calc(54vh - 40px);
+            // height: 54vh;
           }
           @media screen and (min-height: 1050px) {
-            height: 57vh;
+            height: calc(57h - 80px);
+            // height: 57vh;
           }
           @media screen and (min-height: 1100px) {
-            height: 59vh;
+            height: calc(59vh - 80px);
+            // height: 59vh;
           }
           @media screen and (min-height: 1150px) {
-            height: 61vh;
+            height: calc(61vh - 80px);
+            // height: 61vh;
           }
           @media screen and (min-height: 1250px) {
-            height: 63vh;
+            height: calc(63vh - 80px);
+            // height: 63vh;
           }
         }
       }
@@ -110,7 +123,7 @@
       </ContainerRes>
     </article>
     <article>
-      <Container>
+      <ContainerMap>
         {#if activeItem === feedbackData[0]}
           <ResponseMap data={feedbackData[0]} />
         {:else if activeItem === feedbackData[1]}
@@ -152,18 +165,18 @@
         {:else}
           <ResponseMap data={feedbackData[19]} />
         {/if}
-      </Container>
+      </ContainerMap>
     </article>
     <article>
       <Container>
         <VizHeader title="Feedback per stadsdeel" />
-        <TextViz data={data.charts.feedbackLocationChart} />
+        <Stadsdeel data={data.charts.feedbackLocationChart} />
       </Container>
     </article>
     <article>
       <Container>
         <VizHeader title="Feedback per tag-item" />
-        <TextViz data={data.charts.subjectChart} />
+        <TagViz data={data.charts.subjectChart} />
       </Container>
     </article>
   </section>

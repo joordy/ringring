@@ -9,6 +9,9 @@
     height: 30px;
     margin-bottom: $m30;
     display: flex;
+    @media screen and (max-height: 900px) {
+      margin-bottom: $m15;
+    }
   }
 </style>
 

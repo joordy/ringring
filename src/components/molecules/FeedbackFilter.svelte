@@ -15,6 +15,9 @@
     margin-bottom: $m30;
     display: flex;
     position: relative;
+    @media screen and (max-height: 900px) {
+      margin-bottom: $m15;
+    }
     div {
       height: 30px;
       position: absolute;

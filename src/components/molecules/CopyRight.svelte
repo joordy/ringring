@@ -10,6 +10,9 @@
     position: relative;
     bottom: 220px;
     left: 0;
+    @media screen and (max-height: 900px) {
+      bottom: 190px;
+    }
     p {
       margin: 0;
       padding: 0 0 10px 50px;

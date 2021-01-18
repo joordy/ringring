@@ -9,10 +9,9 @@
     "start": "node __sapper__/build"
   },
   "dependencies": {
-    "@anoram/leaflet-svelte": "0.0.7-0",
     "body-parser": "^1.19.0",
+    "chartjs-plugin-datalabels": "^0.7.0",
     "compression": "^1.7.1",
-    "firebaseui": "^4.7.1",
     "mapbox-gl": "^2.0.1",
     "polka": "next",
     "sirv": "^1.0.0",
@@ -24,6 +23,7 @@
     "@babel/plugin-transform-runtime": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/runtime": "^7.0.0",
+    "@beyonk/svelte-mapbox": "^7.0.0",
     "@rollup/plugin-alias": "^3.1.1",
     "@rollup/plugin-babel": "^5.0.0",
     "@rollup/plugin-commonjs": "^14.0.0",

@@ -13,6 +13,15 @@
     }
   }
 
+  const checkLabelColor = () => {
+    let value = window.matchMedia('(prefers-color-scheme: dark)').matches
+    if (value === true) {
+      return '#fff'
+    } else {
+      return '#000'
+    }
+  }
+
   function createChart() {
     let ctx = document.getElementById('lineChart').getContext('2d')
     let myChart = new Chart(ctx, {
@@ -72,6 +81,9 @@
         ],
       },
       options: {
+        legend: {
+          display: false,
+        },
         maintainAspectRatio: false,
         scales: {
           xAxes: [
@@ -87,6 +99,11 @@
               ticks: {
                 fontFamily: 'IBM Plex Mono, sans-serif',
                 beginAtZero: true,
+              },
+              scaleLabel: {
+                display: true,
+                labelString: 'Aantal gereden ritten',
+                fontColor: checkLabelColor(),
               },
             },
           ],

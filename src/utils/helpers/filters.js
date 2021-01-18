@@ -238,6 +238,7 @@ const calculateAvgTime = (rawData) => {
   return time / rawData.features.length
 }
 
+// Calculating total cycled distance
 const calculateTotalKM = (rawData) => {
   const res = rawData.features.map((item) => {
     const distance = item.properties.distance
