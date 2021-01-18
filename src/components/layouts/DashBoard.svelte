@@ -29,10 +29,10 @@
   const checkPreferedTheme = () => {
     let value = window.matchMedia('(prefers-color-scheme: dark)').matches
     if (value === false) {
-      src = 'ringring.png'
+      src = 'assetrs/ringring.png'
       return src
     } else {
-      src = 'ringring-dark.png'
+      src = 'assets/ringring-dark.png'
       return src
     }
   }
@@ -44,7 +44,7 @@
 
   header {
     height: 100%;
-    width: 250px;
+    width: 225px;
     background-color: $ui-white;
     border-radius: 0 $borderXL $borderXL 0;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -85,7 +85,7 @@
     }
   }
   #main {
-    width: calc(100% - 250px);
+    width: calc(100% - 225px);
     height: 100%;
     position: fixed;
     right: 0;

@@ -105,13 +105,13 @@
     </article>
     <article id="vizTwo">
       <Container>
-        <VizHeader title="Fietsritten in verhouding met afstand" />
+        <VizHeader title="Aantal ritten per gereden kilometer" />
         <BarChart {data} />
       </Container>
     </article>
     <article id="vizThree">
       <Container>
-        <VizHeader title="Drukte gedurende de dag" />
+        <VizHeader title="Aantal gereden ritten per dag" />
         <LineChart {data} />
       </Container>
     </article>

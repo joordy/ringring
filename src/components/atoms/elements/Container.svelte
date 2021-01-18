@@ -18,8 +18,8 @@
   }
   @media (prefers-color-scheme: dark) {
     #container {
-      box-shadow: 0 4px 10px 0 rgba(255, 255, 255, 0.2),
-        0 4px 10px 0 rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 10px 0 rgba(255, 255, 255, 0.1),
+        0 4px 10px 0 rgba(255, 255, 255, 0.1);
     }
   }
 </style>

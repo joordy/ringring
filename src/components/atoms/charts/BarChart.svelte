@@ -10,14 +10,7 @@
     let myChart = new Chart(ctx, {
       type: 'horizontalBar',
       data: {
-        labels: [
-          '0-5 KM',
-          '5-10 KM',
-          '10-15 KM',
-          '15-20 KM',
-          '20-25 KM',
-          '25+ KM ',
-        ],
+        labels: ['0-5', '5-10', '10-15M', '15-20', '20-25', '25+ '],
         datasets: [
           {
             label: 'Aantal ritten',

@@ -5,7 +5,14 @@
   export let data
 
   onMount(() => {
-    let mapPoint = 'mapPoint.png'
+    const checkPreferedTheme = () => {
+      let value = window.matchMedia('(prefers-color-scheme: dark)').matches
+      if (value === true) {
+        return 'assets/mapPointDark.png'
+      } else {
+        return 'assets/mapPoint.png'
+      }
+    }
 
     mapboxgl.accessToken =
       'pk.eyJ1Ijoiam9ycnIiLCJhIjoiY2tpcDE0bGoyMDJlMzJzcDlwZGI3bzFsOCJ9._J-m2YnN8Bmv2kEA99rZFg'
@@ -17,7 +24,7 @@
     })
 
     map.on('load', function () {
-      map.loadImage(mapPoint, function (error, image) {
+      map.loadImage(checkPreferedTheme(), function (error, image) {
         if (error) throw error
         map.addImage('custom-marker', image)
         map.addSource('points', {
