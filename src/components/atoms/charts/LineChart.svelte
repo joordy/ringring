@@ -4,6 +4,15 @@
 
   export let data
 
+  const checkPreferedTheme = () => {
+    let value = window.matchMedia('(prefers-color-scheme: dark)').matches
+    if (value === true) {
+      return 'rgba(36, 107, 253, 1)'
+    } else {
+      return 'rgba(236, 78, 78, 1)'
+    }
+  }
+
   function createChart() {
     let ctx = document.getElementById('lineChart').getContext('2d')
     let myChart = new Chart(ctx, {
@@ -47,13 +56,13 @@
             label: 'Drukte in de maand januari',
             fill: false,
             // lineTension: 0.6,
-            backgroundColor: 'rgba(236, 78, 78, 1)',
-            borderColor: 'rgba(236, 78, 78, 1)',
+            backgroundColor: checkPreferedTheme(),
+            borderColor: checkPreferedTheme(),
             borderCapStyle: 'butt',
             borderDash: [],
             borderDashOffset: 0.0,
             borderJoinStyle: 'miter',
-            pointBorderColor: 'rgba(236, 78, 78, 1)',
+            pointBorderColor: checkPreferedTheme(),
             pointBackgroundColor: '#fff',
             pointBorderWidth: 1,
             pointHoverRadius: 5,
@@ -100,6 +109,7 @@
     canvas {
       width: 100% !important;
       height: 100% !important;
+      cursor: pointer;
     }
   }
 </style>

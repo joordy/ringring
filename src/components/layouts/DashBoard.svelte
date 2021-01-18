@@ -5,6 +5,9 @@
     Feedback,
     Stats,
   } from '@/components/templates/allElements.js'
+
+  import { CopyRight } from '@/components/molecules/allElements.js'
+
   import { onMount } from 'svelte'
 
   export let segment
@@ -182,4 +185,6 @@
   {:else if 3 === currentDashboardTab}
     <Contact bind:activeTabValue={currentDashboardTab} title="contact" />
   {/if}
+
+  <CopyRight />
 </main>

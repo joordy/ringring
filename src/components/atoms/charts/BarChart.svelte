@@ -3,7 +3,29 @@
   import { chart } from 'chart.js'
 
   export let data
-  $: console.log(data)
+
+  const checkPreferedTheme = () => {
+    let value = window.matchMedia('(prefers-color-scheme: dark)').matches
+    if (value === true) {
+      return [
+        'rgba(4, 37, 105, 1)',
+        'rgba(9, 68, 190, 1)',
+        'rgba(48, 116, 255, 1)',
+        'rgba(101, 151, 255, 1)',
+        'rgba(173, 200, 255, 1)',
+        'rgba(202, 217, 246, 1)',
+      ]
+    } else {
+      return [
+        'rgba(242, 193, 193, 1)',
+        'rgba(248, 161, 161, 1)',
+        'rgba(243, 16, 19, 1)',
+        'rgba(239, 102, 102, 1)',
+        'rgba(233, 62, 62, 1)',
+        'rgba(199, 53, 53, 1)',
+      ]
+    }
+  }
 
   function createChart() {
     let ctx = document.getElementById('myBarChart').getContext('2d')
@@ -15,14 +37,7 @@
           {
             label: 'Aantal ritten',
             data: Object.values(data.charts.barChart),
-            backgroundColor: [
-              'rgba(242, 193, 193, 1)',
-              'rgba(248, 161, 161, 1)',
-              'rgba(243, 16, 19, 1)',
-              'rgba(239, 102, 102, 1)',
-              'rgba(233, 62, 62, 1)',
-              'rgba(199, 53, 53, 1)',
-            ],
+            backgroundColor: checkPreferedTheme(),
           },
         ],
       },
@@ -64,6 +79,7 @@
     canvas {
       width: 100% !important;
       height: 100% !important;
+      cursor: pointer;
     }
   }
 </style>

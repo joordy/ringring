@@ -9,10 +9,6 @@
   export let data
 </script>
 
-<!--<style lang="scss">
-  @import 'src/styles/index.scss';
-</style>-->
-
 <svelte:head>
   <title>Statistieken Dashboard | Ring-Ring</title>
 </svelte:head>

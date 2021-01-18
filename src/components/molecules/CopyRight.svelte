@@ -1,17 +1,29 @@
+<script>
+  let currentTime = new Date()
+  let currentYear = currentTime.getFullYear()
+</script>
+
 <style lang="scss">
   section {
-    height: 100px;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    right: 0;
+    height: 38px;
+    width: calc(100% - 225px);
+    position: relative;
+    bottom: 220px;
+    left: 0;
     p {
+      margin: 0;
+      padding: 0 0 10px 50px;
       font-size: 12px;
+      line-height: 28px;
       color: #c4c4c4;
     }
   }
 </style>
 
 <section class="copyright">
-  <p>Copyright &copy; 2021 — Marleen Buchner, Meggie Chen & Jordy Fronik</p>
+  <p>
+    Copyright &copy;
+    {currentYear}, Marleen Buchner – Meggie Chen – Jordy Fronik. Alle rechten
+    voorbehouden.
+  </p>
 </section>

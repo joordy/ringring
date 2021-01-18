@@ -70,15 +70,27 @@
         }
         &:nth-of-type(2),
         &:nth-of-type(3) {
-          height: 32vh;
-          @media screen and (min-height: 850px) {
-            height: 34.5vh;
+          height: 31vh;
+          @media screen and (min-height: 800px) {
+            height: 32.5vh;
           }
-          @media screen and (min-height: 1000px) {
+          @media screen and (min-height: 850px) {
+            height: 33.2vh;
+          }
+          @media screen and (min-height: 900px) {
+            height: 34vh;
+          }
+          @media screen and (min-height: 950px) {
             height: 35vh;
           }
+          @media screen and (min-height: 1000px) {
+            height: 36vh;
+          }
           @media screen and (min-height: 1100px) {
-            height: 37vh;
+            height: 36.7vh;
+          }
+          @media screen and (min-height: 1150px) {
+            height: 38vh;
           }
         }
       }

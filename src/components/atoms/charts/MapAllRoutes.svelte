@@ -40,10 +40,6 @@
       })
     })
   })
-
-  onMount(() => {
-    console.log(window.matchMedia('(prefers-color-scheme: dark)').matches)
-  })
 </script>
 
 <style lang="scss">
@@ -52,6 +48,8 @@
     height: calc(100% - 20px);
     #map {
       box-shadow: none;
+      canvas {
+      }
       // canvas {
       //   width: 100% !important;
       //   max-height: 100%;

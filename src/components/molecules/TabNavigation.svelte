@@ -15,6 +15,7 @@
       list-style: none;
       li {
         span {
+          font-family: Inter;
           border-top-left-radius: 0.25rem;
           border-top-right-radius: 0.25rem;
           display: block;
@@ -35,6 +36,7 @@
       }
       li.disabled {
         span {
+          opacity: 0.6;
           color: $ui-grey;
         }
       }
