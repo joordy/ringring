@@ -24,6 +24,7 @@
         list-style-type: none;
         margin: 0 $m10;
         opacity: 0.4;
+        font-size: 14px;
         &:hover {
           cursor: pointer;
           opacity: 0.9;

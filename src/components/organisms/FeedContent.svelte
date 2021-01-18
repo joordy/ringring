@@ -14,6 +14,12 @@
   export let data
 
   let feedbackData = data.feedbackData
+  let items = feedbackData
+  let activeItem = feedbackData[0]
+
+  const responseChange = (e) => {
+    activeItem = e.detail
+  }
 </script>
 
 <style lang="scss">
@@ -100,16 +106,52 @@
     <article>
       <ContainerRes>
         <VizHeader title="Feedback reacties" />
-        <div style="margin: 1em 0 1em 0">
-          {#each feedbackData as item}
-            <Responses data={item} />
-          {/each}
-        </div>
+        <Responses {items} {activeItem} on:responseChange={responseChange} />
       </ContainerRes>
     </article>
     <article>
       <Container>
-        <ResponseMap {data} />
+        {#if activeItem === feedbackData[0]}
+          <ResponseMap data={feedbackData[0]} />
+        {:else if activeItem === feedbackData[1]}
+          <ResponseMap data={feedbackData[1]} />
+        {:else if activeItem === feedbackData[2]}
+          <ResponseMap data={feedbackData[2]} />
+        {:else if activeItem === feedbackData[3]}
+          <ResponseMap data={feedbackData[3]} />
+        {:else if activeItem === feedbackData[4]}
+          <ResponseMap data={feedbackData[4]} />
+        {:else if activeItem === feedbackData[5]}
+          <ResponseMap data={feedbackData[5]} />
+        {:else if activeItem === feedbackData[6]}
+          <ResponseMap data={feedbackData[6]} />
+        {:else if activeItem === feedbackData[7]}
+          <ResponseMap data={feedbackData[7]} />
+        {:else if activeItem === feedbackData[8]}
+          <ResponseMap data={feedbackData[8]} />
+        {:else if activeItem === feedbackData[9]}
+          <ResponseMap data={feedbackData[9]} />
+        {:else if activeItem === feedbackData[10]}
+          <ResponseMap data={feedbackData[10]} />
+        {:else if activeItem === feedbackData[11]}
+          <ResponseMap data={feedbackData[11]} />
+        {:else if activeItem === feedbackData[12]}
+          <ResponseMap data={feedbackData[12]} />
+        {:else if activeItem === feedbackData[13]}
+          <ResponseMap data={feedbackData[13]} />
+        {:else if activeItem === feedbackData[14]}
+          <ResponseMap data={feedbackData[14]} />
+        {:else if activeItem === feedbackData[15]}
+          <ResponseMap data={feedbackData[15]} />
+        {:else if activeItem === feedbackData[16]}
+          <ResponseMap data={feedbackData[16]} />
+        {:else if activeItem === feedbackData[17]}
+          <ResponseMap data={feedbackData[17]} />
+        {:else if activeItem === feedbackData[18]}
+          <ResponseMap data={feedbackData[18]} />
+        {:else}
+          <ResponseMap data={feedbackData[19]} />
+        {/if}
       </Container>
     </article>
     <article>

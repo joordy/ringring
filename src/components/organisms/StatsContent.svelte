@@ -61,12 +61,12 @@
         &:nth-of-type(4) {
           grid-column: 1;
           grid-row: 5 / 7;
-          height: 130px;
+          height: 120px;
         }
         &:nth-of-type(5) {
           grid-column: 2;
           grid-row: 5 / 7;
-          height: 130px;
+          height: 120px;
         }
         &:nth-of-type(2),
         &:nth-of-type(3) {

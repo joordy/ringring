@@ -18,18 +18,19 @@
 
   #account {
     position: absolute;
-    top: 32px;
+    top: 30px;
     right: 50px;
     display: flex;
     h4 {
       font-size: $Heading4;
       font-weight: $bold;
-      line-height: 48px;
+      line-height: 36px;
       margin-right: $m15;
     }
     div {
-      height: 48px;
-      width: 48px;
+      margin-top: -6px;
+      height: 42px;
+      width: 42px;
       border-radius: $borderRound;
       border: 1px solid $ui-red;
       overflow: hidden;

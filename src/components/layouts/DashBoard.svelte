@@ -32,7 +32,7 @@
   const checkPreferedTheme = () => {
     let value = window.matchMedia('(prefers-color-scheme: dark)').matches
     if (value === false) {
-      src = 'assetrs/ringring.png'
+      src = 'assets/ringring.png'
       return src
     } else {
       src = 'assets/ringring-dark.png'
@@ -73,12 +73,12 @@
           color: $darkui-white;
         }
         img {
-          width: 48px;
+          width: 36px;
         }
         h1 {
-          line-height: 48px;
+          line-height: 36px;
           margin-left: $m10;
-          font-size: 28px;
+          font-size: 24px;
           font-weight: $extra-bold;
           @include darkMode {
             color: $darkui-white;
@@ -101,7 +101,7 @@
     top: $m30;
     left: 0;
     width: 25px;
-    height: 48px;
+    height: 36px;
     background-color: $ui-red;
     border-radius: 0px $borderS $borderS 0px;
     @include darkMode {
@@ -120,7 +120,7 @@
       transition: 0.5s;
       &::before {
         padding-left: 7px;
-        line-height: 48px;
+        line-height: 36px;
         content: '\f053';
         transform: rotate(0deg);
       }
