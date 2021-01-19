@@ -1,6 +1,6 @@
 <script>
   // Imports theme checkers
-  import { checkPreferedTheme } from '@/utils/helpers/preferedTheme.js'
+  // import { checkPreferedTheme } from '@/utils/helpers/preferedTheme.js'
 
   import mapboxgl from 'mapbox-gl'
   import { onMount } from 'svelte'
@@ -9,6 +9,15 @@
 
   let dark = '#246BFD'
   let light = '#EC4E4E'
+
+  const checkPreferedTheme = (dark, light) => {
+    let value = window.matchMedia('(prefers-color-scheme: dark)').matches
+    if (value === true) {
+      return dark
+    } else {
+      return light
+    }
+  }
 
   onMount(() => {
     mapboxgl.accessToken =

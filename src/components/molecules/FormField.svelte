@@ -4,7 +4,6 @@
 <style lang="scss">
   @import 'src/styles/index.scss';
 
-  // form {
   fieldset {
     border: none;
     div {
@@ -77,6 +76,11 @@
         content: '\f061';
       }
     }
+  }
+  a {
+    text-align: center;
+    display: block;
+    margin-top: $m50;
   }
 </style>
 

@@ -1,9 +1,9 @@
 <script>
   // Imports theme checkers
-  import {
-    checkLabelColor,
-    checkPreferedTheme,
-  } from '@/utils/helpers/preferedTheme.js'
+  // import {
+  //   checkLabelColor,
+  //   checkPreferedTheme,
+  // } from '@/utils/helpers/preferedTheme.js'
 
   import { onMount } from 'svelte'
   import { chart } from 'chart.js'
@@ -30,6 +30,25 @@
     'rgba(242, 193, 193, 1)',
     'rgba(248, 161, 161, 1)',
   ]
+
+  const checkLabelColor = () => {
+    console.log(window)
+    let value = window.matchMedia('(prefers-color-scheme: dark)').matches
+    if (value === true) {
+      return '#fff'
+    } else {
+      return '#000'
+    }
+  }
+
+  const checkPreferedTheme = (dark, light) => {
+    let value = window.matchMedia('(prefers-color-scheme: dark)').matches
+    if (value === true) {
+      return dark
+    } else {
+      return light
+    }
+  }
 
   const createChart = () => {
     let ctx = document.getElementById('barChartOne').getContext('2d')

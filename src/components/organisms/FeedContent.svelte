@@ -5,7 +5,6 @@
   import Stadsdeel from '@/components/atoms/charts/Stadsdeel.svelte'
   import TagViz from '@/components/atoms/charts/TagViz.svelte'
   import Container from '@/components/atoms/elements/Container.svelte'
-  // import ContainerFeed from '@/components/atoms/elements/ContainerFeed.svelte'
   import ContainerMap from '@/components/atoms/elements/ContainerMap.svelte'
   import ContainerRes from '@/components/atoms/elements/ContainerRes.svelte'
   import VizHeader from '@/components/atoms/elements/VizHeader.svelte'

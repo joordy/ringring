@@ -1,9 +1,9 @@
 <script>
   // Imports theme checkers
-  import {
-    checkLabelColor,
-    checkPreferedTheme,
-  } from '@/utils/helpers/preferedTheme.js'
+  // import {
+  //   checkLabelColor,
+  //   checkPreferedTheme,
+  // } from '@/utils/helpers/preferedTheme.js'
 
   import { onMount } from 'svelte'
   import { chart } from 'chart.js'
@@ -17,6 +17,25 @@
 
   values.shift()
   labels.shift()
+
+  const checkLabelColor = () => {
+    console.log(window)
+    let value = window.matchMedia('(prefers-color-scheme: dark)').matches
+    if (value === true) {
+      return '#fff'
+    } else {
+      return '#000'
+    }
+  }
+
+  const checkPreferedTheme = (dark, light) => {
+    let value = window.matchMedia('(prefers-color-scheme: dark)').matches
+    if (value === true) {
+      return dark
+    } else {
+      return light
+    }
+  }
 
   function createChart() {
     let ctx = document.getElementById('lineChart').getContext('2d')

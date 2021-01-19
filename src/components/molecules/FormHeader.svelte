@@ -1,11 +1,20 @@
 <script>
-  import { checkPreferedTheme } from '@/utils/helpers/preferedTheme.js'
   import { onMount } from 'svelte'
 
   let dark = 'assets/ringring-dark.png'
   let light = 'assets/ringring.png'
+  let src
 
-  onMount(checkPreferedTheme(dark, light))
+  const checkPreferedTheme = () => {
+    let value = window.matchMedia('(prefers-color-scheme: dark)').matches
+    if (value === true) {
+      return (src = 'assets/ringring-dark.png')
+    } else {
+      return (src = 'assets/ringring.png')
+    }
+  }
+
+  onMount(checkPreferedTheme)
 </script>
 
 <style lang="scss">
