@@ -1,82 +1,46 @@
 <script>
+  // Imports theme checkers
+  import {
+    checkLabelColor,
+    checkPreferedTheme,
+  } from '@/utils/helpers/preferedTheme.js'
+
   import { onMount } from 'svelte'
   import { chart } from 'chart.js'
 
   export let data
 
-  const checkPreferedTheme = () => {
-    let value = window.matchMedia('(prefers-color-scheme: dark)').matches
-    if (value === true) {
-      return 'rgba(36, 107, 253, 1)'
-    } else {
-      return 'rgba(236, 78, 78, 1)'
-    }
-  }
+  let dark = 'rgba(36, 107, 253, 1)'
+  let light = 'rgba(236, 78, 78, 1)'
+  let values = Object.values(data.charts.lineChart).reverse()
+  let labels = Object.keys(data.charts.lineChart).sort()
 
-  const checkLabelColor = () => {
-    let value = window.matchMedia('(prefers-color-scheme: dark)').matches
-    if (value === true) {
-      return '#fff'
-    } else {
-      return '#000'
-    }
-  }
+  values.shift()
+  labels.shift()
 
   function createChart() {
     let ctx = document.getElementById('lineChart').getContext('2d')
     let myChart = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: [
-          '01-01',
-          '02-01',
-          '03-01',
-          '04-01',
-          '05-01',
-          '06-01',
-          '07-01',
-          '08-01',
-          '09-01',
-          '10-01',
-          '11-01',
-          '12-01',
-          '13-01',
-          '14-01',
-          '15-01',
-          '16-01',
-          '17-01',
-          '18-01',
-          '19-01',
-          '20-01',
-          '21-01',
-          '22-01',
-          '23-01',
-          '24-01',
-          '25-01',
-          '26-01',
-          '27-01',
-          '28-01',
-          '29-01',
-          '30-01',
-          '31-01',
-        ],
+        labels: labels,
         datasets: [
           {
-            label: 'Drukte in de maand januari',
+            label: 'Aantal ritten vandaag:',
             fill: false,
             // lineTension: 0.6,
-            backgroundColor: checkPreferedTheme(),
-            borderColor: checkPreferedTheme(),
+            backgroundColor: checkPreferedTheme(dark, light),
+            borderColor: checkPreferedTheme(dark, light),
             borderCapStyle: 'butt',
             borderDash: [],
             borderDashOffset: 0.0,
             borderJoinStyle: 'miter',
-            pointBorderColor: checkPreferedTheme(),
+            pointBorderColor: checkPreferedTheme(dark, light),
             pointBackgroundColor: '#fff',
             pointBorderWidth: 1,
             pointHoverRadius: 5,
             pointHitRadius: 10,
-            data: data.charts.lineChart,
+            data: values,
           },
         ],
       },

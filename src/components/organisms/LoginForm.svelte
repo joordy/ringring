@@ -1,5 +1,6 @@
 <script>
-  import { FormHeader, FormField } from '@/components/molecules/allElements.js'
+  import FormHeader from '@/components/molecules/FormHeader.svelte'
+  import FormField from '@/components/molecules/FormField.svelte'
 </script>
 
 <style lang="scss">

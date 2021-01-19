@@ -1,21 +1,15 @@
 <script>
-  import {
-    BarChart,
-    LineChart,
-    MapAllRoutes,
-    MapEndpoint,
-    MapStartpoint,
-    RecapStats,
-  } from '@/components/atoms/charts/allElements.js'
-
-  import {
-    Container,
-    ContainerMap,
-    MapTabs,
-    VizHeader,
-  } from '@/components/atoms/elements/allElements.js'
-
-  import { StatFilter } from '@/components/molecules/allElements.js'
+  import StatFilter from '@/components/molecules/StatFilter.svelte'
+  import BarChart from '@/components/atoms/charts/BarChart.svelte'
+  import LineChart from '@/components/atoms/charts/LineChart.svelte'
+  import MapAllRoutes from '@/components/atoms/charts/MapAllRoutes.svelte'
+  import MapEndpoint from '@/components/atoms/charts/MapEndpoint.svelte'
+  import MapStartpoint from '@/components/atoms/charts/MapStartpoint.svelte'
+  import RecapStats from '@/components/atoms/charts/RecapStats.svelte'
+  import Container from '@/components/atoms/elements/Container.svelte'
+  import ContainerMap from '@/components/atoms/elements/ContainerMap.svelte'
+  import MapTabs from '@/components/atoms/elements/MapTabs.svelte'
+  import VizHeader from '@/components/atoms/elements/VizHeader.svelte'
 
   export let data
 
@@ -41,7 +35,7 @@
     }
     section {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 2fr 2fr 2fr 3fr;
       grid-gap: $m30;
       article {
         background-color: white;
@@ -50,15 +44,15 @@
           color: $darkui-white;
         }
         &:nth-of-type(1) {
-          grid-column: 1 / 3;
+          grid-column: 1 / 4;
           grid-row: 1 / 5;
         }
         &:nth-of-type(2) {
-          grid-column: 3;
+          grid-column: 4;
           grid-row: 1 / 4;
         }
         &:nth-of-type(3) {
-          grid-column: 3;
+          grid-column: 4;
           grid-row: 4 / 7;
         }
         &:nth-of-type(4) {
@@ -68,6 +62,11 @@
         }
         &:nth-of-type(5) {
           grid-column: 2;
+          grid-row: 5 / 7;
+          height: 120px;
+        }
+        &:nth-of-type(6) {
+          grid-column: 3;
           grid-row: 5 / 7;
           height: 120px;
         }
@@ -145,10 +144,21 @@
       <Container>
         <VizHeader title="Gemiddelde duur fietsrit" />
         <RecapStats
-          valueNumber={data.charts.avgTrip.toFixed(2)}
-          compared="— 20%"
+          valueNumber={data.charts.avgTime.toFixed(2)}
+          compared="— 6.7%"
           timeStamp="vorige maand"
           valueType="min"
+        />
+      </Container>
+    </article>
+    <article id="vizSix">
+      <Container>
+        <VizHeader title="Gemiddelde afstand fietsrit" />
+        <RecapStats
+          valueNumber={data.charts.avgDistance.toFixed(2)}
+          compared="+ 4.3%"
+          timeStamp="vorige maand"
+          valueType="km"
         />
       </Container>
     </article>

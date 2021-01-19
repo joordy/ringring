@@ -1,5 +1,6 @@
 import { feedbackData } from './feedbackData.js'
 
+// Merges dataset and chartdata together
 export const filterData = async (rawData) => {
   return {
     dataset: await rawData,
@@ -9,28 +10,21 @@ export const filterData = async (rawData) => {
   }
 }
 
+// Creates usable object with data for application
 const createChartdata = (rawData, feedbackData) => {
-  // const barchart = createBarchart(rawData)
-  // const linechart = createLinechart(rawData)
-  // const lineTest = createLinechartTest(rawData)
-  // const startPosition = getStartLocation(rawData)
-  // const lastPosition = getEndLocation(rawData)
-  // const averageDuration = getAvgTime(rawData)
-  // const subjectChart = getFeedbackSub(feedbackData)
-  // const stadsdeelChart = getFeedbackLocation(feedbackData)
   return {
     barChart: createBarchart(rawData),
     lineChart: createLinechart(rawData),
-    lineTest: createLinechartTest(rawData),
     positionStart: getStartLocation(rawData),
     positionEnd: getEndLocation(rawData),
     subjectChart: getFeedbackSub(feedbackData),
     feedbackLocationChart: getFeedbackLocation(feedbackData),
-    avgTrip: calculateAvgTime(rawData),
-    totalKM: calculateTotalKM(rawData),
+    avgTime: calculateAvgTime(rawData),
+    avgDistance: calculateAvgDistance(rawData),
   }
 }
 
+// Get all start locations
 const getStartLocation = (rawData) => {
   const res = rawData.features.map((item) => {
     const specificCoordinate = item.geometry.coordinates[0]
@@ -48,14 +42,16 @@ const getStartLocation = (rawData) => {
   }
 }
 
+// Get all end locations
 const getEndLocation = (rawData) => {
   const res = rawData.features.map((item) => {
     const specificCoordinate = item.geometry.coordinates.length - 1
+    const result = item.geometry.coordinates[specificCoordinate]
     return {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: checkForValue(specificCoordinate),
+        coordinates: checkForValue(result),
       },
     }
   })
@@ -65,6 +61,7 @@ const getEndLocation = (rawData) => {
   }
 }
 
+// Check if coordinate value is valid, otherwise specific point return
 const checkForValue = (specificCoordinate) => {
   if (!specificCoordinate) {
     return [4.9, 52.38]
@@ -73,6 +70,7 @@ const checkForValue = (specificCoordinate) => {
   }
 }
 
+// Plot info about barchart
 const createBarchart = (rawData) => {
   let count = 0
   let barData = {
@@ -102,60 +100,27 @@ const createBarchart = (rawData) => {
   return barData
 }
 
+// Create daily count based on month values
 const createLinechart = (rawData) => {
-  return [
-    9,
-    9,
-    9,
-    10,
-    12,
-    15,
-    12,
-    15,
-    15,
-    20,
-    23,
-    17,
-    18,
-    20,
-    12,
-    13,
-    15,
-    16,
-    16,
-    16.5,
-    16,
-    10,
-    12,
-    13,
-    15,
-    15,
-    20,
-    23,
-    17,
-    18,
-    20,
-  ]
-}
+  const res = rawData.features.map((item) => {
+    let rawDay = item.properties.start
+    // Transfer raw date type to iso string
+    let day = new Date(rawDay)
+      .toISOString()
+      .replace('-', '/')
+      .split('T')[0]
+      .replace('-', '/')
 
-const createLinechartTest = (rawData) => {
-  let count = 0
-  let lineData = {
-    jan1: count,
-    jan2: count,
-    jan3: count,
-    jan4: count,
-    jan5: count,
-    jan6: count,
-  }
-  return [
-    lineData.jan1,
-    lineData.jan2,
-    lineData.jan3,
-    lineData.jan4,
-    lineData.jan5,
-    lineData.jan6,
-  ]
+    return day
+  })
+
+  // count all array items and sums them up
+  const count = Object.create(null)
+  res.forEach((item) => {
+    count[item] = count[item] ? count[item] + 1 : 1
+  })
+
+  return count
 }
 
 // Get total amount of feedback per subject
@@ -239,11 +204,11 @@ const calculateAvgTime = (rawData) => {
 }
 
 // Calculating total cycled distance
-const calculateTotalKM = (rawData) => {
+const calculateAvgDistance = (rawData) => {
   const res = rawData.features.map((item) => {
     const distance = item.properties.distance
     return distance
   })
   const distance = res.reduce((a, b) => a + b, 0)
-  return distance
+  return distance / rawData.features.length
 }

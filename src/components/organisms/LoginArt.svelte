@@ -1,5 +1,5 @@
 <script>
-  import { FormArt } from '@/components/molecules/allElements.js'
+  import FormArt from '@/components/molecules/FormArt.svelte'
 </script>
 
 <style lang="scss">

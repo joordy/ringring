@@ -1,5 +1,6 @@
 <script>
-  import { LoginForm, LoginArt } from '@/components/organisms/allElements.js'
+  import LoginForm from '@/components/organisms/LoginForm.svelte'
+  import LoginArt from '@/components/organisms/LoginArt.svelte'
 </script>
 
 <style lang="scss">
@@ -10,16 +11,6 @@
     grid-template-columns: 2fr 3fr;
     width: 100%;
     height: 100vh;
-    // article {
-    //   width: 100%;
-    //   height: 100%;
-    //   &:nth-of-type(1) {
-    //     background-color: $ui-white;
-    //   }
-    //   &:nth-of-type(2) {
-    //     background-color: $ui-red;
-    //   }
-    // }
   }
 </style>
 

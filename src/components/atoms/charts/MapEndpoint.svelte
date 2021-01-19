@@ -1,19 +1,16 @@
 <script>
+  // Imports theme checkers
+  import { checkPreferedTheme } from '@/utils/helpers/preferedTheme.js'
+
   import mapboxgl from 'mapbox-gl'
   import { onMount } from 'svelte'
 
   export let data
 
-  onMount(() => {
-    const checkPreferedTheme = () => {
-      let value = window.matchMedia('(prefers-color-scheme: dark)').matches
-      if (value === true) {
-        return 'assets/mapPointDark.png'
-      } else {
-        return 'assets/mapPoint.png'
-      }
-    }
+  let dark = '#246BFD'
+  let light = '#EC4E4E'
 
+  onMount(() => {
     mapboxgl.accessToken =
       'pk.eyJ1Ijoiam9ycnIiLCJhIjoiY2tpcDE0bGoyMDJlMzJzcDlwZGI3bzFsOCJ9._J-m2YnN8Bmv2kEA99rZFg'
     const map = new mapboxgl.Map({
@@ -21,25 +18,21 @@
       style: 'mapbox://styles/mggchn/ckjskozbj4rew19rsrmnn5nrd',
       center: [4.9, 52.38],
       zoom: 11.6,
-      fitBoundsOptions: 30,
     })
 
-    map.on('load', function () {
-      map.loadImage(checkPreferedTheme(), function (error, image) {
-        if (error) throw error
-        map.addImage('custom-marker', image)
-        map.addSource('points', {
-          type: 'geojson',
-          data: data.charts.positionStart,
-        })
-        map.addLayer({
-          id: 'points',
-          type: 'symbol',
-          source: 'points',
-          layout: {
-            'icon-image': 'custom-marker',
-          },
-        })
+    map.on('load', () => {
+      map.addSource('points', {
+        type: 'geojson',
+        data: data.charts.positionEnd,
+      })
+      map.addLayer({
+        id: 'points',
+        type: 'circle',
+        source: 'points',
+        layout: {},
+        paint: {
+          'circle-color': checkPreferedTheme(dark, light),
+        },
       })
     })
   })

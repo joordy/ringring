@@ -1,18 +1,14 @@
 <script>
-  import { FeedbackFilter } from '@/components/molecules/allElements.js'
-  import {
-    Responses,
-    ResponseMap,
-    Stadsdeel,
-    TagViz,
-  } from '@/components/atoms/charts/allElements.js'
-  import {
-    Container,
-    ContainerFeed,
-    ContainerMap,
-    ContainerRes,
-    VizHeader,
-  } from '@/components/atoms/elements/allElements.js'
+  import FeedbackFilter from '@/components/molecules/FeedbackFilter.svelte'
+  import Responses from '@/components/atoms/charts/Responses.svelte'
+  import ResponseMap from '@/components/atoms/charts/ResponseMap.svelte'
+  import Stadsdeel from '@/components/atoms/charts/Stadsdeel.svelte'
+  import TagViz from '@/components/atoms/charts/TagViz.svelte'
+  import Container from '@/components/atoms/elements/Container.svelte'
+  // import ContainerFeed from '@/components/atoms/elements/ContainerFeed.svelte'
+  import ContainerMap from '@/components/atoms/elements/ContainerMap.svelte'
+  import ContainerRes from '@/components/atoms/elements/ContainerRes.svelte'
+  import VizHeader from '@/components/atoms/elements/VizHeader.svelte'
 
   export let data
 

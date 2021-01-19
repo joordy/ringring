@@ -1,10 +1,6 @@
 <script>
-  // import { CopyRight } from '@/components/molecules/allElements.js'
-
-  import {
-    DashHeader,
-    StatsContent,
-  } from '@/components/organisms/allElements.js'
+  import DashHeader from '@/components/organisms/DashHeader.svelte'
+  import StatsContent from '@/components/organisms/StatsContent.svelte'
 
   export let data
 </script>
@@ -16,5 +12,3 @@
 <DashHeader />
 
 <StatsContent {data} />
-
-<!-- <CopyRight /> -->

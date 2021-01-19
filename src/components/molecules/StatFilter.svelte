@@ -1,5 +1,5 @@
 <script>
-  import { DatePicker } from '@/components/atoms/elements/allElements.js'
+  import DatePicker from '@/components/atoms/elements/DatePicker.svelte'
 </script>
 
 <style lang="scss">
