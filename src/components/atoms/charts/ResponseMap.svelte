@@ -4,7 +4,14 @@
 
   export let data
 
-  // $: console.log(data)
+  const calculateDay = (input) => {
+    let day = new Date(input)
+      .toISOString()
+      .replace('-', '/')
+      .split('T')[0]
+      .replace('-', '/')
+    return day
+  }
 
   const checkPreferedTheme = () => {
     let value = window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -72,7 +79,7 @@
             <br>
             Beweegtijd:${data.route.properties.duration} Min.
             <br>
-            Datum:     ${data.route.properties.day}
+            Datum:     ${calculateDay(data.route.properties.day)}
             <br>`
         )
         .addTo(map)

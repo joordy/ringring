@@ -81,6 +81,15 @@
     text-align: center;
     display: block;
     margin-top: $m50;
+    text-decoration: none;
+    color: #000;
+    transition: 0.2s;
+    @include darkMode {
+      color: #fff;
+    }
+    &:hover {
+      transform: scale(1.3);
+    }
   }
 </style>
 
