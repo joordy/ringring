@@ -1,8 +1,6 @@
 <script>
   import { onMount } from 'svelte'
 
-  let dark = 'assets/ringring-dark.png'
-  let light = 'assets/ringring.png'
   let src
 
   const checkPreferedTheme = () => {

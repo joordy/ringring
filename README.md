@@ -38,6 +38,12 @@ npm run dev
 localhost:3000
 ```
 
+#### If 404 is updated, generating new route
+
+```bash
+npx sapper export --legacy --entry not-found
+```
+
 ---
 
 ## Sources

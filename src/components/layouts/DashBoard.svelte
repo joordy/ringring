@@ -10,8 +10,6 @@
   export let segment
   export let data
 
-  let dark = 'assets/ringring-dark.png'
-  let light = 'assets/ringring.png'
   let src
   let navClosed = false
   let activeTabValue
@@ -27,16 +25,16 @@
   }
   $: console.log(data)
 
-  const checkPreferedTheme = (dark, light) => {
+  const checkPreferedTheme = () => {
     let value = window.matchMedia('(prefers-color-scheme: dark)').matches
     if (value === true) {
-      return dark
+      return (src = 'assets/ringring-dark.png')
     } else {
-      return light
+      return (src = 'assets/ringring.png')
     }
   }
 
-  onMount((src = checkPreferedTheme(dark, light)))
+  onMount(checkPreferedTheme)
 </script>
 
 <style lang="scss">

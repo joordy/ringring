@@ -131,7 +131,7 @@
     </article>
     <article id="vizFour">
       <Container>
-        <VizHeader title="Aantal fietsritten" />
+        <VizHeader title="Totaal aantal ritten" />
         <RecapStats
           valueNumber={data.dataset.features.length}
           compared="+ 5.4%"
@@ -142,7 +142,7 @@
     </article>
     <article id="vizFive">
       <Container>
-        <VizHeader title="Gemiddelde duur fietsrit" />
+        <VizHeader title="Gem. tijdsduur" />
         <RecapStats
           valueNumber={data.charts.avgTime.toFixed(2)}
           compared="— 6.7%"
@@ -153,7 +153,7 @@
     </article>
     <article id="vizSix">
       <Container>
-        <VizHeader title="Gemiddelde afstand fietsrit" />
+        <VizHeader title="Gem. afstand" />
         <RecapStats
           valueNumber={data.charts.avgDistance.toFixed(2)}
           compared="+ 4.3%"
