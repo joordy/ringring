@@ -1,6 +1,6 @@
 <script>
   import Contact from '@/components/templates/Contact.svelte'
-  import DashNav from '@/components/templates/DashNav.svelte'
+  import DashNav from '@/components/templates/DashNavigation.svelte'
   import Feedback from '@/components/templates/FeedBack.svelte'
   import Stats from '@/components/templates/Stats.svelte'
   import CopyRight from '@/components/molecules/CopyRight.svelte'

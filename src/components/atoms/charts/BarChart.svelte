@@ -1,9 +1,4 @@
 <script>
-  // Imports theme checkers
-  // import {
-  //   checkLabelColor,
-  //   checkPreferedTheme,
-  // } from '@/utils/helpers/preferedTheme.js'
   import { onMount } from 'svelte'
   import { chart } from 'chart.js'
 
@@ -27,7 +22,6 @@
   ]
 
   const checkLabelColor = () => {
-    console.log(window)
     let value = window.matchMedia('(prefers-color-scheme: dark)').matches
     if (value === true) {
       return '#fff'
@@ -45,7 +39,7 @@
     }
   }
 
-  function createChart() {
+  function createBarChart() {
     let ctx = document.getElementById('myBarChart').getContext('2d')
     let myChart = new Chart(ctx, {
       type: 'horizontalBar',
@@ -104,7 +98,7 @@
     })
   }
 
-  onMount(createChart)
+  onMount(createBarChart)
 </script>
 
 <style lang="scss">

@@ -5,7 +5,6 @@
   export let data
 
   const checkLabelColor = () => {
-    console.log(window)
     let value = window.matchMedia('(prefers-color-scheme: dark)').matches
     if (value === true) {
       return '#fff'

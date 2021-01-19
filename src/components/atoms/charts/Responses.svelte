@@ -5,6 +5,17 @@
   export let activeItem
 
   const dispatch = createEventDispatcher()
+
+  // let tagBackground = [
+  //   'rgba(226, 236, 255, 1)',
+  //   'rgba(177, 203, 255, 1)',
+  //   'rgba(136, 173, 251, 1)',
+  //   'rgba(93, 142, 241, 1)',
+  //   'rgba(68, 121, 234, 1)',
+  //   'rgba(23, 89, 229, 1)',
+  //   'rgba(0, 69, 215, 1)',
+  //   'rgba(10, 62, 173, 1)',
+  // ];
 </script>
 
 <style lang="scss">
@@ -98,7 +109,7 @@
             </div>
             <p>{response.feedback}</p>
             <div class="timestamp">
-              <h5>12 minuten geleden</h5>
+              <h5>{response.route.properties.day}</h5>
             </div>
           </article>
         </section>
@@ -106,23 +117,3 @@
     {/each}
   </ul>
 </section>
-<!-- <section>
-  <article class="text">
-    <div class="tags">
-      {#if data.gevoelsVeiligheid === 1}
-        <div class="round roundGreen" />
-      {:else if data.gevoelsVeiligheid === 2}
-        <div class="round roundOrange" />
-      {:else}
-        <div class="round roundRed" />
-      {/if}
-      {#each data.feedbackTag as item}
-        <h4>#{item}</h4>
-      {/each}
-    </div>
-    <p>{data.feedback}</p>
-    <div class="timestamp">
-      <h5>12 minuten geleden</h5>
-    </div>
-  </article>
-</section> -->
