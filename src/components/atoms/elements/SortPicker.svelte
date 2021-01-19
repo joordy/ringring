@@ -5,10 +5,14 @@
   @import 'src/styles/index.scss';
 
   div {
-    margin-right: $m30;
-    h4 {
-      margin-bottom: $m30;
-      line-height: $Heading3;
+    height: 24px;
+    display: flex;
+    margin-right: $m20;
+    span {
+      height: 24px;
+      position: relative;
+      top: -5px;
+      margin-right: $m10;
       &:before {
         font-family: FontAwesome;
         content: '\f0dc';
@@ -21,8 +25,71 @@
       }
     }
   }
+
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: #fff;
+    background-image: none;
+    flex: 1;
+    padding: 0 0.5em;
+    color: black;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: 'Inter', sans-serif;
+    @include darkMode {
+      background: $darkui-grey;
+      color: $darkui-white;
+    }
+    &::-ms-expand {
+      display: none;
+    }
+  }
+  .select {
+    position: relative;
+    display: flex;
+    width: 250px;
+    height: 24px;
+    line-height: 3;
+    background: #5c6664;
+    overflow: hidden;
+    border-radius: 0.25em;
+    &::after {
+      font-family: FontAwesome;
+      content: '\f0dc';
+      position: absolute;
+      top: 0;
+      right: 0;
+      line-height: 24px;
+      padding: 0.2px 7px;
+      background-color: $ui-red;
+      cursor: pointer;
+      pointer-events: none;
+      transition: 0.25s all ease;
+      @include darkMode {
+        background-color: #2b2e2e;
+      }
+    }
+    &:hover::after {
+      color: #fff;
+      @include darkMode {
+        color: $darkui-blue;
+      }
+    }
+  }
 </style>
 
 <div class="sortOn">
-  <h4>Sorteren op</h4>
+  <span />
+  <div class="select">
+    <select name="" id="">
+      <option value="">Sorteren op: Nieuw - Oud</option>
+      <option value="">Sorteren op: Oud - Nieuw</option>
+    </select>
+  </div>
 </div>

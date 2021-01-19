@@ -6,7 +6,8 @@ import MapAllRoutes from './MapAllRoutes.svelte'
 import MapEndpoint from './MapEndpoint.svelte'
 import MapStartpoint from './MapStartpoint.svelte'
 import RecapStats from './RecapStats.svelte'
-import TextViz from './TextViz.svelte'
+import Stadsdeel from './Stadsdeel.svelte'
+import TagViz from './TagViz.svelte'
 
 export {
   BarChart,
@@ -17,5 +18,6 @@ export {
   MapEndpoint,
   MapStartpoint,
   RecapStats,
-  TextViz,
+  Stadsdeel,
+  TagViz,
 }

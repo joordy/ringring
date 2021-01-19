@@ -3,10 +3,13 @@
   import {
     Responses,
     ResponseMap,
-    TextViz,
+    Stadsdeel,
+    TagViz,
   } from '@/components/atoms/charts/allElements.js'
   import {
     Container,
+    ContainerFeed,
+    ContainerMap,
     ContainerRes,
     VizHeader,
   } from '@/components/atoms/elements/allElements.js'
@@ -14,6 +17,12 @@
   export let data
 
   let feedbackData = data.feedbackData
+  let items = feedbackData
+  let activeItem = feedbackData[0]
+
+  const responseChange = (e) => {
+    activeItem = e.detail
+  }
 </script>
 
 <style lang="scss">
@@ -28,65 +37,66 @@
       background-color: $darkui-softblack;
       color: $darkui-white;
     }
+    @media screen and (max-height: 900px) {
+      padding: $m15 $m50 $m30 $m50;
+    }
     section {
       width: 100%;
-      // height: 100%;
       display: grid;
-      // grid-template-columns: 5fr 3fr 3fr;
       grid-template-columns: 2fr 2fr;
       grid-gap: $m30;
       article {
         background-color: white;
-        overflow: hidden;
         @include darkMode {
           background-color: $darkui-black;
           color: $darkui-white;
         }
         &:nth-of-type(1) {
           grid-column: 1;
+          grid-row: 1;
         }
         &:nth-of-type(2) {
           grid-column: 2;
+          grid-row: 1;
         }
         &:nth-of-type(3) {
           grid-column: 1;
+          grid-row: 2;
         }
         &:nth-of-type(4) {
           grid-column: 2;
-        }
-        &:nth-of-type(3),
-        &:nth-of-type(4) {
-          height: 160px;
+          grid-row: 2;
         }
         &:nth-of-type(1),
-        &:nth-of-type(2) {
-          height: 41.3vh;
+        &:nth-of-type(2),
+        &:nth-of-type(3),
+        &:nth-of-type(4) {
+          height: 34vh;
           @media screen and (min-height: 800px) {
-            height: 44vh;
+            height: 34.7vh;
           }
           @media screen and (min-height: 850px) {
-            height: 47.3vh;
+            height: 36vh;
           }
           @media screen and (min-height: 900px) {
-            height: 50vh;
+            height: 34vh;
           }
           @media screen and (min-height: 950px) {
-            height: 53vh;
+            height: 35vh;
           }
-          @media screen and (min-height: 1000px) {
-            height: 54vh;
-          }
+
           @media screen and (min-height: 1050px) {
-            height: 57vh;
+            height: 36vh;
           }
           @media screen and (min-height: 1100px) {
-            height: 59vh;
+            height: 37vh;
           }
-          @media screen and (min-height: 1150px) {
-            height: 61vh;
-          }
+
           @media screen and (min-height: 1250px) {
-            height: 63vh;
+            height: 38vh;
+          }
+          @media screen and (min-height: 1350px) {
+            height: 39vh;
           }
         }
       }
@@ -100,28 +110,64 @@
     <article>
       <ContainerRes>
         <VizHeader title="Feedback reacties" />
-        <div style="margin: 1em 0 1em 0">
-          {#each feedbackData as item}
-            <Responses data={item} />
-          {/each}
-        </div>
+        <Responses {items} {activeItem} on:responseChange={responseChange} />
       </ContainerRes>
     </article>
     <article>
-      <Container>
-        <ResponseMap {data} />
-      </Container>
+      <ContainerMap>
+        {#if activeItem === feedbackData[0]}
+          <ResponseMap data={feedbackData[0]} />
+        {:else if activeItem === feedbackData[1]}
+          <ResponseMap data={feedbackData[1]} />
+        {:else if activeItem === feedbackData[2]}
+          <ResponseMap data={feedbackData[2]} />
+        {:else if activeItem === feedbackData[3]}
+          <ResponseMap data={feedbackData[3]} />
+        {:else if activeItem === feedbackData[4]}
+          <ResponseMap data={feedbackData[4]} />
+        {:else if activeItem === feedbackData[5]}
+          <ResponseMap data={feedbackData[5]} />
+        {:else if activeItem === feedbackData[6]}
+          <ResponseMap data={feedbackData[6]} />
+        {:else if activeItem === feedbackData[7]}
+          <ResponseMap data={feedbackData[7]} />
+        {:else if activeItem === feedbackData[8]}
+          <ResponseMap data={feedbackData[8]} />
+        {:else if activeItem === feedbackData[9]}
+          <ResponseMap data={feedbackData[9]} />
+        {:else if activeItem === feedbackData[10]}
+          <ResponseMap data={feedbackData[10]} />
+        {:else if activeItem === feedbackData[11]}
+          <ResponseMap data={feedbackData[11]} />
+        {:else if activeItem === feedbackData[12]}
+          <ResponseMap data={feedbackData[12]} />
+        {:else if activeItem === feedbackData[13]}
+          <ResponseMap data={feedbackData[13]} />
+        {:else if activeItem === feedbackData[14]}
+          <ResponseMap data={feedbackData[14]} />
+        {:else if activeItem === feedbackData[15]}
+          <ResponseMap data={feedbackData[15]} />
+        {:else if activeItem === feedbackData[16]}
+          <ResponseMap data={feedbackData[16]} />
+        {:else if activeItem === feedbackData[17]}
+          <ResponseMap data={feedbackData[17]} />
+        {:else if activeItem === feedbackData[18]}
+          <ResponseMap data={feedbackData[18]} />
+        {:else}
+          <ResponseMap data={feedbackData[19]} />
+        {/if}
+      </ContainerMap>
     </article>
     <article>
       <Container>
         <VizHeader title="Feedback per stadsdeel" />
-        <TextViz data={data.charts.feedbackLocationChart} />
+        <Stadsdeel data={data.charts.feedbackLocationChart} />
       </Container>
     </article>
     <article>
       <Container>
         <VizHeader title="Feedback per tag-item" />
-        <TextViz data={data.charts.subjectChart} />
+        <TagViz data={data.charts.subjectChart} />
       </Container>
     </article>
   </section>

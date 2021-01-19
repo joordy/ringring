@@ -22,17 +22,17 @@
       margin-top: -$m5 !important;
       font-weight: $bold;
       &:nth-of-type(1) {
-        font-size: $Heading1;
+        font-size: $Heading2;
       }
       &:nth-of-type(2) {
-        font-size: $Heading4;
+        font-size: $Heading5;
       }
     }
   }
   h5 {
     font-weight: $semi-bold;
     margin: $m10 $m15 0 0;
-    font-size: $Heading5;
+    font-size: $Heading6;
     color: #a0aec0;
   }
   .positive {

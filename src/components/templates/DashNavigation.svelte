@@ -30,7 +30,6 @@
           display: block;
           line-height: 50px;
           text-decoration: none;
-          font-family: FontAwesome;
           &::before {
             position: absolute;
             left: $m30;
@@ -51,6 +50,7 @@
         &:nth-of-type(1) {
           span {
             &::before {
+              font-family: FontAwesome;
               content: '\f080';
             }
           }
@@ -58,6 +58,7 @@
         &:nth-of-type(2) {
           span {
             &::before {
+              font-family: FontAwesome;
               content: '\f4ad';
             }
           }
@@ -65,6 +66,7 @@
         &:nth-of-type(3) {
           span {
             &::before {
+              font-family: FontAwesome;
               content: '\f4ad';
             }
           }

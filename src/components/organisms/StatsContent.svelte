@@ -36,6 +36,9 @@
       background-color: $darkui-softblack;
       color: $darkui-white;
     }
+    @media screen and (max-height: 900px) {
+      padding: $m15 $m50 $m30 $m50;
+    }
     section {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -61,21 +64,21 @@
         &:nth-of-type(4) {
           grid-column: 1;
           grid-row: 5 / 7;
-          height: 130px;
+          height: 120px;
         }
         &:nth-of-type(5) {
           grid-column: 2;
           grid-row: 5 / 7;
-          height: 130px;
+          height: 120px;
         }
         &:nth-of-type(2),
         &:nth-of-type(3) {
-          height: 31vh;
+          height: 34vh;
           @media screen and (min-height: 800px) {
-            height: 32.5vh;
+            height: 35vh;
           }
           @media screen and (min-height: 850px) {
-            height: 33.2vh;
+            height: 36vh;
           }
           @media screen and (min-height: 900px) {
             height: 34vh;
@@ -84,13 +87,13 @@
             height: 35vh;
           }
           @media screen and (min-height: 1000px) {
-            height: 36vh;
+            height: 35.5vh;
           }
           @media screen and (min-height: 1100px) {
             height: 36.7vh;
           }
           @media screen and (min-height: 1150px) {
-            height: 38vh;
+            height: 37.3vh;
           }
         }
       }

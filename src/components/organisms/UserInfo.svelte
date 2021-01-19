@@ -5,11 +5,10 @@
       'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80',
   }
 
-  let menuClosed = false
+  let menuOpen = false
 
-  function handleMenu(e) {
-    console.log('test', menuClosed)
-    menuClosed = !menuClosed
+  const handleMenu = (e) => {
+    menuOpen = !menuOpen
   }
 </script>
 
@@ -18,18 +17,19 @@
 
   #account {
     position: absolute;
-    top: 32px;
+    top: 30px;
     right: 50px;
     display: flex;
     h4 {
       font-size: $Heading4;
       font-weight: $bold;
-      line-height: 48px;
+      line-height: 36px;
       margin-right: $m15;
     }
     div {
-      height: 48px;
-      width: 48px;
+      margin-top: -6px;
+      height: 42px;
+      width: 42px;
       border-radius: $borderRound;
       border: 1px solid $ui-red;
       overflow: hidden;
@@ -45,7 +45,7 @@
       cursor: pointer;
     }
   }
-  #accountMenu {
+  .accountMenu {
     display: none;
     width: 230px;
     height: 165px;
@@ -57,6 +57,12 @@
     top: 100px;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2),
       0 4px 10px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.5s;
+    @include darkMode {
+      background-color: $darkui-softblack;
+      border: 0.3px solid $darkui-blue;
+      color: $darkui-white;
+    }
     ul {
       margin: $m15 $m20;
       display: flex;
@@ -66,6 +72,9 @@
         list-style-type: none;
         &:hover {
           color: $ui-red;
+          @include darkMode {
+            color: $darkui-blue;
+          }
           font-weight: $bold;
         }
         a {
@@ -76,8 +85,8 @@
       }
     }
   }
-  .menuClosed {
-    display: none;
+  .open {
+    display: block;
   }
 </style>
 
@@ -86,7 +95,7 @@
   <div><img src={user.avatar} alt={user.name} /></div>
 </article>
 
-<div id="accountMenu" class:menuClosed>
+<div class="accountMenu" class:open={menuOpen}>
   <ul>
     <li><a href="/">Accountgegevens</a></li>
     <li><a href="/">Dashboard instellingen</a></li>

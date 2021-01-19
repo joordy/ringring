@@ -27,6 +27,7 @@ const createChartdata = (rawData, feedbackData) => {
     subjectChart: getFeedbackSub(feedbackData),
     feedbackLocationChart: getFeedbackLocation(feedbackData),
     avgTrip: calculateAvgTime(rawData),
+    totalKM: calculateTotalKM(rawData),
   }
 }
 
@@ -235,4 +236,14 @@ const calculateAvgTime = (rawData) => {
   })
   const time = res.reduce((a, b) => a + b, 0)
   return time / rawData.features.length
+}
+
+// Calculating total cycled distance
+const calculateTotalKM = (rawData) => {
+  const res = rawData.features.map((item) => {
+    const distance = item.properties.distance
+    return distance
+  })
+  const distance = res.reduce((a, b) => a + b, 0)
+  return distance
 }

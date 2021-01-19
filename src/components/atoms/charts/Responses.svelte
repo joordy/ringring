@@ -1,11 +1,28 @@
 <script>
-  export let data
+  import { createEventDispatcher } from 'svelte'
+
+  export let items
+  export let activeItem
+
+  const dispatch = createEventDispatcher()
 </script>
 
 <style lang="scss">
   @import 'src/styles/index.scss';
 
-  section {
+  .resWrapper {
+    padding: $m10 0 $m20 0;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+  .response {
     width: 95%;
     margin: $m10 auto $m20 auto;
     border-bottom: 1px solid #c4c4c4;
@@ -53,9 +70,42 @@
       }
     }
   }
+  .active {
+    padding: 15px 10px;
+    border-radius: 5px 5px 0px 0px;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
 </style>
 
-<section>
+<section class="resWrapper">
+  <ul>
+    {#each items as response}
+      <li on:click={() => dispatch('responseChange', response)}>
+        <section class:active={response === activeItem} class="response">
+          <article class="text">
+            <div class="tags">
+              {#if response.gevoelsVeiligheid === 1}
+                <div class="round roundGreen" />
+              {:else if response.gevoelsVeiligheid === 2}
+                <div class="round roundOrange" />
+              {:else}
+                <div class="round roundRed" />
+              {/if}
+              {#each response.feedbackTag as tag}
+                <h4>#{tag}</h4>
+              {/each}
+            </div>
+            <p>{response.feedback}</p>
+            <div class="timestamp">
+              <h5>12 minuten geleden</h5>
+            </div>
+          </article>
+        </section>
+      </li>
+    {/each}
+  </ul>
+</section>
+<!-- <section>
   <article class="text">
     <div class="tags">
       {#if data.gevoelsVeiligheid === 1}
@@ -74,4 +124,4 @@
       <h5>12 minuten geleden</h5>
     </div>
   </article>
-</section>
+</section> -->

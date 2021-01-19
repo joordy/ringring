@@ -1,111 +1,108 @@
 <script>
-  import Datepicker from 'svelte-calendar'
-  const daysOfWeek = [
-    ['Maandag', 'Ma'],
-    ['Dinsdag', 'Di'],
-    ['Woensdag', 'Wo'],
-    ['Donderdag', 'Do'],
-    ['Vrijdag', 'Vr'],
-    ['Zaterdag', 'Za'],
-    ['Zondag', 'Zo'],
-  ]
   const monthsOfYear = [
-    ['Januari', 'Ene'],
-    ['Februari', 'Feb'],
-    ['Maart', 'Mar'],
-    ['April', 'Abr'],
-    ['Mei', 'May'],
-    ['Juni', 'Jun'],
-    ['Juli', 'Jul'],
-    ['Augustus', 'Ago'],
-    ['September', 'Sep'],
-    ['October', 'Oct'],
-    ['November', 'Nov'],
-    ['December', 'Dec'],
+    'Januari',
+    'Februari',
+    'Maart',
+    'April',
+    'Mei',
+    'Juni',
+    'Juli',
+    'Augustus',
+    'September',
+    'October',
+    'November',
+    'December',
   ]
-  let selectedDateFormatted
-  let selectedDate
-  let userHasChosenDate
 </script>
 
 <style lang="scss">
   @import 'src/styles/index.scss';
 
   div {
-    margin-right: $m30;
+    height: 24px;
+    display: flex;
+    margin-right: $m20;
+    span {
+      height: 24px;
+      margin-right: $m10;
+      &:before {
+        font-family: FontAwesome;
+        content: '\f073';
+        font-size: $Heading3;
+        color: $ui-red;
+        margin-right: $m5;
+        line-height: 24px;
+        @include darkMode {
+          color: $darkui-blue;
+        }
+      }
+    }
+  }
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: #fff;
+    background-image: none;
+    flex: 1;
+    padding: 0 0.5em;
+    color: black;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: 'Inter', sans-serif;
+    @include darkMode {
+      background: $darkui-grey;
+      color: $darkui-white;
+    }
+    &::-ms-expand {
+      display: none;
+    }
+  }
+  .select {
     position: relative;
-    // .datepicker {
-    //   position: absolute;
-    //   top: 50;
-    //   left: 158px;
-    //   .contents-wrapper .visible {
-    //     transform: translate(-50%, -50%) translate(133px, 192.6562px) !important;
-    //   }
-    // }
+    display: flex;
+    width: 100px;
+    height: 24px;
+    line-height: 3;
+    background: #5c6664;
+    overflow: hidden;
+    border-radius: 0.25em;
+    &::after {
+      font-family: FontAwesome;
+      content: '\f0dc';
+      position: absolute;
+      top: 0;
+      right: 0;
+      line-height: 24px;
+      padding: 0.2px 7px;
+      background-color: $ui-red;
+      cursor: pointer;
+      pointer-events: none;
+      transition: 0.25s all ease;
+      @include darkMode {
+        background-color: #2b2e2e;
+      }
+    }
+    &:hover::after {
+      color: #fff;
+      @include darkMode {
+        color: $darkui-blue;
+      }
+    }
   }
-  input[type='month'] {
-    height: 26px;
-    font-size: 16px;
-    padding-left: 5px;
-  }
-  // input[type='month'] {
-  //   height: 30px;
-  //   width: 150px;
-  //   border: none;
-  //   background-color: transparent;
-  //   font-size: 16px;
-  //   font-family: FontAwesome;
-
-  //   &:active {
-  //     border: none;
-  //   }
-  //   // &::after {
-  //   //   font-family: FontAwesome;
-  //   //   content: '\f073';
-  //   //   font-size: $Heading3;
-  //   //   color: $ui-red;
-  //   //   margin-right: $m5;
-  //   // }
-  //   &::-webkit-calendar-picker-indicator {
-  //     opacity: 0;
-  //     // font-family: FontAwesome;
-  //     // background: '\f073';
-  //     // font-size: $Heading3;
-  //     // color: $ui-red;
-  //     // margin-right: $m5;
-  //   }
-  // }
-  //}
-
-  // .contents-wrapper.svelte-mc1z8c.svelte-mc1z8c {
-  //   transform: translate(-50%, -50%);
-  //   position: absolute;
-  //   top: 721% !important;
-  //   left: 227% !important;
-  //   transition: none;
-  //   z-index: 433;
-  //   display: none;
-  // }
 </style>
 
 <div class="datepicker">
-  <!-- <Datepicker
-    bind:formattedSelected={selectedDateFormatted}
-    bind:selected={selectedDate}
-    bind:dateChosen={userHasChosenDate}
-    {daysOfWeek}
-    {monthsOfYear}
-    dayHighlightedBackgroundColor="#F9CECE"
-    dayHighlightedTextColor="#fff"
-    highlightColor="#F9CECE"
-  >
-    <button class="custom-button">
-      {#if userHasChosenDate}
-        Chosen:
-        {selectedDateFormatted}
-      {:else}Pick a date{/if}
-    </button>
-  </Datepicker> -->
-
-  <input type="month" value="2020-01" />
+  <span />
+  <div class="select">
+    <select name="" id="">
+      {#each monthsOfYear as month}
+        <option value={month}>{month}</option>
+      {/each}
+    </select>
+  </div>
 </div>

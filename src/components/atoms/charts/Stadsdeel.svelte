@@ -4,7 +4,6 @@
 
   export let data
 
-  $: console.log(data.charts.barChart)
   const checkPreferedTheme = () => {
     let value = window.matchMedia('(prefers-color-scheme: dark)').matches
     if (value === true) {
@@ -15,6 +14,8 @@
         'rgba(101, 151, 255, 1)',
         'rgba(173, 200, 255, 1)',
         'rgba(202, 217, 246, 1)',
+        'rgba(4, 37, 105, 1)',
+        'rgba(9, 68, 190, 1)',
       ]
     } else {
       return [
@@ -24,6 +25,8 @@
         'rgba(239, 102, 102, 1)',
         'rgba(233, 62, 62, 1)',
         'rgba(199, 53, 53, 1)',
+        'rgba(242, 193, 193, 1)',
+        'rgba(248, 161, 161, 1)',
       ]
     }
   }
@@ -37,33 +40,36 @@
     }
   }
 
-  function createChart() {
-    let ctx = document.getElementById('myBarChart').getContext('2d')
+  const createChart = () => {
+    let ctx = document.getElementById('barChartOne').getContext('2d')
     let myChart = new Chart(ctx, {
-      type: 'horizontalBar',
+      type: 'bar',
       data: {
-        labels: ['0-5', '5-10', '10-15', '15-20', '20-25', '25+ '],
+        labels: Object.keys(data),
         datasets: [
           {
-            label: 'Aantal ritten',
-            data: Object.values(data.charts.barChart),
+            data: Object.values(data),
             backgroundColor: checkPreferedTheme(),
           },
         ],
       },
       options: {
-        maintainAspectRatio: false,
-        onResize: null,
+        layout: {
+          padding: {
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+          },
+        },
+        legend: {
+          display: false,
+        },
         scales: {
           xAxes: [
             {
               ticks: {
                 fontFamily: 'IBM Plex Mono, sans-serif',
-              },
-              scaleLabel: {
-                display: true,
-                labelString: 'Aantal ritten',
-                fontColor: checkLabelColor(),
               },
             },
           ],
@@ -72,25 +78,15 @@
               ticks: {
                 fontFamily: 'IBM Plex Mono, sans-serif',
                 beginAtZero: true,
+                fontSize: 10,
               },
               scaleLabel: {
                 display: true,
-                labelString: 'Kilometers',
+                labelString: 'Aantal reacties',
                 fontColor: checkLabelColor(),
               },
             },
           ],
-        },
-        layout: {
-          padding: {
-            left: 0,
-            right: 0,
-            top: 0,
-            bottom: 0,
-          },
-        },
-        legend: {
-          display: false,
         },
       },
     })
@@ -100,22 +96,18 @@
 </script>
 
 <style lang="scss">
-  .graph {
-    display: block;
-    height: inherit;
-    width: calc(inherit + 15px);
-    box-shadow: none;
-    border-radius: 0;
+  div {
+    height: 100%;
     canvas {
       width: 100% !important;
-      height: 100% !important;
+      height: 95% !important;
       cursor: pointer;
     }
   }
 </style>
 
-<div class="graph">
-  <canvas id="myBarChart" aria-label="Chart about rides">
+<div>
+  <canvas id="barChartOne" aria-label="Chart about rides">
     <p>
       Your browser does not support this chart. Please visit a recent updated
       browser.

@@ -96,7 +96,7 @@
       text-align: center;
     }
     #text {
-      font-size: 2rem;
+      font-size: 1.25em;
       @include darkMode {
         color: $darkui-white;
       }

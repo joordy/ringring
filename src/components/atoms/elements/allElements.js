@@ -1,4 +1,5 @@
 import Container from './Container.svelte'
+import ContainerFeed from './ContainerFeed.svelte'
 import ContainerMap from './ContainerMap.svelte'
 import ContainerRes from './ContainerRes.svelte'
 import DatePicker from './DatePicker.svelte'
@@ -14,6 +15,7 @@ import VizHeader from './VizHeader.svelte'
 
 export {
   Container,
+  ContainerFeed,
   ContainerMap,
   ContainerRes,
   DatePicker,

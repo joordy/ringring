@@ -8,7 +8,7 @@
 
   section {
     width: 100%;
-    height: 120px;
+    height: 110px;
     position: relative;
     background-color: $ui-white;
     border-bottom: 1px solid $ui-grey;
@@ -18,10 +18,10 @@
       border-bottom: 1px solid $darkui-grey;
     }
     h2 {
-      font-size: $Heading2;
+      font-size: $Heading3;
       font-weight: $bold;
-      line-height: 48px;
-      padding: $m30 $m50 $m20 $m50;
+      line-height: 36px;
+      padding: $m30 $m50 $m10 $m50;
     }
   }
 </style>
