@@ -6,16 +6,14 @@
 
   const dispatch = createEventDispatcher()
 
-  // let tagBackground = [
-  //   'rgba(226, 236, 255, 1)',
-  //   'rgba(177, 203, 255, 1)',
-  //   'rgba(136, 173, 251, 1)',
-  //   'rgba(93, 142, 241, 1)',
-  //   'rgba(68, 121, 234, 1)',
-  //   'rgba(23, 89, 229, 1)',
-  //   'rgba(0, 69, 215, 1)',
-  //   'rgba(10, 62, 173, 1)',
-  // ];
+  const calculateDay = (input) => {
+    let day = new Date(input)
+      .toISOString()
+      .replace('-', '/')
+      .split('T')[0]
+      .replace('-', '/')
+    return day
+  }
 </script>
 
 <style lang="scss">
@@ -109,7 +107,7 @@
             </div>
             <p>{response.feedback}</p>
             <div class="timestamp">
-              <h5>{response.route.properties.day}</h5>
+              <h5>{calculateDay(response.route.properties.day)}</h5>
             </div>
           </article>
         </section>

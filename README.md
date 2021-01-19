@@ -43,6 +43,54 @@ The dataset contains information about the routes traveled in the month of Janua
 
 ---
 
+## :computer: Technology
+
+The application is build in [Sapper](https://sapper.svelte.dev/). Sapper is a framework for building web applications, based on Svelte's technology. This ensures that the code is compiled, rather than displayed in a virtual dome. Svelte writes code that surgically updates the DOM when your app's state changes. The usage of an framework makes it easier to expand the tool with new features, the code could now be extended in an easy way with, for example, a valid login system and multiple datasets.
+
+I have chosen to work with a framework in order to gain experience with it, for my personal development.
+
+### Libraries
+
+#### Chart.js
+
+To create the data visualizations, I've made use of Chart.js. Chart.js is a library that helps plot data inside a chart. Its customizable with a bunch of options, and responsive so i
+
+#### MapBox GL JS
+
+MapBox is a JavaScript Library that renders interactive maps from vector tiles and online MapBox styles. This means you can create a custom style inside the MapBox Editor, and import the style inside your code. This allows you to easily add your own twist to the design, making it a perfect match for your project.
+
+---
+
+## :bar_chart: Data patterns
+
+In my project I used different functional patterns to clean up the dataset and make it usable for myself. I am using a large object, which contains different values.
+
+One of the values ​​is an object, in which I put all the data for realizing the data visualisations. Here I have released various functions in which the data is transformed into useful information.
+
+The second value contains the entire [dataset](http://data.jorrr.nl/ringring/data-ringring.json) that we received from Ring-Ring, in order to plot the geo-location on a map. This one is unedited, we received it from the IT department and after a bit of fumbling it was usable for plotting.
+
+The last value contains a [feedback data](https://github.com/joordy/ringring/blob/master/src/utils/helpers/feedbackData.js) file. This is based on fictitious responses, because they were missing from the dataset. The responses are linked from previous rides from the Ring-Ring dataset.
+
+```javascript
+{
+  charts: {
+    barChart: lorem
+    lineChart: lorem,
+    positionStart: lorem,
+    positionEnd: lorem,
+    subjectChart: lorem,
+    feedbackLocationChart: lorem,
+    avgTime: lorem,
+    avgDistance: lorem,
+  },               // Chart data
+  geojson: ,       // Ringring dataset,
+  feedbackData: ,  // Feedback dataset
+}
+
+```
+
+---
+
 ## :rocket: Install project
 
 When you already have a connection with [Git](https://formulae.brew.sh/formula/git), and installed [Node Version Manager](https://github.com/nvm-sh/nvm) on your computer you can easily download my project. If you haven't already installed these programs, I recommend to do that first.
