@@ -12,6 +12,27 @@ For the concept for Ring-Ring I looked at developing a policy-makers dashboard. 
 
 The main feature of the application is the dashboard tool. Two overviews can be viewed on the dashboard tool, namely the general **statistics** view and the **feedback** overview.
 
+### Statistics
+
+With the statistics overview, a lot of information can be viewed in an overview:
+
+- All start and end points of the routes
+- All traveled routes plotted on a map, where the busiest points can be found.
+- The number of rides categorized by length
+- The number of trips per day during the month of January
+- The total number of trips
+- Average duration of a bicycle ride
+- Average distance of a trip
+
+### Feedback
+
+With the feedback, everything about the feedback of the users can be analyzed.
+
+- The route driven, including start and end point.
+- The response about the route, including the attached annoyance topic.
+- Which part of the city has the most responses
+- How the responses are distributed, based on topic
+
 ---
 
 ## :chart: Data
@@ -24,7 +45,7 @@ The dataset contains information about the routes traveled in the month of Janua
 
 ## :rocket: Install project
 
-When you already have a connection with [Git](https://formulae.brew.sh/formula/git), and installed [Node Version Manager](https://github.com/nvm-sh/nvm) on your computer you can easilly download my project. If you haven't already installed these programs, I recommend to do that first.
+When you already have a connection with [Git](https://formulae.brew.sh/formula/git), and installed [Node Version Manager](https://github.com/nvm-sh/nvm) on your computer you can easily download my project. If you haven't already installed these programs, I recommend to do that first.
 
 #### Clone the GitHub repository
 
@@ -58,29 +79,45 @@ npx sapper export --legacy --entry not-found
 
 ---
 
+## :key: Deployment link
+
+The live version of the application can be watched here: [ringring.jorrr.nl](https://ringring.jorrr.nl/)
+
+---
+
 ## Sources
 
 #### Code Sources
 
-- [Sapper](https://github.com/sveltejs/sapper)
-- [MDN Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)
-- [Array.reverse()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse)
-- [Object.values](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values)
-- [Object.keys](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)
-- [Object Count](https://thisdavej.com/how-to-count-unique-items-in-javascript-arrays/)
+- SvelteJS. (n.d.). Sveltejs/sapper repository GitHub | SvelteJS.. Retrieved 7 December 2020, from https://github.com/sveltejs/sapper
+- MDN. (2020, December 8). CSS Grid Layout - CSS: Cascading Style Sheets | MDN. Retrieved 10 December 2020, from https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout
+- MDN. (2021, January 13). Array.prototype.reverse() - JavaScript | MDN. Retrieved 16 january 2020, from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse
+- MDN. (2021, January 13). Object.values() - JavaScript | MDN. Retrieved 17 january 2020, from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values
+- MDN. (2021, January 13). Object.keys() - JavaScript | MDN. Retrieved 17 january 2020, from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+- MDN. (2021, January 13). Object.keys() - JavaScript | MDN. Retrieved 17 january 2020, from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+- Johnson, D. (2018, April 18). How to Count Unique Items in JavaScript Arrays | ThisDaveJ. Retrieved 19 January 2020, from https://thisdavej.com/how-to-count-unique-items-in-javascript-arrays/
+- Condrey, D. (2010, January 6). How to get year/month/day from a date object? |Stack Overflow. Retrieved 15 January 2021, from https://stackoverflow.com/questions/2013255/how-to-get-year-month-day-from-a-date-object
+- SixStringsCoder. (2020, October 21). Off-Canvas Menu toggle. | Svelte Repl. Retrieved 4 January 2021, from https://Svelte.Dev/. https://svelte.dev/repl/e9c4ff0b0ff94059a6c85a09c556284a?version=3.29.0
+- The Net Ninja. (2020, April 17). Svelte Tutorial for Beginners #20 - Reusable Tabs Component. YouTube. | Retrieved 14 December 2020, from https://youtube.com/watch?v=U8cM_jhmDxA
 
-##### Map data
+#### Map Data
 
-- [MapBox](https://docs.mapbox.com/)
-- [MapBox GL JS Style documentation](https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#paint-line-line-blur)
-- [Mapbox add GeoJSON Line](https://docs.mapbox.com/mapbox-gl-js/example/geojson-polygon/)
-- [Mapbox add GeoJSON Markers](https://docs.mapbox.com/mapbox-gl-js/example/geojson-markers/)
-- [Mapbox add Icon](https://docs.mapbox.com/mapbox-gl-js/example/add-image/)
+- MapBox. (n.d.). Documentation Mapbox. | MapBox GL JS. Retrieved 23 December 2020, from https://docs.mapbox.com/
+- MapBox. (n.d.). Layers | Style Specification | Mapbox GL JS. Retrieved 12 January 2021, from https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#paint-line-line-blur
+- MapBox. (n.d.). Add a GeoJSON polygon | Mapbox GL JS. Retrieved January 13 2021, from https://docs.mapbox.com/mapbox-gl-js/example/geojson-polygon/
+- MapBox. (n.d.). Draw GeoJSON points | Mapbox GL JS. Retrieved January 13 2021, from https://docs.mapbox.com/mapbox-gl-js/example/geojson-markers/
+- MapBox. (n.d.). Add Image | Mapbox GL JS. Retrieved January 13 2021, from https://docs.mapbox.com/mapbox-gl-js/example/add-image/
+- MapBox GL JS. (n.d.). Filter features within map view | Mapbox GL JS. Retrieved 18 January 2021, from https://docs.mapbox.com/mapbox-gl-js/example/filter-features-within-map-view/
 
-##### Data Charts
+#### Data Charts
 
-- [Chart.js](https://www.chartjs.org/docs/latest/)
-- [Chart.js Labeling](https://www.chartjs.org/docs/latest/axes/labelling.html)
+- Chart.js. (n.d.). Introduction · Chart.js documentation. | Chart.js. Retrieved 19 December 2020, from https://www.chartjs.org/docs/latest/
+- Chart.js. (n.d.). Labelling · Chart.js documentation. | Chart.js. Retrieved 16 January 2021, from https://www.chartjs.org/docs/latest/axes/labelling.html
+- DYclassroom. (n.d.). DYclassroom | Have fun learning :-). Retrieved 10 January 2021, from https://dyclassroom.com/chartjs/how-to-create-a-line-graph-using-chartjs
+- Chart.js. (n.d.). Labeling Axes | Chart.js. Retrieved 12 January 2021, from https://www.chartjs.org/docs/next/axes/labelling/
+- Shokeen, M. (2017, April 25). Getting Started With Chart.js: Scales. | Code Envato Tuts+. Retrieved 12 January 2021, from https://code.tutsplus.com/tutorials/getting-started-with-chartjs-scales--cms-28477
+
+---
 
 ## :lock: License
 
