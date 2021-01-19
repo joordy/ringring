@@ -2,17 +2,29 @@
 
 ## :page_facing_up: Case
 
+**Develop a tool for policymakers to improve cycling conditions, such as making it safer, more accessible and more pleasant based on the routes and feedback from users. Visualize the dataset and the feedback in an attractive way, so that policy makers can take the feedback into account in future decisions to improve cycling conditions, with the use of the [data](http://data.jorrr.nl/ringring/data-ringring.json)**
+
+For the concept for Ring-Ring I looked at developing a policy-makers dashboard. On the dashboard, policymakers are able to analyze all information about the data in one overview, as well as the feedback from the users.
+
 ---
 
 ## :flashlight: Features
+
+The main feature of the application is the dashboard tool. Two overviews can be viewed on the dashboard tool, namely the general **statistics** view and the **feedback** overview.
 
 ---
 
 ## :chart: Data
 
+For this project I used the [Ring-Ring](https://ring-ring.nu/) dataset. The dataset contains all information about the rides driven in Amsterdam, from January 2020. The dataset is hosted on my personal hosting, located [here](http://data.jorrr.nl/ringring/data-ringring.json)
+
+The dataset contains information about the routes traveled in the month of January 2020, in Amsterdam. Based on these routes, the location, time, distance and weather conditions can be found.
+
 ---
 
 ## :rocket: Install project
+
+When you already have a connection with [Git](https://formulae.brew.sh/formula/git), and installed [Node Version Manager](https://github.com/nvm-sh/nvm) on your computer you can easilly download my project. If you haven't already installed these programs, I recommend to do that first.
 
 #### Clone the GitHub repository
 
@@ -20,7 +32,7 @@
 git clone https://github/com/joordy/ringring.git
 ```
 
-#### Install project
+#### Install project and corresponding node_modules
 
 ```bash
 npm i
@@ -38,7 +50,7 @@ npm run dev
 localhost:3000
 ```
 
-#### If 404 is updated, generating new route
+#### When 404 is updated, generating new route with custom command
 
 ```bash
 npx sapper export --legacy --entry not-found
@@ -72,7 +84,7 @@ npx sapper export --legacy --entry not-found
 
 ## :lock: License
 
-This is a repository which is licensed as MIT. Jordy Fronik ©️ 2020.
+This is a repository which is licensed as MIT. Developed by Jordy Fronik ©️ 2021.
 
 <!-- # sapper-template
 
