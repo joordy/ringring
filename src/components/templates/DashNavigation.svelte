@@ -77,13 +77,13 @@
         color: $ui-red;
         &:hover {
           border-right: none;
+          @include darkMode {
+            color: $darkui-blue;
+          }
         }
         @include darkMode {
           border-right: 7px solid $darkui-blue;
           color: $darkui-blue;
-          &:hover {
-            border: none;
-          }
         }
       }
     }

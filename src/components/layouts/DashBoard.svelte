@@ -1,8 +1,7 @@
 <script>
-  import { checkPreferedTheme } from '@/utils/helpers/preferedTheme.js'
   import Contact from '@/components/templates/Contact.svelte'
-  import DashNav from '@/components/templates/DashNav.svelte'
-  import Feedback from '@/components/templates/Feedback.svelte'
+  import DashNav from '@/components/templates/DashNavigation.svelte'
+  import Feedback from '@/components/templates/FeedBack.svelte'
   import Stats from '@/components/templates/Stats.svelte'
   import CopyRight from '@/components/molecules/CopyRight.svelte'
 
@@ -11,8 +10,7 @@
   export let segment
   export let data
 
-  let dark = 'assets/ringring-dark.png'
-  let light = 'assets/ringring.png'
+  let src
   let navClosed = false
   let activeTabValue
   let currentDashboardTab
@@ -27,7 +25,16 @@
   }
   $: console.log(data)
 
-  onMount(checkPreferedTheme(dark, light))
+  const checkPreferedTheme = () => {
+    let value = window.matchMedia('(prefers-color-scheme: dark)').matches
+    if (value === true) {
+      return (src = 'assets/ringring-dark.png')
+    } else {
+      return (src = 'assets/ringring.png')
+    }
+  }
+
+  onMount(checkPreferedTheme)
 </script>
 
 <style lang="scss">

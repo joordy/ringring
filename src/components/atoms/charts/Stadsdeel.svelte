@@ -1,35 +1,44 @@
 <script>
-  // Imports theme checkers
-  import {
-    checkLabelColor,
-    checkPreferedTheme,
-  } from '@/utils/helpers/preferedTheme.js'
-
   import { onMount } from 'svelte'
   import { chart } from 'chart.js'
 
   export let data
 
-  let dark = [
-    'rgba(4, 37, 105, 1)',
-    'rgba(9, 68, 190, 1)',
-    'rgba(48, 116, 255, 1)',
-    'rgba(101, 151, 255, 1)',
-    'rgba(173, 200, 255, 1)',
-    'rgba(202, 217, 246, 1)',
-    'rgba(4, 37, 105, 1)',
-    'rgba(9, 68, 190, 1)',
-  ]
-  let white = [
-    'rgba(242, 193, 193, 1)',
-    'rgba(248, 161, 161, 1)',
-    'rgba(243, 16, 19, 1)',
-    'rgba(239, 102, 102, 1)',
-    'rgba(233, 62, 62, 1)',
-    'rgba(199, 53, 53, 1)',
-    'rgba(242, 193, 193, 1)',
-    'rgba(248, 161, 161, 1)',
-  ]
+  const checkLabelColor = () => {
+    let value = window.matchMedia('(prefers-color-scheme: dark)').matches
+    if (value === true) {
+      return '#fff'
+    } else {
+      return '#000'
+    }
+  }
+
+  const checkPreferedTheme = () => {
+    let value = window.matchMedia('(prefers-color-scheme: dark)').matches
+    if (value === true) {
+      return [
+        'rgba(4, 37, 105, 1)',
+        'rgba(9, 68, 190, 1)',
+        'rgba(48, 116, 255, 1)',
+        'rgba(101, 151, 255, 1)',
+        'rgba(173, 200, 255, 1)',
+        'rgba(202, 217, 246, 1)',
+        'rgba(4, 37, 105, 1)',
+        'rgba(9, 68, 190, 1)',
+      ]
+    } else {
+      return [
+        'rgba(242, 193, 193, 1)',
+        'rgba(248, 161, 161, 1)',
+        'rgba(243, 16, 19, 1)',
+        'rgba(239, 102, 102, 1)',
+        'rgba(233, 62, 62, 1)',
+        'rgba(199, 53, 53, 1)',
+        'rgba(242, 193, 193, 1)',
+        'rgba(248, 161, 161, 1)',
+      ]
+    }
+  }
 
   const createChart = () => {
     let ctx = document.getElementById('barChartOne').getContext('2d')
@@ -41,7 +50,7 @@
           {
             label: 'Aantal reacties:',
             data: Object.values(data),
-            backgroundColor: checkPreferedTheme(dark, light),
+            backgroundColor: checkPreferedTheme(),
           },
         ],
       },
