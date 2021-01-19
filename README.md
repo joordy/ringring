@@ -45,9 +45,7 @@ The dataset contains information about the routes traveled in the month of Janua
 
 ## :computer: Technology
 
-The application is build in [Sapper](https://sapper.svelte.dev/). Sapper is a framework for building web applications, based on Svelte's technology. This ensures that the code is compiled, rather than displayed in a virtual dome. Svelte writes code that surgically updates the DOM when your app's state changes.
-
-I have also taken into account expanding the tool, the code could now be extended in an easy way with, for example, a valid login system and multiple datasets.
+The application is build in [Sapper](https://sapper.svelte.dev/). Sapper is a framework for building web applications, based on Svelte's technology. This ensures that the code is compiled, rather than displayed in a virtual dome. Svelte writes code that surgically updates the DOM when your app's state changes. The usage of an framework makes it easier to expand the tool with new features, the code could now be extended in an easy way with, for example, a valid login system and multiple datasets.
 
 I have chosen to work with a framework in order to gain experience with it, for my personal development.
 

@@ -10,3 +10,4 @@ dump/
 modules/
 node_modules/
 src/node_modules/
+endpoints.js
