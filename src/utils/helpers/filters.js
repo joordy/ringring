@@ -1,7 +1,5 @@
-import { feedbackData } from './feedbackData.js'
-
 // Merges dataset and chartdata together
-export const filterData = async (rawData) => {
+export const filterData = async (rawData, feedbackData) => {
   return {
     dataset: await rawData,
     charts: await createChartdata(rawData, feedbackData),
