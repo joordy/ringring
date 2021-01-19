@@ -37,8 +37,7 @@
     <FormArt />
     <h2>Up to data.</h2>
     <h3>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nisl
-      vivamus a, tincidunt ultrices.
+      Alle fietsdata op één plek waar fietsers en beleidsmakers bijeenkomen.
     </h3>
   </div>
 </article>

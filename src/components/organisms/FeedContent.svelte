@@ -8,6 +8,7 @@
   } from '@/components/atoms/charts/allElements.js'
   import {
     Container,
+    ContainerFeed,
     ContainerMap,
     ContainerRes,
     VizHeader,
@@ -41,9 +42,7 @@
     }
     section {
       width: 100%;
-      // height: 100%;
       display: grid;
-      // grid-template-columns: 5fr 3fr 3fr;
       grid-template-columns: 2fr 2fr;
       grid-gap: $m30;
       article {
@@ -54,58 +53,50 @@
         }
         &:nth-of-type(1) {
           grid-column: 1;
+          grid-row: 1;
         }
         &:nth-of-type(2) {
           grid-column: 2;
+          grid-row: 1;
         }
         &:nth-of-type(3) {
           grid-column: 1;
+          grid-row: 2;
         }
         &:nth-of-type(4) {
           grid-column: 2;
-        }
-        &:nth-of-type(3),
-        &:nth-of-type(4) {
-          height: 240px;
+          grid-row: 2;
         }
         &:nth-of-type(1),
-        &:nth-of-type(2) {
-          height: calc(41.3vh - 40px); // height: 41.3vh;
+        &:nth-of-type(2),
+        &:nth-of-type(3),
+        &:nth-of-type(4) {
+          height: 34vh;
           @media screen and (min-height: 800px) {
-            // height: 44vh;
-            height: calc(44vh - 40px);
+            height: 34.7vh;
           }
           @media screen and (min-height: 850px) {
-            // height: 47.3vh;
-            height: calc(47.3vh - 40px);
+            height: 36vh;
           }
           @media screen and (min-height: 900px) {
-            height: calc(50vh - 70px);
-            // height: 50vh;
+            height: 34vh;
           }
           @media screen and (min-height: 950px) {
-            height: calc(53vh - 70px);
-            // height: 53vh;
+            height: 35vh;
           }
-          @media screen and (min-height: 1000px) {
-            height: calc(54vh - 40px);
-            // height: 54vh;
-          }
+
           @media screen and (min-height: 1050px) {
-            height: calc(57h - 80px);
-            // height: 57vh;
+            height: 36vh;
           }
           @media screen and (min-height: 1100px) {
-            height: calc(59vh - 80px);
-            // height: 59vh;
+            height: 37vh;
           }
-          @media screen and (min-height: 1150px) {
-            height: calc(61vh - 80px);
-            // height: 61vh;
-          }
+
           @media screen and (min-height: 1250px) {
-            height: calc(63vh - 80px);
-            // height: 63vh;
+            height: 38vh;
+          }
+          @media screen and (min-height: 1350px) {
+            height: 39vh;
           }
         }
       }

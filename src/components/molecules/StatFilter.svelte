@@ -6,7 +6,7 @@
   @import 'src/styles/index.scss';
 
   article {
-    height: 30px;
+    height: 24px;
     margin-bottom: $m30;
     display: flex;
     @media screen and (max-height: 900px) {
