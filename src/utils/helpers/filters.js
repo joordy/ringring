@@ -100,7 +100,7 @@ const createBarchart = (rawData) => {
   return barData
 }
 
-// Create daily count based on month values
+// Create daily count based on month values. Code adapted from: https://stackoverflow.com/questions/2013255/how-to-get-year-month-day-from-a-date-object
 const createLinechart = (rawData) => {
   const res = rawData.features.map((item) => {
     let rawDay = item.properties.start
