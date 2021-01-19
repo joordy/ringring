@@ -46,6 +46,10 @@ localhost:3000
 
 - [Sapper](https://github.com/sveltejs/sapper)
 - [MDN Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)
+- [Array.reverse()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse)
+- [Object.values](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values)
+- [Object.keys](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)
+- [Object Count](https://thisdavej.com/how-to-count-unique-items-in-javascript-arrays/)
 
 ##### Map data
 

@@ -8,14 +8,14 @@
     let value = window.matchMedia('(prefers-color-scheme: dark)').matches
     if (value === true) {
       return [
-        'rgba(4, 37, 105, 1)',
-        'rgba(9, 68, 190, 1)',
-        'rgba(48, 116, 255, 1)',
-        'rgba(101, 151, 255, 1)',
-        'rgba(173, 200, 255, 1)',
-        'rgba(202, 217, 246, 1)',
-        'rgba(4, 37, 105, 1)',
-        'rgba(9, 68, 190, 1)',
+        'rgba(266, 236, 255, 1)',
+        'rgba(177, 203, 255, 1)',
+        'rgba(136, 173, 251, 1)',
+        'rgba(95, 142, 241, 1)',
+        'rgba(68, 121, 234, 1)',
+        'rgba(23, 89, 229, 1)',
+        'rgba(0, 69, 215, 1)',
+        'rgba(10, 62, 173, 1)',
       ]
     } else {
       return [
@@ -47,6 +47,7 @@
         labels: Object.keys(data),
         datasets: [
           {
+            label: 'Aantal reacties:',
             data: Object.values(data),
             backgroundColor: checkPreferedTheme(),
           },

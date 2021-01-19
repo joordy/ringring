@@ -48,6 +48,7 @@
         labels: Object.keys(data),
         datasets: [
           {
+            label: 'Aantal reacties:',
             data: Object.values(data),
             backgroundColor: checkPreferedTheme(),
           },

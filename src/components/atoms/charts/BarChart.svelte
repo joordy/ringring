@@ -9,12 +9,12 @@
     let value = window.matchMedia('(prefers-color-scheme: dark)').matches
     if (value === true) {
       return [
-        'rgba(4, 37, 105, 1)',
-        'rgba(9, 68, 190, 1)',
-        'rgba(48, 116, 255, 1)',
-        'rgba(101, 151, 255, 1)',
-        'rgba(173, 200, 255, 1)',
-        'rgba(202, 217, 246, 1)',
+        'rgba(23, 89, 229, 1)',
+        'rgba(68, 121, 234, 1)',
+        'rgba(95, 142, 241, 1)',
+        'rgba(136, 173, 251, 1)',
+        'rgba(177, 203, 255, 1)',
+        'rgba(266, 236, 255, 1)',
       ]
     } else {
       return [
@@ -45,7 +45,7 @@
         labels: ['0-5', '5-10', '10-15', '15-20', '20-25', '25+ '],
         datasets: [
           {
-            label: 'Aantal ritten',
+            label: 'Aantal ritten binnen deze categorie',
             data: Object.values(data.charts.barChart),
             backgroundColor: checkPreferedTheme(),
           },

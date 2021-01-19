@@ -41,7 +41,7 @@
     }
     section {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 2fr 2fr 2fr 3fr;
       grid-gap: $m30;
       article {
         background-color: white;
@@ -50,15 +50,15 @@
           color: $darkui-white;
         }
         &:nth-of-type(1) {
-          grid-column: 1 / 3;
+          grid-column: 1 / 4;
           grid-row: 1 / 5;
         }
         &:nth-of-type(2) {
-          grid-column: 3;
+          grid-column: 4;
           grid-row: 1 / 4;
         }
         &:nth-of-type(3) {
-          grid-column: 3;
+          grid-column: 4;
           grid-row: 4 / 7;
         }
         &:nth-of-type(4) {
@@ -68,6 +68,11 @@
         }
         &:nth-of-type(5) {
           grid-column: 2;
+          grid-row: 5 / 7;
+          height: 120px;
+        }
+        &:nth-of-type(6) {
+          grid-column: 3;
           grid-row: 5 / 7;
           height: 120px;
         }
@@ -145,10 +150,21 @@
       <Container>
         <VizHeader title="Gemiddelde duur fietsrit" />
         <RecapStats
-          valueNumber={data.charts.avgTrip.toFixed(2)}
-          compared="— 20%"
+          valueNumber={data.charts.avgTime.toFixed(2)}
+          compared="— 6.7%"
           timeStamp="vorige maand"
           valueType="min"
+        />
+      </Container>
+    </article>
+    <article id="vizSix">
+      <Container>
+        <VizHeader title="Gemiddelde afstand fietsrit" />
+        <RecapStats
+          valueNumber={data.charts.avgDistance.toFixed(2)}
+          compared="+ 4.3%"
+          timeStamp="vorige maand"
+          valueType="km"
         />
       </Container>
     </article>

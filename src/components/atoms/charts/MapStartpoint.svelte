@@ -8,9 +8,9 @@
     const checkPreferedTheme = () => {
       let value = window.matchMedia('(prefers-color-scheme: dark)').matches
       if (value === true) {
-        return 'assets/mapPointDark.png'
+        return '#246BFD'
       } else {
-        return 'assets/mapPoint.png'
+        return '#EC4E4E'
       }
     }
 
@@ -23,22 +23,19 @@
       zoom: 11.6,
     })
 
-    map.on('load', function () {
-      map.loadImage(checkPreferedTheme(), function (error, image) {
-        if (error) throw error
-        map.addImage('custom-marker', image)
-        map.addSource('points', {
-          type: 'geojson',
-          data: data.charts.positionStart,
-        })
-        map.addLayer({
-          id: 'points',
-          type: 'symbol',
-          source: 'points',
-          layout: {
-            'icon-image': 'custom-marker',
-          },
-        })
+    map.on('load', () => {
+      map.addSource('points', {
+        type: 'geojson',
+        data: data.charts.positionStart,
+      })
+      map.addLayer({
+        id: 'points',
+        type: 'circle',
+        source: 'points',
+        layout: {},
+        paint: {
+          'circle-color': checkPreferedTheme(),
+        },
       })
     })
   })

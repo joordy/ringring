@@ -54,6 +54,9 @@
     cursor: pointer;
     font-size: 1em;
     font-family: 'Inter', sans-serif;
+    &:hover {
+      opacity: 0.8;
+    }
     @include darkMode {
       background: $darkui-grey;
       color: $darkui-white;
