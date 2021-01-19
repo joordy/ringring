@@ -1,6 +1,6 @@
 <script>
-  import { TabNavigation } from '@/components/molecules/allElements.js'
-  import { AccountInfo } from '@/components/organisms/allElements.js'
+  import TabNavigation from '@/components/molecules/TabNavigation.svelte'
+  import AccountInfo from '@/components/organisms/UserInfo.svelte'
 </script>
 
 <style lang="scss">

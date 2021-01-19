@@ -1,12 +1,9 @@
 <script>
-  import {
-    DatePicker,
-    SortPicker,
-    TagsFilter,
-  } from '@/components/atoms/elements/allElements.js'
-  export let data
+  import DatePicker from '@/components/atoms/elements/DatePicker.svelte'
+  import SortPicker from '@/components/atoms/elements/SortPicker.svelte'
+  import TagsFilter from '@/components/atoms/elements/TagsFilter.svelte'
 
-  $: console.log(data)
+  export let data
 </script>
 
 <style lang="scss">

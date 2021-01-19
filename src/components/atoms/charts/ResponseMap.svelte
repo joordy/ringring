@@ -1,18 +1,16 @@
 <script>
+  // Imports theme checkers
+  import { checkPreferedTheme } from '@/utils/helpers/preferedTheme.js'
+
   import mapboxgl from 'mapbox-gl'
   import { onMount } from 'svelte'
 
   export let data
 
+  let dark = '#246BFD'
+  let light = '#EC4E4E'
+
   onMount(() => {
-    const checkPreferedTheme = () => {
-      let value = window.matchMedia('(prefers-color-scheme: dark)').matches
-      if (value === true) {
-        return '#246BFD'
-      } else {
-        return '#EC4E4E'
-      }
-    }
     mapboxgl.accessToken =
       'pk.eyJ1Ijoiam9ycnIiLCJhIjoiY2tpcDE0bGoyMDJlMzJzcDlwZGI3bzFsOCJ9._J-m2YnN8Bmv2kEA99rZFg'
     const map = new mapboxgl.Map({
@@ -32,7 +30,7 @@
         source: 'routes',
         layout: {},
         paint: {
-          'line-color': checkPreferedTheme(),
+          'line-color': checkPreferedTheme(dark, light),
           'line-width': 4,
         },
       })

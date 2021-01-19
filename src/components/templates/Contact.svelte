@@ -1,10 +1,6 @@
 <script>
-  import { DashHeader } from '@/components/organisms/allElements.js'
+  import DashHeader from '@/components/organisms/Dashheader.svelte'
 </script>
-
-<!--<style lang="scss">
-  @import 'src/styles/index.scss';
-</style>-->
 
 <svelte:head>
   <title>Dashboard — Contact</title>

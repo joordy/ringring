@@ -1,16 +1,9 @@
 <script>
-  // import { CopyRight } from '@/components/molecules/allElements.js'
-  import {
-    DashHeader,
-    FeedContent,
-  } from '@/components/organisms/allElements.js'
+  import DashHeader from '@/components/organisms/Dashheader.svelte'
+  import FeedContent from '@/components/organisms/FeedContent.svelte'
 
   export let data
 </script>
-
-<!--<style lang="scss">
-  @import 'src/styles/index.scss';
-</style>-->
 
 <svelte:head>
   <title>Feedback Dashboard | Ring-Ring</title>
@@ -19,5 +12,3 @@
 <DashHeader />
 
 <FeedContent {data} />
-
-<!-- <CopyRight /> -->

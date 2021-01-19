@@ -1,8 +1,6 @@
 <script>
-  import {
-    ErrorMessage,
-    ErrorAnim,
-  } from '@/components/templates/allElements.js'
+  import ErrorMessage from '@/components/templates/ErrorMessage.svelte'
+  import ErrorAnim from '@/components/templates/ErrorAnim.svelte'
 
   export let status
   export let error

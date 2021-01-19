@@ -1,21 +1,15 @@
 <script>
-  import {
-    BarChart,
-    LineChart,
-    MapAllRoutes,
-    MapEndpoint,
-    MapStartpoint,
-    RecapStats,
-  } from '@/components/atoms/charts/allElements.js'
-
-  import {
-    Container,
-    ContainerMap,
-    MapTabs,
-    VizHeader,
-  } from '@/components/atoms/elements/allElements.js'
-
-  import { StatFilter } from '@/components/molecules/allElements.js'
+  import StatFilter from '@/components/molecules/StatFilter.svelte'
+  import BarChart from '@/components/atoms/charts/BarChart.svelte'
+  import LineChart from '@/components/atoms/charts/LineChart.svelte'
+  import MapAllRoutes from '@/components/atoms/charts/MapAllRoutes.svelte'
+  import MapEndpoint from '@/components/atoms/charts/MapEndpoint.svelte'
+  import MapStartpoint from '@/components/atoms/charts/MapStartpoint.svelte'
+  import RecapStats from '@/components/atoms/charts/RecapStats.svelte'
+  import Container from '@/components/atoms/elements/Container.svelte'
+  import ContainerMap from '@/components/atoms/elements/ContainerMap.svelte'
+  import MapTabs from '@/components/atoms/elements/MapTabs.svelte'
+  import VizHeader from '@/components/atoms/elements/VizHeader.svelte'
 
   export let data
 

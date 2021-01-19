@@ -35,7 +35,7 @@ const aliases = alias({
   entries: [
     {
       find: '@/utils',
-      replacement: path.resolve(__dirname, 'src/helpers/utils'),
+      replacement: path.resolve(__dirname, 'src/utils'),
     },
     {
       find: '@/components',

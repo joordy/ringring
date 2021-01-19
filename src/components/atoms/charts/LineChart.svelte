@@ -1,30 +1,22 @@
 <script>
+  // Imports theme checkers
+  import {
+    checkLabelColor,
+    checkPreferedTheme,
+  } from '@/utils/helpers/preferedTheme.js'
+
   import { onMount } from 'svelte'
   import { chart } from 'chart.js'
 
   export let data
+
+  let dark = 'rgba(36, 107, 253, 1)'
+  let light = 'rgba(236, 78, 78, 1)'
   let values = Object.values(data.charts.lineChart).reverse()
-  values.shift()
   let labels = Object.keys(data.charts.lineChart).sort()
+
+  values.shift()
   labels.shift()
-
-  const checkPreferedTheme = () => {
-    let value = window.matchMedia('(prefers-color-scheme: dark)').matches
-    if (value === true) {
-      return 'rgba(36, 107, 253, 1)'
-    } else {
-      return 'rgba(236, 78, 78, 1)'
-    }
-  }
-
-  const checkLabelColor = () => {
-    let value = window.matchMedia('(prefers-color-scheme: dark)').matches
-    if (value === true) {
-      return '#fff'
-    } else {
-      return '#000'
-    }
-  }
 
   function createChart() {
     let ctx = document.getElementById('lineChart').getContext('2d')
@@ -37,13 +29,13 @@
             label: 'Aantal ritten vandaag:',
             fill: false,
             // lineTension: 0.6,
-            backgroundColor: checkPreferedTheme(),
-            borderColor: checkPreferedTheme(),
+            backgroundColor: checkPreferedTheme(dark, light),
+            borderColor: checkPreferedTheme(dark, light),
             borderCapStyle: 'butt',
             borderDash: [],
             borderDashOffset: 0.0,
             borderJoinStyle: 'miter',
-            pointBorderColor: checkPreferedTheme(),
+            pointBorderColor: checkPreferedTheme(dark, light),
             pointBackgroundColor: '#fff',
             pointBorderWidth: 1,
             pointHoverRadius: 5,

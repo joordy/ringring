@@ -214,5 +214,4 @@
       groter device voor een betere ervaring.
     </h3>
   </article>
-  <!-- /screen -->
 </section>

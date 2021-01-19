@@ -1,41 +1,30 @@
 <script>
+  // Imports theme checkers
+  import {
+    checkLabelColor,
+    checkPreferedTheme,
+  } from '@/utils/helpers/preferedTheme.js'
   import { onMount } from 'svelte'
   import { chart } from 'chart.js'
 
   export let data
 
-  $: console.log(data.charts.barChart)
-  const checkPreferedTheme = () => {
-    let value = window.matchMedia('(prefers-color-scheme: dark)').matches
-    if (value === true) {
-      return [
-        'rgba(23, 89, 229, 1)',
-        'rgba(68, 121, 234, 1)',
-        'rgba(95, 142, 241, 1)',
-        'rgba(136, 173, 251, 1)',
-        'rgba(177, 203, 255, 1)',
-        'rgba(266, 236, 255, 1)',
-      ]
-    } else {
-      return [
-        'rgba(242, 193, 193, 1)',
-        'rgba(248, 161, 161, 1)',
-        'rgba(243, 16, 19, 1)',
-        'rgba(239, 102, 102, 1)',
-        'rgba(233, 62, 62, 1)',
-        'rgba(199, 53, 53, 1)',
-      ]
-    }
-  }
-
-  const checkLabelColor = () => {
-    let value = window.matchMedia('(prefers-color-scheme: dark)').matches
-    if (value === true) {
-      return '#fff'
-    } else {
-      return '#000'
-    }
-  }
+  let dark = [
+    'rgba(23, 89, 229, 1)',
+    'rgba(68, 121, 234, 1)',
+    'rgba(95, 142, 241, 1)',
+    'rgba(136, 173, 251, 1)',
+    'rgba(177, 203, 255, 1)',
+    'rgba(266, 236, 255, 1)',
+  ]
+  let light = [
+    'rgba(242, 193, 193, 1)',
+    'rgba(248, 161, 161, 1)',
+    'rgba(243, 16, 19, 1)',
+    'rgba(239, 102, 102, 1)',
+    'rgba(233, 62, 62, 1)',
+    'rgba(199, 53, 53, 1)',
+  ]
 
   function createChart() {
     let ctx = document.getElementById('myBarChart').getContext('2d')
@@ -47,7 +36,7 @@
           {
             label: 'Aantal ritten binnen deze categorie',
             data: Object.values(data.charts.barChart),
-            backgroundColor: checkPreferedTheme(),
+            backgroundColor: checkPreferedTheme(dark, light),
           },
         ],
       },

@@ -1,5 +1,5 @@
 <script>
-  import { LoginForm } from '@/components/templates/allElements.js'
+  import LoginForm from '@/components/templates/LoginForm.svelte'
 </script>
 
 <style lang="scss">
