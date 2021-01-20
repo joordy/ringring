@@ -2,9 +2,9 @@
 
 ![Prototype Ring-Ring](https://user-images.githubusercontent.com/48051912/105212466-c8899000-5b4d-11eb-9f83-854e97b97c32.png)
 
-## :page_facing_up: Case
+## :page_facing_up: Assignment
 
-**Develop a tool for policymakers to improve cycling conditions, such as making it safer, more accessible and more pleasant based on the routes and feedback from users. Visualize the dataset and the feedback in an attractive way, so that policy makers can take the feedback into account in future decisions to improve cycling conditions, with the use of the [data](http://data.jorrr.nl/ringring/data-ringring.json)**
+**Develop a tool for policymakers to improve cycling conditions, such as making it safer, more accessible and more pleasant based on the routes and feedback from users. Visualize the dataset and the feedback in an attractive way, so that policy makers can take the feedback into account in future decisions to improve cycling conditions, with the use of the [data](http://data.jorrr.nl/ringring/data-ringring.json) from the [Ring-Ring](https://ring-ring.nu/) organization.**
 
 For the concept for Ring-Ring I looked at developing a policy-makers dashboard. On the dashboard, policymakers are able to analyze all information about the data in one overview, as well as the feedback from the users.
 
@@ -26,6 +26,8 @@ With the statistics overview, a lot of information can be viewed in an overview:
 - Average duration of a bicycle ride
 - Average distance of a trip
 
+![Statistics overview Ring-Ring tool](https://user-images.githubusercontent.com/48051912/105229887-e44c6080-5b64-11eb-97d9-b93cf7039ac2.png)
+
 ### Feedback
 
 With the feedback, everything about the feedback of the users can be analyzed.
@@ -35,6 +37,8 @@ With the feedback, everything about the feedback of the users can be analyzed.
 - Which part of the city has the most responses
 - How the responses are distributed, based on topic
 
+![Feedback overview Ring-Ring tool](https://user-images.githubusercontent.com/48051912/105229946-f75f3080-5b64-11eb-8a0f-3797613ef040.png)
+
 ---
 
 ## :chart: Data
@@ -42,24 +46,6 @@ With the feedback, everything about the feedback of the users can be analyzed.
 For this project I used the [Ring-Ring](https://ring-ring.nu/) dataset. The dataset contains all information about the rides driven in Amsterdam, from January 2020. The dataset is hosted on my personal hosting, located [here](http://data.jorrr.nl/ringring/data-ringring.json)
 
 The dataset contains information about the routes traveled in the month of January 2020, in Amsterdam. Based on these routes, the location, time, distance and weather conditions can be found.
-
----
-
-## :computer: Tech-Stack
-
-The application is build in [Sapper](https://sapper.svelte.dev/). Sapper is a framework for building web applications, based on Svelte's technology. This ensures that the code is compiled, rather than displayed in a virtual dome. Svelte writes code that surgically updates the DOM when your app's state changes. The usage of an framework makes it easier to expand the tool with new features, the code could now be extended in an easy way with, for example, a valid login system and multiple datasets.
-
-I have chosen to work with a framework in order to gain experience with it, for my personal development.
-
-### Libraries
-
-#### Chart.js
-
-To create the data visualizations, I've made use of Chart.js. Chart.js is a library that helps plot data inside a chart. Its customizable with a bunch of options, and responsive so i
-
-#### MapBox GL JS
-
-MapBox is a JavaScript Library that renders interactive maps from vector tiles and online MapBox styles. This means you can create a custom style inside the MapBox Editor, and import the style inside your code. This allows you to easily add your own twist to the design, making it a perfect match for your project.
 
 ---
 
@@ -72,6 +58,8 @@ One of the values ​​is an object, in which I put all the data for realizing 
 The second value contains the entire [dataset](http://data.jorrr.nl/ringring/data-ringring.json) that we received from Ring-Ring, in order to plot the geo-location on a map. This one is unedited, we received it from the IT department and after a bit of fumbling it was usable for plotting.
 
 The last value contains a [feedback data](https://github.com/joordy/ringring/blob/master/src/utils/helpers/feedbackData.js) file. This is based on fictitious responses, because they were missing from the dataset. The responses are linked from previous rides from the Ring-Ring dataset.
+
+### Created custom data object
 
 ```javascript
 {
@@ -91,11 +79,87 @@ The last value contains a [feedback data](https://github.com/joordy/ringring/blo
 
 ```
 
+### RingRing data
+
+```json
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [], // Coordinates of route
+        "type": "LineString"
+      },
+      "properties": {
+        "start": "2020-01-31T22:57:40Z",
+        "end": "2020-01-31T22:59:51Z",
+        "duration": 45.2,
+        "modality": 2,
+        "distance": 17.1,
+        "feedback score": null,
+        "feedback": null,
+        "weather": "zwaar bewolkt"
+      }
+    }
+  ]
+}
+```
+
+[Link to json file](http://data.jorrr.nl/ringring/data.json)
+
+### Feedback data
+
+```json
+  {
+    "route": {
+      "geometry": {
+        "coordinates": [], // Coordinates of route
+        "type": "LineString"
+      },
+      "properties": {
+        "day": "2020-01-31T16:34:03Z",
+        "start": "2020-01-31T16:34:03Z",
+        "end": "2020-01-31T16:57:33Z",
+        "duration": 23,
+        "modality": 2,
+        "distance": 3.5,
+        "weather": "zwaar bewolkt"
+      },
+      "type": "Feature"
+    },
+    "feedback": "Een onhandige indeling van het fietspad, waardoor je niet veilig kan oversteken.",
+    "feedbackTag": ["fietspad", "oversteekpunt"],
+    "stadsdeel": "Centrum",
+    "gevoelsVeiligheid": 3
+  },
+```
+
+[Link to json file](http://data.jorrr.nl/ringring/feedbackData.json)
+
+---
+
+## :computer: Tech-Stack
+
+The application is build in [Sapper](https://sapper.svelte.dev/). Sapper is a framework for building web applications, based on Svelte's technology. This ensures that the code is compiled, rather than displayed in a virtual dome. Svelte writes code that surgically updates the DOM when your app's state changes. The usage of an framework makes it easier to expand the tool with new features, the code could now be extended in an easy way with, for example, a valid login system and multiple datasets. I have chosen to work with a framework in order to gain experience with it, for my personal development.
+
+### Libraries
+
+#### Chart.js
+
+To create the data visualizations, I've made use of Chart.js. Chart.js is a library that helps plot data inside a chart. Its customizable with a bunch of options, and responsive so i
+
+#### MapBox GL JS
+
+MapBox is a JavaScript Library that renders interactive maps from vector tiles and online MapBox styles. This means you can create a custom style inside the MapBox Editor, and import the style inside your code. This allows you to easily add your own twist to the design, making it a perfect match for your project.
+
 ---
 
 ## :rocket: Install project
 
 When you already have a connection with [Git](https://formulae.brew.sh/formula/git), and installed [Node Version Manager](https://github.com/nvm-sh/nvm) on your computer you can easily download my project. If you haven't already installed these programs, I recommend to do that first.
+
+### Work on the project
 
 #### Clone the GitHub repository
 
@@ -121,11 +185,27 @@ npm run dev
 localhost:3000
 ```
 
+### Build project
+
 #### When 404 is updated, generating new route with custom command
 
 ```bash
 npx sapper export --legacy --entry not-found
 ```
+
+#### Build the application
+
+```bash
+npm run build
+```
+
+#### Export the application
+
+```bash
+npm run export
+```
+
+Now your application is ready to be hosted!
 
 ---
 
@@ -136,6 +216,10 @@ The live version of the application can be watched here: [ringring.jorrr.nl](htt
 ---
 
 ## Sources
+
+During the project I was assisted by Marleen Buchner and Meggie Chen regarding the design. They have made it possible for the design of the tool to look as it is now visible. Also a big thanks to Janine Hogendoorn from [Ring-Ring]() for th
+
+Thanks also to Janine Hogendoorn from [Ring-Ring](https://ring-ring.nu/) for giving critical feedback on our tool, and to SuzeSwarte for the guidance during the project.
 
 #### Code Sources
 
