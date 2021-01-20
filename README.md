@@ -1,5 +1,7 @@
 # RingRing
 
+![Prototype Ring-Ring](https://user-images.githubusercontent.com/48051912/105212466-c8899000-5b4d-11eb-9f83-854e97b97c32.png)
+
 ## :page_facing_up: Case
 
 **Develop a tool for policymakers to improve cycling conditions, such as making it safer, more accessible and more pleasant based on the routes and feedback from users. Visualize the dataset and the feedback in an attractive way, so that policy makers can take the feedback into account in future decisions to improve cycling conditions, with the use of the [data](http://data.jorrr.nl/ringring/data-ringring.json)**
