@@ -42,6 +42,9 @@
     cursor: pointer;
     font-size: 1em;
     font-family: 'Inter', sans-serif;
+    &:hover {
+      opacity: 0.8;
+    }
     @include darkMode {
       background: $darkui-grey;
       color: $darkui-white;
@@ -71,12 +74,13 @@
       cursor: pointer;
       pointer-events: none;
       transition: 0.25s all ease;
+      color: white;
       @include darkMode {
         background-color: #2b2e2e;
       }
     }
     &:hover::after {
-      color: #fff;
+      color: $ui-lightred;
       @include darkMode {
         color: $darkui-blue;
       }

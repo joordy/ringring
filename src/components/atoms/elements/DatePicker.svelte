@@ -68,7 +68,7 @@
   .select {
     position: relative;
     display: flex;
-    width: 100px;
+    width: 120px;
     height: 24px;
     line-height: 3;
     background: #5c6664;
@@ -86,12 +86,13 @@
       cursor: pointer;
       pointer-events: none;
       transition: 0.25s all ease;
+      color: white;
       @include darkMode {
         background-color: #2b2e2e;
       }
     }
     &:hover::after {
-      color: #fff;
+      color: $ui-lightred;
       @include darkMode {
         color: $darkui-blue;
       }

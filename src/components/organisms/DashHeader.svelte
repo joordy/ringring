@@ -18,7 +18,7 @@
       border-bottom: 1px solid $darkui-grey;
     }
     h2 {
-      font-size: $Heading3;
+      font-size: $Heading2;
       font-weight: $bold;
       line-height: 36px;
       padding: $m30 $m50 $m10 $m50;

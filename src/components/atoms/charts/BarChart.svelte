@@ -48,6 +48,7 @@
         datasets: [
           {
             label: 'Aantal ritten binnen deze categorie',
+            padding: 14,
             data: Object.values(data.charts.barChart),
             backgroundColor: checkPreferedTheme(dark, light),
           },

@@ -22,12 +22,21 @@
     }
   }
 
+  const checkPreferedMap = () => {
+    let value = window.matchMedia('(prefers-color-scheme: dark)').matches
+    if (value === true) {
+      return 'mapbox://styles/mggchn/ckk5inqzb6eei17sibteghrqs'
+    } else {
+      return 'mapbox://styles/mggchn/ckjskozbj4rew19rsrmnn5nrd'
+    }
+  }
+
   onMount(() => {
     mapboxgl.accessToken =
       'pk.eyJ1Ijoiam9ycnIiLCJhIjoiY2tpcDE0bGoyMDJlMzJzcDlwZGI3bzFsOCJ9._J-m2YnN8Bmv2kEA99rZFg'
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mggchn/ckjskozbj4rew19rsrmnn5nrd',
+      style: checkPreferedMap(),
       center: [4.9, 52.38],
       zoom: 10.2,
     })
@@ -95,8 +104,8 @@
   @import 'src/styles/index.scss';
 
   section {
-    width: 100%;
-    height: 100%;
+    width: 99%;
+    height: 102%;
     #map {
       box-shadow: none;
       color: black;

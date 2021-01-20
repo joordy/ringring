@@ -60,7 +60,7 @@
             top: 0,
             left: 0,
             right: 0,
-            bottom: 0,
+            bottom: 35,
           },
         },
         legend: {
@@ -100,7 +100,7 @@
     height: 100%;
     canvas {
       width: 100% !important;
-      height: 95% !important;
+      height: 100% !important;
       cursor: pointer;
     }
   }

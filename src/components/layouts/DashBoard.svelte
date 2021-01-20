@@ -1,5 +1,4 @@
 <script>
-  import Contact from '@/components/templates/Contact.svelte'
   import DashNav from '@/components/templates/DashNavigation.svelte'
   import Feedback from '@/components/templates/FeedBack.svelte'
   import Stats from '@/components/templates/Stats.svelte'
@@ -17,7 +16,6 @@
   let dashboardTabs = [
     { label: 'Statistieken', value: 1 },
     { label: 'Feedback', value: 2 },
-    { label: 'Contact', value: 3 },
   ]
 
   function handleNav(e) {
@@ -28,9 +26,9 @@
   const checkPreferedTheme = () => {
     let value = window.matchMedia('(prefers-color-scheme: dark)').matches
     if (value === true) {
-      return (src = 'assets/ringring-dark.png')
+      return (src = 'assets/icons/ringring-dark.png')
     } else {
-      return (src = 'assets/ringring.png')
+      return (src = 'assets/icons/ringring.png')
     }
   }
 
@@ -177,8 +175,6 @@
       title="feedback"
       {data}
     />
-  {:else if 3 === currentDashboardTab}
-    <Contact bind:activeTabValue={currentDashboardTab} title="contact" />
   {/if}
 
   <CopyRight />

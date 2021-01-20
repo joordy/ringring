@@ -97,9 +97,9 @@
 
 <div class="accountMenu" class:open={menuOpen}>
   <ul>
-    <li><a href="/NOT_YET">Accountgegevens</a></li>
-    <li><a href="/NOT_YET">Dashboard instellingen</a></li>
-    <li><a href="/NOT_YET">Beveiligings instellingen</a></li>
+    <li><a href="/user/accountgegevens">Accountgegevens</a></li>
+    <li><a href="/user/settings">Dashboard instellingen</a></li>
+    <li><a href="/user/security">Beveiligings instellingen</a></li>
     <li><a href="/">Uitloggen</a></li>
   </ul>
 </div>

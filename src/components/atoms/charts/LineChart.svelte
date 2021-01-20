@@ -8,9 +8,12 @@
   let light = 'rgba(236, 78, 78, 1)'
   let values = Object.values(data.charts.lineChart).reverse()
   let labels = Object.keys(data.charts.lineChart).sort()
-
   values.shift()
   labels.shift()
+
+  let label = labels.map((item) => {
+    return item.substring(5)
+  })
 
   const checkLabelColor = () => {
     let value = window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -35,10 +38,12 @@
     let myChart = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: labels,
+        labels: label,
         datasets: [
           {
             label: 'Aantal ritten vandaag:',
+            padding: 14,
+
             fill: false,
             // lineTension: 0.6,
             backgroundColor: checkPreferedTheme(dark, light),
@@ -50,13 +55,21 @@
             pointBorderColor: checkPreferedTheme(dark, light),
             pointBackgroundColor: '#fff',
             pointBorderWidth: 1,
-            pointHoverRadius: 5,
-            pointHitRadius: 10,
+            pointHoverRadius: 15,
+            lineTension: 0.2,
             data: values,
           },
         ],
       },
       options: {
+        layout: {
+          padding: {
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 10,
+          },
+        },
         legend: {
           display: false,
         },

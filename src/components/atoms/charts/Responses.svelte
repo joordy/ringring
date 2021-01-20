@@ -81,9 +81,12 @@
     }
   }
   .active {
-    padding: 15px 10px;
-    border-radius: 5px 5px 0px 0px;
-    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px 10px 15px 10px;
+    border-radius: 0px;
+    background-color: rgba(0, 0, 0, 0.04);
+    @include darkMode {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
   }
 </style>
 
