@@ -125,7 +125,7 @@
   }
   .pushMainToLeft .closebtn {
     padding-left: 3px;
-
+    max-width: 20px;
     button {
       transform: rotate(180deg);
       &::before {

@@ -34,7 +34,7 @@
             position: absolute;
             left: $m30;
             font-weight: $normal;
-            font-size: $Heading3;
+            font-size: $Heading2;
           }
           &:hover {
             border-right: 7px solid $ui-lightred;

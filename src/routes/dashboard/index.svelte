@@ -11,7 +11,7 @@
 </script>
 
 <svelte:head>
-  <title>Statiestieken Dashboard | Ring-Ring</title>
+  <title>Statistieken Dashboard | Ring-Ring</title>
 </svelte:head>
 
 {#await cleanedData()}
