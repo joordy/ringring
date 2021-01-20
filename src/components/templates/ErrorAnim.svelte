@@ -7,7 +7,7 @@
     position: relative;
     bottom: 0;
     z-index: 1;
-    overflow: hidden;
+
     .bikeAnim {
       position: absolute;
       bottom: 110px;
