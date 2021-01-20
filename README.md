@@ -2,9 +2,9 @@
 
 ![Prototype Ring-Ring](https://user-images.githubusercontent.com/48051912/105212466-c8899000-5b4d-11eb-9f83-854e97b97c32.png)
 
-## :page_facing_up: Case
+## :page_facing_up: Assignment
 
-**Develop a tool for policymakers to improve cycling conditions, such as making it safer, more accessible and more pleasant based on the routes and feedback from users. Visualize the dataset and the feedback in an attractive way, so that policy makers can take the feedback into account in future decisions to improve cycling conditions, with the use of the [data](http://data.jorrr.nl/ringring/data-ringring.json)**
+**Develop a tool for policymakers to improve cycling conditions, such as making it safer, more accessible and more pleasant based on the routes and feedback from users. Visualize the dataset and the feedback in an attractive way, so that policy makers can take the feedback into account in future decisions to improve cycling conditions, with the use of the [data](http://data.jorrr.nl/ringring/data-ringring.json) from the [Ring-Ring](https://ring-ring.nu/) organization.**
 
 For the concept for Ring-Ring I looked at developing a policy-makers dashboard. On the dashboard, policymakers are able to analyze all information about the data in one overview, as well as the feedback from the users.
 
@@ -38,24 +38,6 @@ With the feedback, everything about the feedback of the users can be analyzed.
 - How the responses are distributed, based on topic
 
 ![Feedback overview Ring-Ring tool](https://user-images.githubusercontent.com/48051912/105229946-f75f3080-5b64-11eb-8a0f-3797613ef040.png)
-
----
-
-## :computer: Tech-Stack
-
-The application is build in [Sapper](https://sapper.svelte.dev/). Sapper is a framework for building web applications, based on Svelte's technology. This ensures that the code is compiled, rather than displayed in a virtual dome. Svelte writes code that surgically updates the DOM when your app's state changes. The usage of an framework makes it easier to expand the tool with new features, the code could now be extended in an easy way with, for example, a valid login system and multiple datasets.
-
-I have chosen to work with a framework in order to gain experience with it, for my personal development.
-
-### Libraries
-
-#### Chart.js
-
-To create the data visualizations, I've made use of Chart.js. Chart.js is a library that helps plot data inside a chart. Its customizable with a bunch of options, and responsive so i
-
-#### MapBox GL JS
-
-MapBox is a JavaScript Library that renders interactive maps from vector tiles and online MapBox styles. This means you can create a custom style inside the MapBox Editor, and import the style inside your code. This allows you to easily add your own twist to the design, making it a perfect match for your project.
 
 ---
 
@@ -157,9 +139,27 @@ The last value contains a [feedback data](https://github.com/joordy/ringring/blo
 
 ---
 
+## :computer: Tech-Stack
+
+The application is build in [Sapper](https://sapper.svelte.dev/). Sapper is a framework for building web applications, based on Svelte's technology. This ensures that the code is compiled, rather than displayed in a virtual dome. Svelte writes code that surgically updates the DOM when your app's state changes. The usage of an framework makes it easier to expand the tool with new features, the code could now be extended in an easy way with, for example, a valid login system and multiple datasets. I have chosen to work with a framework in order to gain experience with it, for my personal development.
+
+### Libraries
+
+#### Chart.js
+
+To create the data visualizations, I've made use of Chart.js. Chart.js is a library that helps plot data inside a chart. Its customizable with a bunch of options, and responsive so i
+
+#### MapBox GL JS
+
+MapBox is a JavaScript Library that renders interactive maps from vector tiles and online MapBox styles. This means you can create a custom style inside the MapBox Editor, and import the style inside your code. This allows you to easily add your own twist to the design, making it a perfect match for your project.
+
+---
+
 ## :rocket: Install project
 
 When you already have a connection with [Git](https://formulae.brew.sh/formula/git), and installed [Node Version Manager](https://github.com/nvm-sh/nvm) on your computer you can easily download my project. If you haven't already installed these programs, I recommend to do that first.
+
+### Work on the project
 
 #### Clone the GitHub repository
 
@@ -185,11 +185,27 @@ npm run dev
 localhost:3000
 ```
 
+### Build project
+
 #### When 404 is updated, generating new route with custom command
 
 ```bash
 npx sapper export --legacy --entry not-found
 ```
+
+#### Build the application
+
+```bash
+npm run build
+```
+
+#### Export the application
+
+```bash
+npm run export
+```
+
+Now your application is ready to be hosted!
 
 ---
 
