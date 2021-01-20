@@ -5,7 +5,7 @@
   @import 'src/styles/index.scss';
 
   nav {
-    position: absolute;
+    position: relative;
     bottom: 0;
     ul {
       margin-left: $m50;

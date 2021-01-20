@@ -59,13 +59,6 @@
     height: calc(100% - 20px);
     #map {
       box-shadow: none;
-      canvas {
-      }
-      // canvas {
-      //   width: 100% !important;
-      //   max-height: 100%;
-      //   max-width: 100%;
-      // }
     }
   }
 </style>

@@ -62,7 +62,7 @@
 
   p {
     text-align: right;
-    font-size: $small-font-size;
+    font-size: $Heading5;
     margin: $m5 0;
     span {
       @include darkMode {

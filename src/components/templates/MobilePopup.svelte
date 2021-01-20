@@ -52,7 +52,7 @@
       }
       h3 {
         margin: $m15 $m20 0 $m20;
-        font-size: $Heading6;
+        font-size: $Heading5;
       }
     }
   }

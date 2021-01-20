@@ -34,12 +34,12 @@
   }
   h2 {
     width: 100%;
-    font-size: $Heading1;
+    font-size: $Heading2;
     font-weight: $extra-bold;
     margin: $m60 0 $m20 0;
   }
   h3 {
-    font-size: $Heading5;
+    font-size: $Heading3;
     opacity: 0.6;
     font-weight: $extra-bold;
     margin-bottom: $m70;
