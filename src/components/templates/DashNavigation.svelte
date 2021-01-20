@@ -17,7 +17,7 @@
 
   nav {
     ul {
-      height: 180px;
+      height: 120px;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -37,6 +37,10 @@
             font-size: $Heading3;
           }
           &:hover {
+            border-right: 7px solid $ui-lightred;
+            color: $ui-lightred;
+          }
+          &:hover.active {
             border-right: 7px solid $ui-red;
             color: $ui-red;
           }

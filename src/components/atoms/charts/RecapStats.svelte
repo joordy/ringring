@@ -31,7 +31,7 @@
   }
   h5 {
     font-weight: $semi-bold;
-    margin: $m10 $m15 0 0;
+    margin: $m10 0 0 0;
     font-size: $Heading6;
     color: #a0aec0;
   }
@@ -49,6 +49,6 @@
   {#if symbol === '+'}
     <span class="positive">{compared}</span>
   {:else if symbol === '—'}<span class="negative">{compared}</span>{/if}
-  Sinds
+  T.O.V.
   {timeStamp}
 </h5>

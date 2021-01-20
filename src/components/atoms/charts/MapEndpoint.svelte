@@ -7,15 +7,20 @@
 
   export let data
 
-  let dark = '#246BFD'
-  let light = '#EC4E4E'
-
-  const checkPreferedTheme = (dark, light) => {
+  const checkPreferedTheme = () => {
     let value = window.matchMedia('(prefers-color-scheme: dark)').matches
     if (value === true) {
-      return dark
+      return '#246BFD'
     } else {
-      return light
+      return '#EC4E4E'
+    }
+  }
+  const checkPreferedMap = () => {
+    let value = window.matchMedia('(prefers-color-scheme: dark)').matches
+    if (value === true) {
+      return 'mapbox://styles/mggchn/ckk5inqzb6eei17sibteghrqs'
+    } else {
+      return 'mapbox://styles/mggchn/ckjskozbj4rew19rsrmnn5nrd'
     }
   }
 
@@ -24,7 +29,7 @@
       'pk.eyJ1Ijoiam9ycnIiLCJhIjoiY2tpcDE0bGoyMDJlMzJzcDlwZGI3bzFsOCJ9._J-m2YnN8Bmv2kEA99rZFg'
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mggchn/ckjskozbj4rew19rsrmnn5nrd',
+      style: checkPreferedMap(),
       center: [4.9, 52.38],
       zoom: 11.6,
     })
@@ -40,7 +45,7 @@
         source: 'points',
         layout: {},
         paint: {
-          'circle-color': checkPreferedTheme(dark, light),
+          'circle-color': checkPreferedTheme(),
         },
       })
     })
