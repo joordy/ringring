@@ -1,7 +1,4 @@
 <script>
-  // Imports theme checkers
-  // import { checkPreferedTheme } from '@/utils/helpers/preferedTheme.js'
-
   import mapboxgl from 'mapbox-gl'
   import { onMount } from 'svelte'
 

@@ -27,9 +27,12 @@
         line-height: 24px;
         span {
           font-weight: $extra-bold;
-          font-size: $Heading4;
+          font-size: $Heading2;
           line-height: 24px;
         }
+      }
+      @media screen and (max-width: 1300px) {
+        display: none;
       }
     }
   }
