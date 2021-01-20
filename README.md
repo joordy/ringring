@@ -26,6 +26,8 @@ With the statistics overview, a lot of information can be viewed in an overview:
 - Average duration of a bicycle ride
 - Average distance of a trip
 
+![Statistics overview Ring-Ring tool](https://user-images.githubusercontent.com/48051912/105229887-e44c6080-5b64-11eb-97d9-b93cf7039ac2.png)
+
 ### Feedback
 
 With the feedback, everything about the feedback of the users can be analyzed.
@@ -35,13 +37,7 @@ With the feedback, everything about the feedback of the users can be analyzed.
 - Which part of the city has the most responses
 - How the responses are distributed, based on topic
 
----
-
-## :chart: Data
-
-For this project I used the [Ring-Ring](https://ring-ring.nu/) dataset. The dataset contains all information about the rides driven in Amsterdam, from January 2020. The dataset is hosted on my personal hosting, located [here](http://data.jorrr.nl/ringring/data-ringring.json)
-
-The dataset contains information about the routes traveled in the month of January 2020, in Amsterdam. Based on these routes, the location, time, distance and weather conditions can be found.
+![Feedback overview Ring-Ring tool](https://user-images.githubusercontent.com/48051912/105229946-f75f3080-5b64-11eb-8a0f-3797613ef040.png)
 
 ---
 
@@ -63,6 +59,14 @@ MapBox is a JavaScript Library that renders interactive maps from vector tiles a
 
 ---
 
+## :chart: Data
+
+For this project I used the [Ring-Ring](https://ring-ring.nu/) dataset. The dataset contains all information about the rides driven in Amsterdam, from January 2020. The dataset is hosted on my personal hosting, located [here](http://data.jorrr.nl/ringring/data-ringring.json)
+
+The dataset contains information about the routes traveled in the month of January 2020, in Amsterdam. Based on these routes, the location, time, distance and weather conditions can be found.
+
+---
+
 ## :bar_chart: Data patterns
 
 In my project I used different functional patterns to clean up the dataset and make it usable for myself. I am using a large object, which contains different values.
@@ -72,6 +76,8 @@ One of the values ​​is an object, in which I put all the data for realizing 
 The second value contains the entire [dataset](http://data.jorrr.nl/ringring/data-ringring.json) that we received from Ring-Ring, in order to plot the geo-location on a map. This one is unedited, we received it from the IT department and after a bit of fumbling it was usable for plotting.
 
 The last value contains a [feedback data](https://github.com/joordy/ringring/blob/master/src/utils/helpers/feedbackData.js) file. This is based on fictitious responses, because they were missing from the dataset. The responses are linked from previous rides from the Ring-Ring dataset.
+
+### Created custom data object
 
 ```javascript
 {
@@ -90,6 +96,64 @@ The last value contains a [feedback data](https://github.com/joordy/ringring/blo
 }
 
 ```
+
+### RingRing data
+
+```json
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [], // Coordinates of route
+        "type": "LineString"
+      },
+      "properties": {
+        "start": "2020-01-31T22:57:40Z",
+        "end": "2020-01-31T22:59:51Z",
+        "duration": 45.2,
+        "modality": 2,
+        "distance": 17.1,
+        "feedback score": null,
+        "feedback": null,
+        "weather": "zwaar bewolkt"
+      }
+    }
+  ]
+}
+```
+
+[Link to json file](http://data.jorrr.nl/ringring/data.json)
+
+### Feedback data
+
+```json
+  {
+    "route": {
+      "geometry": {
+        "coordinates": [], // Coordinates of route
+        "type": "LineString"
+      },
+      "properties": {
+        "day": "2020-01-31T16:34:03Z",
+        "start": "2020-01-31T16:34:03Z",
+        "end": "2020-01-31T16:57:33Z",
+        "duration": 23,
+        "modality": 2,
+        "distance": 3.5,
+        "weather": "zwaar bewolkt"
+      },
+      "type": "Feature"
+    },
+    "feedback": "Een onhandige indeling van het fietspad, waardoor je niet veilig kan oversteken.",
+    "feedbackTag": ["fietspad", "oversteekpunt"],
+    "stadsdeel": "Centrum",
+    "gevoelsVeiligheid": 3
+  },
+```
+
+[Link to json file](http://data.jorrr.nl/ringring/feedbackData.json)
 
 ---
 
@@ -136,6 +200,10 @@ The live version of the application can be watched here: [ringring.jorrr.nl](htt
 ---
 
 ## Sources
+
+During the project I was assisted by Marleen Buchner and Meggie Chen regarding the design. They have made it possible for the design of the tool to look as it is now visible. Also a big thanks to Janine Hogendoorn from [Ring-Ring]() for th
+
+Thanks also to Janine Hogendoorn from [Ring-Ring](https://ring-ring.nu/) for giving critical feedback on our tool, and to SuzeSwarte for the guidance during the project.
 
 #### Code Sources
 
