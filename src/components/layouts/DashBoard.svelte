@@ -21,7 +21,7 @@
   function handleNav(e) {
     navClosed = !navClosed
   }
-  $: console.log(data)
+  // $: console.log(data)
 
   const checkPreferedTheme = () => {
     let value = window.matchMedia('(prefers-color-scheme: dark)').matches

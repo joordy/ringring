@@ -1,5 +1,7 @@
 // Merges dataset and chartdata together
 export const filterData = async (rawData, feedbackData) => {
+  // console.log(rawData)
+  // console.log(feedbackData)
   return {
     dataset: await rawData,
     charts: await createChartdata(rawData, feedbackData),
