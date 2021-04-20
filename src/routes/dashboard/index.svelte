@@ -7,7 +7,10 @@
   import { cleanedData } from '../../utils/cleanData.js'
   import { onMount } from 'svelte'
 
-  onMount(cleanedData)
+  onMount(() => {
+    console.log('test')
+    // console.log('data', cleanedData())
+  })
 </script>
 
 <svelte:head>

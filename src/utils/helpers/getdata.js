@@ -1,13 +1,9 @@
 const proxyURL = 'https://cors-anywhere.herokuapp.com/'
 
 export const getData = async (endpoint) => {
-  try {
-    const url = await fetch(proxyURL + endpoint, { responseType: 'text' })
-    const data = await url.json()
-    return data
-  } catch (err) {
-    err
-  }
+  const res = await fetch(endpoint)
+  console.log(res)
+  const data = await res.json()
+  console.log(data)
+  return data
 }
-// 'https://cors-anywhere.herokuapp.com/https://ringring.jorrr.dev/data/geojson-data-ringring.json',
-// { responseType: 'text' }
