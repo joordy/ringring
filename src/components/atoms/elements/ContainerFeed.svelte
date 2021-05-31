@@ -12,10 +12,6 @@
     border-radius: $borderS;
     overflow-x: hidden;
     overflow-y: scroll;
-    @include darkMode {
-      box-shadow: 0 4px 10px 0 rgba(255, 255, 255, 0.1),
-        0 4px 10px 0 rgba(255, 255, 255, 0.1);
-    }
     &::-webkit-scrollbar {
       width: 10px;
     }
